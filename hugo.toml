@@ -1,0 +1,116 @@
+baseURL = "https://westerweel.work/"
+title = "westerweel.work"
+theme = "PaperMod"
+
+defaultContentLanguage = "nl"
+defaultContentLanguageInSubdir = false
+
+enableRobotsTXT = true
+enableEmoji = false
+enableGitInfo = true
+pygmentsUseClasses = true
+
+# Generate RSS for posts so people can subscribe.
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[pagination]
+  pagerSize = 20
+
+# --- Languages -------------------------------------------------------------
+
+[languages]
+  [languages.nl]
+    languageName = "Nederlands"
+    weight = 1
+    contentDir = "content/nl"
+    [languages.nl.params]
+      description = "Mark Westerweel — Platform & DevOps. Aantekeningen, blogs, en wat ik doe."
+    [[languages.nl.menu.main]]
+      identifier = "posts"
+      name = "blog"
+      url = "/posts/"
+      weight = 10
+    [[languages.nl.menu.main]]
+      identifier = "diensten"
+      name = "diensten"
+      url = "/diensten/"
+      weight = 20
+    [[languages.nl.menu.main]]
+      identifier = "about"
+      name = "over"
+      url = "/about/"
+      weight = 30
+
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    contentDir = "content/en"
+    [languages.en.params]
+      description = "Mark Westerweel — Platform & DevOps. Notes, posts, and what I do."
+    [[languages.en.menu.main]]
+      identifier = "posts"
+      name = "blog"
+      url = "/posts/"
+      weight = 10
+    [[languages.en.menu.main]]
+      identifier = "services"
+      name = "services"
+      url = "/services/"
+      weight = 20
+    [[languages.en.menu.main]]
+      identifier = "about"
+      name = "about"
+      url = "/about/"
+      weight = 30
+
+# --- PaperMod params -------------------------------------------------------
+# Kept deliberately minimal. No cover images, no fancy hero, no analytics.
+# Boring and auditable.
+
+[params]
+  env = "production"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = true
+  ShowToc = false
+  comments = false
+
+  [params.homeInfoParams]
+    Title = "westerweel.work"
+    Content = """
+Mark Westerweel — Platform & DevOps consultant.
+
+Aantekeningen over Kubernetes, ISO 27001, Common Ground, en alles wat saai en controleerbaar hoort te zijn.
+"""
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/MWest2020"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:mark@westerweel.work"
+
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/posts/index.xml"
+
+# --- Markdown rendering ----------------------------------------------------
+
+[markup]
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false
+    codeFences = true
+    guessSyntax = true
+    tabWidth = 2
+  [markup.goldmark.renderer]
+    unsafe = true

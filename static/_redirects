@@ -1,0 +1,5 @@
+# Cloudflare Pages handles 404s and redirects from this file.
+# Keep deliberately minimal — most routing is handled by Hugo.
+
+# Example: if you ever rename a slug, redirect old URL here.
+# /old-slug/  /posts/new-slug/  301
