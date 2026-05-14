@@ -1,0 +1,246 @@
+/* westerweel.work — terminal/hacker overlay on PaperMod.
+   Loaded automatically by PaperMod from assets/css/extended/.
+   Theme updates won't touch this file. */
+
+/* ---------- Color palette ----------------------------------------------
+   Dark base, phosphor-green accent. Adjusted for long-form readability:
+   not pure #00FF00 (too aggressive at 16px body size). */
+
+:root {
+  --westerweel-bg:           #0d1117;   /* near-black, slight blue tint */
+  --westerweel-bg-elevated:  #161b22;   /* code blocks, hover states */
+  --westerweel-border:       #30363d;
+  --westerweel-text:         #c9d1d9;   /* off-white, easy on eyes */
+  --westerweel-text-muted:   #8b949e;
+  --westerweel-accent:       #3fb950;   /* phosphor green, dimmed */
+  --westerweel-accent-hover: #56d364;
+  --westerweel-link-visited: #58a6ff;   /* keeps visited links distinguishable */
+}
+
+/* Override PaperMod's dark theme variables */
+.dark {
+  --theme:           var(--westerweel-bg);
+  --entry:           var(--westerweel-bg-elevated);
+  --primary:         var(--westerweel-text);
+  --secondary:       var(--westerweel-text-muted);
+  --tertiary:        var(--westerweel-border);
+  --content:         var(--westerweel-text);
+  --code-block-bg:   var(--westerweel-bg-elevated);
+  --code-bg:         var(--westerweel-bg-elevated);
+  --border:          var(--westerweel-border);
+  --hljs-bg:         var(--westerweel-bg-elevated);
+}
+
+/* ---------- Typography --------------------------------------------------
+   System mono stack — no external fonts, no FOUT, no privacy leak. */
+
+body {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro",
+               Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  font-size: 15px;
+  line-height: 1.7;
+  font-feature-settings: "calt", "liga";
+}
+
+/* Headings: slightly tighter, more presence */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 1.7rem; }
+h2 { font-size: 1.35rem; margin-top: 2em; }
+h3 { font-size: 1.1rem;  margin-top: 1.5em; }
+
+/* ---------- Links: phosphor green accent -------------------------------- */
+
+.post-content a,
+.first-entry a,
+.entry-link,
+a {
+  color: var(--westerweel-accent);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--westerweel-accent);
+  transition: color .15s ease, border-color .15s ease;
+}
+
+.post-content a:hover,
+.first-entry a:hover,
+a:hover {
+  color: var(--westerweel-accent-hover);
+  border-bottom-color: var(--westerweel-accent-hover);
+}
+
+/* Nav links: no underline */
+.nav a,
+.logo a,
+.menu a,
+.footer a {
+  border-bottom: none;
+}
+
+/* ---------- Header / logo ----------------------------------------------- */
+
+.logo a {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--westerweel-text);
+}
+
+.logo a::before {
+  content: "$ ";
+  color: var(--westerweel-accent);
+  font-weight: normal;
+}
+
+/* Blinking cursor after the logo — subtle, only on home */
+.home-info .logo a::after,
+body.home .logo a::after {
+  content: "_";
+  color: var(--westerweel-accent);
+  animation: blink 1.2s step-end infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50%  { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Menu items: terminal-prompt feel */
+.menu a {
+  color: var(--westerweel-text-muted);
+  font-size: 0.9rem;
+  padding: 0.3em 0.6em;
+  border-radius: 3px;
+  transition: color .15s ease, background-color .15s ease;
+}
+
+.menu a:hover {
+  color: var(--westerweel-accent);
+  background: var(--westerweel-bg-elevated);
+}
+
+.menu a.active {
+  color: var(--westerweel-accent);
+  font-weight: 600;
+}
+
+/* ---------- Home page --------------------------------------------------- */
+
+.home-info .entry-content {
+  font-size: 1rem;
+  color: var(--westerweel-text);
+  line-height: 1.8;
+}
+
+/* Section that lists recent posts on home */
+.first-entry {
+  border-bottom: 1px solid var(--westerweel-border);
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+}
+
+.first-entry .entry-header h1 {
+  font-size: 1.2rem;
+}
+
+/* Post list entries: tighter, more index-like */
+.post-entry {
+  background: transparent;
+  border: 1px solid var(--westerweel-border);
+  border-radius: 4px;
+  padding: 1em 1.2em;
+  margin-bottom: 0.8em;
+  transition: border-color .15s ease;
+}
+
+.post-entry:hover {
+  border-color: var(--westerweel-accent);
+}
+
+.post-entry .entry-header h2 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.entry-meta,
+.post-meta {
+  color: var(--westerweel-text-muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Post content ------------------------------------------------ */
+
+.post-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.3em;
+}
+
+.post-content {
+  color: var(--westerweel-text);
+}
+
+.post-content code:not(pre code) {
+  background: var(--westerweel-bg-elevated);
+  color: var(--westerweel-accent);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.post-content pre {
+  background: var(--westerweel-bg-elevated) !important;
+  border: 1px solid var(--westerweel-border);
+  border-radius: 4px;
+  padding: 1em;
+}
+
+.post-content blockquote {
+  border-left: 3px solid var(--westerweel-accent);
+  background: var(--westerweel-bg-elevated);
+  color: var(--westerweel-text-muted);
+  padding: 0.6em 1em;
+  margin: 1em 0;
+}
+
+.post-content hr {
+  border: none;
+  border-top: 1px dashed var(--westerweel-border);
+  margin: 2em 0;
+}
+
+/* ---------- Footer ------------------------------------------------------ */
+
+.footer {
+  color: var(--westerweel-text-muted);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--westerweel-border);
+  padding-top: 1em;
+  margin-top: 3em;
+}
+
+.footer a {
+  color: var(--westerweel-text-muted);
+}
+
+.footer a:hover {
+  color: var(--westerweel-accent);
+}
+
+/* ---------- Selection: green highlight, BBS-style ----------------------- */
+
+::selection {
+  background: var(--westerweel-accent);
+  color: var(--westerweel-bg);
+}
+
+/* ---------- Scrollbar (Webkit only, gracefully degrades) ---------------- */
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--westerweel-bg); }
+::-webkit-scrollbar-thumb {
+  background: var(--westerweel-border);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--westerweel-accent); }

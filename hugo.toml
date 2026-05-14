@@ -71,8 +71,8 @@ pygmentsUseClasses = true
 
 [params]
   env = "production"
-  defaultTheme = "auto"
-  disableThemeToggle = false
+  defaultTheme = "dark"
+  disableThemeToggle = true
   ShowReadingTime = true
   ShowShareButtons = false
   ShowPostNavLinks = true
@@ -82,14 +82,21 @@ pygmentsUseClasses = true
   ShowRssButtonInSectionTermList = true
   ShowToc = false
   comments = false
+  assets = { disableHLJS = false }
 
   [params.homeInfoParams]
     Title = "westerweel.work"
     Content = """
 Mark Westerweel — Platform & DevOps consultant.
 
-Aantekeningen over Kubernetes, ISO 27001, Common Ground, en alles wat saai en controleerbaar hoort te zijn.
+Ik bouw en repareer infrastructuur voor Nederlandse organisaties die soevereiniteit serieus nemen. Kubernetes, Proxmox, ArgoCD, ISO 27001. Open source waar het kan, eigen ijzer waar het moet.
+
+Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestoken. Geen hot takes, geen AI-content marketing, geen LinkedIn cross-posts.
 """
+
+  # Footer override — PaperMod renders this above its own "Powered by" credits.
+  [params.footer]
+    text = "<a href=\"mailto:mark@westerweel.work\">mark@westerweel.work</a> · <a href=\"https://github.com/MWest2020\" target=\"_blank\" rel=\"noopener\">GitHub</a> · <a href=\"/posts/index.xml\">RSS</a>"
 
   [[params.socialIcons]]
     name = "github"
