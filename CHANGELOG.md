@@ -2,6 +2,38 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-05-17 (second pass)
+
+### Fixed
+- `/en/about/` returned 404. Same root cause as the earlier services
+  bug: `nl/about.md` AND `en/about.md` both carried `url: "/about/"`,
+  causing a path collision that dropped the EN copy. Removed the EN
+  override and added matching `translationKey: "about"` to both files.
+- Header language toggle linked to `/en/` (language home) regardless of
+  the current page. PaperMod's `_partials/header.html` hard-codes
+  `site.Home.Translations`; overridden at `layouts/_partials/header.html`
+  to prefer the current page's `.Translations`, with a fallback to the
+  home for pages without a translation (tag pages, etc.). The override
+  is a verbatim copy of the PaperMod file with one block patched —
+  re-sync when bumping the PaperMod submodule.
+- `layouts/partials/extend_footer.html` moved to
+  `layouts/_partials/extend_footer.html`. PaperMod 0.146+ uses Hugo's
+  new `_partials/` lookup; the old location was silently ignored, which
+  is why the cookie banner disappeared after the previous theme bump.
+
+### Changed
+- Bumped the cookie-banner `localStorage` key from `cookieAck` to
+  `cookieAck-v2` so previously-dismissed visitors (including the owner)
+  see the typed banner again after the failed shell experiment.
+
+### Added
+- `scripts/test-site.sh` — bash smoke test. Builds the site, asserts
+  expected pages render, that hreflang pairs are wired, that the
+  header lang-menu points at translations (not the language home),
+  and that the cookie banner partial is present on both home pages.
+  Run with `bash scripts/test-site.sh`. Exits non-zero on first
+  failure. Intended as a pre-push check.
+
 ## 2026-05-17
 
 ### Reverted

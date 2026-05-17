@@ -2,6 +2,7 @@
 title: "Over"
 url: "/about/"
 summary: "Over Mark Westerweel."
+translationKey: "about"
 ---
 
 Mark Westerweel. 42, Noord-Holland, soms Ameland.

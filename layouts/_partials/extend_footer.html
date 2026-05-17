@@ -91,7 +91,10 @@
 
 <script>
 (function () {
-  var KEY = "cookieAck";
+  // Bumped from "cookieAck" so previously-dismissed visitors see the banner
+  // again after the earlier broken-shell incident. Bump again on future
+  // material changes to the banner content.
+  var KEY = "cookieAck-v2";
   try { if (localStorage.getItem(KEY)) return; } catch (e) { return; }
 
   var lang = (document.documentElement.lang || "nl").slice(0, 2);
