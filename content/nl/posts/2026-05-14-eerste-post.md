@@ -3,6 +3,7 @@ title: "Eerste post — waarom een eigen plek"
 date: 2026-05-14
 draft: false
 tags: ["meta", "devops"]
+translationKey: "first-post"
 summary: "Waarom ik een eigen plek wil naast GitHub en LinkedIn — en wat hier komt te staan."
 ---
 

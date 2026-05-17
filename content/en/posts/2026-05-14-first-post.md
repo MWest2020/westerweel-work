@@ -3,6 +3,7 @@ title: "First post — why a place of my own"
 date: 2026-05-14
 draft: false
 tags: ["meta", "devops"]
+translationKey: "first-post"
 summary: "Why I want a place of my own next to GitHub and LinkedIn — and what'll show up here."
 ---
 

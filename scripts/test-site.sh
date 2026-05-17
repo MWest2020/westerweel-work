@@ -117,6 +117,41 @@ assert_grep    "$PUBLIC_DIR/index.html"    'Ik bouw' "NL home intro is Dutch"
 assert_grep    "$PUBLIC_DIR/en/index.html" 'I build' "EN home intro is English"
 assert_not_grep "$PUBLIC_DIR/en/index.html" 'Ik bouw' "EN home intro is NOT Dutch"
 
+echo "==> every content file declares translationKey"
+missing_tk_count=0
+while IFS= read -r -d '' f; do
+  if ! grep -qE '^translationKey:[[:space:]]*"[^"]+"' "$f"; then
+    fail "$f missing or empty translationKey"
+    missing_tk_count=$((missing_tk_count + 1))
+  fi
+done < <(find content -name '*.md' -print0)
+if [[ "$missing_tk_count" -eq 0 ]]; then
+  ok "all content files declare translationKey"
+fi
+
+echo "==> NL/EN translationKey parity"
+# Every translationKey in NL must exist in EN, and vice versa. If a post
+# is added in one language and not the other, this fails — keeping the
+# bilingual content invariant honest.
+extract_keys() {
+  local dir="$1"
+  find "$dir" -name '*.md' -exec grep -hE '^translationKey:' {} + 2>/dev/null || true
+}
+nl_keys=$(extract_keys content/nl | sed -E 's/translationKey:[[:space:]]*"([^"]+)".*/\1/' | sort -u)
+en_keys=$(extract_keys content/en | sed -E 's/translationKey:[[:space:]]*"([^"]+)".*/\1/' | sort -u)
+missing_in_en=$(comm -23 <(echo "$nl_keys") <(echo "$en_keys"))
+missing_in_nl=$(comm -13 <(echo "$nl_keys") <(echo "$en_keys"))
+if [[ -z "$missing_in_en" && -z "$missing_in_nl" ]]; then
+  ok "NL/EN translationKey sets match"
+else
+  if [[ -n "$missing_in_en" ]]; then
+    while IFS= read -r k; do fail "translationKey '$k' in NL, missing in EN"; done <<< "$missing_in_en"
+  fi
+  if [[ -n "$missing_in_nl" ]]; then
+    while IFS= read -r k; do fail "translationKey '$k' in EN, missing in NL"; done <<< "$missing_in_nl"
+  fi
+fi
+
 echo "==> SEO basics"
 # meta author tag filled site-wide (was empty before params.Author was set)
 for f in \
