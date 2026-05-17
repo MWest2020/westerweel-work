@@ -15,12 +15,10 @@ Background: contributed to Conduction's open-source apps (OpenWoo.app,
 OpenRegister, OpenConnector). Experience with infrastructure business
 cases, ArgoCD GitOps, and building agentic CI/CD pipelines.
 
-Independent DevOps consultant since 2026.
-
 ### What I believe
 
 - Boring and auditable beats clever. Especially in infrastructure.
-- Open source, open standards, open harbour.
+- Open source.
 - Play the ball, not the person.
 - "Talk first, spec second, code third."
 

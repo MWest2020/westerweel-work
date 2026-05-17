@@ -2,6 +2,34 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-05-17 (third pass — editorial)
+
+### Changed
+- `diensten.md` + `services.md`:
+  - Dropped `(kubeadm, k3s, managed)` parenthetical from the Kubernetes
+    bullet. It alienated non-tech clients and read as fluff to the ones
+    who would have recognised it.
+  - Added a WBSO bullet under funding work: "technische onderbouwing
+    die de RVO-toets doorstaat". Renamed section heading from
+    "subsidie-trajecten" → "subsidies" (NL) and "grant work" →
+    "funding" (EN) to fit WBSO (a tax credit, not a grant).
+  - Replaced the vague "Begin altijd met een gesprek — dan een spec,
+    dan pas code." with "Ik denk, ik test, ik doe. Voor code:
+    spec-driven development." (and the EN parallel). Describes how
+    the work actually happens, not a sales-y intro.
+- `about.md` (NL + EN):
+  - Removed "Sinds 2026 onafhankelijk, als DevOps-consultant." /
+    "Independent DevOps consultant since 2026." — redundant given
+    the rest of the page.
+  - "Open source, open standaarden, open haven." → "Open source."
+    Same for EN. "Open haven" was meaningless; "open source" already
+    implies more than a public GitHub repo.
+
+### Deferred
+- Tender / public-procurement bid work as a service line — left out
+  pending confirmation that this is work the owner does. Easy to add
+  as a separate bullet under the funding section.
+
 ## 2026-05-17 (second pass)
 
 ### Fixed

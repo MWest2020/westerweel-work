@@ -17,12 +17,10 @@ Achtergrond: meegebouwd aan de open-source apps van Conduction
 infrastructuur-business-cases, ArgoCD-GitOps, en het opzetten van
 agentic CI/CD pipelines.
 
-Sinds 2026 onafhankelijk, als DevOps-consultant.
-
 ### Wat ik geloof
 
 - Boring en auditable wint van slim. Vooral in infrastructuur.
-- Open source, open standaarden, open haven.
+- Open source.
 - Speel op de bal, niet op de mens.
 - "Praten eerst, dan specs, dan pas code."
 
