@@ -6,11 +6,12 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
 
 ### Added
 - `content/nl/posts/2026-05-17-claude-code-via-mobiel.md` (NL, draft).
-  Three options for using Claude Code from a phone: Anthropic's
-  `/remote-control` pairing, classic SSH + tmux on own iron, and
-  third-party wrappers (Happy CLI). Written as draft pending owner
-  verification of the option-1 specifics (`/remote-control` command,
-  mobile app "Code tab" naming). EN translation deferred.
+  How the homelab option for using Claude Code from a phone is built:
+  Proxmox LXC, Tailscale, tmux (multi-device shared sessions are the
+  killer feature), per-device SSH keys, IaC for provisioning. No
+  machine-specific paths, hostnames, IPs, or container IDs from the
+  homelab repo leaked into the post — all generalised. EN translation
+  deferred.
 
 ## 2026-05-17 (third pass — editorial)
 

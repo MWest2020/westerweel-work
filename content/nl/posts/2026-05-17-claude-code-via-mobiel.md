@@ -1,82 +1,102 @@
 ---
-title: "Claude Code via mobiel — drie paden"
+title: "Claude Code via mobiel — hoe ik 't bouwde"
 date: 2026-05-17
 draft: true
-tags: ["devops", "tooling"]
-summary: "Anthropic's remote control, SSH met tmux, of een third-party wrapper. Welke past wanneer."
+tags: ["devops", "tooling", "homelab"]
+summary: "Een LXC, Tailscale, tmux, en een SSH-key per apparaat. Persistent, multi-device, niets in een blackbox."
 ---
 
-Soms zit je in de trein. Soms krijg je een ingeving op de bank. Claude
-Code is een CLI-tool, maar dat hoeft niet te betekenen dat je vastzit
-aan je workstation. Er zijn op het moment van schrijven drie manieren
-om vanaf je telefoon iets met Claude Code te doen — elk met andere
-trade-offs.
+SSH naar je workstation vanaf je telefoon is het naïeve antwoord op
+"Claude Code mobiel". Werkt, maar valt om op het moment dat 4G even
+flikkert, of als je laptop uit gaat. Wat ik wilde was: typen op de
+telefoon in de trein, thuis voor de desktop gaan zitten en exact zien
+waar de cursor stond. Eén sessie, vier apparaten, geen vendor in het
+pad.
 
-### 1. Anthropic's remote control — eenvoudigst
+Dit is hoe die setup eruit ziet. Niets futuristisch — vier
+componenten, allemaal saai.
 
-Anthropic levert ingebouwde remote control: vanaf je telefoon koppel je
-aan je actieve desktop-sessie, zonder VPN of poort-doorzetters.
+### De architectuur
 
-1. Start Claude Code in je terminal.
-2. Typ `/remote-control` in die sessie.
-3. Open de Claude-app op je telefoon en kies daar de sessie.
+1. **Een LXC-container op een Proxmox-host.** Geen Claude Code op mijn
+   werkstation; een eigen container die altijd aan staat, geïsoleerd
+   van de rest. Eén machine die voor "Claude Code" verantwoordelijk
+   is, en niks anders.
+2. **Tailscale op elk apparaat.** Geen poorten doorzetten, geen publiek
+   IP, geen DDNS. Mijn laptop, telefoon, en de container zitten in een
+   private tailnet en zien elkaar via stabiele namen — ook door
+   carrier-grade NAT heen.
+3. **tmux in de container.** Sessies overleven SSH-disconnects, dus
+   m'n telefoon-naar-de-zak laten gaan kost geen werk. En — dit is de
+   echte feature — meerdere clients kunnen tegelijk aan dezelfde sessie
+   hangen.
+4. **Per-device SSH-keys.** Iedere apparaat heeft z'n eigen sleutel,
+   gelabeld in `authorized_keys`. Verlies van telefoon = één regel
+   eruit, geen rotatie van álle keys.
 
-Je telefoon toont wat je desktop doet. Vragen stellen, wijzigingen
-bekijken, taken sturen — allemaal vanaf je broekzak.
+### De killer feature: shared tmux
 
-**Voordeel:** nul setup. Geen sleutels, geen netwerk-kennis.
-**Nadeel:** je computer moet aan staan. Het is een live-koppeling met
-een actieve sessie, geen autonome cloud-agent.
-
-### 2. SSH + tmux — meeste controle
-
-Voor wie geen tussenpersoon wil tussen z'n telefoon en z'n eigen
-machine: SSH naar een server (thuis, VPS, private cloud) waar Claude
-Code draait, en tmux houdt de sessie persistent zodat een telefoon-in-
-de-zak je niet kost wat je aan het doen was.
-
-Op je telefoon een fatsoenlijke SSH-client (Termius en Blink op iOS,
-Termius en Termux op Android). Op de server draait `claude` binnen een
-tmux-sessie. De korte versie:
+Eén sessie, meerdere clients tegelijk. Typen op de telefoon zie ik
+realtime op het desktop-scherm verschijnen. Detachen op één client
+laat de andere clients gewoon zitten.
 
 ```bash
-tmux new -s work       # nieuwe sessie met naam
-Ctrl-b d               # detach — sessie blijft draaien
-tmux ls                # alle sessies tonen
-tmux attach -t work    # weer erin
+# Eerste keer, vanaf de desktop
+ssh user@container
+tmux new -A -s main
+
+# Later, vanaf de telefoon (SSH-app naar keuze, over de tailnet)
+ssh user@container
+tmux a -t main
 ```
 
-Meerdere sessies parallel werkt vanzelf — een sessie per project, of
-één voor coderen en één voor logs. Voor mobiel-comfort helpt
-`set -g mouse on` in `~/.tmux.conf`: tikken om tussen panes te
-schakelen.
+`Ctrl-b d` detacht alleen die ene client. Voor losse parallelle
+sessies (bv. coderen apart van logs volgen): een ander `-s`-label en
+je hebt twee onafhankelijke sessies in dezelfde container.
 
-**Voordeel:** alles blijft op eigen ijzer. Geen vendor in het pad.
-Bestanden op de server zijn direct toegankelijk; ook handig voor langer
-draaiende taken die je gewoon laat lopen.
-**Nadeel:** setup-kost. Een server (of LXC, of Pi), SSH-keys op orde,
-en het accepteren dat een telefoon-toetsenbord nooit een laptop wordt.
+Mobiel-tip die het bruikbaar maakt: `set -g mouse on` in
+`~/.tmux.conf`. Tikken om tussen panes te schakelen werkt dan zoals
+je hoopt dat het werkt.
 
-### 3. Third-party wrappers — Happy CLI en vrienden
+### Provisioning: IaC, niet handwerk
 
-In de community zijn er apps die een CLI-coding-agent in een
-mobiel-vriendelijk jasje wikkelen. Happy CLI is de bekendste — mirrort
-je terminal-sessie naar een Android- of iOS-app, met betere UI dan een
-platte SSH-client.
+De container zelf is Terraform: één resource, Proxmox-provider, klaar.
+De binnenkant is Ansible: een handjevol rollen voor
+SSH-hardening, Tailscale-installatie, Node.js, Claude Code zelf, en
+een GitHub-identiteit. Idempotent: opnieuw draaien is "0 changes" als
+de container al kloppend is.
 
-**Voordeel:** mobiele UX zonder zelf een SSH-stack overeind te houden.
-**Nadeel:** je zet een derde partij in het pad tussen jou en je code.
-Voor wat je doet en deelt is dat een bewuste afweging waard.
+Concreet gevolg: "verloren container herbouwen" is een commando-paar
+in plaats van een uurtje klikken. Tweede gevolg: elke wijziging aan de
+binnenkant is een commit, niet een aantekening op een post-it.
 
-### Welke past wanneer
+### Mobiele kant
 
-- **Snel iets bekijken, geen tijd voor setup:** optie 1.
-- **Je hebt al een homelab of VPS en geeft om soevereiniteit:** optie 2.
-- **Mobiel-eerst, wil meteen beginnen:** optie 3 — lees wel even de
-  privacy-policy.
+Op iOS gebruik ik Terminus. Sleutel-paar laat ik op het apparaat zelf
+genereren — de private key verlaat de telefoon nooit. Public key
+toevoegen aan de Ansible-vars, één rol opnieuw draaien, en de
+telefoon zit in de container. Op Android werkt Termius hetzelfde,
+Termux is een prima alternatief als je liever bash-shell-only werkt.
 
-Zelf landde ik op optie 2. Past bij hoe ik verder ook werk: eigen
-ijzer, alles auditeerbaar, niets in een blackbox dat ik niet zelf kan
-uitzetten. Maar als optie 1 een gesprek-aanknopen dertig seconden
-makkelijker maakt, is dat ook gewoon waarde. Kies wat past bij je
-threat model en je geduld voor setup, niet bij wat het hipste klinkt.
+Tailscale-app installeren, inloggen, klaar — het apparaat krijgt een
+tailnet-adres en kan de container via z'n stabiele naam bereiken in
+plaats van een wisselend mobiel IP.
+
+### Wat kost het
+
+- **Een Proxmox-host.** Een mini-pc, NUC, of stevige Pi is genoeg.
+  Onder de 50W idle.
+- **Een avond setup als je Terraform en Ansible al kent.** Twee
+  avonden als het nieuw is. Geen weken werk.
+- **Een Tailscale-account.** Gratis voor persoonlijk gebruik. Als je
+  echt geen Tailscale wil is WireGuard + DDNS een optie — minder leuk
+  om in de lucht te houden, maar het kan.
+
+### Wat het niet is
+
+Geen cloud-magie, geen autonome agent die op een server door blijft
+draaien zonder dat ik 't merk. Het is een terminal-sessie op mijn
+eigen ijzer, met goede netwerk-bedrading en wat luxe voor multi-device
+gebruik. Maar als je je code en je AI-tooling niet aan een derde
+partij wil overdragen, en je wil tegelijk vanaf elk scherm kunnen
+werken — dit is wat dat in 2026 betekent.
