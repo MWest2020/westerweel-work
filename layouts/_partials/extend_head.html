@@ -1,0 +1,30 @@
+{{/*
+  Person JSON-LD for entity recognition (Google Knowledge Graph etc.).
+  Rendered on the home page and on the about/over pages — pages that
+  are *about* the person, rather than about a specific service or post.
+  Post pages already get a BlogPosting schema from the theme.
+
+  Maintain `sameAs` as the canonical list of profiles that should be
+  linked to this identity. The more high-trust entries, the stronger
+  the signal — but every URL must be a real, accessible profile.
+*/}}
+{{- $isAbout := false -}}
+{{- with .File }}{{- if eq .ContentBaseName "about" }}{{- $isAbout = true -}}{{- end }}{{- end }}
+{{- if or .IsHome $isAbout }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mark Westerweel",
+  "givenName": "Mark",
+  "familyName": "Westerweel",
+  "url": "{{ site.BaseURL }}",
+  "jobTitle": "Platform & DevOps consultant",
+  "email": "mailto:mark@westerweel.work",
+  "sameAs": [
+    "https://github.com/MWest2020",
+    "https://www.linkedin.com/in/mark-westerweel/"
+  ]
+}
+</script>
+{{- end }}

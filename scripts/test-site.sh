@@ -117,6 +117,45 @@ assert_grep    "$PUBLIC_DIR/index.html"    'Ik bouw' "NL home intro is Dutch"
 assert_grep    "$PUBLIC_DIR/en/index.html" 'I build' "EN home intro is English"
 assert_not_grep "$PUBLIC_DIR/en/index.html" 'Ik bouw' "EN home intro is NOT Dutch"
 
+echo "==> SEO basics"
+# meta author tag filled site-wide (was empty before params.Author was set)
+for f in \
+  "$PUBLIC_DIR/index.html" \
+  "$PUBLIC_DIR/en/index.html" \
+  "$PUBLIC_DIR/diensten/index.html" \
+  "$PUBLIC_DIR/about/index.html"
+do
+  assert_grep "$f" 'name=author content="Mark Westerweel"' "meta author filled on ${f#"$PUBLIC_DIR"/}"
+done
+
+# Full Person JSON-LD (with sameAs) only on home + both about pages
+assert_grep "$PUBLIC_DIR/index.html"           '"sameAs":\["https://github.com/MWest2020","https://www.linkedin.com/in/mark-westerweel/"\]' "Person schema on NL home"
+assert_grep "$PUBLIC_DIR/en/index.html"        '"sameAs":\["https://github.com/MWest2020","https://www.linkedin.com/in/mark-westerweel/"\]' "Person schema on EN home"
+assert_grep "$PUBLIC_DIR/about/index.html"     '"sameAs":\["https://github.com/MWest2020","https://www.linkedin.com/in/mark-westerweel/"\]' "Person schema on NL about"
+assert_grep "$PUBLIC_DIR/en/about/index.html"  '"sameAs":\["https://github.com/MWest2020","https://www.linkedin.com/in/mark-westerweel/"\]' "Person schema on EN about"
+
+# Person schema must NOT leak onto service/post pages (they have their own BlogPosting/Person)
+assert_not_grep "$PUBLIC_DIR/diensten/index.html"  '"sameAs":\[' "full Person schema NOT on diensten"
+assert_not_grep "$PUBLIC_DIR/en/services/index.html" '"sameAs":\[' "full Person schema NOT on en/services"
+
+# Sitemap layout: /sitemap.xml is the index, real URLs live in per-language
+# sub-sitemaps because Hugo splits them when the site has multiple languages.
+if [[ -f "$PUBLIC_DIR/sitemap.xml" ]]; then ok "sitemap.xml (index) exists"; else fail "sitemap.xml missing"; fi
+assert_grep "$PUBLIC_DIR/sitemap.xml" 'https://westerweel.work/nl/sitemap.xml' "sitemap index references NL sub-sitemap"
+assert_grep "$PUBLIC_DIR/sitemap.xml" 'https://westerweel.work/en/sitemap.xml' "sitemap index references EN sub-sitemap"
+# Each key page must be in its language's sub-sitemap.
+assert_grep "$PUBLIC_DIR/nl/sitemap.xml" 'https://westerweel.work/about/'       "NL sub-sitemap lists /about/"
+assert_grep "$PUBLIC_DIR/nl/sitemap.xml" 'https://westerweel.work/diensten/'    "NL sub-sitemap lists /diensten/"
+assert_grep "$PUBLIC_DIR/en/sitemap.xml" 'https://westerweel.work/en/about/'    "EN sub-sitemap lists /en/about/"
+assert_grep "$PUBLIC_DIR/en/sitemap.xml" 'https://westerweel.work/en/services/' "EN sub-sitemap lists /en/services/"
+
+# robots.txt allows everything (Hugo generates "Disallow:" with empty value
+# which is the canonical "allow all" in the robots.txt spec) and points at
+# the sitemap.
+assert_grep    "$PUBLIC_DIR/robots.txt" 'Sitemap: https://westerweel.work/sitemap.xml' "robots.txt points at sitemap"
+assert_grep    "$PUBLIC_DIR/robots.txt" '^Disallow:[[:space:]]*$'                     "robots.txt disallows nothing"
+assert_not_grep "$PUBLIC_DIR/robots.txt" '^Disallow:[[:space:]]*/'                    "robots.txt does NOT disallow everything"
+
 echo
 echo "==> $PASS passed, $FAIL failed"
 [[ "$FAIL" -eq 0 ]]

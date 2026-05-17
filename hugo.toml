@@ -89,6 +89,7 @@ Notes here, RCAs, and pieces on work I've put real time into. No hot takes, no A
 
 [params]
   env = "production"
+  Author = "Mark Westerweel"
   defaultTheme = "dark"
   disableThemeToggle = true
   ShowReadingTime = true

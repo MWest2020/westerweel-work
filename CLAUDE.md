@@ -39,6 +39,7 @@ After a fresh clone, theme submodule must be initialized: `git submodule update 
 **Partial overrides go in `layouts/_partials/`, not `layouts/partials/`.** PaperMod 0.146+ uses Hugo's new `_partials/` lookup. Files in the old `partials/` location are silently ignored by the theme — this is the bear-trap that hid the cookie banner after the theme bump. Current overrides:
 
 - `layouts/_partials/extend_footer.html` — adds the cookie-banner easter egg (extension point provided by PaperMod, not a fork).
+- `layouts/_partials/extend_head.html` — Person JSON-LD on home + about pages, with `sameAs` to GitHub/LinkedIn. SEO entity-recognition signal. Extension point provided by PaperMod, not a fork.
 - `layouts/_partials/header.html` — full copy of the theme header with one block patched so the language toggle links to the current page's translation (`.Translations`) instead of the language home (`site.Home.Translations`). Re-sync when bumping the theme submodule.
 
 **Archetype drives new-post frontmatter.** `archetypes/posts.md` is the template used by `hugo new content/...`. Posts are `draft: true` by default; flip to `false` to publish.
