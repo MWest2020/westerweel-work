@@ -2,6 +2,17 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-05-17
+
+### Changed
+- `layouts/partials/extend_footer.html`: expanded the cookie easter egg into
+  an interactive "visitor shell". Commands: `help`, `ls`, `cat <file>`,
+  `clear`, `whoami`, `pwd`, `date`, `exit`. Virtual filesystem with files
+  explaining the no-cookies / no-tracking stance (`cookies.txt`,
+  `tracking.txt`, `principles.txt`, `localstorage.txt`, `README.txt`,
+  `contact.txt`). NL/EN, history via ↑/↓, ESC closes. Still inline,
+  no deps, no network calls — input never leaves the browser.
+
 ## 2026-05-16
 
 ### Added
