@@ -18,18 +18,20 @@ componenten, allemaal saai.
 
 ### De architectuur
 
-1. **Een LXC-container op een Proxmox-host.** Geen Claude Code op mijn
+1. **Een [LXC](https://linuxcontainers.org/)-container op een
+   [Proxmox](https://www.proxmox.com/)-host.** Geen Claude Code op mijn
    werkstation; een eigen container die altijd aan staat, geïsoleerd
    van de rest. Eén machine die voor "Claude Code" verantwoordelijk
    is, en niks anders.
-2. **Tailscale op elk apparaat.** Geen poorten doorzetten, geen publiek
-   IP, geen DDNS. Mijn laptop, telefoon, en de container zitten in een
-   private tailnet en zien elkaar via stabiele namen — ook door
-   carrier-grade NAT heen.
-3. **tmux in de container.** Sessies overleven SSH-disconnects, dus
-   m'n telefoon-naar-de-zak laten gaan kost geen werk. En — dit is de
-   echte feature — meerdere clients kunnen tegelijk aan dezelfde sessie
-   hangen.
+2. **[Tailscale](https://tailscale.com/) op elk apparaat.** Geen
+   poorten doorzetten, geen publiek IP, geen
+   [DDNS](https://en.wikipedia.org/wiki/Dynamic_DNS). Mijn laptop,
+   telefoon, en de container zitten in een private tailnet en zien
+   elkaar via stabiele namen — ook door carrier-grade NAT heen.
+3. **[tmux](https://github.com/tmux/tmux) in de container.** Sessies
+   overleven SSH-disconnects, dus m'n telefoon-naar-de-zak laten gaan
+   kost geen werk. En — dit is de echte feature — meerdere clients
+   kunnen tegelijk aan dezelfde sessie hangen.
 4. **Per-device SSH-keys.** Iedere apparaat heeft z'n eigen sleutel,
    gelabeld in `authorized_keys`. Verlies van telefoon = één regel
    eruit, geen rotatie van álle keys.
@@ -60,8 +62,9 @@ je hoopt dat het werkt.
 
 ### Provisioning: IaC, niet handwerk
 
-De container zelf is Terraform: één resource, Proxmox-provider, klaar.
-De binnenkant is Ansible: een handjevol rollen voor
+De container zelf is [Terraform](https://www.terraform.io/): één
+resource, Proxmox-provider, klaar. De binnenkant is
+[Ansible](https://www.ansible.com/): een handjevol rollen voor
 SSH-hardening, Tailscale-installatie, Node.js, Claude Code zelf, en
 een GitHub-identiteit. Idempotent: opnieuw draaien is "0 changes" als
 de container al kloppend is.
@@ -72,25 +75,24 @@ binnenkant is een commit, niet een aantekening op een post-it.
 
 ### Mobiele kant
 
-Op iOS gebruik ik Terminus. Sleutel-paar laat ik op het apparaat zelf
-genereren — de private key verlaat de telefoon nooit. Public key
-toevoegen aan de Ansible-vars, één rol opnieuw draaien, en de
-telefoon zit in de container. Op Android werkt Termius hetzelfde,
-Termux is een prima alternatief als je liever bash-shell-only werkt.
+Op Android gebruik ik [Termius](https://termius.com/). Het keypair laat
+ik in de app zelf genereren — de private key blijft op de telefoon en
+verlaat 'm nooit. Public key toevoegen aan de Ansible-vars, de
+base-rol opnieuw draaien, en de telefoon zit in de container.
 
-Tailscale-app installeren, inloggen, klaar — het apparaat krijgt een
-tailnet-adres en kan de container via z'n stabiele naam bereiken in
-plaats van een wisselend mobiel IP.
+Tailscale-app op de telefoon installeren, inloggen, klaar — het
+apparaat krijgt een tailnet-adres en kan de container via z'n
+stabiele naam bereiken in plaats van een wisselend mobiel IP.
 
 ### Wat kost het
 
-- **Een Proxmox-host.** Een mini-pc, NUC, of stevige Pi is genoeg.
-  Onder de 50W idle.
-- **Een avond setup als je Terraform en Ansible al kent.** Twee
-  avonden als het nieuw is. Geen weken werk.
+- **Een Proxmox-host.** Een mini-pc of een stevige Pi is genoeg — een
+  huis-LXC-host hoeft niet groot.
+- **Setup-tijd: niet weken, wel uren.** Hoeveel hangt af van hoe
+  comfortabel je bent met Terraform en Ansible.
 - **Een Tailscale-account.** Gratis voor persoonlijk gebruik. Als je
-  echt geen Tailscale wil is WireGuard + DDNS een optie — minder leuk
-  om in de lucht te houden, maar het kan.
+  echt geen Tailscale wil is [WireGuard](https://www.wireguard.com/) +
+  DDNS een optie — minder leuk om in de lucht te houden, maar het kan.
 
 ### Wat het niet is
 
