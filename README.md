@@ -14,7 +14,7 @@ Persoonlijke site / blog. Hugo + PaperMod, statisch, NL/EN.
 ```bash
 # 1. Hugo installeren (Linux/macOS)
 # AlmaLinux: hugo zit niet in default repos, download de binary:
-curl -L https://github.com/gohugoio/hugo/releases/download/v0.139.0/hugo_extended_0.139.0_linux-amd64.tar.gz \
+curl -L https://github.com/gohugoio/hugo/releases/download/v0.146.0/hugo_extended_0.146.0_linux-amd64.tar.gz \
   | tar -xz -C /tmp hugo
 sudo mv /tmp/hugo /usr/local/bin/
 
@@ -54,7 +54,7 @@ hugo --gc --minify
    - Framework: **Hugo**
    - Build command: `hugo --gc --minify`
    - Build output: `public`
-   - Environment variable: `HUGO_VERSION=0.139.0`
+   - Environment variable: `HUGO_VERSION=0.146.0` (PaperMod requires ≥ 0.146.0)
 4. Custom domain toevoegen: `westerweel.work` + `www.westerweel.work`.
 5. Cloudflare maakt automatisch DNS CNAME-records aan (oranje wolk = aan).
 

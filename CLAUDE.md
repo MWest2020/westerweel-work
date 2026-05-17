@@ -23,7 +23,7 @@ hugo new content/en/posts/YYYY-MM-DD-title.md
 git submodule update --remote themes/PaperMod
 ```
 
-Hugo version is pinned to **0.139.0 extended** (Cloudflare Pages env `HUGO_VERSION=0.139.0`, same version in `.github/workflows/deploy-pages.yml.example`). Use that version when reproducing build issues locally.
+Hugo version is pinned to **0.146.0 extended** (Cloudflare Pages env `HUGO_VERSION=0.146.0`, same version in `.github/workflows/deploy-pages.yml.example`). PaperMod requires ≥ 0.146.0 (uses Hugo's new `_partials/` layout lookup). Older Hugo versions fail with `partial "head.html" not found`.
 
 After a fresh clone, theme submodule must be initialized: `git submodule update --init --recursive`. Without it, `hugo` fails because `themes/PaperMod/` is empty.
 

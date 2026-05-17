@@ -3,3 +3,11 @@ resources/
 .hugo_build.lock
 .DS_Store
 node_modules/
+
+# Secrets — defense in depth (none of these should ever land in the repo).
+.env
+.env.*
+*.pem
+*.key
+*_rsa
+*.crt

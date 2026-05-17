@@ -1,0 +1,158 @@
+{{/*
+  Terminal "cookie" easter egg.
+
+  Not a consent dialog. The site sets no tracking cookies, has no analytics,
+  loads no third-party trackers. localStorage is used only for the PaperMod
+  theme toggle (and for the dismissal flag below).
+
+  Shown once per browser; dismissal persists in localStorage under "cookieAck".
+*/}}
+<div id="cookie-term" hidden role="dialog" aria-label="cookies">
+  <div class="ct-bar">
+    <span class="ct-dot ct-r" aria-hidden="true"></span>
+    <span class="ct-dot ct-y" aria-hidden="true"></span>
+    <span class="ct-dot ct-g" aria-hidden="true"></span>
+    <span class="ct-title">~/cookies — sh</span>
+    <button class="ct-x" type="button" aria-label="close">×</button>
+  </div>
+  <pre class="ct-body"><code id="ct-out"></code></pre>
+</div>
+
+<style>
+#cookie-term {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: min(420px, calc(100vw - 2rem));
+  background: #1e1e1e;
+  color: #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .4);
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.5;
+  z-index: 9999;
+  overflow: hidden;
+}
+#cookie-term .ct-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #2b2b2b;
+  padding: 6px 8px;
+  border-bottom: 1px solid #111;
+}
+#cookie-term .ct-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+#cookie-term .ct-r { background: #ff5f56; }
+#cookie-term .ct-y { background: #ffbd2e; }
+#cookie-term .ct-g { background: #27c93f; }
+#cookie-term .ct-title {
+  flex: 1;
+  text-align: center;
+  font-size: 11px;
+  color: #aaa;
+}
+#cookie-term .ct-x {
+  background: none;
+  border: 0;
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+#cookie-term .ct-x:hover,
+#cookie-term .ct-x:focus { color: #fff; outline: none; }
+#cookie-term .ct-body {
+  margin: 0;
+  padding: 10px 12px;
+  white-space: pre-wrap;
+  min-height: 7.5em;
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+#cookie-term .ct-cursor {
+  display: inline-block;
+  background: #e0e0e0;
+  width: 8px;
+  height: 1em;
+  vertical-align: text-bottom;
+  animation: ct-blink 1s steps(2, start) infinite;
+}
+@keyframes ct-blink { to { background: transparent; } }
+@media (prefers-reduced-motion: reduce) {
+  #cookie-term .ct-cursor { animation: none; }
+}
+</style>
+
+<script>
+(function () {
+  var KEY = "cookieAck";
+  try { if (localStorage.getItem(KEY)) return; } catch (e) { return; }
+
+  var lang = (document.documentElement.lang || "nl").slice(0, 2);
+  var lines = (lang === "en") ? [
+    "$ cat /etc/cookies",
+    "# No cookies. No tracking. No analytics.",
+    "# Static HTML, served straight.",
+    "# (localStorage holds only your theme preference.)"
+  ] : [
+    "$ cat /etc/cookies",
+    "# Geen cookies. Geen tracking. Geen analytics.",
+    "# Statische HTML, recht voor z'n raap.",
+    "# (localStorage bewaart alleen je thema-voorkeur.)"
+  ];
+
+  var el = document.getElementById("cookie-term");
+  var out = document.getElementById("ct-out");
+  var btn = el.querySelector(".ct-x");
+  el.hidden = false;
+
+  var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var i = 0, j = 0;
+
+  function placeCursor() {
+    var c = document.createElement("span");
+    c.className = "ct-cursor";
+    out.appendChild(c);
+  }
+
+  function step() {
+    if (i >= lines.length) {
+      out.appendChild(document.createTextNode("$ "));
+      placeCursor();
+      return;
+    }
+    if (reduced) {
+      out.appendChild(document.createTextNode(lines[i] + "\n"));
+      i++;
+      setTimeout(step, 80);
+      return;
+    }
+    var line = lines[i];
+    if (j < line.length) {
+      out.appendChild(document.createTextNode(line[j]));
+      j++;
+      setTimeout(step, 15);
+    } else {
+      out.appendChild(document.createTextNode("\n"));
+      i++; j = 0;
+      setTimeout(step, 150);
+    }
+  }
+  setTimeout(step, 400);
+
+  function dismiss() {
+    el.hidden = true;
+    try { localStorage.setItem(KEY, "1"); } catch (e) {}
+  }
+  btn.addEventListener("click", dismiss);
+  document.addEventListener("keydown", function (e) {
+    if (!el.hidden && e.key === "Escape") dismiss();
+  });
+})();
+</script>
