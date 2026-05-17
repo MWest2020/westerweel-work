@@ -1,39 +1,29 @@
 {{/*
-  Visitor "shell" — an interactive easter egg about this site's privacy stance.
+  Terminal "cookie" easter egg.
 
   Not a consent dialog. The site sets no tracking cookies, has no analytics,
   loads no third-party trackers. localStorage is used only for the PaperMod
-  theme toggle and the dismissal flag below.
+  theme toggle (and for the dismissal flag below).
 
-  Commands: help, ls, cat <file>, clear, whoami, pwd, date, exit
-  Filesystem is inline below — fully auditable via view-source.
-  Dismissal persists in localStorage under "cookieAck"; shows once per browser.
+  Shown once per browser; dismissal persists in localStorage under "cookieAck".
 */}}
-<div id="vshell" hidden role="dialog" aria-label="visitor shell" aria-modal="false">
-  <div class="vs-bar">
-    <span class="vs-dot vs-r" aria-hidden="true"></span>
-    <span class="vs-dot vs-y" aria-hidden="true"></span>
-    <span class="vs-dot vs-g" aria-hidden="true"></span>
-    <span class="vs-title">visitor@westerweel.work: ~</span>
-    <button class="vs-x" type="button" aria-label="close">×</button>
+<div id="cookie-term" hidden role="dialog" aria-label="cookies">
+  <div class="ct-bar">
+    <span class="ct-dot ct-r" aria-hidden="true"></span>
+    <span class="ct-dot ct-y" aria-hidden="true"></span>
+    <span class="ct-dot ct-g" aria-hidden="true"></span>
+    <span class="ct-title">~/cookies — sh</span>
+    <button class="ct-x" type="button" aria-label="close">×</button>
   </div>
-  <pre class="vs-out" id="vs-out" aria-live="polite"></pre>
-  <form class="vs-form" id="vs-form" autocomplete="off">
-    <span class="vs-prompt" aria-hidden="true">~$&nbsp;</span>
-    <input class="vs-input" id="vs-input" type="text" aria-label="shell input"
-           spellcheck="false" autocapitalize="off" autocorrect="off">
-  </form>
+  <pre class="ct-body"><code id="ct-out"></code></pre>
 </div>
 
 <style>
-#vshell {
+#cookie-term {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  width: min(480px, calc(100vw - 2rem));
-  height: min(340px, calc(100vh - 2rem));
-  display: flex;
-  flex-direction: column;
+  width: min(420px, calc(100vw - 2rem));
   background: #1e1e1e;
   color: #e0e0e0;
   border-radius: 8px;
@@ -44,63 +34,58 @@
   z-index: 9999;
   overflow: hidden;
 }
-#vshell .vs-bar {
+#cookie-term .ct-bar {
   display: flex;
   align-items: center;
   gap: 6px;
   background: #2b2b2b;
   padding: 6px 8px;
   border-bottom: 1px solid #111;
-  flex: 0 0 auto;
 }
-#vshell .vs-dot { width: 12px; height: 12px; border-radius: 50%; }
-#vshell .vs-r { background: #ff5f56; }
-#vshell .vs-y { background: #ffbd2e; }
-#vshell .vs-g { background: #27c93f; }
-#vshell .vs-title {
+#cookie-term .ct-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+#cookie-term .ct-r { background: #ff5f56; }
+#cookie-term .ct-y { background: #ffbd2e; }
+#cookie-term .ct-g { background: #27c93f; }
+#cookie-term .ct-title {
   flex: 1;
   text-align: center;
   font-size: 11px;
   color: #aaa;
 }
-#vshell .vs-x {
-  background: none; border: 0; color: #aaa;
-  font-size: 18px; line-height: 1; cursor: pointer; padding: 0 4px;
+#cookie-term .ct-x {
+  background: none;
+  border: 0;
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
 }
-#vshell .vs-x:hover, #vshell .vs-x:focus { color: #fff; outline: none; }
-#vshell .vs-out {
+#cookie-term .ct-x:hover,
+#cookie-term .ct-x:focus { color: #fff; outline: none; }
+#cookie-term .ct-body {
   margin: 0;
-  padding: 10px 12px 4px;
+  padding: 10px 12px;
   white-space: pre-wrap;
-  overflow-y: auto;
-  flex: 1 1 auto;
+  min-height: 7.5em;
   background: #1e1e1e;
   color: #e0e0e0;
 }
-#vshell .vs-form {
-  display: flex;
-  align-items: center;
-  padding: 4px 12px 10px;
-  flex: 0 0 auto;
+#cookie-term .ct-cursor {
+  display: inline-block;
+  background: #e0e0e0;
+  width: 8px;
+  height: 1em;
+  vertical-align: text-bottom;
+  animation: ct-blink 1s steps(2, start) infinite;
 }
-#vshell .vs-prompt { color: #27c93f; white-space: pre; }
-#vshell .vs-input {
-  flex: 1;
-  background: transparent;
-  border: 0;
-  color: #e0e0e0;
-  font: inherit;
-  outline: none;
-  padding: 0;
-  caret-color: #e0e0e0;
-}
-@media (max-width: 480px) {
-  #vshell {
-    bottom: 0; right: 0; left: 0;
-    width: 100%;
-    height: 60vh;
-    border-radius: 0;
-  }
+@keyframes ct-blink { to { background: transparent; } }
+@media (prefers-reduced-motion: reduce) {
+  #cookie-term .ct-cursor { animation: none; }
 }
 </style>
 
@@ -110,231 +95,62 @@
   try { if (localStorage.getItem(KEY)) return; } catch (e) { return; }
 
   var lang = (document.documentElement.lang || "nl").slice(0, 2);
-  var en = (lang === "en");
+  var lines = (lang === "en") ? [
+    "$ cat /etc/cookies",
+    "# No cookies. No tracking. No analytics.",
+    "# Static HTML, served straight.",
+    "# (localStorage holds only your theme preference.)"
+  ] : [
+    "$ cat /etc/cookies",
+    "# Geen cookies. Geen tracking. Geen analytics.",
+    "# Statische HTML, recht voor z'n raap.",
+    "# (localStorage bewaart alleen je thema-voorkeur.)"
+  ];
 
-  // --- virtual filesystem ---------------------------------------------------
-  var fs = en ? {
-    "README.txt": [
-      "welcome. you're in a fake shell.",
-      "this is an easter egg, not a consent dialog.",
-      "",
-      "type `help` to see commands, `ls` to list files,",
-      "`cat <file>` to read one, `exit` to close."
-    ].join("\n"),
-    "cookies.txt": [
-      "cookies: none.",
-      "",
-      "this site sets zero cookies. no session, no preference,",
-      "no analytics, no third-party. you can verify in devtools:",
-      "  Application → Storage → Cookies → (empty for this origin)"
-    ].join("\n"),
-    "tracking.txt": [
-      "tracking: none.",
-      "",
-      "what's NOT here:",
-      "  - google analytics / tag manager",
-      "  - facebook / meta pixel",
-      "  - hotjar, mixpanel, segment, posthog",
-      "  - ad networks of any kind",
-      "  - fonts.googleapis.com (fonts are system-stack)",
-      "",
-      "what IS here:",
-      "  - static HTML generated by hugo",
-      "  - cloudflare pages serves the files",
-      "  - cloudflare logs request metadata (IP, UA, path) at the edge —",
-      "    that's the network operator level, not site instrumentation."
-    ].join("\n"),
-    "principles.txt": [
-      "principles:",
-      "  1. boring is a feature.",
-      "  2. anything you can't audit, you can't trust.",
-      "  3. the simplest thing that works is usually the right thing.",
-      "  4. don't collect what you don't need.",
-      "",
-      "this fake shell follows the same rules: inline code, no deps,",
-      "no remote calls, your input never leaves the browser."
-    ].join("\n"),
-    "localstorage.txt": [
-      "localStorage usage on this origin:",
-      "",
-      "  pref-theme       set by the PaperMod theme (your light/dark choice)",
-      "  cookieAck        set when you dismiss this shell, so it shows once",
-      "",
-      "that's it. no IDs, no fingerprints, no behavioral data.",
-      "clear them anytime via devtools or browser settings."
-    ].join("\n"),
-    "contact.txt": [
-      "Mark Westerweel — Platform & DevOps consultant",
-      "",
-      "  about    → /about/",
-      "  posts    → /posts/",
-      "  github   → https://github.com/MWest2020",
-      "  email    → mark@westerweel.work"
-    ].join("\n")
-  } : {
-    "README.txt": [
-      "welkom. je zit in een nep-shell.",
-      "dit is een easter egg, geen cookie-popup.",
-      "",
-      "typ `help` voor commando's, `ls` voor de bestanden,",
-      "`cat <bestand>` om er een te lezen, `exit` om te sluiten."
-    ].join("\n"),
-    "cookies.txt": [
-      "cookies: geen.",
-      "",
-      "deze site zet nul cookies. geen sessie, geen voorkeur,",
-      "geen analytics, geen third-party. zelf checken in devtools:",
-      "  Toepassing → Opslag → Cookies → (leeg voor deze origin)"
-    ].join("\n"),
-    "tracking.txt": [
-      "tracking: geen.",
-      "",
-      "wat hier NIET staat:",
-      "  - google analytics / tag manager",
-      "  - facebook / meta pixel",
-      "  - hotjar, mixpanel, segment, posthog",
-      "  - advertentie-netwerken in welke vorm dan ook",
-      "  - fonts.googleapis.com (fonts via system-stack)",
-      "",
-      "wat hier WEL staat:",
-      "  - statische HTML gegenereerd door hugo",
-      "  - cloudflare pages levert de bestanden",
-      "  - cloudflare logt request-metadata (IP, UA, pad) aan de edge —",
-      "    dat is netwerk-operator-niveau, geen site-instrumentatie."
-    ].join("\n"),
-    "principles.txt": [
-      "principes:",
-      "  1. saai is een feature.",
-      "  2. wat je niet kunt auditen, kun je niet vertrouwen.",
-      "  3. het simpelste dat werkt, is meestal het juiste.",
-      "  4. verzamel niet wat je niet nodig hebt.",
-      "",
-      "deze nep-shell volgt dezelfde regels: inline code, geen deps,",
-      "geen externe calls, je input verlaat de browser niet."
-    ].join("\n"),
-    "localstorage.txt": [
-      "localStorage-gebruik op deze origin:",
-      "",
-      "  pref-theme       gezet door het PaperMod-thema (licht/donker-keuze)",
-      "  cookieAck        gezet als je deze shell sluit, zodat 'ie maar 1x komt",
-      "",
-      "meer niet. geen IDs, geen fingerprints, geen gedragsdata.",
-      "wis ze wanneer je wilt via devtools of browser-instellingen."
-    ].join("\n"),
-    "contact.txt": [
-      "Mark Westerweel — Platform & DevOps consultant",
-      "",
-      "  over     → /about/",
-      "  blog     → /posts/",
-      "  github   → https://github.com/MWest2020",
-      "  email    → mark@westerweel.work"
-    ].join("\n")
-  };
+  var el = document.getElementById("cookie-term");
+  var out = document.getElementById("ct-out");
+  var btn = el.querySelector(".ct-x");
+  el.hidden = false;
 
-  // --- DOM refs -------------------------------------------------------------
-  var el = document.getElementById("vshell");
-  var out = document.getElementById("vs-out");
-  var form = document.getElementById("vs-form");
-  var input = document.getElementById("vs-input");
-  var closeBtn = el.querySelector(".vs-x");
+  var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var i = 0, j = 0;
 
-  // --- output helpers -------------------------------------------------------
-  function print(text) {
-    out.appendChild(document.createTextNode(text + "\n"));
-    out.scrollTop = out.scrollHeight;
+  function placeCursor() {
+    var c = document.createElement("span");
+    c.className = "ct-cursor";
+    out.appendChild(c);
   }
-  function echo(cmd) { print("~$ " + cmd); }
 
-  // --- command handlers -----------------------------------------------------
-  function cmdHelp() {
-    print(en ? "available commands:" : "beschikbare commando's:");
-    print("  help, ls, cat <file>, clear, whoami, pwd, date, exit");
-  }
-  function cmdLs() {
-    Object.keys(fs).forEach(function (f) { print("  " + f); });
-  }
-  function cmdCat(arg) {
-    if (!arg) { print(en ? "cat: missing operand" : "cat: bestand ontbreekt"); return; }
-    if (fs[arg]) { print(fs[arg]); return; }
-    print("cat: " + arg + (en ? ": no such file" : ": bestaat niet"));
-  }
-  function cmdClear() { out.textContent = ""; }
-  function cmdWhoami() { print("visitor"); }
-  function cmdPwd() { print("/home/visitor"); }
-  function cmdDate() { print(new Date().toString()); }
-  function cmdExit() { dismiss(); }
-
-  function run(line) {
-    var parts = line.trim().split(/\s+/);
-    var cmd = parts[0];
-    var arg = parts.slice(1).join(" ");
-    if (!cmd) return;
-    switch (cmd) {
-      case "help":    return cmdHelp();
-      case "ls":      return cmdLs();
-      case "cat":     return cmdCat(arg);
-      case "clear":   return cmdClear();
-      case "whoami":  return cmdWhoami();
-      case "pwd":     return cmdPwd();
-      case "date":    return cmdDate();
-      case "exit":
-      case "close":
-      case "quit":    return cmdExit();
-      default:
-        print(cmd + (en
-          ? ": command not found (try `help`)"
-          : ": commando niet gevonden (probeer `help`)"));
+  function step() {
+    if (i >= lines.length) {
+      out.appendChild(document.createTextNode("$ "));
+      placeCursor();
+      return;
+    }
+    if (reduced) {
+      out.appendChild(document.createTextNode(lines[i] + "\n"));
+      i++;
+      setTimeout(step, 80);
+      return;
+    }
+    var line = lines[i];
+    if (j < line.length) {
+      out.appendChild(document.createTextNode(line[j]));
+      j++;
+      setTimeout(step, 15);
+    } else {
+      out.appendChild(document.createTextNode("\n"));
+      i++; j = 0;
+      setTimeout(step, 150);
     }
   }
+  setTimeout(step, 400);
 
-  // --- history --------------------------------------------------------------
-  var history = [];
-  var histIdx = -1;
-  function recall(delta) {
-    if (history.length === 0) return;
-    if (histIdx === -1) histIdx = history.length;
-    histIdx = Math.max(0, Math.min(history.length, histIdx + delta));
-    input.value = history[histIdx] || "";
-    setTimeout(function () { input.setSelectionRange(input.value.length, input.value.length); }, 0);
-  }
-
-  // --- dismissal ------------------------------------------------------------
   function dismiss() {
     el.hidden = true;
     try { localStorage.setItem(KEY, "1"); } catch (e) {}
   }
-
-  // --- wire it up -----------------------------------------------------------
-  el.hidden = false;
-
-  print(en
-    ? "westerweel.work — visitor shell"
-    : "westerweel.work — bezoeker-shell");
-  print(en
-    ? "type `help` for commands, `ls` to list files, `exit` to close"
-    : "typ `help` voor commando's, `ls` voor bestanden, `exit` om te sluiten");
-  print("");
-
-  setTimeout(function () { input.focus({ preventScroll: true }); }, 100);
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var line = input.value;
-    input.value = "";
-    echo(line);
-    if (line.trim()) {
-      history.push(line);
-      histIdx = -1;
-    }
-    run(line);
-  });
-
-  input.addEventListener("keydown", function (e) {
-    if (e.key === "ArrowUp")   { e.preventDefault(); recall(-1); }
-    if (e.key === "ArrowDown") { e.preventDefault(); recall(+1); }
-  });
-
-  closeBtn.addEventListener("click", dismiss);
+  btn.addEventListener("click", dismiss);
   document.addEventListener("keydown", function (e) {
     if (!el.hidden && e.key === "Escape") dismiss();
   });

@@ -4,14 +4,29 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
 
 ## 2026-05-17
 
+### Reverted
+- The interactive "visitor shell" expansion of the cookie easter egg
+  (commit `4efcfac`) caused the page to freeze in production. Reverted
+  to the simple typed-out banner from `a338621`.
+
+### Fixed
+- Language switcher between `/diensten/` and `/services/` returned 404.
+  Two problems: (1) the pages had no shared `translationKey`, so
+  PaperMod couldn't pair them as translations; (2) `services.md`
+  carried `url: "/services/"` which forced the EN page to render at
+  root `/services/` instead of `/en/services/`, while the menu link
+  resolved to `/en/services/`. Added matching `translationKey: "services"`
+  to both files and dropped the URL override.
+
 ### Changed
-- `layouts/partials/extend_footer.html`: expanded the cookie easter egg into
-  an interactive "visitor shell". Commands: `help`, `ls`, `cat <file>`,
-  `clear`, `whoami`, `pwd`, `date`, `exit`. Virtual filesystem with files
-  explaining the no-cookies / no-tracking stance (`cookies.txt`,
-  `tracking.txt`, `principles.txt`, `localstorage.txt`, `README.txt`,
-  `contact.txt`). NL/EN, history via ↑/↓, ESC closes. Still inline,
-  no deps, no network calls — input never leaves the browser.
+- `content/nl/diensten.md`: tightened wording per editorial review.
+  Kubernetes line now lists concrete distros, Compliance section drops
+  ISO 27001 framing in favour of approach-based bullets, "stack"
+  swapped for "praktijk" (audit audience).
+- `content/en/services.md`: synced to mirror the new NL content.
+- `hugo.toml`: moved `homeInfoParams` from global `[params]` into
+  per-language `[languages.<lang>.params.homeInfoParams]` so the home
+  intro flips with the language switcher.
 
 ## 2026-05-16
 

@@ -27,6 +27,15 @@ pygmentsUseClasses = true
     contentDir = "content/nl"
     [languages.nl.params]
       description = "Mark Westerweel — Platform & DevOps. Aantekeningen, blogs, en wat ik doe."
+      [languages.nl.params.homeInfoParams]
+        Title = "westerweel.work"
+        Content = """
+Mark Westerweel — Platform & DevOps consultant.
+
+Ik bouw en repareer infrastructuur voor Nederlandse organisaties die soevereiniteit serieus nemen. Kubernetes, Proxmox, ArgoCD, ISO 27001. Open source waar het kan, eigen ijzer waar het moet.
+
+Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestoken. Geen hot takes, geen AI-content marketing, geen LinkedIn cross-posts.
+"""
     [[languages.nl.menu.main]]
       identifier = "posts"
       name = "blog"
@@ -49,6 +58,15 @@ pygmentsUseClasses = true
     contentDir = "content/en"
     [languages.en.params]
       description = "Mark Westerweel — Platform & DevOps. Notes, posts, and what I do."
+      [languages.en.params.homeInfoParams]
+        Title = "westerweel.work"
+        Content = """
+Mark Westerweel — Platform & DevOps consultant.
+
+I build and fix infrastructure for Dutch organizations that take sovereignty seriously. Kubernetes, Proxmox, ArgoCD, ISO 27001. Open source where possible, own hardware where necessary.
+
+Notes here, RCAs, and pieces on work I've put real time into. No hot takes, no AI content marketing, no LinkedIn cross-posts.
+"""
     [[languages.en.menu.main]]
       identifier = "posts"
       name = "blog"
@@ -84,15 +102,10 @@ pygmentsUseClasses = true
   comments = false
   assets = { disableHLJS = false }
 
-  [params.homeInfoParams]
-    Title = "westerweel.work"
-    Content = """
-Mark Westerweel — Platform & DevOps consultant.
-
-Ik bouw en repareer infrastructuur voor Nederlandse organisaties die soevereiniteit serieus nemen. Kubernetes, Proxmox, ArgoCD, ISO 27001. Open source waar het kan, eigen ijzer waar het moet.
-
-Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestoken. Geen hot takes, geen AI-content marketing, geen LinkedIn cross-posts.
-"""
+  # homeInfoParams lives under [languages.<lang>.params.homeInfoParams] so the
+  # intro flips with the language switcher. PaperMod merges per-language
+  # params over global ones; a global homeInfoParams here would override
+  # the NL fallback for EN. Keep it per-language.
 
   # Footer override — PaperMod renders this above its own "Powered by" credits.
   [params.footer]

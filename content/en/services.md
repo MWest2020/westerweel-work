@@ -1,25 +1,28 @@
 ---
 title: "Services"
-url: "/services/"
 summary: "What I do as a DevOps consultant."
+translationKey: "services"
 ---
 
-What I typically do, ordered by how often it's asked:
+In order of how often it's asked:
 
 ### Platform & infrastructure
 
-- Multi-tenant Kubernetes — setting up, running, or taking over.
+- Kubernetes: setting up, running, or taking over an existing cluster
+  (kubeadm, k3s, managed).
 - Migrations: managed K8s to bare-metal or on-prem, and back.
 - GitOps with ArgoCD: from loose YAML to a clean app-of-apps structure.
-- Proxmox/Ceph clusters for organisations serious about sovereignty.
+- Proxmox virtualisation: for when Kubernetes is overkill — more often
+  than you'd think.
 
-### Compliance & ISO 27001
+### Compliance
 
-- Writing controls that match your actual stack — not template
-  copy-paste.
-- Non-conformity dossiers, RCAs, incident reports in Dutch corporate
-  style, audit-ready.
-- Designing BIO-compatible infrastructure.
+- Existing controls under critical review: drop what doesn't work,
+  capture what does.
+- No paperwork for paperwork's sake — documentation follows practice,
+  not the other way around.
+- Agentic handiwork where it fits: RCAs, non-conformities and audit
+  trail automated where it can be, human-in-the-loop where it must be.
 
 ### Open source & grant work
 

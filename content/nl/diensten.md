@@ -2,24 +2,28 @@
 title: "Diensten"
 url: "/diensten/"
 summary: "Wat ik doe als DevOps-consultant."
+translationKey: "services"
 ---
 
-Wat ik typisch doe, in volgorde van hoe vaak het gevraagd wordt:
+In volgorde van hoe vaak het gevraagd wordt:
 
 ### Platform & infrastructuur
 
-- Multi-tenant Kubernetes — opzetten, beheren, of overnemen.
+- Kubernetes: opzetten, draaien, of een bestaand cluster overnemen
+  (kubeadm, k3s, managed).
 - Migraties: managed K8s naar bare-metal of on-premises, en andersom.
 - GitOps met ArgoCD: van losse YAML naar een nette app-of-apps structuur.
-- Proxmox/Ceph-clusters voor organisaties die soevereiniteit serieus nemen.
+- Proxmox-virtualisatie: voor wanneer Kubernetes overkill is — vaker
+  dan je denkt.
 
-### Compliance & ISO 27001
+### Compliance
 
-- Beheersmaatregelen uitschrijven die kloppen met je werkelijke stack —
-  geen knip-en-plak uit een template.
-- Non-conformity-dossiers, RCA's, incident-rapportages in Nederlandse
-  huisstijl, klaar voor een audit.
-- BIO-compatibele infrastructuur ontwerpen.
+- Bestaande controls kritisch onder de loep: schrappen wat niet werkt,
+  vastleggen wat wel klopt.
+- Geen onnodige papierhandel — documentatie volgt de praktijk,
+  niet omgekeerd.
+- Agentic handwerk waar het past: RCA's, non-conformities en audit-trail
+  geautomatiseerd waar het kan, mens-in-de-loop waar het moet.
 
 ### Open source & subsidie-trajecten
 
