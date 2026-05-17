@@ -1,7 +1,7 @@
 ---
 title: "Claude Code via mobiel — hoe ik 't bouwde"
 date: 2026-05-17
-draft: true
+draft: false
 tags: ["devops", "tooling", "homelab"]
 summary: "Een LXC, Tailscale, tmux, en een SSH-key per apparaat. Persistent, multi-device, niets in een blackbox."
 ---
