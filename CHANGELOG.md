@@ -2,6 +2,16 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-05-17 (fourth pass — first real post)
+
+### Added
+- `content/nl/posts/2026-05-17-claude-code-via-mobiel.md` (NL, draft).
+  Three options for using Claude Code from a phone: Anthropic's
+  `/remote-control` pairing, classic SSH + tmux on own iron, and
+  third-party wrappers (Happy CLI). Written as draft pending owner
+  verification of the option-1 specifics (`/remote-control` command,
+  mobile app "Code tab" naming). EN translation deferred.
+
 ## 2026-05-17 (third pass — editorial)
 
 ### Changed
