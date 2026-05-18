@@ -2,6 +2,33 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-05-18 (eighth pass — uitbreiding cooldown-post naar Python)
+
+### Changed
+- Beide cooldown-posts uitgebreid van npm/pnpm/bun-only naar
+  npm/pnpm/bun + uv + pip coverage. Aanleiding: uv 0.9.17 (dec 2025)
+  voegde `[tool.uv].exclude-newer` toe; pip 26.1 (apr 2026)
+  voegde `--uploaded-prior-to` toe. De claim "PyPI heeft geen
+  equivalent van `min-release-age`" in de "Wat het niet is"-sectie
+  was sinds eind 2025 niet meer correct — vervangen door de échte
+  resterende gaps (poetry/pipenv, registry-compromise, IDE-extensies).
+- Titel: "Drie regels config tegen npm supply-chain attacks" →
+  "Vijf regels config tegen supply-chain attacks (npm + PyPI)".
+  Tabel uitgebreid met uv en pip rijen + versie-vereisten. Intro
+  noemt nu het LiteLLM PyPI-incident (maart 2026, 119k+ downloads
+  in 2u32min) als concrete aanleiding voor de Python-kant. CI-env-vars
+  uitgebreid met `UV_EXCLUDE_NEWER` en `PIP_UPLOADED_PRIOR_TO`.
+  Override-flow + implementatie-link tellen nu 5 ipv 3 keys.
+- Tags: `pypi` toegevoegd op beide posts.
+- Geen wijzigingen aan slug of `translationKey` ("npm-supply-chain-cooldown")
+  — pre-existing URL blijft werken, RSS-readers krijgen geen
+  duplicate-entry.
+
+### Tested
+- `hugo --gc --minify` schoon, geen warnings.
+- `bash scripts/test-site.sh` → 45/45 assertions pass, inclusief
+  NL/EN translationKey parity-check.
+
 ## 2026-05-18 (seventh pass — npm supply-chain cooldown post)
 
 ### Added
