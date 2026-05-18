@@ -2,6 +2,26 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-05-18 (seventh pass — npm supply-chain cooldown post)
+
+### Added
+- `content/nl/posts/2026-05-18-npm-supply-chain-cooldown.md` en
+  `content/en/posts/2026-05-18-npm-supply-chain-cooldown.md` —
+  parallelle NL/EN post over de 7-daagse package-manager cooldown
+  als goedkope mitigatie voor npm supply-chain attacks. Shared
+  `translationKey: "npm-supply-chain-cooldown"` zodat de language
+  switcher ze pairt. Tags: `security`, `supply-chain`, `npm`,
+  `devops`. Linkt naar de implementatie in
+  [`MWest2020/workstation-security`](https://github.com/MWest2020/workstation-security)
+  (`common/install-pm-cooldown.sh` + `docs/supply-chain-cooldown.md`),
+  die op 2026-05-18 v1.0.0 hit.
+
+### Tested
+- `hugo --gc --minify` schoon (NL 31 pages, EN 29 pages,
+  geen warnings).
+- `bash scripts/test-site.sh` → 45/45 assertions pass, inclusief de
+  NL/EN translationKey parity-check.
+
 ## 2026-05-17 (sixth pass — translation parity + cleanup)
 
 ### Added
