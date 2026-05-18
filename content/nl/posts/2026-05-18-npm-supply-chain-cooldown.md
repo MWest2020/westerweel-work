@@ -4,7 +4,7 @@ date: 2026-05-18
 draft: false
 tags: ["security", "supply-chain", "npm", "pypi", "devops"]
 translationKey: "npm-supply-chain-cooldown"
-summary: "npm yankt kwaadaardige versies binnen 24-48 uur, PyPI quarantaineert binnen uren. Een wachttijd van zeven dagen — vijf regels config — laat dat venster voor je werken."
+summary: "npm haalt kwaadaardige versies binnen 24-48 uur offline; PyPI zet ze binnen uren in quarantaine. Een wachttijd van zeven dagen — vijf regels config — laat dat venster voor je werken."
 ---
 
 Het patroon van supply-chain-aanvallen is inmiddels bekend, op
@@ -17,8 +17,8 @@ Iedereen met `^x.y.z` of `~x.y.z` in zijn lockfile pakt de versie
 op tijdens de volgende `npm install`; iedereen met een losse
 `>=x.y.z` in `pyproject.toml` idem bij `pip install` of `uv sync`.
 Binnen 24-48 uur detecteert [npm](https://docs.npmjs.com/) de
-versie en yankt 'm; [PyPI](https://blog.pypi.org/) quarantaineert
-nieuwere kwaadaardige uploads vaak binnen uren.
+versie en haalt 'm offline; [PyPI](https://blog.pypi.org/) zet
+nieuwe kwaadaardige uploads vaak binnen uren in quarantaine.
 
 Het slechte nieuws: in dat detectie-venster installeert je
 CI-pipeline de kwaadaardige versie zonder vragen. De [LiteLLM-aanval
