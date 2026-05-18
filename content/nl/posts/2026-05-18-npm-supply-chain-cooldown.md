@@ -4,15 +4,15 @@ date: 2026-05-18
 draft: false
 tags: ["security", "supply-chain", "npm", "pypi", "devops"]
 translationKey: "npm-supply-chain-cooldown"
-summary: "npm yankt malicious versies binnen 24-48 uur, PyPI quarantaineert binnen uren. Een wachttijd van zeven dagen — vijf regels config — laat dat venster voor je werken."
+summary: "npm yankt kwaadaardige versies binnen 24-48 uur, PyPI quarantaineert binnen uren. Een wachttijd van zeven dagen — vijf regels config — laat dat venster voor je werken."
 ---
 
-Het patroon van supply-chain-aanvallen is inmiddels routineus, op
+Het patroon van supply-chain-aanvallen is inmiddels bekend, op
 beide grote ecosystemen. Een maintainer-account wordt
 gecompromitteerd (phishing, token-leak, social engineering). De
 aanvaller publiceert een nieuwe patch-versie van een populair pakket
-met malicious code — typisch een post-install / install-hook script
-dat secrets exfiltreert of een dead-man's switch installeert.
+met kwaadaardige code — typisch een post-install / install-hook
+script dat secrets exfiltreert of een dead-man's switch installeert.
 Iedereen met `^x.y.z` of `~x.y.z` in zijn lockfile pakt de versie
 op tijdens de volgende `npm install`; iedereen met een losse
 `>=x.y.z` in `pyproject.toml` idem bij `pip install` of `uv sync`.
@@ -21,7 +21,7 @@ versie en yankt 'm; [PyPI](https://blog.pypi.org/) quarantaineert
 nieuwere kwaadaardige uploads vaak binnen uren.
 
 Het slechte nieuws: in dat detectie-venster installeert je
-CI-pipeline de malicious versie zonder vragen. De [LiteLLM-aanval
+CI-pipeline de kwaadaardige versie zonder vragen. De [LiteLLM-aanval
 op PyPI](https://blog.pypi.org/posts/2026-04-02-incident-report-litellm-telnyx-supply-chain-attack/)
 in maart 2026 stond 2 uur 32 minuten live en haalde in die tijd
 ruim 119.000 downloads op. Het goede nieuws: diezelfde paar uur
@@ -42,7 +42,7 @@ ondersteund — geen agent, geen daemon, geen extra dependency:
 | [pip](https://pip.pypa.io/en/stable/cli/pip_install/) | `~/.config/pip/pip.conf` | `[install] uploaded-prior-to` | ISO 8601 (`P7D`) | 26.1+ |
 
 Met een venster van zeven dagen kom je categorisch ná het detect-en-
-yank/quarantine-moment van beide registries. Een malicious versie
+yank/quarantine-moment van beide registries. Een kwaadaardige versie
 haalt je lockfile pas als dezelfde versie zeven dagen ongedetecteerd
 is gebleven — orde van grootte zeldzamer dan het basis-scenario.
 

@@ -29,6 +29,13 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
 - `bash scripts/test-site.sh` → 45/45 assertions pass, inclusief
   NL/EN translationKey parity-check.
 
+### Fixed
+- Taal-correctie in NL post: "routineus" (calque van Engels "routine"
+  — in NL betekent het "uit gewoonte / mechanisch", niet "alledaags")
+  → "bekend"; "malicious" → "kwaadaardig" in alle Nederlandse zinnen
+  (4 voorkomens: summary, intro, CI-pipeline-zin, mechanisme-paragraaf).
+  EN post ongewijzigd — "malicious" is daar het correcte Engelse woord.
+
 ## 2026-05-18 (seventh pass — npm supply-chain cooldown post)
 
 ### Added
