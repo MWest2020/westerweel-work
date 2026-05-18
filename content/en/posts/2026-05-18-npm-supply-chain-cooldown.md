@@ -119,3 +119,13 @@ full table is in
 [`docs/supply-chain-cooldown.md`](https://github.com/MWest2020/workstation-security/blob/main/docs/supply-chain-cooldown.md).
 
 Three config lines, two days of latency. Seems worth the trade.
+
+### Feedback
+
+Feedback on
+[`workstation-security`](https://github.com/MWest2020/workstation-security)
+is more than welcome — [open an
+issue](https://github.com/MWest2020/workstation-security/issues/new/choose)
+for bugs, a missing distro, or a use case the tool doesn't yet
+cover. Email works too:
+[mark@westerweel.work](mailto:mark@westerweel.work).

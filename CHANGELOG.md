@@ -22,6 +22,11 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
 - `bash scripts/test-site.sh` → 45/45 assertions pass, inclusief de
   NL/EN translationKey parity-check.
 
+### Changed
+- Beide cooldown-posts: `### Feedback`-sectie toegevoegd onderaan met
+  link naar workstation-security issues + mailto. Eerste post met een
+  expliciete CTA — sluit aan op de v1.0.0-release-flow.
+
 ## 2026-05-17 (sixth pass — translation parity + cleanup)
 
 ### Added
