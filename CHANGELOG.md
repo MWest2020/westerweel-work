@@ -13,7 +13,7 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
   deelbare skillsets (tags als query) met een read-only MCP-server als
   toekomstplan. Concreet voorbeeld: de `owasp-security`-skill door de
   pipeline gehaald (judge 0.87, herkomst-as gerefined naar 0.85).
-- Beide files staan op `draft: true` — flip naar `false` om te publiceren.
+- Gepubliceerd (`draft: false`) na review.
 
 ### Verified
 - `scripts/test-site.sh`: 45 passed, 0 failed (NL↔EN parity + hreflang).

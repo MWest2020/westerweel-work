@@ -1,7 +1,7 @@
 ---
 title: "Curated, shareable skillsets for AI agents"
 date: 2026-06-15
-draft: true
+draft: false
 tags: ["ai", "claude-code", "skills", "provenance", "devops"]
 translationKey: "curated-skillsets"
 summary: "A skill for an AI agent is a markdown file. That's exactly the problem: anyone can drop one, nobody knows if it's any good. Here's how I turn them into a curated, signed, shareable library — and why the point isn't the skills, it's the curation."

@@ -1,7 +1,7 @@
 ---
 title: "Gecureerde, deelbare skillsets voor AI-agents"
 date: 2026-06-15
-draft: true
+draft: false
 tags: ["ai", "claude-code", "skills", "provenance", "devops"]
 translationKey: "curated-skillsets"
 summary: "Een skill voor een AI-agent is een markdown-bestand. Dat is precies het probleem: iedereen kan er een dumpen, niemand weet of-ie deugt. Hier is hoe ik er een gecureerde, ondertekende, deelbare bibliotheek van maak — en waarom de kern niet de skills zijn, maar de curatie."
