@@ -2,6 +2,23 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-06-15 (ninth pass — post over gecureerde skillsets)
+
+### Added
+- Nieuwe post (NL + EN, `translationKey: curated-skillsets`):
+  "Gecureerde, deelbare skillsets voor AI-agents" /
+  "Curated, shareable skillsets for AI agents". Kern: een agent-skill is
+  maar een markdown-bestand, dus het bestaansrecht zit in de curatie —
+  draft → judge → promote → refine, ondertekend met provenance — en in
+  deelbare skillsets (tags als query) met een read-only MCP-server als
+  toekomstplan. Concreet voorbeeld: de `owasp-security`-skill door de
+  pipeline gehaald (judge 0.87, herkomst-as gerefined naar 0.85).
+- Beide files staan op `draft: true` — flip naar `false` om te publiceren.
+
+### Verified
+- `scripts/test-site.sh`: 45 passed, 0 failed (NL↔EN parity + hreflang).
+- `hugo -D` rendert beide posts; taaltoggle paart ze via `translationKey`.
+
 ## 2026-05-18 (eighth pass — uitbreiding cooldown-post naar Python)
 
 ### Changed
