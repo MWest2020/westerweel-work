@@ -2,6 +2,32 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-06-17 (tenth pass — post over output-veiligheid vs datavertrouwelijkheid)
+
+### Added
+- Nieuwe post (NL + EN, `translationKey: output-safety-vs-data`), **gepubliceerd**
+  (`draft: false`): "Ricine breekt je model. Je data niet." / "Ricin breaks
+  your model. Not your data." Kern: het misverstand dat een model dat ricine
+  weigert (output-veiligheid / guardrails) ook je data beschermt
+  (datavertrouwelijkheid) — twee losse mechanismen. Behandelt pretraining vs
+  post-training, de twee-assen-framing (as 1 = belandt data in de *gewichten*,
+  as 2 = verlaat data je *pand*), fine-tuning vs RAG vs in-context tegen die
+  assen, inference ≠ training maar logging wél, tier/ZDR/DPA/DPIA, het
+  Shadow-AI-risico van consumer-accounts, de Reddit-zaak (memorisatie), de
+  NYT-retentie-uitspraak (Enterprise/ZDR/EU vielen erbuiten; bevel inmiddels
+  grotendeels teruggedraaid), en lokale modellen als de echte ontsnapping.
+- Bronlinks toegevoegd: Anthropic privacy + Constitutional Classifiers
+  (paper + explainer), OpenAI enterprise-privacy + NYT-respons, secureprivacy.ai
+  (feedbackknop-opt-out), bbycroft.net/llm + 3Blue1Brown.
+- Gebaseerd op een geanonimiseerd klantgesprek (gereguleerde sector), met
+  expliciete toestemming. Anonimisering aangescherpt in de herschrijving —
+  geen herleidbare details.
+- Begeleidende LinkedIn-post (kortere variant, links in eerste reactie)
+  los aangeleverd buiten de repo.
+
+### Verified
+- `scripts/test-site.sh`: 45 passed, 0 failed (NL↔EN parity + hreflang).
+
 ## 2026-06-15 (ninth pass — post over gecureerde skillsets)
 
 ### Added
