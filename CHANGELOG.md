@@ -2,6 +2,28 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-06-18 (eleventh pass — workshops / slidedecks)
+
+### Added
+- Nieuwe sectie **workshops** (NL + EN), `translationKey: workshops`.
+  Tweetalige overzichtspagina (`/workshops/`, `/en/workshops/`) met
+  menu-entries in beide talen (`hugo.toml`, `weight = 25`, tussen
+  blog/diensten en about). (In dezelfde sessie eerst kort "presentaties"
+  genoemd, daarna hernoemd naar "workshops".)
+- Eerste deck: **Docker — van image naar registry**, een self-contained
+  reveal-style HTML-presentatie (CRT/phosphor-stijl, keyboard- + tap-navigatie)
+  op `static/slides/docker-101/index.html` → serveert verbatim op
+  `/slides/docker-101/`. Decks staan bewust in `static/` (niet als Hugo-content):
+  Cloudflare/Caddy serveren ze byte-voor-byte, dus online identiek aan lokaal
+  openen. De overzichtspagina is de tweetalige content-laag; de decks zelf
+  vallen daardoor buiten de NL/EN-pariteitscheck (deck-inhoud kan eentalig zijn).
+
+### Notes
+- Het Docker-deck laadt JetBrains Mono via de Google Fonts CDN — de enige
+  externe afhankelijkheid. Valt netjes terug op `ui-monospace` als het CDN
+  geblokkeerd/offline is. Kan op verzoek gevendord worden voor volledig
+  zelfstandig + privacyvriendelijk ("boring & auditable").
+
 ## 2026-06-17 (tenth pass — post over output-veiligheid vs datavertrouwelijkheid)
 
 ### Added

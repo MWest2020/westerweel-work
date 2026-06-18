@@ -109,20 +109,41 @@ content/
 │   ├── _index.md         # home
 │   ├── about.md
 │   ├── diensten.md
+│   ├── workshops.md      # overzicht van slidedecks
 │   └── posts/
 │       └── *.md
 └── en/                   # Engelse content
     ├── _index.md
     ├── about.md
     ├── services.md
+    ├── workshops.md
     └── posts/
         └── *.md
 
 archetypes/posts.md       # template voor nieuwe posts
 hugo.toml                 # config
 static/                   # favicon, _redirects, _headers, robots.txt
+└── slides/<slug>/index.html   # self-contained presentaties, verbatim geserveerd
 themes/PaperMod/          # submodule
 ```
+
+## Workshops / slidedecks
+
+Een deck is een **self-contained HTML-bestand** op
+`static/slides/<slug>/index.html`. Cloudflare Pages (en de Caddy-fallback)
+serveren het byte-voor-byte op `/slides/<slug>/` — dus online identiek aan het
+bestand lokaal openen. Geen Hugo-rendering, geen build-stap.
+
+Een nieuw deck toevoegen:
+
+1. Zet het HTML-bestand op `static/slides/<slug>/index.html`.
+2. Voeg een regel toe aan **beide** overzichtspagina's
+   (`content/nl/workshops.md` en `content/en/workshops.md`) die naar
+   `/slides/<slug>/` linkt.
+
+De overzichtspagina's zijn gewone Hugo-content en vallen onder de NL/EN-pariteit
+(`translationKey: workshops`, op `/workshops/` en `/en/workshops/`). De decks
+zelf staan in `static/` en vallen er buiten — een deck mag dus eentalig zijn.
 
 ## Theme bijwerken
 

@@ -47,6 +47,11 @@ Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestok
       url = "/diensten/"
       weight = 20
     [[languages.nl.menu.main]]
+      identifier = "workshops"
+      name = "workshops"
+      url = "/workshops/"
+      weight = 25
+    [[languages.nl.menu.main]]
       identifier = "about"
       name = "over"
       url = "/about/"
@@ -77,6 +82,11 @@ Notes here, RCAs, and pieces on work I've put real time into. No hot takes, no A
       name = "services"
       url = "/services/"
       weight = 20
+    [[languages.en.menu.main]]
+      identifier = "workshops"
+      name = "workshops"
+      url = "/workshops/"
+      weight = 25
     [[languages.en.menu.main]]
       identifier = "about"
       name = "about"

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Docker — van image naar registry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e0a;
+    --bg-panel:#0d130d;
+    --phos:#33ff66;        /* primaire phosphor */
+    --phos-dim:#1f9c3f;    /* gedimd */
+    --phos-faint:#0e3a1c;  /* heel zwak, voor rasters/randen */
+    --amber:#ffb000;       /* waarschuwing / don't */
+    --amber-dim:#9c6b00;
+    --red:#ff4d4d;         /* exit 1 */
+    --paper:#cfe6d4;       /* leestekst */
+    --muted:#5f8a68;
+    --mono:'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg);
+    color:var(--paper);
+    font-family:var(--mono);
+    font-size:clamp(15px,1.7vw,20px);
+    line-height:1.5;
+    overflow:hidden;
+  }
+  /* CRT scanlines + vignette, subtiel */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:50;
+    background:repeating-linear-gradient(0deg,rgba(0,0,0,0) 0px,rgba(0,0,0,0) 2px,rgba(0,0,0,.16) 3px,rgba(0,0,0,0) 4px);
+    mix-blend-mode:multiply;opacity:.55;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:49;
+    background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%);
+  }
+
+  .deck{height:100vh;width:100vw;position:relative}
+  .slide{
+    position:absolute;inset:0;
+    display:none;flex-direction:column;
+    padding:clamp(28px,5vh,64px) clamp(28px,6vw,96px);
+    opacity:0;
+  }
+  .slide.active{display:flex;animation:flick .18s steps(2) both}
+  @keyframes flick{0%{opacity:.4}100%{opacity:1}}
+  @media (prefers-reduced-motion:reduce){
+    .slide.active{animation:none}
+    .cursor{animation:none!important}
+  }
+
+  /* prompt-regel boven elke slide */
+  .prompt{
+    color:var(--phos-dim);font-size:.78em;margin-bottom:1.6em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .prompt .usr{color:var(--phos)}
+  .prompt .path{color:var(--muted)}
+  .prompt .cmd{color:var(--paper)}
+  .cursor{display:inline-block;width:.6em;height:1.05em;background:var(--phos);
+    transform:translateY(.18em);animation:blink 1s steps(1) infinite;margin-left:.1em}
+  @keyframes blink{50%{opacity:0}}
+
+  h1{font-size:clamp(2em,5.5vw,3.6em);font-weight:700;color:var(--phos);
+    line-height:1.05;letter-spacing:-.02em;text-shadow:0 0 14px rgba(51,255,102,.35)}
+  h2{font-size:clamp(1.4em,3.4vw,2.3em);font-weight:700;color:var(--phos);
+    line-height:1.1;margin-bottom:.7em;text-shadow:0 0 10px rgba(51,255,102,.25)}
+  .sub{color:var(--muted);font-size:1em;margin-top:1em;max-width:48ch}
+  .lead{max-width:60ch}
+  p{margin-bottom:.7em;max-width:64ch}
+  strong{color:var(--phos);font-weight:700}
+  em{color:var(--amber);font-style:normal}
+  .kw{color:var(--phos);font-weight:500}
+
+  ul{list-style:none;margin:.4em 0}
+  li{margin:.5em 0;padding-left:1.4em;position:relative;max-width:66ch}
+  li::before{content:"›";position:absolute;left:0;color:var(--phos-dim)}
+
+  code,.code{font-family:var(--mono)}
+  .term{
+    background:var(--bg-panel);border:1px solid var(--phos-faint);
+    border-radius:6px;padding:.85em 1.1em;margin:.5em 0;
+    box-shadow:inset 0 0 30px rgba(51,255,102,.04);max-width:78ch;
+    font-size:.92em;overflow-x:auto;
+  }
+  .term .c{color:var(--muted)}                 /* comment */
+  .term .o{color:var(--paper)}                 /* output */
+  .term .p::before{content:"$ ";color:var(--phos-dim)}
+  .term .p{color:var(--phos);display:block;white-space:pre}
+  .term .o{display:block;white-space:pre}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,48px);align-items:start}
+  @media (max-width:760px){.cols{grid-template-columns:1fr}}
+
+  .card{border:1px solid var(--phos-faint);border-radius:6px;padding:1em 1.1em;background:var(--bg-panel)}
+  .card.good{border-color:var(--phos-faint)}
+  .card.bad{border-color:var(--amber-dim)}
+  .exit{font-size:.78em;letter-spacing:.04em;display:inline-block;margin-bottom:.5em;
+    padding:.1em .55em;border-radius:3px;font-weight:700}
+  .exit.ok{color:var(--phos);background:rgba(51,255,102,.08);border:1px solid var(--phos-faint)}
+  .exit.fail{color:var(--amber);background:rgba(255,176,0,.07);border:1px solid var(--amber-dim)}
+  .card h3{font-size:.95em;color:var(--paper);margin-bottom:.5em;font-weight:700}
+  .card ul{margin:0}.card li{font-size:.86em;margin:.35em 0}
+
+  .big-callout{border-left:3px solid var(--amber);padding:.4em 0 .4em 1.1em;margin:.6em 0;
+    color:var(--paper);max-width:62ch}
+  .big-callout.green{border-left-color:var(--phos)}
+
+  .tag{display:inline-block;font-size:.7em;color:var(--amber);border:1px solid var(--amber-dim);
+    padding:.05em .5em;border-radius:3px;margin-bottom:1em;letter-spacing:.06em}
+  .tag.live{color:var(--phos);border-color:var(--phos-faint)}
+
+  .layers{display:flex;flex-direction:column-reverse;gap:3px;margin:.6em 0;max-width:30ch}
+  .layer{border:1px solid var(--phos-faint);border-radius:4px;padding:.4em .8em;font-size:.82em;
+    background:var(--bg-panel);color:var(--muted)}
+  .layer.w{border-color:var(--amber-dim);color:var(--amber)}
+  .layer.base{border-color:var(--phos-faint);color:var(--phos)}
+
+  .step{counter-increment:step;position:relative;padding-left:2.4em;margin:.6em 0;max-width:64ch}
+  .step::before{content:"0" counter(step);position:absolute;left:0;top:0;color:var(--phos-dim);
+    font-weight:700;font-size:.9em}
+  .steps{counter-reset:step}
+
+  /* footer / chrome */
+  .chrome{position:fixed;bottom:0;left:0;right:0;height:34px;z-index:40;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 16px;font-size:.72em;color:var(--muted);
+    border-top:1px solid var(--phos-faint);background:rgba(10,14,10,.85)}
+  .chrome .right{display:flex;gap:18px;align-items:center}
+  .bar{position:fixed;top:0;left:0;height:2px;background:var(--phos);z-index:60;
+    box-shadow:0 0 8px var(--phos);transition:width .2s}
+  kbd{border:1px solid var(--phos-faint);border-radius:3px;padding:0 .35em;color:var(--paper)}
+
+  .title-meta{margin-top:1.6em;color:var(--muted);font-size:.85em;line-height:1.8}
+  .title-meta b{color:var(--phos)}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck" id="deck">
+
+  <!-- 1 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/sessie</span>$ <span class="cmd">cat docker-101.md</span></div>
+    <h1>Docker<br>van image → registry</h1>
+    <div class="title-meta">
+      Eén uur. Mentaal model + handen op de bak.<br>
+      Doel: snappen <b>waarom</b> een image draait, niet alleen <b>dat</b> je 'm kunt pushen.<br>
+      Aanleiding: GitHub → Codeberg, en de Actions doen het niet.
+    </div>
+    <div class="sub">— gebruik <kbd>→</kbd> / <kbd>spatie</kbd> om verder te gaan, <kbd>F</kbd> voor fullscreen.<span class="cursor"></span></div>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/sessie</span>$ <span class="cmd">why --are-we-here</span></div>
+    <h2>Waarom deze sessie</h2>
+    <p class="lead">Jullie kunnen images bouwen en pushen. Tóch lopen we vast op de migratie en weigeren de Actions te bouwen.</p>
+    <div class="big-callout">"Een image kunnen pushen" is niet hetzelfde als "snappen hoe een container runtime werkt". Ad-hoc lokale flows werken prima — totdat je <em>reproduceerbaarheid</em> nodig hebt.</div>
+    <p>En dat moment is precies dit: <strong>CI / migratie</strong>. De gap dook niet toevallig bij Codeberg op — dáár breekt een wankel mentaal model. Dat repareren we vandaag.</p>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/model</span>$ <span class="cmd">whatis container</span></div>
+    <h2>Een container is geen VM</h2>
+    <div class="cols">
+      <div>
+        <p>Een VM draait een <strong>eigen kernel</strong> bovenop een hypervisor. Zwaar, traag te starten, volledige OS.</p>
+        <p>Een container deelt de <strong>host-kernel</strong> en draait gewoon <em>native processen</em>, geïsoleerd met namespaces + cgroups.</p>
+      </div>
+      <div>
+        <div class="big-callout">Geen bytecode. Geen interpreter ertussen. Het proces in de container draait rechtstreeks op de kernel van de host.</div>
+        <p class="sub">Gevolg: een image is gebonden aan een <strong>CPU-architectuur</strong>. amd64 ≠ arm64. Onthoud dat — slide 5.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/model</span>$ <span class="cmd">whatis image vs container</span></div>
+    <h2>Image ≠ container</h2>
+    <div class="cols">
+      <div>
+        <h3 style="color:var(--phos)">IMAGE = recept</h3>
+        <ul>
+          <li>Stapel <strong>read-only filesystem-layers</strong></li>
+          <li>+ config-metadata: <span class="kw">ENTRYPOINT/CMD</span>, env, poorten, workdir</li>
+          <li>Bevroren. Wordt nooit aangepast.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--amber)">CONTAINER = gerecht</h3>
+        <ul>
+          <li>Een <strong>draaiende instance</strong> van een image</li>
+          <li>+ een dunne <em>writable layer</em> bovenop</li>
+          <li>Wijzigingen leven daar — en zijn weg bij <span class="kw">rm</span>.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="big-callout green">Image = "hoe ziet het eruit + hoe start ik het". Container = "het draait nu, met een kladlaag erbovenop".</div>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/model</span>$ <span class="cmd">debunk bytecode-mythe</span></div>
+    <h2>De twee misverstanden</h2>
+    <div class="cols">
+      <div class="card bad">
+        <span class="exit fail">exit 1</span>
+        <h3>"Image = bytecode"</h3>
+        <ul>
+          <li>Er is geen VM die het interpreteert.</li>
+          <li>Een image is een <strong>filesystem + startinstructie</strong>, geen draaibare bytecode.</li>
+        </ul>
+      </div>
+      <div class="card bad">
+        <span class="exit fail">exit 1</span>
+        <h3>"Een image draait overal"</h3>
+        <ul>
+          <li>Een image is <strong>architectuur-gebonden</strong>.</li>
+          <li>amd64-image op een arm64-host = crash of trage emulatie.</li>
+          <li>Oplossing: <span class="kw">multi-arch manifest</span> (één tag, meerdere platforms).</li>
+        </ul>
+      </div>
+    </div>
+    <p class="sub">Dit is waarom een build die lokaal werkt soms in CI op een andere node faalt.</p>
+  </section>
+
+  <!-- 6 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/model</span>$ <span class="cmd">explain layers</span></div>
+    <h2>Layers stapelen</h2>
+    <div class="cols">
+      <div>
+        <p>Een union filesystem (overlayfs) presenteert losse read-only layers als <strong>één geheel</strong>.</p>
+        <p>Elke <span class="kw">Dockerfile</span>-instructie ≈ een nieuwe layer. Layers worden <strong>gecachet</strong> en hergebruikt.</p>
+        <div class="big-callout green">Daarom: kopieer eerst je dependency-manifest en installeer, <em>dan</em> pas je broncode. Wijzig je code, dan blijft de install-layer uit cache.</div>
+      </div>
+      <div>
+        <div class="layers">
+          <div class="layer w">writable layer (container)</div>
+          <div class="layer">COPY . . — broncode</div>
+          <div class="layer">RUN install deps</div>
+          <div class="layer">COPY manifest</div>
+          <div class="layer base">FROM base-image</div>
+        </div>
+        <p class="sub">Onder → boven. Alleen de bovenste laag is schrijfbaar, en hoort bij de container — niet bij de image.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/basics</span>$ <span class="cmd">docker --help | head</span></div>
+    <h2>De lifecycle in commands</h2>
+    <div class="term">
+<span class="p">docker pull nginx:1.27        <span class="c"># image ophalen</span></span>
+<span class="p">docker run -d --name web nginx:1.27   <span class="c"># container starten uit image</span></span>
+<span class="p">docker ps                     <span class="c"># wat draait er</span></span>
+<span class="p">docker exec -it web sh        <span class="c"># shell ín de draaiende container</span></span>
+<span class="p">docker logs web               <span class="c"># stdout/stderr</span></span>
+<span class="p">docker stop web && docker rm web   <span class="c"># stoppen + opruimen</span></span>
+    </div>
+    <p class="sub"><span class="kw">run</span> = <span class="kw">create</span> + <span class="kw">start</span>. <span class="kw">exec</span> opent een proces in een container die al draait — niet hetzelfde als <span class="kw">run</span>.</p>
+  </section>
+
+  <!-- 8 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/basics</span>$ <span class="cmd">docker commit  # demo — let op</span></div>
+    <span class="tag">demo · 1× laten zien, daarna nooit meer</span>
+    <h2>Container → image, met de hand</h2>
+    <div class="term">
+<span class="p">docker run -it --name kladje ubuntu:24.04 bash</span>
+<span class="o">root@a1b2c3:/# apt-get update &amp;&amp; apt-get install -y cowsay</span>
+<span class="o">root@a1b2c3:/# exit</span>
+<span class="p">docker commit kladje mijn-cowsay:eigenbouw</span>
+<span class="o">sha256:9f8e...   <span class="c"># de writable layer is nu bevroren tot een image</span></span>
+    </div>
+    <p>Dit <strong>werkt</strong>. Je voelt nu wat die writable layer is: je hebt 'm bevroren tot een nieuwe image-layer. Onthoud dit gevoel — en op de volgende slide leg ik uit waarom je dit nooit in CI moet doen.</p>
+  </section>
+
+  <!-- 9 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/basics</span>$ <span class="cmd">docker commit; echo $?</span></div>
+    <h2>Waarom <span style="color:var(--amber)">commit</span> faalt in CI</h2>
+    <div class="cols">
+      <div class="card bad">
+        <span class="exit fail">exit 1</span>
+        <h3>Wat er mis is</h3>
+        <ul>
+          <li>Niet <strong>reproduceerbaar</strong>: niemand weet wat je intypte.</li>
+          <li>Niet <strong>auditeerbaar</strong>: geen broncode, geen diff, geen review.</li>
+          <li>Niet in de repo: <em>CI heeft niets om te bouwen.</em></li>
+        </ul>
+      </div>
+      <div>
+        <div class="big-callout">Dít is vermoedelijk waarom je Forgejo Actions faalt. Bestaat een image alleen omdat iemand 'm lokaal commit-te, dan vindt de pipeline geen Dockerfile — of bouwt iets anders dan jij lokaal draaide.</div>
+        <p class="sub">"Boring &amp; auditable" begint hier: een build die je in een ISO 27001-audit kunt uitleggen, niet "Henk heeft 'm ooit op z'n laptop gemaakt".</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/build</span>$ <span class="cmd">cat Dockerfile</span></div>
+    <h2>Dockerfile = de juiste manier</h2>
+    <div class="cols">
+      <div class="term">
+<span class="o">FROM python:3.12-slim</span>
+<span class="o">WORKDIR /app</span>
+<span class="o">COPY requirements.txt .</span>
+<span class="o">RUN pip install -r requirements.txt</span>
+<span class="o">COPY . .</span>
+<span class="o">USER 1000</span>
+<span class="o">CMD ["python", "app.py"]</span>
+      </div>
+      <div>
+        <div class="big-callout green">Declaratief · in versiebeheer · reproduceerbaar. Iedereen bouwt dezelfde image uit dezelfde regels.</div>
+        <p><strong>En dit is exact wat CI bouwt</strong> — of het nu GitHub Actions of Forgejo Actions is. Geen Dockerfile in de repo = geen werkende pipeline.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/build</span>$ <span class="cmd">build &amp;&amp; tag &amp;&amp; push</span></div>
+    <h2>Bouwen → taggen → pushen → pullen</h2>
+    <div class="term">
+<span class="p">docker build -t mijn-app:0.1.0 .          <span class="c"># bouw uit Dockerfile</span></span>
+<span class="p">docker tag mijn-app:0.1.0 \
+       docker.io/gongoeloe/mijn-app:0.1.0  <span class="c"># registry-pad + versie</span></span>
+<span class="p">docker login</span>
+<span class="p">docker push docker.io/gongoeloe/mijn-app:0.1.0</span>
+<span class="p">docker pull docker.io/gongoeloe/mijn-app:0.1.0  <span class="c"># elders, of in CI</span></span>
+    </div>
+    <p class="sub">Een tag is <em>registry / repository : versie</em>. Geen versie opgeven → Docker vult <span class="kw">:latest</span> in. Daar gaan we het op de volgende slide over hebben.</p>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/best-practices</span>$ <span class="cmd">lint Dockerfile</span></div>
+    <h2>Do's &amp; don'ts</h2>
+    <div class="cols">
+      <div class="card good">
+        <span class="exit ok">exit 0</span>
+        <ul>
+          <li><strong>Pin versies</strong>: <span class="kw">:1.27</span> of digest, nooit <span class="kw">:latest</span> in prod.</li>
+          <li><strong>Multi-stage build</strong>: bouw-tools in stage 1, alleen de binary in de runtime-image.</li>
+          <li><strong>Non-root</strong>: <span class="kw">USER 1000</span>.</li>
+          <li><strong>.dockerignore</strong>: geen <span class="kw">.git</span>, secrets of <span class="kw">node_modules</span> in de build-context.</li>
+        </ul>
+      </div>
+      <div class="card bad">
+        <span class="exit fail">exit 1</span>
+        <ul>
+          <li><span class="kw">:latest</span> in prod — je weet nooit wat draait.</li>
+          <li>Secrets in een layer. Een layer is <em>voor altijd</em>: ook al "verwijder" je 'm later, hij zit nog in de history. (→ SOPS/age, geen <span class="kw">ENV PASSWORD=</span>.)</li>
+          <li>Dikke base-image met half Ubuntu erin als je een statische binary hebt.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/tips</span>$ <span class="cmd">docker volume ls</span></div>
+    <h2>Tips &amp; tricks</h2>
+    <div class="cols">
+      <div>
+        <h3 style="color:var(--phos);margin-bottom:.4em">Named volumes ≠ bind mounts</h3>
+        <ul>
+          <li><strong>Named volume</strong>: door Docker beheerd, voor data (db). Overleeft de container.</li>
+          <li><strong>Bind mount</strong>: host-pad, voor je broncode tijdens dev.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--phos);margin-bottom:.4em">compose &amp; data</h3>
+        <div class="term" style="font-size:.82em">
+<span class="p">docker compose down       <span class="c"># containers + netwerk weg</span></span>
+<span class="p"></span><span class="o" style="color:var(--phos)">                          # named volumes BLIJVEN</span>
+<span class="p">docker compose down -v    <span class="c"># -v gooit óók de volumes weg</span></span>
+        </div>
+        <p class="sub">Data is dus losgekoppeld van de container-lifecycle. Een <span class="kw">down</span> wist je database niet — pas <span class="kw">-v</span> doet dat.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/lab</span>$ <span class="cmd">./hands-on.sh   # 30 min</span></div>
+    <span class="tag live">live · samen doen</span>
+    <h2>Aan de slag</h2>
+    <div class="steps">
+      <p class="step">Maak een account op <strong>hub.docker.com</strong> (of gebruik onze Forgejo registry).</p>
+      <p class="step">Schrijf een mini <span class="kw">Dockerfile</span> (slide 10 als basis). Hou 'm klein.</p>
+      <p class="step"><span class="kw">docker build → tag → login → push → pull</span> op een andere machine.</p>
+      <p class="step"><em>Bonus:</em> doe de <span class="kw">commit</span>-flow van slide 8 één keer — en voel waarom je 'm daarna nooit meer wilt.</p>
+    </div>
+    <p class="sub">Loop je vast: error eerst lezen, dan vragen. <span class="kw">docker logs</span> en <span class="kw">docker inspect</span> zijn je vrienden.</p>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide">
+    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/sessie</span>$ <span class="cmd">recap &amp;&amp; exit 0</span></div>
+    <h2>De kern</h2>
+    <ul>
+      <li><strong>Image</strong> = read-only layers + startinstructie. <strong>Container</strong> = draaiende instance + kladlaag.</li>
+      <li>Native op de host-kernel — geen bytecode, en <strong>architectuur-gebonden</strong>.</li>
+      <li><span class="kw">docker commit</span> = anti-pattern. <strong>Dockerfile</strong> = reproduceerbaar = wat CI bouwt.</li>
+      <li>Geen Dockerfile in de repo → geen werkende Forgejo Action. <em>Dat was de hele puzzel.</em></li>
+    </ul>
+    <div class="big-callout green" style="margin-top:1em">Boring &amp; auditable: een build die je in een audit kunt uitleggen. Niet "Henk's laptop".</div>
+    <div class="sub">Vragen?<span class="cursor"></span></div>
+  </section>
+
+</div>
+
+<div class="chrome">
+  <span>docker-101 · dev-sessie</span>
+  <span class="right">
+    <span><kbd>←</kbd> <kbd>→</kbd> nav · <kbd>F</kbd> fullscreen</span>
+    <span id="counter">01 / 15</span>
+  </span>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const counter = document.getElementById('counter');
+  const bar = document.getElementById('bar');
+  let i = 0;
+  const pad = n => String(n).padStart(2,'0');
+  function show(n){
+    i = Math.max(0, Math.min(slides.length-1, n));
+    slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+    counter.textContent = pad(i+1)+' / '+pad(slides.length);
+    bar.style.width = ((i+1)/slides.length*100)+'%';
+    location.hash = i+1;
+  }
+  function next(){show(i+1)}
+  function prev(){show(i-1)}
+  document.addEventListener('keydown', e=>{
+    if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();next()}
+    else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();prev()}
+    else if(e.key==='Home'){show(0)}
+    else if(e.key==='End'){show(slides.length-1)}
+    else if(e.key==='f'||e.key==='F'){
+      if(!document.fullscreenElement){document.documentElement.requestFullscreen?.()}
+      else{document.exitFullscreen?.()}
+    }
+  });
+  // tap/klik rechterhelft = next, linkerhelft = prev
+  document.getElementById('deck').addEventListener('click', e=>{
+    (e.clientX > window.innerWidth/2) ? next() : prev();
+  });
+  const start = parseInt(location.hash.replace('#',''))||1;
+  show(start-1);
+</script>
+</body>
+</html>
