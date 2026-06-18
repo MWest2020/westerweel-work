@@ -148,28 +148,28 @@
 
   <!-- 1 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/sessie</span>$ <span class="cmd">cat docker-101.md</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/sessie</span>$ <span class="cmd">cat docker-101.md</span></div>
     <h1>Docker<br>van image → registry</h1>
     <div class="title-meta">
       Eén uur. Mentaal model + handen op de bak.<br>
       Doel: snappen <b>waarom</b> een image draait, niet alleen <b>dat</b> je 'm kunt pushen.<br>
-      Aanleiding: GitHub → Codeberg, en de Actions doen het niet.
+      De casus: lokaal bouwen en pushen lukt — totdat de CI/CD het overneemt en niets meer bouwt.
     </div>
     <div class="sub">— gebruik <kbd>→</kbd> / <kbd>spatie</kbd> om verder te gaan, <kbd>F</kbd> voor fullscreen.<span class="cursor"></span></div>
   </section>
 
   <!-- 2 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/sessie</span>$ <span class="cmd">why --are-we-here</span></div>
-    <h2>Waarom deze sessie</h2>
-    <p class="lead">Jullie kunnen images bouwen en pushen. Tóch lopen we vast op de migratie en weigeren de Actions te bouwen.</p>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/sessie</span>$ <span class="cmd">why --are-we-here</span></div>
+    <h2>De casus</h2>
+    <p class="lead">Een team bouwt en pusht lokaal probleemloos images. Tóch loopt het vast zodra de CI/CD het overneemt: de pipeline weigert te bouwen.</p>
     <div class="big-callout">"Een image kunnen pushen" is niet hetzelfde als "snappen hoe een container runtime werkt". Ad-hoc lokale flows werken prima — totdat je <em>reproduceerbaarheid</em> nodig hebt.</div>
-    <p>En dat moment is precies dit: <strong>CI / migratie</strong>. De gap dook niet toevallig bij Codeberg op — dáár breekt een wankel mentaal model. Dat repareren we vandaag.</p>
+    <p>En dat moment is precies dit: <strong>CI / CD</strong>. De gap dook niet toevallig op tijdens de migratie — dáár breekt een wankel mentaal model. Dat repareren we hier.</p>
   </section>
 
   <!-- 3 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/model</span>$ <span class="cmd">whatis container</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/model</span>$ <span class="cmd">whatis container</span></div>
     <h2>Een container is geen VM</h2>
     <div class="cols">
       <div>
@@ -185,7 +185,7 @@
 
   <!-- 4 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/model</span>$ <span class="cmd">whatis image vs container</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/model</span>$ <span class="cmd">whatis image vs container</span></div>
     <h2>Image ≠ container</h2>
     <div class="cols">
       <div>
@@ -210,7 +210,7 @@
 
   <!-- 5 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/model</span>$ <span class="cmd">debunk bytecode-mythe</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/model</span>$ <span class="cmd">debunk bytecode-mythe</span></div>
     <h2>De twee misverstanden</h2>
     <div class="cols">
       <div class="card bad">
@@ -236,7 +236,7 @@
 
   <!-- 6 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/model</span>$ <span class="cmd">explain layers</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/model</span>$ <span class="cmd">explain layers</span></div>
     <h2>Layers stapelen</h2>
     <div class="cols">
       <div>
@@ -259,7 +259,7 @@
 
   <!-- 7 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/basics</span>$ <span class="cmd">docker --help | head</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/basics</span>$ <span class="cmd">docker --help | head</span></div>
     <h2>De lifecycle in commands</h2>
     <div class="term">
 <span class="p">docker pull nginx:1.27        <span class="c"># image ophalen</span></span>
@@ -274,7 +274,7 @@
 
   <!-- 8 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/basics</span>$ <span class="cmd">docker commit  # demo — let op</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/basics</span>$ <span class="cmd">docker commit  # demo — let op</span></div>
     <span class="tag">demo · 1× laten zien, daarna nooit meer</span>
     <h2>Container → image, met de hand</h2>
     <div class="term">
@@ -289,7 +289,7 @@
 
   <!-- 9 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/basics</span>$ <span class="cmd">docker commit; echo $?</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/basics</span>$ <span class="cmd">docker commit; echo $?</span></div>
     <h2>Waarom <span style="color:var(--amber)">commit</span> faalt in CI</h2>
     <div class="cols">
       <div class="card bad">
@@ -302,7 +302,7 @@
         </ul>
       </div>
       <div>
-        <div class="big-callout">Dít is vermoedelijk waarom je Forgejo Actions faalt. Bestaat een image alleen omdat iemand 'm lokaal commit-te, dan vindt de pipeline geen Dockerfile — of bouwt iets anders dan jij lokaal draaide.</div>
+        <div class="big-callout">Dít is precies waar de pipeline op breekt. Bestaat een image alleen omdat iemand 'm lokaal commit-te, dan vindt de CI geen Dockerfile — of bouwt iets anders dan er lokaal draaide.</div>
         <p class="sub">"Boring &amp; auditable" begint hier: een build die je in een ISO 27001-audit kunt uitleggen, niet "Henk heeft 'm ooit op z'n laptop gemaakt".</p>
       </div>
     </div>
@@ -310,7 +310,7 @@
 
   <!-- 10 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/build</span>$ <span class="cmd">cat Dockerfile</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/build</span>$ <span class="cmd">cat Dockerfile</span></div>
     <h2>Dockerfile = de juiste manier</h2>
     <div class="cols">
       <div class="term">
@@ -331,7 +331,7 @@
 
   <!-- 11 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/build</span>$ <span class="cmd">build &amp;&amp; tag &amp;&amp; push</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/build</span>$ <span class="cmd">build &amp;&amp; tag &amp;&amp; push</span></div>
     <h2>Bouwen → taggen → pushen → pullen</h2>
     <div class="term">
 <span class="p">docker build -t mijn-app:0.1.0 .          <span class="c"># bouw uit Dockerfile</span></span>
@@ -346,7 +346,7 @@
 
   <!-- 12 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/best-practices</span>$ <span class="cmd">lint Dockerfile</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/best-practices</span>$ <span class="cmd">lint Dockerfile</span></div>
     <h2>Do's &amp; don'ts</h2>
     <div class="cols">
       <div class="card good">
@@ -371,7 +371,7 @@
 
   <!-- 13 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/tips</span>$ <span class="cmd">docker volume ls</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/tips</span>$ <span class="cmd">docker volume ls</span></div>
     <h2>Tips &amp; tricks</h2>
     <div class="cols">
       <div>
@@ -395,11 +395,11 @@
 
   <!-- 14 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/lab</span>$ <span class="cmd">./hands-on.sh   # 30 min</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/lab</span>$ <span class="cmd">./hands-on.sh   # 30 min</span></div>
     <span class="tag live">live · samen doen</span>
     <h2>Aan de slag</h2>
     <div class="steps">
-      <p class="step">Maak een account op <strong>hub.docker.com</strong> (of gebruik onze Forgejo registry).</p>
+      <p class="step">Maak een account op <strong>hub.docker.com</strong> (of gebruik een zelf-gehoste registry).</p>
       <p class="step">Schrijf een mini <span class="kw">Dockerfile</span> (slide 10 als basis). Hou 'm klein.</p>
       <p class="step"><span class="kw">docker build → tag → login → push → pull</span> op een andere machine.</p>
       <p class="step"><em>Bonus:</em> doe de <span class="kw">commit</span>-flow van slide 8 één keer — en voel waarom je 'm daarna nooit meer wilt.</p>
@@ -409,13 +409,13 @@
 
   <!-- 15 -->
   <section class="slide">
-    <div class="prompt"><span class="usr">dev@conduction</span>:<span class="path">~/sessie</span>$ <span class="cmd">recap &amp;&amp; exit 0</span></div>
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/sessie</span>$ <span class="cmd">recap &amp;&amp; exit 0</span></div>
     <h2>De kern</h2>
     <ul>
       <li><strong>Image</strong> = read-only layers + startinstructie. <strong>Container</strong> = draaiende instance + kladlaag.</li>
       <li>Native op de host-kernel — geen bytecode, en <strong>architectuur-gebonden</strong>.</li>
       <li><span class="kw">docker commit</span> = anti-pattern. <strong>Dockerfile</strong> = reproduceerbaar = wat CI bouwt.</li>
-      <li>Geen Dockerfile in de repo → geen werkende Forgejo Action. <em>Dat was de hele puzzel.</em></li>
+      <li>Geen Dockerfile in de repo → geen werkende CI-pipeline. <em>Dat was de hele puzzel.</em></li>
     </ul>
     <div class="big-callout green" style="margin-top:1em">Boring &amp; auditable: een build die je in een audit kunt uitleggen. Niet "Henk's laptop".</div>
     <div class="sub">Vragen?<span class="cursor"></span></div>
