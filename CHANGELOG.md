@@ -7,13 +7,12 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
 ### Added
 - Nieuwe post **"Documentatie die liegt is erger dan geen documentatie"** (NL)
   / **"Documentation that lies is worse than no documentation"** (EN),
-  `translationKey: living-docs-gates`, `draft: true`. Essay over levende
+  `translationKey: living-docs-gates`, gepubliceerd (`draft: false`). Essay over levende
   documentatie: docs-contract (owner + last_reviewed, docs in dezelfde PR),
   pre-push/CI-gates (contract-check, uitvoerbare doc-claims, freshness-gate,
   linkcheck, automatische drift-issues) en een read-only MCP-server die agents
   grondwaarheid mét herkomst geeft. Bewust geanonimiseerd: geen werkgever-,
-  klant- of platformnamen. Publiceren = draft-flag omzetten en pushen
-  (handmatig, na review).
+  klant- of platformnamen. Gaat live bij de eerstvolgende push naar main.
 
 ## 2026-06-18 (eleventh pass — workshops / slidedecks)
 

@@ -1,7 +1,7 @@
 ---
 title: "Documentation that lies is worse than no documentation"
 date: 2026-07-14
-draft: true
+draft: false
 tags: ["ai", "agents", "documentation", "devops", "compliance"]
 translationKey: "living-docs-gates"
 summary: "Stale documentation has always been a slow-burning problem, but now that AI agents read that documentation as ground truth, it has become an acute one. How we made documentation 'living' with an enforceable contract, gates that block unverified changes, and an MCP server that gives agents context with provenance — so they cite instead of guess. From 63 findings to zero, and why boring wins here."

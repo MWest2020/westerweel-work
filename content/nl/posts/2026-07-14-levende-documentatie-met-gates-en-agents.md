@@ -1,7 +1,7 @@
 ---
 title: "Documentatie die liegt is erger dan geen documentatie"
 date: 2026-07-14
-draft: true
+draft: false
 tags: ["ai", "agents", "documentation", "devops", "compliance"]
 translationKey: "living-docs-gates"
 summary: "Verouderde documentatie was altijd al een sluipend probleem, maar sinds AI-agents die documentatie als waarheid lezen is het een acuut probleem. Hoe wij documentatie 'levend' maakten met een afdwingbaar contract, gates die ongeteste wijzigingen tegenhouden, en een MCP-server die agents context geeft mét herkomst — zodat ze citeren in plaats van gokken. Van 63 bevindingen naar nul, en waarom saai hier wint."
