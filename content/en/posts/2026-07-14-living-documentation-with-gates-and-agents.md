@@ -4,7 +4,7 @@ date: 2026-07-14
 draft: false
 tags: ["ai", "agents", "documentation", "devops", "compliance"]
 translationKey: "living-docs-gates"
-summary: "Stale documentation has always been a slow-burning problem, but now that AI agents read that documentation as ground truth, it has become an acute one. How we made documentation 'living' with an enforceable contract, gates that block unverified changes, and an MCP server that gives agents context with provenance — so they cite instead of guess. From 63 findings to zero, and why boring wins here."
+summary: "Stale documentation has always been a slow-burning problem, but now that AI agents read that documentation as ground truth, it has become an acute one. How we made documentation 'living' with an enforceable contract, gates that block unverified changes, and an MCP server that gives agents context with provenance — so they cite instead of guess. From 63 findings to zero. And why this pattern doubles as the foundation for a chatbot on your cluster: talking to the devops colleague who is on holiday, with sources attached."
 ---
 
 *How to build documentation that cannot go stale without someone
@@ -141,6 +141,40 @@ actions may an agent perform autonomously, which only as a proposal,
 which require a human, and which are forbidden. With one closing rule:
 **if it is not in the catalogue, a human is required.** Pushing and
 production mutations are always done by a human.
+
+### From documentation to conversation: talk to your cluster
+
+Once this was in place, the pattern turned out to open one more door —
+perhaps the most important one. Documentation that is current,
+traceable and machine-readable is exactly the foundation a chatbot
+needs to be useful instead of dangerous.
+
+Anyone who has ever asked a language model about their own
+infrastructure knows the two flavours:
+
+**You:** "What's the current image tag for the Nextcloud deployment on
+production?"
+
+**Bot without ground truth:** "Probably `latest`, or maybe 28.0.0 —
+that came out recently…"
+
+**Bot with ground truth:** queries the MCP server, reads the deployment
+configuration and the matching handbook page, and answers: "28.0.2,
+rolled out on July 11; the chart values live in this repo — source:
+page *deployments*, owner platform-team, last reviewed this month."
+
+The first answer is a guess delivered with confidence — the most
+dangerous combination there is. The second is a quote with a footnote.
+Same model, same question; the only difference is the layer
+underneath.
+
+That makes this pattern the natural foundation for an assistant on
+your platform: talking to your cluster infrastructure the way you talk
+to that one devops colleague who knows everything — even when that
+colleague is on holiday. With two differences in the bot's favour: it
+cites its sources with every answer, and it is not *allowed* to do
+anything. Read, search, cite — mutation is not in its catalogue, and
+what is not in the catalogue requires a human.
 
 ### What it buys you
 

@@ -4,7 +4,7 @@ date: 2026-07-14
 draft: false
 tags: ["ai", "agents", "documentation", "devops", "compliance"]
 translationKey: "living-docs-gates"
-summary: "Verouderde documentatie was altijd al een sluipend probleem, maar sinds AI-agents die documentatie als waarheid lezen is het een acuut probleem. Hoe wij documentatie 'levend' maakten met een afdwingbaar contract, gates die ongeteste wijzigingen tegenhouden, en een MCP-server die agents context geeft mét herkomst — zodat ze citeren in plaats van gokken. Van 63 bevindingen naar nul, en waarom saai hier wint."
+summary: "Verouderde documentatie was altijd al een sluipend probleem, maar sinds AI-agents die documentatie als waarheid lezen is het een acuut probleem. Hoe wij documentatie 'levend' maakten met een afdwingbaar contract, gates die ongeteste wijzigingen tegenhouden, en een MCP-server die agents context geeft mét herkomst — zodat ze citeren in plaats van gokken. Van 63 bevindingen naar nul. En waarom dit patroon meteen de basis is voor een chatbot op je cluster: praten met de devops-collega die met vakantie is, mét bronvermelding."
 ---
 
 *Hoe je documentatie bouwt die niet kán verouderen zonder dat iemand
@@ -143,6 +143,40 @@ handelingen mag een agent autonoom doen, welke alleen als voorstel,
 welke vereisen een mens, en welke zijn verboden. Met als sluitregel:
 **staat het niet in het cataloog, dan is een mens vereist.** Pushen en
 productie-mutaties doet altijd een mens.
+
+### Van documentatie naar gesprek: praat met je cluster
+
+Toen dit eenmaal stond, bleek het patroon nog een deur te openen —
+misschien wel de belangrijkste. Documentatie die actueel, herleidbaar
+en machine-leesbaar is, is precies het fundament dat een chatbot nodig
+heeft om nuttig te zijn in plaats van gevaarlijk.
+
+Iedereen die weleens een taalmodel iets over de eigen infrastructuur
+heeft gevraagd, kent de twee smaken:
+
+**Jij:** "Welke image-tag draait de Nextcloud-deployment op productie?"
+
+**Bot zonder grondwaarheid:** "Waarschijnlijk `latest`, of misschien
+28.0.0 — die is recent uitgekomen…"
+
+**Bot mét grondwaarheid:** raadpleegt de MCP-server, leest de
+deployment-configuratie en de bijbehorende handboekpagina, en
+antwoordt: "28.0.2, uitgerold op 11 juli; de chart-values staan in
+deze repo — bron: pagina *deployments*, eigenaar platform-team, laatst
+gereviewd deze maand."
+
+Het eerste antwoord is een gok met een stellige toon — de gevaarlijkste
+combinatie die er bestaat. Het tweede is een citaat met een voetnoot.
+Zelfde model, zelfde vraag; het verschil is uitsluitend de laag
+eronder.
+
+Dat maakt dit patroon de natuurlijke basis voor een assistent op je
+platform: praten met je cluster-infra zoals je praat met die ene
+devops-collega die alles weet — óók als die collega met vakantie is.
+Met twee verschillen in het voordeel van de bot: hij geeft bij elk
+antwoord zijn bronnen, en hij mág niets. Lezen, zoeken, citeren —
+muteren staat niet in zijn cataloog, en wat niet in het cataloog staat,
+vereist een mens.
 
 ### Wat het oplevert
 
