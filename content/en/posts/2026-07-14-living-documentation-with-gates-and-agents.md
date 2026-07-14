@@ -67,6 +67,16 @@ component itself. Never centralised, never copied. The central portal
 artifact — the source repo remains the single source of truth. That
 structurally removes duplication, the root of divergence.
 
+None of that principle is new: this is docs-as-code, as the
+[Write the Docs](https://www.writethedocs.org/guide/docs-as-code/)
+community and Anne Gentle's
+[*Docs Like Code*](https://www.docslikecode.com/) have prescribed for
+years — documentation in version control, next to the code, through the
+same review as the code. What we mainly added is enforcement. Every
+page is also exactly one kind — tutorial, how-to, reference or
+explanation — following Daniele Procida's
+[Diátaxis](https://diataxis.fr/) framework.
+
 Every page carries two mandatory fields in its front matter:
 
 ```yaml
@@ -203,3 +213,15 @@ agents a boring, predictable read interface with source attribution.
 
 Living documentation is not documentation that writes itself. It is
 documentation that cannot lie without a light going on somewhere.
+
+---
+
+*A piece about provenance should cite its own sources. The term
+"living documentation" originates in Gojko Adzic's
+[*Specification by Example*](https://gojko.net/books/specification-by-example/)
+and was developed further by Cyrille Martraire in his book
+[*Living Documentation*](https://leanpub.com/livingdocumentation). The
+docs-as-code school of thought comes from the Write the Docs community,
+the page taxonomy from Daniele Procida's Diátaxis. What we added is
+mainly the combination: gates that enforce the contract, and a read
+interface with provenance for agents.*

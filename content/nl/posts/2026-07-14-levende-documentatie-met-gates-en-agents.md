@@ -67,6 +67,15 @@ zelf. Nooit centraal, nooit gekopieerd. Het centrale portaal
 de bronrepo blijft de enige waarheid. Daarmee is duplicatie (de bron
 van divergentie) structureel weg.
 
+Nieuw is dat principe niet: dit is docs-as-code, zoals de
+[Write the Docs](https://www.writethedocs.org/guide/docs-as-code/)-gemeenschap
+en Anne Gentle in [*Docs Like Code*](https://www.docslikecode.com/) het
+al jaren voorschrijven — documentatie in versiebeheer, naast de code,
+door dezelfde review als de code. Wij hebben er vooral handhaving aan
+toegevoegd. Elke pagina is bovendien precies één soort — tutorial,
+how-to, referentie of uitleg — conform het
+[Diátaxis](https://diataxis.fr/)-raamwerk van Daniele Procida.
+
 Elke pagina draagt twee verplichte velden in de front matter:
 
 ```yaml
@@ -207,3 +216,15 @@ voorspelbare leesinterface met bronvermelding.
 Levende documentatie is geen documentatie die zichzelf schrijft. Het is
 documentatie die niet kán liegen zonder dat er ergens een lampje gaat
 branden.
+
+---
+
+*Een stuk over herkomst hoort zijn eigen bronnen te vermelden. De term
+"living documentation" komt uit
+[*Specification by Example*](https://gojko.net/books/specification-by-example/)
+van Gojko Adzic en is uitgewerkt door Cyrille Martraire in zijn boek
+[*Living Documentation*](https://leanpub.com/livingdocumentation). Het
+docs-as-code-gedachtegoed komt uit de Write the Docs-gemeenschap, de
+pagina-indeling uit Diátaxis van Daniele Procida. Wat wij toevoegden is
+vooral de combinatie: gates die het contract afdwingen, en een
+leesinterface met herkomst voor agents.*
