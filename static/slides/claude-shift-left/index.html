@@ -1,0 +1,835 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shift left — leesversie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0e0a;
+    --bg-panel:#0d130d;
+    --phos:#33ff66;        /* primaire phosphor */
+    --phos-dim:#1f9c3f;    /* gedimd */
+    --phos-faint:#0e3a1c;  /* heel zwak, voor rasters/randen */
+    --amber:#ffb000;       /* waarschuwing / don't */
+    --amber-dim:#9c6b00;
+    --red:#ff4d4d;         /* exit 1 */
+    --paper:#cfe6d4;       /* leestekst */
+    --muted:#5f8a68;
+    --mono:'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:var(--bg);
+    color:var(--paper);
+    font-family:var(--mono);
+    /* Ook aan de hóógte koppelen: een breed-maar-laag scherm (projector,
+       gedeeld venster) gaf anders tekst op volle grootte in te weinig
+       ruimte, en dan valt de onderkant van de slide weg. */
+    font-size:clamp(13px,min(1.7vw,2.25vh),20px);
+    line-height:1.5;
+    overflow:hidden;
+  }
+  /* CRT scanlines + vignette, subtiel */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:50;
+    background:repeating-linear-gradient(0deg,rgba(0,0,0,0) 0px,rgba(0,0,0,0) 2px,rgba(0,0,0,.16) 3px,rgba(0,0,0,0) 4px);
+    mix-blend-mode:multiply;opacity:.55;
+  }
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:49;
+    background:radial-gradient(ellipse at center,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%);
+  }
+
+  .deck{height:100vh;width:100vw;position:relative}
+  .slide{
+    position:absolute;inset:0;
+    display:none;flex-direction:column;
+    padding:clamp(28px,5vh,64px) clamp(28px,6vw,96px) clamp(52px,7vh,80px);
+    opacity:0;
+    /* vangnet: past de inhoud niet, dan scrollt hij liever dan dat hij
+       stil onder de chrome-balk verdwijnt. */
+    overflow-y:auto;
+  }
+  .slide.active{display:flex;animation:flick .18s steps(2) both}
+  @keyframes flick{0%{opacity:.4}100%{opacity:1}}
+  @media (prefers-reduced-motion:reduce){
+    .slide.active{animation:none}
+    .cursor{animation:none!important}
+  }
+
+  /* prompt-regel boven elke slide */
+  .prompt{
+    color:var(--phos-dim);font-size:.78em;margin-bottom:1.6em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .prompt .usr{color:var(--phos)}
+  .prompt .path{color:var(--muted)}
+  .prompt .cmd{color:var(--paper)}
+  .cursor{display:inline-block;width:.6em;height:1.05em;background:var(--phos);
+    transform:translateY(.18em);animation:blink 1s steps(1) infinite;margin-left:.1em}
+  @keyframes blink{50%{opacity:0}}
+
+  h1{font-size:clamp(2em,5.5vw,3.6em);font-weight:700;color:var(--phos);
+    line-height:1.05;letter-spacing:-.02em;text-shadow:0 0 14px rgba(51,255,102,.35)}
+  h2{font-size:clamp(1.4em,3.4vw,2.3em);font-weight:700;color:var(--phos);
+    line-height:1.1;margin-bottom:.7em;text-shadow:0 0 10px rgba(51,255,102,.25)}
+  .sub{color:var(--muted);font-size:1em;margin-top:1em;max-width:48ch}
+  .lead{max-width:60ch}
+  p{margin-bottom:.7em;max-width:64ch}
+  strong{color:var(--phos);font-weight:700}
+  em{color:var(--amber);font-style:normal}
+  .kw{color:var(--phos);font-weight:500}
+
+  ul{list-style:none;margin:.4em 0}
+  li{margin:.5em 0;padding-left:1.4em;position:relative;max-width:66ch}
+  li::before{content:"›";position:absolute;left:0;color:var(--phos-dim)}
+
+  code,.code{font-family:var(--mono)}
+  .term{
+    background:var(--bg-panel);border:1px solid var(--phos-faint);
+    border-radius:6px;padding:.85em 1.1em;margin:.5em 0;
+    box-shadow:inset 0 0 30px rgba(51,255,102,.04);max-width:78ch;
+    font-size:.92em;overflow-x:auto;flex:none;
+  }
+  .term .c{color:var(--muted)}                 /* comment */
+  .term .o{color:var(--paper)}                 /* output */
+  .term .p::before{content:"$ ";color:var(--phos-dim)}
+  .term .p{color:var(--phos);display:block;white-space:pre}
+  .term .o{display:block;white-space:pre}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,48px);align-items:start}
+  @media (max-width:760px){.cols{grid-template-columns:1fr}}
+
+  .card{border:1px solid var(--phos-faint);border-radius:6px;padding:1em 1.1em;background:var(--bg-panel)}
+  .card.good{border-color:var(--phos-faint)}
+  .card.bad{border-color:var(--amber-dim)}
+  .exit{font-size:.78em;letter-spacing:.04em;display:inline-block;margin-bottom:.5em;
+    padding:.1em .55em;border-radius:3px;font-weight:700}
+  .exit.ok{color:var(--phos);background:rgba(51,255,102,.08);border:1px solid var(--phos-faint)}
+  .exit.fail{color:var(--amber);background:rgba(255,176,0,.07);border:1px solid var(--amber-dim)}
+  .card h3{font-size:.95em;color:var(--paper);margin-bottom:.5em;font-weight:700}
+  .card ul{margin:0}.card li{font-size:.86em;margin:.35em 0}
+
+  .big-callout{border-left:3px solid var(--amber);padding:.4em 0 .4em 1.1em;margin:.6em 0;
+    color:var(--paper);max-width:62ch}
+  .big-callout.green{border-left-color:var(--phos)}
+
+  .tag{display:inline-block;align-self:flex-start;font-size:.7em;color:var(--amber);border:1px solid var(--amber-dim);
+    padding:.05em .5em;border-radius:3px;margin-bottom:1em;letter-spacing:.06em}
+  .tag.live{color:var(--phos);border-color:var(--phos-faint)}
+
+  .layers{display:flex;flex-direction:column-reverse;gap:3px;margin:.6em 0;max-width:30ch}
+  .layer{border:1px solid var(--phos-faint);border-radius:4px;padding:.4em .8em;font-size:.82em;
+    background:var(--bg-panel);color:var(--muted)}
+  .layer.w{border-color:var(--amber-dim);color:var(--amber)}
+  .layer.base{border-color:var(--phos-faint);color:var(--phos)}
+
+  .step{counter-increment:step;position:relative;padding-left:2.4em;margin:.6em 0;max-width:64ch}
+  .step::before{content:"0" counter(step);position:absolute;left:0;top:0;color:var(--phos-dim);
+    font-weight:700;font-size:.9em}
+  .steps{counter-reset:step}
+
+  /* footer / chrome */
+  .chrome{position:fixed;bottom:0;left:0;right:0;height:34px;z-index:40;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 16px;font-size:.72em;color:var(--muted);
+    border-top:1px solid var(--phos-faint);background:rgba(10,14,10,.85)}
+  .chrome .right{display:flex;gap:18px;align-items:center}
+  .bar{position:fixed;top:0;left:0;height:2px;background:var(--phos);z-index:60;
+    box-shadow:0 0 8px var(--phos);transition:width .2s}
+  kbd{border:1px solid var(--phos-faint);border-radius:3px;padding:0 .35em;color:var(--paper)}
+
+  .title-meta{margin-top:1.6em;color:var(--muted);font-size:.85em;line-height:1.8}
+  .title-meta b{color:var(--phos)}
+  /* --- links --- */
+  a{color:var(--phos);text-decoration:none;border-bottom:1px solid var(--phos-faint)}
+  a:hover{border-bottom-color:var(--phos)}
+  a:focus-visible{outline:2px solid var(--phos);outline-offset:2px;border-radius:2px}
+  .docs{font-size:.8em;color:var(--muted);margin-top:1.1em;max-width:74ch}
+  .docs b{color:var(--phos-dim);font-weight:400;letter-spacing:.06em}
+  .docs ul{margin:.3em 0}
+  .docs li{margin:.28em 0;font-size:1em}
+
+  /* --- figuren --- */
+  figure{margin:.5em 0;max-width:100%}
+  figure svg{display:block;width:100%;height:auto;max-height:40vh}
+  figcaption{color:var(--muted);font-size:.76em;margin-top:.6em;max-width:76ch}
+  .dg-box{fill:var(--bg-panel);stroke:currentColor;stroke-width:1.2}
+  .dg-box.hot{stroke:var(--phos);stroke-width:1.8}
+  .dg-box.warn{stroke:var(--amber)}
+  .dg-t{fill:var(--paper);font-size:13px;font-family:var(--mono)}
+  .dg-t.sm{font-size:11px;fill:var(--muted)}
+  .dg-t.hot{fill:var(--phos)}
+  .dg-t.warn{fill:var(--amber)}
+  .dg-l{stroke:currentColor;stroke-width:1.2;fill:none}
+  .dg-l.hot{stroke:var(--phos)}
+  .dg-l.warn{stroke:var(--amber)}
+  .dg-l.dash{stroke-dasharray:4 3}
+  .quote{border-left:3px solid var(--phos);padding:.3em 0 .3em 1.1em;margin:.7em 0;
+    color:var(--paper);max-width:68ch}
+  .quote cite{display:block;color:var(--muted);font-style:normal;font-size:.8em;margin-top:.4em}
+
+  
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<main class="deck" id="deck">
+<section class="slide active">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/sessie</span>$ <span class="cmd">cat shift-left.md</span></div>
+    <h1>Shift left<br>hooks &gt; goede bedoelingen</h1>
+    <div class="title-meta">
+      Eén uur. Over de plek van een regel, niet over de regel zelf.<br>
+      Doel: snappen <b>waarom</b> <span class="kw">CLAUDE.md</span> je regel niet afdwingt, en wat wel.<br>
+      De casus: de check faalt in de CI, twintig minuten nadat je verder was gegaan.
+    </div>
+    <div class="sub">— gebruik <kbd>→</kbd> / <kbd>spatie</kbd> om verder te gaan, <kbd>F</kbd> voor fullscreen.<span class="cursor"></span></div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/sessie</span>$ <span class="cmd">why --are-we-here</span></div>
+    <h2>De casus</h2>
+    <p class="lead">Je agent schrijft code. Je commit. Twintig minuten later mailt de CI dat er een ongequote variabele in staat. Je zat al drie taken verder.</p>
+    <div class="big-callout">De fout was bekend op het moment dat het bestand geschreven werd. Alleen wist niemand het, want de enige plek waar we het controleren staat helemaal rechts.</div>
+    <p>En de tweede helft van de casus: in <span class="kw">CLAUDE.md</span> stáát dat dit niet mag. Er staat een hele lijst dingen die niet mogen. <strong>Toch gebeurde het.</strong></p>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/meting</span>$ <span class="cmd">time ./check.sh</span></div>
+    <h2>Het probleem heeft een getal</h2>
+    <div class="cols">
+      <div>
+        <div class="term">
+<span class="p">hook: shellcheck, 1 bestand</span>
+<span class="o" style="color:var(--phos)">  21 ms</span>
+<span class="p">hook: php -l, 1 bestand</span>
+<span class="o" style="color:var(--phos)">  35 ms</span>
+<span class="p">CI: quality-workflow, 7 runs</span>
+<span class="o" style="color:var(--amber)">  17 – 41 min</span>
+        </div>
+        <p class="sub">Gemeten, niet geschat — alle zeven afgeronde runs van één dag. Eén PHP-repo met zes analyse-legs, elk met eigen checkout en <span class="kw">composer install</span>.</p>
+      </div>
+      <div>
+        <div class="big-callout">Factor <strong>50.000</strong> op de snélste run. Op de langste loopt het op naar 100.000 — dezelfde check, andere plek.</div>
+        <p>In diezelfde runlijst stond een build met de titel <em>"fix(lint): prune the one stale eslint suppression"</em>.</p>
+        <p class="sub">Eén lint-regel opruimen. Volledige CI-ronde. Wie doet dat vaker dan hij zou willen?</p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/meting</span>$ <span class="cmd">draw --loops</span></div>
+    <h2>Twee lussen, zelfde fout</h2>
+    <figure>
+      <svg viewBox="0 0 800 250" role="img" aria-label="Twee correctielussen vanaf dezelfde edit: via de hook drie stappen en 21 milliseconden, via de CI zeven stappen en 17 tot 41 minuten.">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+          <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#33ff66"/>
+          </marker>
+          <marker id="aha" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#ffb000"/>
+          </marker>
+        </defs>
+
+        <!-- lus 1: in de hook -->
+        <text class="dg-t hot" x="0" y="96">in de hook</text>
+        <path class="dg-l hot" d="M132,74 C132,42 342,42 342,74" marker-end="url(#ahg)"/>
+        <text class="dg-t sm hot" x="237" y="34" text-anchor="middle">stderr terug naar het model</text>
+        <line class="dg-l hot" x1="144" y1="92" x2="204" y2="92" marker-end="url(#ahg)"/>
+        <line class="dg-l hot" x1="264" y1="92" x2="330" y2="92" marker-end="url(#ahg)"/>
+        <circle cx="132" cy="92" r="7" class="dg-box hot"/>
+        <rect x="204" y="74" width="60" height="36" rx="5" class="dg-box hot"/>
+        <circle cx="342" cy="92" r="7" class="dg-box hot"/>
+        <text class="dg-t sm" x="132" y="128" text-anchor="middle">edit</text>
+        <text class="dg-t sm hot" x="234" y="128" text-anchor="middle">hook</text>
+        <text class="dg-t sm" x="342" y="128" text-anchor="middle">fix</text>
+        <text class="dg-t hot" x="390" y="98">3 stappen · geen mens · hook: 21 ms</text>
+
+        <!-- lus 2: via de CI -->
+        <text class="dg-t warn" x="0" y="212">via de CI</text>
+        <path class="dg-l warn" d="M132,226 C132,244 748,244 748,226" marker-end="url(#aha)"/>
+        <text class="dg-t sm warn" x="440" y="242" text-anchor="middle">mail, drie taken later</text>
+        <line class="dg-l warn" x1="144" y1="208" x2="212" y2="208" marker-end="url(#aha)"/>
+        <line class="dg-l warn" x1="244" y1="208" x2="312" y2="208" marker-end="url(#aha)"/>
+        <line class="dg-l warn" x1="344" y1="208" x2="424" y2="208" marker-end="url(#aha)"/>
+        <line class="dg-l warn" x1="518" y1="208" x2="584" y2="208" marker-end="url(#aha)"/>
+        <line class="dg-l warn" x1="616" y1="208" x2="682" y2="208" marker-end="url(#aha)"/>
+        <line class="dg-l warn" x1="714" y1="208" x2="736" y2="208" marker-end="url(#aha)"/>
+        <circle cx="132" cy="208" r="7" class="dg-box warn"/>
+        <circle cx="224" cy="208" r="7" class="dg-box warn"/>
+        <circle cx="324" cy="208" r="7" class="dg-box warn"/>
+        <rect x="424" y="190" width="82" height="36" rx="5" class="dg-box warn"/>
+        <circle cx="596" cy="208" r="7" class="dg-box warn"/>
+        <circle cx="694" cy="208" r="7" class="dg-box warn"/>
+        <circle cx="748" cy="208" r="7" class="dg-box warn"/>
+        <text class="dg-t sm" x="132" y="180" text-anchor="middle">edit</text>
+        <text class="dg-t sm" x="224" y="180" text-anchor="middle">commit</text>
+        <text class="dg-t sm" x="324" y="180" text-anchor="middle">remote</text>
+        <text class="dg-t sm warn" x="465" y="180" text-anchor="middle">CI 17–41 min</text>
+        <text class="dg-t sm" x="596" y="180" text-anchor="middle">mail</text>
+        <text class="dg-t sm" x="694" y="180" text-anchor="middle">mens</text>
+        <text class="dg-t sm" x="756" y="180" text-anchor="start">fix</text>
+      </svg>
+      <figcaption>Dezelfde ongequote variabele, twee wegen terug naar een correctie. De bovenste lus sluit binnen één turn van de agent; de onderste heeft een commit, een runner, een mail en een mens nodig — en jij was al drie taken verder.</figcaption>
+    </figure>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/meting</span>$ <span class="cmd">why --now</span></div>
+    <h2>Waarom AI dit urgenter maakt</h2>
+    <ul>
+      <li>De hoeveelheid code per uur gaat <strong>omhoog</strong>. De latency van de gate blijft <strong>gelijk</strong>.</li>
+      <li>Het verschil komt in de wachtrij. Je merkt het niet als "de CI is traag" maar als <em>"we mergen minder per dag"</em>.</li>
+      <li>Een agent die zijn eigen fout pas na twintig minuten hoort, is een agent die je zelf moet nakijken.</li>
+      <li>Krijgt hij de fout in <strong>dezelfde turn</strong> terug — de hook kost er 21 ms van — dan repareert hij hem zelf, zonder mens.</li>
+    </ul>
+    <div class="big-callout green">Dát is de hele belofte: niet sneller schrijven, maar de correctielus sluiten voordat er een mens aan te pas komt.</div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/scope</span>$ <span class="cmd">shift-left --what-it-is-not</span></div>
+    <h2>Wat shift left niet is</h2>
+    <div class="cols">
+      <div class="card bad">
+        <span class="exit fail">fout</span>
+        <h3>"Dan kan de CI-check eruit"</h3>
+        <ul>
+          <li>De hook draaide op <em>jouw</em> laptop, met <em>jouw</em> tools</li>
+          <li>Niets bewijst dat hij aan stond</li>
+          <li>Geen log, geen artefact, geen audit</li>
+        </ul>
+      </div>
+      <div class="card good">
+        <span class="exit ok">goed</span>
+        <h3>Detectie naar links, gate blijft rechts</h3>
+        <ul>
+          <li>De hook is een <strong>feedbackloop</strong>: goedkoop, snel, mag ruis geven</li>
+          <li>De CI is een <strong>gate</strong>: onafhankelijk, herhaalbaar, auditbaar</li>
+          <li>Zelfde check, twee doelen</li>
+        </ul>
+      </div>
+    </div>
+    <p class="sub">Haal je de CI weg, dan heb je geen bewijs meer. Haal je de hook weg, dan betaal je elke fout in minuten.</p>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/mythe</span>$ <span class="cmd">wc -lc CLAUDE.md</span></div>
+    <span class="tag">de mythe</span>
+    <h2>"CLAUDE.md is de waarheid"</h2>
+    <p class="lead">Dat is het niet. <span class="kw">CLAUDE.md</span> is tekst in het promptvenster. Het model weegt die af tegen alles wat er verder in staat — jouw prompt, de bestanden, de tool-output, tachtig turns geschiedenis.</p>
+    <div class="term">
+<span class="p">wc -lc CLAUDE.md</span>
+<span class="o">  312   17459 CLAUDE.md</span>
+<span class="p">grep -ciE 'never|nooit|altijd|always' CLAUDE.md</span>
+<span class="o" style="color:var(--amber)">27</span>
+        </div>
+    <p>Zevenentwintig regels met <em>nooit</em> of <em>altijd</em> erin, over 312 regels. Vraag jezelf af welke daarvan bij turn 80 nog meegewogen worden — <em>na</em> compaction, met een halve codebase in het venster.</p>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/mythe</span>$ <span class="cmd">curl code.claude.com/docs/en/memory</span></div>
+    <h2>Wat Anthropic er zelf over zegt</h2>
+    <p class="lead">Geen interpretatie van mij. Dit staat in de documentatie van Anthropic:</p>
+    <div class="quote">"Claude treats them as context, not enforced configuration. To block an action regardless of what Claude decides, use a PreToolUse hook instead."<cite>Anthropic — How Claude remembers your project</cite></div>
+    <p>En ze geven een <strong>maat</strong>: <em>"target under 200 lines per CLAUDE.md file. Longer files consume more context and reduce adherence."</em></p>
+    <div class="big-callout">Mijn eigen bestand: <strong>312 regels</strong>. Ruim over de richtlijn van de makers zelf — en ik dacht dat ik het goed had staan.</div>
+    <p>De oplossing die ze erbij geven is niet "strenger schrijven" maar <span class="kw">.claude/rules/</span> met <span class="kw">paths:</span>-frontmatter: laadt alleen bij een matchend bestand. Korter venster.</p>
+    <p class="docs"><b>BRON</b> Anthropic, <a href="https://code.claude.com/docs/en/memory">code.claude.com/docs/en/memory</a> — opgehaald 2026-08-21</p>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/mythe</span>$ <span class="cmd">diff context enforcement</span></div>
+    <h2>Context ≠ afdwinging</h2>
+    <div class="cols">
+      <div>
+        <h3 style="color:var(--amber)">CONTEXT — probabilistisch</h3>
+        <ul>
+          <li><span class="kw">CLAUDE.md</span>, <span class="kw">.claude/rules/</span>, skill-beschrijvingen, systeemprompt</li>
+          <li>Het model <em>kan</em> het negeren, en doet dat vaker als het druk wordt</li>
+          <li>Geen log als het niet gebeurt: je ziet het resultaat, niet de overweging</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color:var(--phos)">AFDWINGING — deterministisch</h3>
+        <ul>
+          <li>Hooks, <span class="kw">permissions</span>, CI</li>
+          <li>Zelfde input, zelfde uitkomst. Elke keer.</li>
+          <li><span class="kw">exit 2</span> in de log als het misging</li>
+        </ul>
+      </div>
+    </div>
+    <div class="big-callout">Er bestaat geen formulering die van context afdwinging maakt. Je kunt de regel dwingender <em>opschrijven</em>; harder wordt alleen de toon.</div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/lagen</span>$ <span class="cmd">where-does-what-go</span></div>
+    <h2>Vijf lagen, zacht naar hard</h2>
+    <figure>
+      <svg viewBox="0 0 900 300" role="img" aria-label="Vijf lagen van zacht naar hard: CLAUDE.md met .claude/rules/ en skills zijn probabilistisch en kunnen genegeerd worden; permissions, hooks en CI zijn deterministisch. De scheidslijn ligt tussen laag twee en laag drie.">
+        <defs>
+          <marker id="ax" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <!-- as: zacht naar hard -->
+        <line class="dg-l" x1="96" y1="24" x2="96" y2="262" marker-end="url(#ax)"/>
+        <text class="dg-t sm" x="88" y="28" text-anchor="end">zacht</text>
+        <text class="dg-t sm" x="88" y="262" text-anchor="end">hard</text>
+
+        <!-- 1 · CLAUDE.md -->
+        <rect x="124" y="20" width="496" height="42" rx="5" class="dg-box warn"/>
+        <text class="dg-t warn" x="140" y="46">1 · CLAUDE.md + rules/</text>
+        <text class="dg-t sm" x="336" y="46">advies · altijd, of alleen bij matchende paden</text>
+
+        <!-- 2 · skills -->
+        <rect x="124" y="71" width="496" height="42" rx="5" class="dg-box"/>
+        <text class="dg-t" x="140" y="97">2 · skills / commands</text>
+        <text class="dg-t sm" x="360" y="97">procedure · on-demand</text>
+
+        <!-- scheidslijn -->
+        <line class="dg-l dash hot" x1="104" y1="122" x2="892" y2="122"/>
+        <text class="dg-t sm hot" x="892" y="136" text-anchor="end">hieronder maakt het niet meer uit wat het model wil</text>
+
+        <!-- 3 · permissions -->
+        <rect x="124" y="147" width="496" height="42" rx="5" class="dg-box"/>
+        <text class="dg-t" x="140" y="173">3 · permissions</text>
+        <text class="dg-t sm" x="320" y="173">toegangscontrole · deny &gt; ask &gt; allow</text>
+
+        <!-- 4 · hooks -->
+        <rect x="124" y="198" width="496" height="42" rx="5" class="dg-box hot"/>
+        <text class="dg-t hot" x="140" y="224">4 · hooks</text>
+        <text class="dg-t sm hot" x="320" y="224">afdwinging · exit 2, elke keer</text>
+
+        <!-- 5 · CI -->
+        <rect x="124" y="249" width="496" height="42" rx="5" class="dg-box"/>
+        <text class="dg-t" x="140" y="275">5 · CI/CD</text>
+        <text class="dg-t sm" x="320" y="275">de gate · onafhankelijk, auditbaar</text>
+
+        <!-- accolades rechts -->
+        <path class="dg-l warn" d="M634,24 h10 v85 h-10"/>
+        <text class="dg-t sm warn" x="652" y="70">probabilistisch</text>
+        <path class="dg-l hot" d="M634,151 h10 v136 h-10"/>
+        <text class="dg-t sm hot" x="652" y="223">deterministisch</text>
+      </svg>
+      <figcaption>De scheidslijn is het punt: alles bóven de streep mag het model wegen, alles eronder niet. Laag 1 kent twee vormen — <span class="kw">CLAUDE.md</span> laadt elke sessie, <span class="kw">.claude/rules/</span> met <span class="kw">paths:</span> alleen bij een matchend bestand. Laag 4 staat bewust boven laag 3: exit 2 stopt de call vóórdat de permission-rules worden geëvalueerd.</figcaption>
+    </figure>
+    <p class="sub" style="margin-top:1em">Vuistregel: kun je de regel opschrijven als <strong>"als X, dan altijd Y"</strong> → hook. Moet je een keuze <em>uitleggen</em> → skill. Is het achtergrond → <span class="kw">CLAUDE.md</span>.</p>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/lagen</span>$ <span class="cmd">ls misplaatst/</span></div>
+    <h2>De twee fouten</h2>
+    <div class="cols">
+      <div class="card bad">
+        <span class="exit fail">te hoog</span>
+        <h3>Non-negotiable in CLAUDE.md</h3>
+        <p style="font-size:.86em">"Nooit force-pushen naar main."</p>
+        <ul>
+          <li>Als proza een <em>verzoek</em></li>
+          <li>Als hook een <em>feit</em></li>
+          <li>Faalt stil, en juist als het spannend is</li>
+        </ul>
+      </div>
+      <div class="card bad">
+        <span class="exit fail">te laag</span>
+        <h3>Procedure-uitleg in een hook</h3>
+        <p style="font-size:.86em">"Bij een nieuwe tenant doe je eerst…"</p>
+        <ul>
+          <li>Een hook zegt ja of nee</li>
+          <li>Hij heeft geen plek om iets uit te leggen</li>
+          <li>Developer krijgt <span class="kw">exit 2</span> en geen idee waarom</li>
+        </ul>
+      </div>
+    </div>
+    <p class="sub">Beide fouten voelen als zorgvuldigheid. Beide leveren een regel op die niet doet wat je dacht.</p>
+    <p class="docs"><b>BRON</b> de skills-docs zeggen wanneer je moet verhuizen: maak een skill <em>"when a section of CLAUDE.md has grown into a procedure rather than a fact"</em> — <a href="https://code.claude.com/docs/en/skills">docs/en/skills</a></p>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/hooks</span>$ <span class="cmd">man hooks | head -30</span></div>
+    <h2>Anatomie van een hook</h2>
+    <div class="cols">
+      <div>
+        <p>Een hook is <strong>een script dat Claude Code aanroept op een vast moment</strong>. Hij krijgt JSON op stdin en beslist — met een exit code, of met JSON op stdout.</p>
+        <div class="term" style="font-size:.8em">
+<span class="p">stdin:</span>
+<span class="o">{ "hook_event_name": "PreToolUse",</span>
+<span class="o">  "tool_name": "Bash",</span>
+<span class="o">  "tool_input": { "command": "..." },</span>
+<span class="o">  "cwd": "/repo" }</span>
+        </div>
+      </div>
+      <div>
+        <p>De vier die je in de praktijk als eerste nodig hebt:</p>
+        <ul>
+          <li><span class="kw">PreToolUse</span> en <span class="kw">PostToolUse</span> — vóór en ná een tool. Volgende slide.</li>
+          <li><span class="kw">UserPromptSubmit</span> — context injecteren bij élke prompt.</li>
+          <li><span class="kw">SessionStart</span> — één keer, bij openen.</li>
+        </ul>
+        <p class="sub"><span class="kw">matcher</span> filtert op <span class="kw">tool_name</span>: <span class="kw">Bash</span>, <span class="kw">Edit|Write</span> (lijst), of een regex.</p>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/hooks</span>$ <span class="cmd">draw --lifecycle</span></div>
+    <h2>Waar de hook in een tool-call zit</h2>
+    <figure>
+      <svg viewBox="0 0 800 275" role="img" aria-label="Levenscyclus van een tool-call: PreToolUse zit voor de tool en kan met exit 2 blokkeren; PostToolUse zit erna, kan niet blokkeren, maar voert met exit 2 stderr terug naar het model.">
+        <defs>
+          <marker id="lh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+          <marker id="lhr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#ff4d4d"/>
+          </marker>
+          <marker id="lhg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="#33ff66"/>
+          </marker>
+        </defs>
+
+        <!-- terugkoppeling: boven langs, kruist niets -->
+        <path class="dg-l hot" d="M604,92 C604,40 68,40 68,98" marker-end="url(#lhg)"/>
+        <text class="dg-t sm hot" x="336" y="32" text-anchor="middle">exit 2 → stderr terug naar het model</text>
+
+        <rect x="8" y="98" width="120" height="48" rx="6" class="dg-box"/>
+        <text class="dg-t" x="68" y="127" text-anchor="middle">Claude besluit</text>
+
+        <line class="dg-l" x1="128" y1="122" x2="182" y2="122" marker-end="url(#lh)"/>
+
+        <rect x="182" y="92" width="132" height="60" rx="6" class="dg-box hot"/>
+        <text class="dg-t hot" x="248" y="117" text-anchor="middle">PreToolUse</text>
+        <text class="dg-t sm" x="248" y="136" text-anchor="middle">de poort</text>
+
+        <line class="dg-l" x1="314" y1="122" x2="368" y2="122" marker-end="url(#lh)"/>
+
+        <rect x="368" y="98" width="112" height="48" rx="6" class="dg-box"/>
+        <text class="dg-t" x="424" y="127" text-anchor="middle">tool draait</text>
+
+        <line class="dg-l" x1="480" y1="122" x2="534" y2="122" marker-end="url(#lh)"/>
+
+        <rect x="534" y="92" width="140" height="60" rx="6" class="dg-box hot"/>
+        <text class="dg-t hot" x="604" y="117" text-anchor="middle">PostToolUse</text>
+        <text class="dg-t sm" x="604" y="136" text-anchor="middle">de terugkoppeling</text>
+
+        <line class="dg-l" x1="674" y1="122" x2="726" y2="122" marker-end="url(#lh)"/>
+        <text class="dg-t sm" x="736" y="118">volgende</text>
+        <text class="dg-t sm" x="736" y="134">turn</text>
+
+        <!-- PreToolUse: exit 2 blokkeert naar beneden -->
+        <line class="dg-l" x1="248" y1="152" x2="248" y2="198" marker-end="url(#lhr)"/>
+        <text class="dg-t sm" x="258" y="178">exit 2</text>
+        <rect x="150" y="198" width="196" height="40" rx="6" class="dg-box warn"/>
+        <text class="dg-t warn" x="248" y="223" text-anchor="middle">tool draait niet</text>
+
+        <line class="dg-l dash" x1="0" y1="258" x2="800" y2="258"/>
+        <text class="dg-t sm" x="0" y="274">matcher filtert op tool_name — bijv. Bash, of Edit|Write als lijst</text>
+      </svg>
+      <figcaption>Links blokkeren, rechts terugkoppelen. Op <span class="kw">PreToolUse</span> stopt exit 2 de call vóórdat de tool draait — en volgens de docs zelfs vóórdat de permission-rules worden geëvalueerd. Op <span class="kw">PostToolUse</span> is de tool al gedraaid; daar is exit 2 geen rem maar een boodschap.</figcaption>
+    </figure>
+    <p class="docs"><b>BRON</b> <a href="https://code.claude.com/docs/en/hooks">docs/en/hooks</a> — event-namen, matcher-syntax, exit-codes · <a href="https://code.claude.com/docs/en/hooks-guide">docs/en/hooks-guide</a> — de introductie met voorbeelden</p>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/hooks</span>$ <span class="cmd">./deny-force-push.sh &lt;&lt;&lt; "$payload"</span></div>
+    <span class="tag live">live · demo 1</span>
+    <h2>PreToolUse: exit 2 blokkeert</h2>
+    <div class="term">
+<span class="p">printf '%s' "$payload" | ./deny-force-push.sh</span>
+<span class="o" style="color:var(--amber)">BLOCKED: een force-push herschrijft geschiedenis op de remote.</span>
+<span class="o" style="color:var(--amber)">Dat vereist expliciete bevestiging van een mens.</span>
+<span class="p">echo $?</span>
+<span class="o" style="color:var(--red)">2</span>
+    </div>
+    <div class="big-callout green">Op <span class="kw">PreToolUse</span> is <strong>exit 2 een harde blokkade</strong>. De tool draait niet, en stderr is de reden die het model te zien krijgt.</div>
+    <p class="sub">En het stukje dat weinig mensen weten: een <span class="kw">permissionDecision: "allow"</span> in de JSON-output kan exit 2 <em>niet</em> overrulen. Determinisme met een slot erop.</p>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/hooks</span>$ <span class="cmd">grep -r 'git push --force' demos/</span></div>
+    <h2>Een hook matcht tekst, geen intentie</h2>
+    <p class="lead">Tijdens het maken van deze sessie blokkeerde mijn eigen guard-hook mijn poging om het demoscript te <em>schrijven</em> — omdat de string erin stond.</p>
+    <div class="term">
+<span class="p">cat &gt; demo.sh &lt;&lt;'EOF' ... git push --force ... EOF</span>
+<span class="o" style="color:var(--red)">BLOCKED: '&lt;die vlag&gt;' requires explicit user</span>
+<span class="o" style="color:var(--red)">confirmation.</span>
+    </div>
+    <p>Er werd niets gepusht. Er werd een <em>bestand</em> geschreven dat het commando beschrijft. De hook kan dat verschil niet zien.</p>
+    <p class="sub">Drie keer op rij, op drie manieren. Uiteindelijk heb ik het bestand via een ander gereedschap geschreven — de hook keek naar de <em>commandotekst</em>, niet naar wat er gebeurde.</p>
+    <div class="big-callout">Dat is de prijs van determinisme, en die betaal je graag. Maar het betekent wél: <strong>een hook is code.</strong> Self-test, shellcheck, code review.</div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/lab</span>$ <span class="cmd">./lint-changed-file.sh &lt;&lt;&lt; "$payload"</span></div>
+    <span class="tag live">live · demo 2</span>
+    <h2>PostToolUse: de lus sluit zichzelf</h2>
+    <div class="term">
+<span class="p">Claude schrijft backup.sh …</span>
+<span class="o" style="color:var(--amber)">[shellcheck] backup.sh is niet schoon:</span>
+<span class="o" style="color:var(--amber)">  4:20: Double quote to prevent globbing [SC2086]</span>
+<span class="p">exit 2  → stderr gaat terug naar het model</span>
+<span class="o" style="color:var(--phos)">Claude past het bestand aan. Geen commit. Geen CI. Geen mens.</span>
+    </div>
+    <p><span class="kw">PostToolUse</span> kan de tool <strong>niet</strong> meer tegenhouden — die is al gedraaid. Wat exit 2 hier doet is stderr <em>aan het model teruggeven</em>.</p>
+    <div class="big-callout green">Geen preventie. Een lus van <strong>seconden</strong> in plaats van twintig minuten — en de hook kost er 21 ms van.</div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/matrix</span>$ <span class="cmd">classify --all-checks</span></div>
+    <h2>De shift-left-matrix</h2>
+    <p class="lead">Vier kolommen, links naar rechts. Elke check hoort ergens — en bijna niets hoort op alle vier.</p>
+    <figure>
+      <svg viewBox="0 0 820 270" role="img" aria-label="Vier plekken om een fout te vangen, van links naar rechts steeds duurder: IDE, terminal of pre-commit, Claude Code-hook, en CI. De hook-kolom is bij de meeste teams leeg.">
+        <defs>
+          <marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor"/>
+          </marker>
+        </defs>
+
+        <line class="dg-l" x1="20" y1="22" x2="800" y2="22" marker-end="url(#mx)"/>
+        <text class="dg-t sm" x="20" y="14">goedkoop om hier te vinden</text>
+        <text class="dg-t sm" x="800" y="14" text-anchor="end">duur om hier te vinden</text>
+
+        <!-- 1 IDE -->
+        <rect x="20" y="40" width="180" height="176" rx="6" class="dg-box"/>
+        <text class="dg-t" x="36" y="64">IDE</text>
+        <text class="dg-t sm" x="36" y="88">realtime, in de editor</text>
+        <text class="dg-t sm" x="36" y="118">› typefouten</text>
+        <text class="dg-t sm" x="36" y="138">› lint-squiggles</text>
+        <text class="dg-t sm" x="36" y="158">› format-on-save</text>
+        <text class="dg-t sm" x="36" y="200">milliseconden</text>
+
+        <!-- 2 terminal -->
+        <rect x="216" y="40" width="180" height="176" rx="6" class="dg-box"/>
+        <text class="dg-t" x="232" y="64">terminal</text>
+        <text class="dg-t sm" x="232" y="88">pre-commit, op staged</text>
+        <text class="dg-t sm" x="232" y="118">› formatter</text>
+        <text class="dg-t sm" x="232" y="138">› lint op de diff</text>
+        <text class="dg-t sm" x="232" y="158">› tsc --noEmit</text>
+        <text class="dg-t sm" x="232" y="200">seconden</text>
+
+        <!-- 3 hook -->
+        <rect x="412" y="40" width="180" height="176" rx="6" class="dg-box hot"/>
+        <text class="dg-t hot" x="428" y="64">Claude-hook</text>
+        <text class="dg-t sm hot" x="428" y="88">PostToolUse, 1 bestand</text>
+        <text class="dg-t sm" x="428" y="118">› linter op dát bestand</text>
+        <text class="dg-t sm" x="428" y="138">› exit 2 → terug</text>
+        <text class="dg-t sm" x="428" y="158">› agent fixt zelf</text>
+        <text class="dg-t sm hot" x="428" y="200">21 ms</text>
+
+        <!-- 4 CI -->
+        <rect x="608" y="40" width="192" height="176" rx="6" class="dg-box warn"/>
+        <text class="dg-t warn" x="624" y="64">CI</text>
+        <text class="dg-t sm warn" x="624" y="88">de gate, blijft staan</text>
+        <text class="dg-t sm" x="624" y="118">› hele suite</text>
+        <text class="dg-t sm" x="624" y="138">› build, scan, SBOM</text>
+        <text class="dg-t sm" x="624" y="158">› echte omgeving</text>
+        <text class="dg-t sm warn" x="624" y="200">17–41 min</text>
+
+        <line class="dg-l hot" x1="502" y1="228" x2="502" y2="252"/>
+        <text class="dg-t sm hot" x="502" y="266" text-anchor="middle">deze kolom staat bij de meeste teams leeg</text>
+      </svg>
+      <figcaption>Vier plekken, oplopend in kosten. De grens tussen kolom 3 en 4 is geen kwestie van belang maar van omvang: heeft de check meer nodig dan één bestand, dan hoort hij rechts.</figcaption>
+    </figure>
+    <div class="big-callout">De grens is niet "belangrijk of niet". De grens is: <strong>heeft deze check meer nodig dan één bestand?</strong></div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/team</span>$ <span class="cmd">git add .claude/</span></div>
+    <h2>Team-breed, of het bestaat niet</h2>
+    <div class="cols">
+      <div>
+        <div class="term" style="font-size:.8em">
+<span class="p">.claude/settings.json</span>
+<span class="o" style="color:var(--phos)">  → in git. Het team.</span>
+<span class="p">.claude/hooks/*.sh</span>
+<span class="o" style="color:var(--phos)">  → in git. Komt door review.</span>
+<span class="p">.claude/settings.local.json</span>
+<span class="o" style="color:var(--muted)">  → .gitignore. Alleen jij.</span>
+<span class="p">~/.claude/settings.json</span>
+<span class="o" style="color:var(--muted)">  → jouw machine. Niet deelbaar.</span>
+        </div>
+      </div>
+      <div>
+        <ul>
+          <li>Hooks uit verschillende scopes worden <strong>samengevoegd</strong>, niet overschreven — project én user draaien beide.</li>
+          <li>Bij permissions is de volgorde <span class="kw">deny</span> → <span class="kw">ask</span> → <span class="kw">allow</span>; de eerste match beslist, en specifieker maakt niet uit.</li>
+          <li>Alle matchende hooks draaien <strong>parallel</strong>. Dezelfde handler in twee bestanden draait <em>één</em> keer.</li>
+          <li>Staat de regel in de repo, dan staat hij in code review. Dat is het echte winstpunt.</li>
+        </ul>
+        <div class="big-callout green">Een guard op één laptop is een gewoonte. In de repo is het beleid.</div>
+      </div>
+    </div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/lab</span>$ <span class="cmd">./hands-on.sh   # 20 min</span></div>
+    <span class="tag live">live · samen doen</span>
+    <h2>Aan de slag</h2>
+    <div class="steps">
+      <p class="step">Kies de check die je het <strong>vaakst in de CI ziet falen</strong>. Niet de belangrijkste — de meest irritante.</p>
+      <p class="step">Schrijf <span class="kw">.claude/hooks/lint-changed-file.sh</span>: lees <span class="kw">tool_input.file_path</span>, draai de linter, <span class="kw">exit 2</span> met de output op stderr.</p>
+      <p class="step">Wire hem in <span class="kw">.claude/settings.json</span> op <span class="kw">PostToolUse</span> / <span class="kw">Edit|Write</span>. Commit beide bestanden.</p>
+      <p class="step">Laat de agent iets kapots schrijven. Kijk of hij het <em>zelf</em> repareert.</p>
+      <p class="step"><em>Bonus:</em> haal één regel uit <span class="kw">CLAUDE.md</span> die eigenlijk een hook had moeten zijn.</p>
+    </div>
+    <p class="sub">Eén hook. Niet drie. Werkt het, dan volgt de rest van zichzelf.</p>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/sessie</span>$ <span class="cmd">cat bronnen.md</span></div>
+    <h2>Zelf verder</h2>
+    <div class="cols">
+      <div>
+        <h3 style="color:var(--phos);margin-bottom:.4em">de code van deze sessie</h3>
+        <p class="sub" style="margin-top:0">Beide hooks, de <span class="kw">settings.json</span>-blokken, fixtures en de hand-out:</p>
+        <p><a href="https://github.com/MWest2020/westerweel-work/tree/main/workshops/claude-shift-left">github.com/MWest2020/westerweel-work</a><br><span class="kw">/workshops/claude-shift-left</span></p>
+        <div class="term" style="font-size:.78em">
+<span class="p">./hooks/lint-changed-file.sh --self-test</span>
+<span class="o" style="color:var(--phos)">self-test OK (2 geblokkeerd, 2 doorgelaten)</span>
+        </div>
+      </div>
+      <div>
+        <h3 style="color:var(--phos);margin-bottom:.4em">de documentatie</h3>
+        <div class="docs" style="margin-top:0">
+          <ul>
+            <li><a href="https://code.claude.com/docs/en/hooks">docs/en/hooks</a> — events, matcher, exit-codes, JSON</li>
+            <li><a href="https://code.claude.com/docs/en/hooks-guide">docs/en/hooks-guide</a> — introductie, voorbeelden</li>
+            <li><a href="https://code.claude.com/docs/en/settings">docs/en/settings</a> — waar <span class="kw">settings.json</span> staat</li>
+            <li><a href="https://code.claude.com/docs/en/permissions">docs/en/permissions</a> — allow / ask / deny</li>
+            <li><a href="https://code.claude.com/docs/en/memory">docs/en/memory</a> — wat <span class="kw">CLAUDE.md</span> wél is</li>
+            <li><a href="https://code.claude.com/docs/en/skills">docs/en/skills</a> — procedures buiten de hook houden</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="sub">Alles in dit deck is tegen die docs geverifieerd, niet uit het hoofd opgeschreven. De getallen zijn gemeten; de herkomst staat in de repo.</p>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/sessie</span>$ <span class="cmd">recap &amp;&amp; exit 0</span></div>
+    <h2>De kern</h2>
+    <ul>
+      <li><span class="kw">CLAUDE.md</span> is <strong>advies</strong>. Hooks zijn <strong>afdwinging</strong>. Dat is geen nuance, dat is het verschil tussen hopen en weten.</li>
+      <li><strong>21 ms</strong> in de hook tegen <strong>17–41 min</strong> in de CI. Zelfde check, andere plek.</li>
+      <li>De grens is niet "belangrijk of niet", maar: <strong>heeft deze check meer nodig dan één bestand?</strong></li>
+      <li>De CI-gate blijft. Shift left is eerder vángen, niet minder bewijzen.</li>
+      <li>Een hook is code: self-test, timeout, review. <em>Een guard die je niet test, is een guard waarvan je niet weet wat hij doet.</em></li>
+    </ul>
+    <div class="big-callout green" style="margin-top:1em">Boring &amp; auditable: een regel waarvan je kunt aanwijzen wáár hij wordt afgedwongen. Niet "het staat in de markdown".</div>
+    <div class="sub">Vragen?<span class="cursor"></span></div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/sessie</span>$ <span class="cmd">ls bijlage/</span></div>
+    <span class="tag">bijlage</span>
+    <h1>Bijlage</h1>
+    <div class="title-meta">
+      Hier stopt de sessie. Wat volgt is de diepte: de wiring in detail, de
+      commando's per taal, en wat je van een hook mag verwachten.<br>
+      Bedoeld om <b>na</b> de sessie te lezen, of om erin te duiken als er tijd over is.
+    </div>
+    <div class="sub">— <kbd>→</kbd> als je verder wilt.<span class="cursor"></span></div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/hooks</span>$ <span class="cmd">cat settings.json</span></div>
+    <h2>Dezelfde beslissing, expliciet</h2>
+    <div class="cols">
+      <div>
+        <p class="sub" style="margin-top:0">Wiring — projectniveau, dus in de repo:</p>
+        <div class="term" style="font-size:.76em">
+<span class="o">"PreToolUse": [{</span>
+<span class="o">  "matcher": "Bash",</span>
+<span class="o">  "hooks": [{</span>
+<span class="o">    "type": "command",</span>
+<span class="o">    "if": "Bash(git push*)",</span>
+<span class="o">    "command":</span>
+<span class="o">      "${CLAUDE_PROJECT_DIR}/.claude/hooks/deny.sh"</span>
+<span class="o">  }]</span>
+<span class="o">}]</span>
+        </div>
+      </div>
+      <div>
+        <p class="sub" style="margin-top:0">Of, in plaats van de exit code, op stdout:</p>
+        <div class="term" style="font-size:.76em">
+<span class="o">{ "hookSpecificOutput": {</span>
+<span class="o">    "hookEventName": "PreToolUse",</span>
+<span class="o">    "permissionDecision": "deny",</span>
+<span class="o">    "permissionDecisionReason":</span>
+<span class="o">      "Force-push vereist een mens."</span>
+<span class="o">}}</span>
+        </div>
+        <p class="sub">Precies twee waarden: <span class="kw">allow</span> en <span class="kw">deny</span>. Print op stdout. En let op: <em>exit 2 wint hier altijd van</em> — de docs zeggen dat zelfs een <span class="kw">"allow"</span> exit 2 niet kan overrulen.</p>
+      </div>
+    </div>
+    <p class="sub"><span class="kw">${CLAUDE_PROJECT_DIR}</span> houdt het pad repo-relatief; het <span class="kw">if</span>-veld gebruikt permission-rule-syntax en scheelt een process-start op elke andere Bash-call.</p>
+    <div class="big-callout">Past de regel volledig in een patroon? Dan hoort hij op laag 3 als <span class="kw">deny</span>-rule — declaratief, geen script. Een hook pak je zodra er <em>logica</em> bij komt.</div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/matrix</span>$ <span class="cmd">classify --lang php,ts</span></div>
+    <h2>Concreet, per taal</h2>
+    <div class="cols">
+      <div>
+        <h3 style="color:var(--phos);margin-bottom:.4em">PHP — in de hook</h3>
+        <div class="term" style="font-size:.74em">
+<span class="p">php -l "$FILE"</span>
+<span class="p">vendor/bin/phpcs --standard=phpcs.xml "$FILE"</span>
+<span class="p">vendor/bin/phpstan analyse \</span>
+<span class="p">  --error-format=raw "$FILE"</span>
+        </div>
+        <p class="sub" style="margin-top:.5em">Blijft in de CI: <span class="kw">psalm</span> (hele project-graph), <span class="kw">phpmd</span> en <span class="kw">phpmetrics</span> (codebase-metrics), <span class="kw">app:check-code</span> (haalt een server op), PHPUnit.</p>
+      </div>
+      <div>
+        <h3 style="color:var(--phos);margin-bottom:.4em">TypeScript / Vue — in de hook</h3>
+        <div class="term" style="font-size:.74em">
+<span class="p">node_modules/.bin/eslint "$FILE"</span>
+<span class="p">node_modules/.bin/prettier --check "$FILE"</span>
+<span class="p">node_modules/.bin/stylelint "$FILE"</span>
+<span class="c"># stylelint: alleen .vue / .scss / .css</span>
+        </div>
+        <p class="sub" style="margin-top:.5em">Blijft in de CI: <span class="kw">tsc --noEmit</span> (types komen uit ándere bestanden, dus niet per bestand), <span class="kw">npm run build</span>, de testsuite.</p>
+      </div>
+    </div>
+    <p class="sub">Niets nieuws installeren: de config in <span class="kw">phpcs.xml</span>, <span class="kw">phpstan.neon</span> en <span class="kw">eslint.config.js</span> staat er al — de hook draait hem alleen eerder. En geen <span class="kw">npm install</span> vanuit een hook: draait de repo de linter niet zelf, dan doet de hook niets.</p>
+    <div class="big-callout">Kijk wel eerst of een check érgens draait. <span class="kw">strict: true</span> in <span class="kw">tsconfig.json</span> zonder <span class="kw">tsc</span> in je scripts is documentatie, geen check.</div>
+  </section>
+<section class="slide">
+    <div class="prompt"><span class="usr">dev@laptop</span>:<span class="path">~/hooks</span>$ <span class="cmd">./hook.sh --self-test</span></div>
+    <h2>Een hook is code</h2>
+    <ul>
+      <li><strong>Self-test.</strong> Een lijst payloads die moeten blokkeren en een lijst die door moet. Mijn eerste versie liet <span class="kw">-f</span> er ongemerkt door — de test vond het, ik niet.</li>
+      <li><strong>Timeout, env-tunable.</strong> Een hook die hangt is erger dan een check die je mist.</li>
+      <li><strong>Faal open bij ontbrekende tools.</strong> Geen linter geïnstalleerd → hook doet niets. Hij mag nooit de reden zijn dat een repo niet meer werkt.</li>
+      <li><strong>Faal dicht bij twijfel over veiligheid.</strong> Kan hij de input niet inspecteren, dan blokkeert hij. "Kon niet verifiëren" mag nooit "toegestaan" betekenen.</li>
+      <li><strong>Tokenize, geen regex-acrobatiek.</strong> Splits het commando en vergelijk exact. Boring en auditbaar verslaat clever.</li>
+    </ul>
+  </section>
+</main>
+<div class="chrome">
+  <span>shift left &mdash; hooks &gt; goede bedoelingen &middot; westerweel.work</span>
+  <span class="right"><span id="pos">01 / 25</span><span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> <kbd>spatie</kbd> &middot; <kbd>F</kbd> fullscreen &middot; <a href="lees/">leesversie</a></span></span>
+</div>
+<script>
+(function(){
+  'use strict';
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var bar=document.getElementById('bar'),pos=document.getElementById('pos');
+  var i=0,h=parseInt(location.hash.slice(1),10);
+  if(h>=1&&h<=slides.length)i=h-1;
+  function pad(n){return (n<10?'0':'')+n}
+  function show(n){
+    n=Math.max(0,Math.min(slides.length-1,n));
+    slides[i].classList.remove('active');
+    i=n;slides[i].classList.add('active');slides[i].scrollTop=0;
+    bar.style.width=((i+1)/slides.length*100)+'%';
+    pos.textContent=pad(i+1)+' / '+slides.length;
+    if(history.replaceState)history.replaceState(null,'','#'+(i+1));
+  }
+  addEventListener('keydown',function(e){
+    if(e.altKey||e.ctrlKey||e.metaKey)return;
+    switch(e.key){
+      case 'ArrowRight':case ' ':case 'PageDown':e.preventDefault();show(i+1);break;
+      case 'ArrowLeft':case 'PageUp':e.preventDefault();show(i-1);break;
+      case 'Home':e.preventDefault();show(0);break;
+      case 'End':e.preventDefault();show(slides.length-1);break;
+      case 'f':case 'F':e.preventDefault();
+        document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();break;
+    }
+  });
+  addEventListener('click',function(e){
+    if(e.target.closest('a,kbd,.chrome'))return;
+    show(i+1);
+  });
+  show(i);
+})();
+</script>
+</body>
+</html>
