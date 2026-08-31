@@ -32,6 +32,7 @@ if [ "${1:-}" = "--self-test" ]; then
   tmp=$(mktemp -d); trap 'rm -rf "$tmp"' EXIT
   # shellcheck disable=SC2016  # fixtures: $1/$USER mogen juist NIET expanderen
   printf '#!/bin/sh\nrm -rf $1/cache\n' > "$tmp/bad.sh"          # SC2086: ongequote var
+  # shellcheck disable=SC2016
   printf '#!/bin/sh\ncp "$1" "$1.orig"\necho $USER\n' > "$tmp/bad2.sh"  # idem
   printf '#!/bin/sh\nprintf '\''%%s\\n'\'' "ok"\n' > "$tmp/good.sh"
   printf 'gewoon tekst, geen shell\n' > "$tmp/notes.txt"
