@@ -45,7 +45,7 @@ Het patroon: **scheid de lagen, en geef elke laag één taak.**
    ([habitat](https://github.com/MWest2020/habitat), EUPL-1.2), zonder
    toegang tot de relay of tot secrets. Communicatie en uitvoering raken
    elkaar alleen via git.
-3. **Kennis heeft een naaf.** Eén repo
+3. **Kennis heeft één vaste plek.** Eén repo
    ([handbook](https://github.com/MWest2020/handbook)) is de inventaris en
    het startpunt; documentatie aggregeert dáár, niet in elke chat opnieuw.
 4. **Identiteit is een sleutelpaar, geen accountnaam.** Agents zijn
@@ -58,7 +58,7 @@ Het patroon: **scheid de lagen, en geef elke laag één taak.**
 
 Geen platform gekocht, geen SaaS: een relay, een cluster, een paar repo's en
 strakke afspraken. Het schaalt niet naar duizend man — het hoeft maar naar
-één mens en een bende agents.
+één mens en een handvol agents.
 
 ## internetnl-cli — meetbaar internet, in bulk
 
