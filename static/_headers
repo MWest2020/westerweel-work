@@ -3,3 +3,9 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-kt9fsnN/i0fSsPIJCNfDDMphqRvaryR5YpOTdfpeFK4=' 'sha256-UBD9lfFHKxagKGHh9S8B2hytN1cmDsFK1Tl1uedsZ0Q=' 'sha256-5ilQRTfItUB+Etsk1onTDCqBA1OpUBIKfJhdMlZ61Co=' 'sha256-sjOw+AeVTaynoC9e49yDkqtoCe1GBkaGBurojA+oQZk='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+
+# Reveal.js-exports en andere standalone slide-decks zijn inline-zwaar;
+# een eigen, lossere CSP zodat de site-brede hash-pinning ze niet breekt.
+/slides/*
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self'
