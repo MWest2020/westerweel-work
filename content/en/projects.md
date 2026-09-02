@@ -74,4 +74,4 @@ House rule: **only measure hosts you operate** or have explicit permission
 to test.
 
 - **Code:** [github.com/MWest2020/internetnl-cli](https://github.com/MWest2020/internetnl-cli)
-- **Demo + CI example:** [github.com/MWest2020/internetnl-cli-demo](https://github.com/MWest2020/internetnl-cli-demo)
+- **Demo + CI example:** [mwest2020.github.io/internetnl-cli-demo](https://mwest2020.github.io/internetnl-cli-demo/)

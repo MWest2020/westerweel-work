@@ -74,4 +74,4 @@ Huisregel: **meet alleen hosts die je zelf beheert** of waar je expliciet
 toestemming voor hebt.
 
 - **Code:** [github.com/MWest2020/internetnl-cli](https://github.com/MWest2020/internetnl-cli)
-- **Demo + CI-voorbeeld:** [github.com/MWest2020/internetnl-cli-demo](https://github.com/MWest2020/internetnl-cli-demo)
+- **Demo + CI-voorbeeld:** [mwest2020.github.io/internetnl-cli-demo](https://mwest2020.github.io/internetnl-cli-demo/)
