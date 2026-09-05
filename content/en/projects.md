@@ -80,10 +80,11 @@ handling tenants, limits and an audit trail. Anyone who chips in for the
 electricity gets a key mailed automatically; the webhook mints it, sends it
 once, and stores it nowhere it could be read back.
 
-It measures itself every morning. Latest: `api.westerweel.work` 96%,
-`westerweel.work` 95%, and `netnl.westerweel.work` 72%. That last number
-stays up on purpose — that domain is deliberately closed to the public, and a
-scoreboard showing nothing but green ticks measures nothing.
+It measures itself every morning, and the current standing is on the
+[demo page](https://mwest2020.github.io/internetnl-cli-demo/) — including
+the domain that comes off markedly worse. That number stays up on purpose:
+the domain is deliberately closed to the public, and a scoreboard showing
+nothing but green ticks measures nothing.
 
 You can host it yourself, but it is a service, not a script. The
 [four traps](https://github.com/MWest2020/internetnl-cli/blob/main/docs/how-to/self-hosting-pitfalls.md)

@@ -169,10 +169,11 @@ met daarvoor een facade die tenants, limieten en een auditspoor regelt. Een
 CLI en een GitHub Action die je build laten falen als je score zakt. En een
 demo waar je zonder account een domein kunt intypen.
 
-Elke ochtend meet het zichzelf. Vandaag: `api.westerweel.work` 96 procent,
-`westerweel.work` 95 procent, en `netnl.westerweel.work` 72 procent. Dat
-laatste getal laat ik er met opzet staan. Dat domein is publiek dicht, en
-een scorebord dat alleen groene vinkjes toont meet niets.
+Elke ochtend meet het zichzelf, en de uitkomst staat onverkort op de
+[demopagina](https://mwest2020.github.io/internetnl-cli-demo/) — inclusief
+het domein dat er duidelijk slechter af komt dan de rest. Dat laat ik er met
+opzet staan: dat domein is publiek dicht, en een scorebord dat alleen groene
+vinkjes toont meet niets.
 
 - **Code en de vier valkuilen uitgeschreven:**
   [github.com/MWest2020/internetnl-cli](https://github.com/MWest2020/internetnl-cli)

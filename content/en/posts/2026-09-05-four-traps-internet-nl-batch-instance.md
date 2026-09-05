@@ -169,11 +169,11 @@ tailnet, with a facade in front handling tenants, limits and an audit
 trail. A CLI and a GitHub Action that fail your build when your score
 drops. And a demo where you can type in a domain without an account.
 
-It measures itself every morning. Today: `api.westerweel.work` 96 per cent,
-`westerweel.work` 95 per cent, and `netnl.westerweel.work` 72 per cent. I
-leave that last number up on purpose. That domain is deliberately closed to
-the public, and a scoreboard showing nothing but green ticks measures
-nothing.
+It measures itself every morning, and the result goes up unedited on the
+[demo page](https://mwest2020.github.io/internetnl-cli-demo/) — including
+the domain that scores markedly worse than the rest. I leave that one up on
+purpose: it is deliberately closed to the public, and a scoreboard showing
+nothing but green ticks measures nothing.
 
 - **Code, and the four traps written out:**
   [github.com/MWest2020/internetnl-cli](https://github.com/MWest2020/internetnl-cli)

@@ -81,10 +81,11 @@ tenants, limieten en een auditspoor regelt. Wie meebetaalt aan de stroom
 krijgt automatisch een sleutel gemaild; de webhook mint hem, verstuurt hem
 één keer, en bewaart hem nergens terug te halen.
 
-Elke ochtend meet het zichzelf. De laatste stand: `api.westerweel.work` 96%,
-`westerweel.work` 95%, en `netnl.westerweel.work` 72%. Dat laatste cijfer
-blijft er met opzet staan — dat domein is publiek dicht, en een scorebord dat
-alleen groene vinkjes laat zien meet niets.
+Elke ochtend meet het zichzelf, en de actuele stand staat op de
+[demopagina](https://mwest2020.github.io/internetnl-cli-demo/) — inclusief
+het domein dat er duidelijk slechter af komt. Dat cijfer blijft er met opzet
+staan: dat domein is publiek dicht, en een scorebord dat alleen groene
+vinkjes laat zien meet niets.
 
 Zelf hosten kan, maar het is een dienst en geen script. De
 [vier valkuilen](https://github.com/MWest2020/internetnl-cli/blob/main/docs/how-to/self-hosting-pitfalls.md)

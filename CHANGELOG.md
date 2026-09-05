@@ -26,9 +26,11 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
   **netnl** en beschrijft de hele keten in plaats van alleen de CLI —
   eigen batch-instance op een VPS over een tailnet, facade met tenants,
   limieten en auditspoor, GitHub Action als CI-gate, automatische
-  sleutel-uitgifte via de koffie-webhook, en de dagelijkse zelfmeting
-  (96/95/72%). De 72% staat er met opzet bij, met uitleg. Links naar de
-  demo, de valkuilen-pagina en de donatielink toegevoegd; licentie (MIT)
+  sleutel-uitgifte via de koffie-webhook, en de dagelijkse zelfmeting. Die
+  meting verwijst naar de demopagina in plaats van vaste percentages te
+  noemen — cijfers in een post verouderen, de demo niet. Het punt dat één
+  domein er met opzet slechter af komt blijft staan, mét uitleg. Links naar
+  de demo, de valkuilen-pagina en de donatielink toegevoegd; licentie (MIT)
   vermeld.
 
 ## 2026-07-14 (twelfth pass — living-documentation post)
