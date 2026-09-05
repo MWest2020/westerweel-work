@@ -60,18 +60,36 @@ No platform bought, no SaaS: a relay, a cluster, a few repos, and strict
 agreements. It doesn't scale to a thousand people — it only has to scale to
 one human and a crew of agents.
 
-## internetnl-cli — measurable internet, in bulk
+## netnl — measurable internet, in bulk
 
 A command-line client for the **[Internet.nl](https://internet.nl) batch
 API**: test a whole fleet of domains for IPv6, DNSSEC, RPKI, and TLS instead
 of one domain per browser tab. Submit a host list, poll until the run
 finishes (resumable after a closed laptop), and get the result as a diffable
-table or JSON for pipelines — usable as a CI gate on your own
-standards compliance. Includes a documented recipe for running your own
-batch instance.
+table or JSON for pipelines. A GitHub Action ships with it, so your build
+fails the moment your score drops — a CI gate on your own standards
+compliance instead of a screenshot in an audit folder.
 
 House rule: **only measure hosts you operate** or have explicit permission
 to test.
 
-- **Code:** [github.com/MWest2020/internetnl-cli](https://github.com/MWest2020/internetnl-cli)
-- **Demo + CI example:** [mwest2020.github.io/internetnl-cli-demo](https://mwest2020.github.io/internetnl-cli-demo/)
+The batch API needs an account, and that is where nearly everyone gives up.
+So there is now a full chain behind it: a self-hosted batch instance on a
+VPS, reached over a tailnet, with a **facade** in the homelab in front of it
+handling tenants, limits and an audit trail. Anyone who chips in for the
+electricity gets a key mailed automatically; the webhook mints it, sends it
+once, and stores it nowhere it could be read back.
+
+It measures itself every morning. Latest: `api.westerweel.work` 96%,
+`westerweel.work` 95%, and `netnl.westerweel.work` 72%. That last number
+stays up on purpose — that domain is deliberately closed to the public, and a
+scoreboard showing nothing but green ticks measures nothing.
+
+You can host it yourself, but it is a service, not a script. The
+[four traps](https://github.com/MWest2020/internetnl-cli/blob/main/docs/how-to/self-hosting-pitfalls.md)
+that cost me days are documented separately, including the one where the
+official manual leaves you with an instance that cannot reach anything.
+
+- **Code:** [github.com/MWest2020/internetnl-cli](https://github.com/MWest2020/internetnl-cli) (MIT)
+- **Try it, no account needed:** [mwest2020.github.io/internetnl-cli-demo](https://mwest2020.github.io/internetnl-cli-demo/)
+- **A key for the API:** [buy a coffee](https://buymeacoffee.com/mark.westerweel) from $2 — beta, best-effort, no SLA
