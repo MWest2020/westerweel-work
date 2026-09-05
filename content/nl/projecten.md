@@ -60,18 +60,38 @@ Geen platform gekocht, geen SaaS: een relay, een cluster, een paar repo's en
 strakke afspraken. Het schaalt niet naar duizend man — het hoeft maar naar
 één mens en een handvol agents.
 
-## internetnl-cli — meetbaar internet, in bulk
+## netnl — meetbaar internet, in bulk
 
 Een command-line client voor de **batch-API van
 [Internet.nl](https://internet.nl)**: test een hele vloot domeinen op IPv6,
 DNSSEC, RPKI en TLS in plaats van één domein per browser-tab. Submit een
 hostlijst, poll tot de run klaar is (hervatbaar na een dichtgeklapte laptop),
-en krijg het resultaat als diffbare tabel of JSON voor pipelines — bruikbaar
-als CI-gate op je eigen standaarden-compliance. Inclusief een gedocumenteerd
-recept om een eigen batch-instance te draaien.
+en krijg het resultaat als diffbare tabel of JSON voor pipelines. Er zit een
+GitHub Action bij, zodat je build faalt zodra je score zakt — een CI-gate op
+je eigen standaarden-compliance in plaats van een screenshot in een
+auditmap.
 
 Huisregel: **meet alleen hosts die je zelf beheert** of waar je expliciet
 toestemming voor hebt.
 
-- **Code:** [github.com/MWest2020/internetnl-cli](https://github.com/MWest2020/internetnl-cli)
-- **Demo + CI-voorbeeld:** [mwest2020.github.io/internetnl-cli-demo](https://mwest2020.github.io/internetnl-cli-demo/)
+De batch-API vraagt een account, en dáár haakt bijna iedereen af. Daarom
+draait er inmiddels een complete keten: een eigen batch-instance op een VPS,
+bereikbaar over een tailnet, met daarvoor een **facade** in het homelab die
+tenants, limieten en een auditspoor regelt. Wie meebetaalt aan de stroom
+krijgt automatisch een sleutel gemaild; de webhook mint hem, verstuurt hem
+één keer, en bewaart hem nergens terug te halen.
+
+Elke ochtend meet het zichzelf, en de actuele stand staat op de
+[demopagina](https://mwest2020.github.io/internetnl-cli-demo/) — inclusief
+het domein dat er duidelijk slechter af komt. Dat cijfer blijft er met opzet
+staan: dat domein is publiek dicht, en een scorebord dat alleen groene
+vinkjes laat zien meet niets.
+
+Zelf hosten kan, maar het is een dienst en geen script. De
+[vier valkuilen](https://github.com/MWest2020/internetnl-cli/blob/main/docs/how-to/self-hosting-pitfalls.md)
+die me dagen kostten staan apart gedocumenteerd, inclusief de plek waar de
+officiële handleiding je een instance oplevert die nergens meer bij kan.
+
+- **Code:** [github.com/MWest2020/internetnl-cli](https://github.com/MWest2020/internetnl-cli) (MIT)
+- **Zelf proberen, zonder account:** [mwest2020.github.io/internetnl-cli-demo](https://mwest2020.github.io/internetnl-cli-demo/)
+- **Sleutel voor de API:** [een koffie](https://buymeacoffee.com/mark.westerweel) vanaf $2 — bèta, best-effort, geen SLA
