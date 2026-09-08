@@ -2,6 +2,22 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-09-08 (veertiende pass — huisregel herzien)
+
+### Changed
+- **Huisregel over meten** herzien op vier plekken: de slotzin van beide
+  netnl-posts en de projectensectie in beide talen. Oud: "meet alleen hosts
+  die je zelf beheert of waarvoor je expliciet toestemming hebt". Die
+  formulering was te absoluut om waar te zijn — Internet.nl is een publieke
+  dienst waar iedereen elk domein mag testen, en Forum Standaardisatie meet
+  zelf elk half jaar circa 12.000 overheidsdomeinen en publiceert de uitkomst
+  per domein. De oude zin verbood dus iets dat de dienst zelf uitnodigt.
+  Nieuw: eigen hosts vrij, die van een ander alleen waar de meting er een is
+  die de beheerder al uitnodigt, én expliciet "één run, geen lus" plus "een
+  uitslag over andermans domein is geen auditbevinding" — de twee dingen die
+  de oude zin impliceerde zonder ze te zeggen. Zelfde wijziging in de repo
+  internetnl-cli (commit ee1bf98), waar de volledige onderbouwing staat.
+
 ## 2026-09-05 (dertiende pass — netnl-post en projectenpagina bijgewerkt)
 
 ### Added

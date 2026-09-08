@@ -70,8 +70,9 @@ table or JSON for pipelines. A GitHub Action ships with it, so your build
 fails the moment your score drops — a CI gate on your own standards
 compliance instead of a screenshot in an audit folder.
 
-House rule: **only measure hosts you operate** or have explicit permission
-to test.
+House rule: **measure your own hosts freely, someone else's only where the
+measurement is one their operator already invites** — and then once, not in
+a loop.
 
 The batch API needs an account, and that is where nearly everyone gives up.
 So there is now a full chain behind it: a self-hosted batch instance on a
