@@ -180,5 +180,7 @@ nothing but green ticks measures nothing.
 - **Try it, no account needed:**
   [mwest2020.github.io/internetnl-cli-demo](https://mwest2020.github.io/internetnl-cli-demo/)
 
-One house rule, and it applies to you too: only measure hosts you operate
-or have explicit permission to test.
+One house rule, and it applies to you too: measure your own hosts freely,
+and someone else's only where the measurement is one their operator already
+invites. Once, not in a loop. And a verdict about someone else's domain is
+not an audit finding.

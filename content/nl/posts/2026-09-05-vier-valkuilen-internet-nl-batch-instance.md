@@ -180,5 +180,7 @@ vinkjes toont meet niets.
 - **Zelf proberen, zonder account:**
   [mwest2020.github.io/internetnl-cli-demo](https://mwest2020.github.io/internetnl-cli-demo/)
 
-Eén huisregel, en die geldt ook voor jou: meet alleen hosts die je zelf
-beheert of waarvoor je expliciet toestemming hebt.
+Eén huisregel, en die geldt ook voor jou: meet je eigen hosts vrij, en die
+van een ander alleen waar de meting er een is die de beheerder al uitnodigt.
+Eén run, geen lus. En een uitslag over andermans domein is geen
+auditbevinding.

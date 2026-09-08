@@ -71,8 +71,9 @@ GitHub Action bij, zodat je build faalt zodra je score zakt — een CI-gate op
 je eigen standaarden-compliance in plaats van een screenshot in een
 auditmap.
 
-Huisregel: **meet alleen hosts die je zelf beheert** of waar je expliciet
-toestemming voor hebt.
+Huisregel: **meet je eigen hosts vrij, die van een ander alleen waar de
+meting er een is die de beheerder al uitnodigt** — en dan één keer, niet in
+een lus.
 
 De batch-API vraagt een account, en dáár haakt bijna iedereen af. Daarom
 draait er inmiddels een complete keten: een eigen batch-instance op een VPS,
