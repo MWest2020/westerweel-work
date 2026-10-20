@@ -10,9 +10,9 @@
 *{box-sizing:border-box}body{margin:0;font-family:'Cormorant Garamond',Georgia,serif;background:#f3e9d2;color:#3b2a1a;overflow:hidden}
 .slide{display:none;position:absolute;inset:0;padding:8vh 8vw;flex-direction:column;justify-content:center;
 background:radial-gradient(ellipse at center,#f7efdc 0%,#e8d8b4 100%)}
-.slide::before{content:'';position:absolute;right:-2vw;bottom:0;width:55vw;height:100vh;background:var(--photo,none) no-repeat right bottom/contain,var(--tree) no-repeat right bottom/contain;opacity:.35;mix-blend-mode:multiply;filter:sepia(.6);pointer-events:none;
+.slide::before{content:'';position:absolute;right:3vw;bottom:2vh;width:36vw;height:94vh;background:var(--photo,none) no-repeat center bottom/contain,var(--tree) no-repeat center bottom/contain;opacity:.55;mix-blend-mode:multiply;filter:var(--fx,grayscale(1) brightness(1.07) contrast(1.25) sepia(.7));pointer-events:none;
 -webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent);mask-image:radial-gradient(closest-side,#000 62%,transparent)}
-.slide>*{position:relative;max-width:58vw}.slide.active{display:flex}
+.slide>*{position:relative;max-width:56vw}.slide.active{display:flex}
 h1{font-size:4.2vw;font-weight:700;color:#4a2f17;margin:0 0 3vh;border-bottom:1px solid #a5835a;padding-bottom:1vh}
 li,p{font-size:2.3vw;line-height:1.45;margin:1vh 0}ul{padding-left:1.2em}li::marker{color:#8a6a43}
 .sub{color:#7a5c3a;font-style:italic}
@@ -22,12 +22,12 @@ li,p{font-size:2.3vw;line-height:1.45;margin:1vh 0}ul{padding-left:1.2em}li::mar
 #lang button{font:inherit;font-size:1.1vw;letter-spacing:.08em;background:none;border:1px solid #a5835a;color:#8a6a43;padding:.2em .6em;cursor:pointer;border-radius:2px}
 #lang button.on{background:#4a2f17;border-color:#4a2f17;color:#f3e9d2}
 @media print{#lang{display:none}body{overflow:visible}.slide{display:flex;position:relative;height:100vh;page-break-after:always}#counter{display:none}}
-.credits>*{max-width:84vw}.credits ul{columns:2;column-gap:4vw;padding:0;list-style:none}
-.credits li{font-size:1.35vw;line-height:1.35;margin:0 0 1.1vh;break-inside:avoid}.credits b{font-weight:700}
+.credits{justify-content:flex-start}.credits>*{max-width:84vw}.credits h1{font-size:3.2vw}.credits ul{columns:3;column-gap:3vw;padding:0;list-style:none;margin:0}
+.credits li{font-size:1.15vw;line-height:1.3;margin:0 0 1.4vh;break-inside:avoid}.credits b{font-weight:700}
 .credits li a{color:#8a6a43}.credits p{font-size:1.3vw;font-style:italic;color:#7a5c3a;margin-top:2vh}
-.credits::before{opacity:.12}
+.credits::before{opacity:.15}
 a{color:#7a4a1f;text-decoration-color:#a5835a;text-underline-offset:.15em}
-.has-figure::before{opacity:.15}
+.has-figure::before{opacity:.22}
 figure{margin:2vh 0 0;max-width:62vw}figure svg{width:100%;max-height:52vh;display:block}
 figure text{font-family:'Cormorant Garamond',Georgia,serif}
 @media (max-aspect-ratio:1/1){
@@ -37,4 +37,4 @@ h1{font-size:8.5vw}li,p{font-size:4.6vw}figure svg{max-height:none}
 .credits ul{columns:1}.credits li,.credits p{font-size:3.6vw}
 #counter{font-size:3.4vw}#lang button{font-size:3.4vw}}
 
-.bg1{--photo:url('trees/leonardo-da-vinci-recto-a-stand-of-trees-c.1500.jpg');--tree:none}.bg2{--photo:url('trees/agostino-carracci-tree-nmh-1066-1863-nationalmuseum.jpg');--tree:none}.bg3{--photo:url('trees/a-large-tree-at-albano-met-dp819690.jpg');--tree:none}.bg4{--photo:url('trees/alexander-cozens-study-of-two-willows-google-art-project.jpg');--tree:none}.bg5{--photo:url('trees/eichenstudie.jpg');--tree:none}.bg6{--photo:url('trees/leonardo-da-vinci-birch-copse.jpg');--tree:none}.bg7{--photo:url('trees/a-brook-with-willows-near-gouda-pk-t-aw-2367-pk-t-aw-1860.tiff.jpg');--tree:none}.bg8{--photo:url('trees/group-of-oaks-near-wolfheze-the-netherlands-drawing-with-pen-brush-and-ink.jpg');--tree:none}.bg9{--photo:url('trees/caspar-david-friedrich-eiche-im-schnee-ii.jpg');--tree:none}.bg10{--photo:url('trees/landscape-with-path-and-pollard-willows-by-vincent-van-gogh-march-1888.jpg');--tree:none}.bg11{--photo:url('trees/caspar-scheuren-baumstudie-eiche-.jpg');--tree:none}.bg12{--photo:url('trees/an-oak-tree-pk-t-aw-2368-pk-t-aw-2185.tiff.jpg');--tree:none}.credits{--tree:url('trees/credits.svg')}
+.bg1{--photo:url('trees/eichenstudie.jpg');--tree:none}.bg2{--photo:url('trees/a-large-tree-at-albano-met-dp819690.jpg');--tree:none}.bg3{--photo:url('trees/group-of-oaks-near-wolfheze-the-netherlands-drawing-with-pen-brush-and-ink.jpg');--tree:none;--fx:grayscale(1) brightness(1.4) contrast(1.6) sepia(.7)}.bg4{--photo:url('trees/alexander-cozens-study-of-two-willows-google-art-project.jpg');--tree:none}.bg5{--photo:url('trees/caspar-scheuren-baumstudie-eiche-.jpg');--tree:none}.bg6{--photo:url('trees/an-oak-tree-pk-t-aw-2368-pk-t-aw-2185.tiff.jpg');--tree:none;--fx:grayscale(1) brightness(1.4) contrast(1.6) sepia(.7)}.bg7{--photo:url('trees/hippolyte-lalaisse-a-pollard-willow-by-a-stream-c.-1840-nga-204661.jpg');--tree:none}.bg8{--photo:url('trees/johan-christian-dahl-eiche-eik-nasjonalmuseet-ng.k-h.b.01846.jpg');--tree:none}.bg9{--photo:url('trees/cornelis-steffelaar-a-giant-oak-at-the-edge-of-a-forest-1840s-nga-164379.jpg');--tree:none}.bg10{--photo:url('trees/willow-tree-sm-2311z-.jpg');--tree:none}.bg11{--photo:url('trees/dillis-baumstudie-1820.jpg');--tree:none}.bg12{--photo:url('trees/eikenboom-in-niederwald-rp-t-1994-32-19.jpg');--tree:none}.credits{--tree:url('trees/credits.svg')}
