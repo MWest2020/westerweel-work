@@ -11,6 +11,10 @@ voor terug.
 
 ## Decks
 
+- **[AI zijn net mensen *(maar dan anders)*](/slides/ai-zijn-net-mensen/)** —
+  waarom AI-agents dezelfde fouten maken als mensen, en wat je eraan doet:
+  aandacht, briefing, vakmensen per taak, en waar de vergelijking ophoudt.
+  Talk/workshop. *(Nederlands en Engels, wissel rechtsboven of met `L`)*
 - **[Shift left — hooks > goede bedoelingen](/slides/claude-shift-left/)** —
   waarom CLAUDE.md je regel niet afdwingt en wat wél: hooks, permissions en de
   plek van een check. Met [leesversie](/slides/claude-shift-left/lees/) en
