@@ -2,6 +2,19 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-10-20 (vijftiende pass — deck "AI zijn net mensen")
+
+### Added
+- Slidedeck **"AI zijn net mensen *(maar dan anders)*"** onder
+  `/slides/ai-zijn-net-mensen/`, NL en EN in één pagina met taalwissel
+  (`?lang=en` opent de Engelse versie). Gebouwd met de eigen
+  presentatiebouwer (repo `tree-presentations`); dit is de build-output.
+  Geen requests naar derden (font zelf gehost), dus het past binnen de
+  bestaande `/slides/*`-CSP. Met og-tags en `cover.jpg` voor de
+  LinkedIn-preview. Achtergronden zijn public domain/CC-tekeningen van
+  Wikimedia Commons, met bronvermelding op de laatste slide.
+- Vermeld op de workshopspagina in beide talen.
+
 ## 2026-09-08 (veertiende pass — huisregel herzien)
 
 ### Changed

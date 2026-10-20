@@ -10,6 +10,10 @@ browser — navigate with the arrow keys (`←` / `→`), space for the next sli
 
 ## Decks
 
+- **[AIs are just like people *(only different)*](/slides/ai-zijn-net-mensen/?lang=en)** —
+  why AI agents make the same mistakes as people, and what you can do about it:
+  attention, briefing, specialists per task, and where the comparison ends.
+  Talk/workshop. *(English and Dutch, switch top right or press `L`)*
 - **[Shift left — hooks > good intentions](/slides/claude-shift-left/)** —
   why CLAUDE.md doesn't enforce your rule and what does: hooks, permissions,
   and where a check belongs. With a [reading version](/slides/claude-shift-left/lees/)
