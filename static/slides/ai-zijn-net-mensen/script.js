@@ -1,7 +1,11 @@
 const decks=[...document.querySelectorAll('.deck')],c=document.getElementById('counter');let d=decks[0],i=0;
 const slides=()=>[...d.querySelectorAll('.slide')];
+// backgrounds only load when their slide is shown; fetch the next two ahead so they are there on time
+const seen=new Set();
+function preload(el){if(!el)return;const cs=getComputedStyle(el),b=cs.getPropertyValue('--photo')+cs.getPropertyValue('--tree');
+  for(const m of b.matchAll(/url\(['"]?([^'")]+)['"]?\)/g))if(!seen.has(m[1])){seen.add(m[1]);new Image().src=m[1]}}
 function go(n){const s=slides();s.forEach(x=>x.classList.remove('active'));i=Math.max(0,Math.min(s.length-1,n));s[i].classList.add('active');s[i].scrollTop=0;
-  c.textContent=(i+1)+' / '+s.length;history.replaceState(null,'',location.search+'#'+(i+1))}
+  c.textContent=(i+1)+' / '+s.length;history.replaceState(null,'',location.search+'#'+(i+1));preload(s[i+1]);preload(s[i+2])}
 function setLang(l){const t=decks.find(x=>x.lang===l);if(!t)return;d.classList.remove('active');d=t;d.classList.add('active');
   document.documentElement.lang=l;document.title=d.dataset.title;
   document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.lang===l));
