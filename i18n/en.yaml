@@ -1,0 +1,13 @@
+# Project-level strings; merged with PaperMod's own en translations.
+- id: rss_recent
+  translation: "Latest pieces on westerweel.work"
+- id: rss_recent_in
+  translation: "Latest pieces in {{ . }} on westerweel.work"
+- id: not_found_title
+  translation: "This page doesn't exist (anymore)."
+- id: not_found_body
+  translation: "It may have moved or been renamed."
+- id: not_found_home
+  translation: "Go to the home page"
+- id: not_found_posts
+  translation: "All blog posts"

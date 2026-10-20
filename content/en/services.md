@@ -25,7 +25,8 @@ In order of how often it's asked:
 
 ### Open source & funding
 
-- NLnet NGI Zero applications, written and shepherded.
+- MIT applications (the Dutch SME innovation scheme for regions and top
+  sectors), written and shepherded.
 - Innovation Budget Digital Government and similar programmes.
 - WBSO (Dutch R&D tax credit): technical substantiation that survives
   the RVO review.

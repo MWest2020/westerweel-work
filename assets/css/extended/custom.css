@@ -244,3 +244,6 @@ body.home .logo a::after {
   border-radius: 5px;
 }
 ::-webkit-scrollbar-thumb:hover { background: var(--westerweel-accent); }
+
+/* 404: message and links under the big number (layouts/404.html) */
+.not-found-text { text-align: center; }
