@@ -9,8 +9,8 @@ Mark Westerweel. 42, Noord-Holland, soms Ameland.
 
 Ik werk al jaren in en rond Common Ground en het Nederlands gemeentelijk
 landschap. Platform- en DevOps-werk: multi-tenant Kubernetes, Nextcloud
-op schaal, ISO 27001-trajecten, NLnet-aanvragen, en de papierwinkel die
-daar bij hoort.
+op schaal, ISO 27001-trajecten, subsidieaanvragen (MIT, WBSO,
+innovatiebudgetten), en de papierwinkel die daar bij hoort.
 
 Achtergrond: meegebouwd aan de open-source apps van Conduction
 (OpenWoo.app, OpenRegister, OpenConnector). Ervaring met

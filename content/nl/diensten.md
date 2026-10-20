@@ -26,7 +26,8 @@ In volgorde van hoe vaak het gevraagd wordt:
 
 ### Open source & subsidies
 
-- NLnet NGI Zero-aanvragen schrijven en begeleiden.
+- MIT-aanvragen (MKB-innovatiestimulering Regio en Topsectoren) schrijven
+  en begeleiden.
 - Innovatiebudget Digitale Overheid en vergelijkbare trajecten.
 - WBSO: technische onderbouwing die de RVO-toets doorstaat.
 - Code en proposal hand-in-hand, geen mooi-weer-deliverables.

@@ -1,0 +1,13 @@
+# Project-level strings; merged with PaperMod's own nl translations.
+- id: rss_recent
+  translation: "Nieuwste stukken op westerweel.work"
+- id: rss_recent_in
+  translation: "Nieuwste stukken in {{ . }} op westerweel.work"
+- id: not_found_title
+  translation: "Deze pagina bestaat niet (meer)."
+- id: not_found_body
+  translation: "Misschien is hij verhuisd of hernoemd."
+- id: not_found_home
+  translation: "Naar de homepage"
+- id: not_found_posts
+  translation: "Alle blogposts"

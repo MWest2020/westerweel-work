@@ -1,0 +1,10 @@
+{{- /*
+  Override of PaperMod's 404 (which only shows "404"): a short message in the
+  page's language plus a way back. Hugo builds /404.html (NL) and /en/404.html
+  (EN); Cloudflare Pages serves the nearest one for a missing path.
+*/ -}}
+{{- define "main" }}
+<div class="not-found">404</div>
+<p class="not-found-text">{{ i18n "not_found_title" }} {{ i18n "not_found_body" }}</p>
+<p class="not-found-text"><a href="{{ "" | absLangURL }}">{{ i18n "not_found_home" }}</a> · <a href="{{ "posts/" | absLangURL }}">{{ i18n "not_found_posts" }}</a></p>
+{{- end }}{{/* end main */ -}}

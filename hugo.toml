@@ -36,6 +36,17 @@ Ik bouw en repareer infrastructuur voor Nederlandse organisaties die soevereinit
 
 Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestoken. Geen hot takes, geen AI-content marketing, geen LinkedIn cross-posts.
 """
+    [languages.nl.params.footer]
+      text = "<a href=\"mailto:mark@westerweel.work\">mark@westerweel.work</a> · <a href=\"https://github.com/MWest2020\" target=\"_blank\" rel=\"noopener\">GitHub</a> · <a href=\"/posts/index.xml\">RSS</a>"
+    [[languages.nl.params.socialIcons]]
+      name = "github"
+      url = "https://github.com/MWest2020"
+    [[languages.nl.params.socialIcons]]
+      name = "email"
+      url = "mailto:mark@westerweel.work"
+    [[languages.nl.params.socialIcons]]
+      name = "rss"
+      url = "/posts/index.xml"
     [[languages.nl.menu.main]]
       identifier = "posts"
       name = "blog"
@@ -77,6 +88,17 @@ I build and fix infrastructure for Dutch organizations that take sovereignty ser
 
 Notes here, RCAs, and pieces on work I've put real time into. No hot takes, no AI content marketing, no LinkedIn cross-posts.
 """
+    [languages.en.params.footer]
+      text = "<a href=\"mailto:mark@westerweel.work\">mark@westerweel.work</a> · <a href=\"https://github.com/MWest2020\" target=\"_blank\" rel=\"noopener\">GitHub</a> · <a href=\"/en/posts/index.xml\">RSS</a>"
+    [[languages.en.params.socialIcons]]
+      name = "github"
+      url = "https://github.com/MWest2020"
+    [[languages.en.params.socialIcons]]
+      name = "email"
+      url = "mailto:mark@westerweel.work"
+    [[languages.en.params.socialIcons]]
+      name = "rss"
+      url = "/en/posts/index.xml"
     [[languages.en.menu.main]]
       identifier = "posts"
       name = "blog"
@@ -128,21 +150,11 @@ Notes here, RCAs, and pieces on work I've put real time into. No hot takes, no A
   # params over global ones; a global homeInfoParams here would override
   # the NL fallback for EN. Keep it per-language.
 
-  # Footer override — PaperMod renders this above its own "Powered by" credits.
-  [params.footer]
-    text = "<a href=\"mailto:mark@westerweel.work\">mark@westerweel.work</a> · <a href=\"https://github.com/MWest2020\" target=\"_blank\" rel=\"noopener\">GitHub</a> · <a href=\"/posts/index.xml\">RSS</a>"
+  # Toggle shows "English" / "Nederlands" instead of "En" / "Nl".
+  displayFullLangName = true
 
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/MWest2020"
-
-  [[params.socialIcons]]
-    name = "email"
-    url = "mailto:mark@westerweel.work"
-
-  [[params.socialIcons]]
-    name = "rss"
-    url = "/posts/index.xml"
+  # Footer text and social icons live per language (under [languages.<lang>.params]):
+  # the RSS link must point at that language's feed.
 
 # --- Markdown rendering ----------------------------------------------------
 

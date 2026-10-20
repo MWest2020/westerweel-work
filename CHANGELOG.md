@@ -2,6 +2,31 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-10-20 (zestiende pass — NL/EN rechtgezet, NLnet eruit)
+
+### Fixed
+- **RSS-links per taal.** Footer en social-icoon wezen op de Engelse site
+  naar de Nederlandse feed (`/posts/index.xml`); footer en `socialIcons`
+  staan nu per taal onder `[languages.<lang>.params]`.
+- **Feedtitels.** PaperMods `rss.xml` had hardcoded Engels ("Home on …",
+  "Recent content in …"), ook in de NL-feeds. Kopie in `layouts/rss.xml`
+  met site-titel voor de home-feed en vertaalde beschrijving via `i18n/`.
+  Re-sync bij een theme-bump, net als `header.html`.
+- **Taalknop** toont "English" / "Nederlands" in plaats van "En" / "Nl"
+  (`displayFullLangName`).
+- **404** toonde alleen "404"; nu per taal een korte tekst met links naar
+  home en blog (`layouts/404.html`, stijl in `custom.css`, geen inline styles
+  i.v.m. de CSP).
+- **Slidedeck ai-zijn-net-mensen**: achtergronden via CSS-klassen in plaats
+  van inline `style` (de site-brede CSP geldt ook op `/slides/*`, naast de
+  slides-CSP) en versie-hash op css/js tegen een gecachete oude stylesheet.
+
+### Changed
+- **NLnet eruit.** Over-pagina: "NLnet-aanvragen" → "subsidieaanvragen (MIT,
+  WBSO, innovatiebudgetten)". Diensten: de NLnet NGI Zero-regel vervangen
+  door MIT-aanvragen; WBSO en Innovatiebudget stonden er al. Beide talen.
+  De eerste blogpost (mei) noemt NLnet nog; die blijft als historisch stuk.
+
 ## 2026-10-20 (vijftiende pass — deck "AI zijn net mensen")
 
 ### Added
