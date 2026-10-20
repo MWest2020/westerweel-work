@@ -21,6 +21,11 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
   van inline `style` (de site-brede CSP geldt ook op `/slides/*`, naast de
   slides-CSP) en versie-hash op css/js tegen een gecachete oude stylesheet.
 
+- **CSP op `/slides/*`**: de site-brede CSP wordt daar nu losgekoppeld
+  (`! Content-Security-Policy` in `_headers`), zodat alleen de slides-CSP
+  geldt. Voorheen golden beide en braken inline styles/scripts van de
+  bestaande decks (docker-101, claude-shift-left).
+
 ### Changed
 - **NLnet eruit.** Over-pagina: "NLnet-aanvragen" → "subsidieaanvragen (MIT,
   WBSO, innovatiebudgetten)". Diensten: de NLnet NGI Zero-regel vervangen
