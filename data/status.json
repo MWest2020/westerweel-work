@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T14:26:05+01:00",
+ "generated": "2026-10-28T14:28:04+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -185,6 +185,13 @@
    "in_flight": [],
    "delivered": [
     {
+     "title": "status site: no links into private repos in the waiting list",
+     "pr": 208,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/208",
+     "when": "2026-10-28T13:28:01Z",
+     "kind": "merged"
+    },
+    {
      "title": "status site: the public overview on westerweel.work/nu/",
      "pr": 207,
      "url": "https://github.com/MWest2020/ratatoskr/pull/207",
@@ -231,13 +238,6 @@
      "pr": 201,
      "url": "https://github.com/MWest2020/ratatoskr/pull/201",
      "when": "2026-10-25T19:31:29Z",
-     "kind": "merged"
-    },
-    {
-     "title": "factory: API budget from the Console's credit",
-     "pr": 200,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/200",
-     "when": "2026-10-25T18:03:32Z",
      "kind": "merged"
     }
    ],
@@ -434,7 +434,7 @@
   {
    "repo": "convergence",
    "issue": 95,
-   "url": "https://github.com/MWest2020/convergence/issues/95",
+   "url": null,
    "question": "risks-legal: sign off the legal questions before anything leaves devnet",
    "default": "no mainnet, no real SOL, no token sale. The demo stays on Solana devnet, and the reviewer fails any change that adds a mainnet endpoint."
   },
