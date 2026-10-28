@@ -1,0 +1,102 @@
+{{- define "main" }}
+{{- /* The overview at /nu/ and /en/now/. It renders data/status.json, which
+       ratatoskr's orchestrator/status_site.py generates from facts every two
+       hours and pushes here. No inline styles or scripts: the site's CSP
+       pins both by hash, so all styling is in assets/css/extended/custom.css. */ -}}
+{{- $s := site.Data.status }}
+<article class="post-single now">
+  <header class="post-header">
+    <h1 class="post-title">{{ .Title }}</h1>
+    {{- with $s }}
+    {{- $t := time.AsTime .generated }}
+    <p class="now-meta">
+      {{ i18n "now_generated" }}
+      <time datetime="{{ .generated }}">{{ $t.Format "02-01-2006 15:04" }}</time>
+      (Europe/Amsterdam) · {{ i18n "now_source" | safeHTML }}
+    </p>
+    {{- end }}
+  </header>
+
+  <div class="post-content md-content now-intro">{{ .Content }}</div>
+
+  {{- if not $s }}
+  <p class="now-empty">{{ i18n "now_no_data" }}</p>
+  {{- else }}
+
+  <section class="now-panel now-waiting" aria-labelledby="now-waiting">
+    <h2 id="now-waiting">{{ i18n "now_waiting" }} <span class="now-count">{{ len $s.waiting }}</span></h2>
+    {{- with $s.waiting }}
+    <ul class="now-list">
+      {{- range . }}
+      <li>
+        <span class="now-repo">{{ .repo }}</span>
+        {{- if .url }}<a href="{{ .url }}">{{ .question }}</a>{{ else }}{{ .question }}{{ end }}
+        {{- with .default }}<span class="now-default">{{ i18n "now_default" }}: {{ . }}</span>{{ end }}
+      </li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    <p class="now-empty">{{ i18n "now_nothing" }}</p>
+    {{- end }}
+  </section>
+
+  <section class="now-panel now-stuck" aria-labelledby="now-stuck">
+    <h2 id="now-stuck">{{ i18n "now_stuck" }} <span class="now-count">{{ len $s.stuck }}</span></h2>
+    {{- with $s.stuck }}
+    <ul class="now-list">
+      {{- range . }}
+      <li>
+        {{- with .repo }}<span class="now-repo">{{ . }}</span>{{ end }}
+        {{- with .change }}<code>{{ . }}</code>{{ end }}
+        <span class="now-why">{{ .why }}</span>
+        {{- with .url }} · <a href="{{ . }}">#</a>{{ end }}
+      </li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    <p class="now-empty">{{ i18n "now_nothing" }}</p>
+    {{- end }}
+  </section>
+
+  <section class="now-projects" aria-label="{{ i18n "now_projects" }}">
+    {{- range $s.projects }}
+    <div class="now-project">
+      <h2 class="now-project-name">
+        {{- if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}
+        {{- if not .public }} <span class="now-private">{{ i18n "now_private" }}</span>{{ end }}
+      </h2>
+
+      <h3>{{ i18n "now_in_flight" }}</h3>
+      {{- with .in_flight }}
+      <ul class="now-list now-flight">
+        {{- range . }}
+        <li>
+          <span class="now-stage now-stage-{{ .stage }}">{{ i18n (printf "now_stage_%s" .stage) | default .stage }}</span>
+          {{- if .url }}<a href="{{ .url }}"><code>{{ .change }}</code></a>{{ else }}<code>{{ .change }}</code>{{ end }}
+        </li>
+        {{- end }}
+      </ul>
+      {{- else }}
+      <p class="now-empty">{{ i18n "now_nothing" }}</p>
+      {{- end }}
+
+      <h3>{{ i18n "now_delivered" }}</h3>
+      {{- with .delivered }}
+      <ul class="now-list now-done">
+        {{- range . }}
+        <li>
+          <span class="now-kind now-kind-{{ .kind }}">{{ i18n (printf "now_kind_%s" .kind) | default .kind }}</span>
+          {{- if .url }}<a href="{{ .url }}">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+          <time class="now-when" datetime="{{ .when }}">{{ (time.AsTime .when).Format "02-01 15:04" }}</time>
+        </li>
+        {{- end }}
+      </ul>
+      {{- else }}
+      <p class="now-empty">{{ i18n "now_nothing" }}</p>
+      {{- end }}
+    </div>
+    {{- end }}
+  </section>
+  {{- end }}
+</article>
+{{- end }}

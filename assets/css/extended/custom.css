@@ -247,3 +247,70 @@ body.home .logo a::after {
 
 /* 404: message and links under the big number (layouts/404.html) */
 .not-found-text { text-align: center; }
+
+/* /nu/ and /en/now/: the generated overview (layouts/_default/now.html).
+   Dense and plain on purpose: a status board, not a landing page. Stage
+   colours borrow GitHub's own status palette so they read at a glance next
+   to the site's phosphor-green accent. No inline styles (CSP). */
+.now { --now-blue: #58a6ff; --now-amber: #d29922; --now-red: #f85149; --now-violet: #a371f7; }
+.now-meta { color: var(--secondary); font-size: 0.85rem; margin-top: 0.4rem; }
+.now-meta time { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--primary); }
+.now-intro { margin-bottom: 1.5rem; }
+.now-panel, .now-project {
+  border: 1px solid var(--westerweel-border);
+  border-radius: 6px;
+  background: var(--entry);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1rem;
+}
+.now-waiting { border-left: 3px solid var(--now-amber); }
+.now-stuck { border-left: 3px solid var(--now-red); }
+.now-panel h2, .now-project-name { font-size: 1.05rem; margin: 0 0 0.6rem; }
+.now-project h3 {
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em;
+  color: var(--secondary); margin: 0.8rem 0 0.35rem;
+}
+.now-count {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.8rem;
+  color: var(--secondary); border: 1px solid var(--westerweel-border);
+  border-radius: 999px; padding: 0 0.5rem; margin-left: 0.3rem;
+}
+.now-list { list-style: none; margin: 0; padding: 0; font-size: 0.9rem; }
+.now-list li {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.55rem;
+  padding: 0.3rem 0; border-top: 1px solid var(--westerweel-border);
+}
+.now-list li:first-child { border-top: 0; }
+.now-list code { font-size: 0.82rem; background: none; padding: 0; color: var(--primary); }
+.now-repo {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.78rem;
+  color: var(--secondary);
+}
+.now-default, .now-why { color: var(--secondary); font-size: 0.84rem; flex-basis: 100%; }
+.now-why { flex-basis: auto; }
+.now-when { margin-left: auto; color: var(--secondary); font-size: 0.78rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.now-empty { color: var(--secondary); font-size: 0.88rem; margin: 0; }
+.now-private { font-size: 0.72rem; color: var(--now-violet); border: 1px solid var(--now-violet);
+  border-radius: 4px; padding: 0 0.35rem; vertical-align: middle; }
+.now-stage, .now-kind {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.72rem;
+  border: 1px solid var(--westerweel-border); border-radius: 4px; padding: 0 0.4rem;
+  min-width: 6.5rem; text-align: center; color: var(--secondary);
+}
+.now-stage-proposed { color: var(--now-blue); border-color: var(--now-blue); }
+.now-stage-proposing, .now-stage-queued { color: var(--secondary); }
+.now-stage-building, .now-stage-merging, .now-stage-deploying { color: var(--now-amber); border-color: var(--now-amber); }
+.now-kind-spec { color: var(--now-blue); border-color: var(--now-blue); }
+.now-kind-merged { color: var(--primary); }
+.now-kind-deployed { color: var(--westerweel-accent); border-color: var(--westerweel-accent); }
+.now-projects { display: grid; grid-template-columns: 1fr; gap: 0 1rem; }
+/* Rows in fixed columns: label | title | time, so long titles wrap in place. */
+.now-flight li, .now-done li {
+  display: grid; grid-template-columns: 6.8rem minmax(0, 1fr) auto; column-gap: 0.6rem;
+  align-items: baseline;
+}
+.now-flight li { grid-template-columns: 6.8rem minmax(0, 1fr); }
+.now-stage, .now-kind { min-width: 0; }
+.now-done li > a, .now-done li > span:not(.now-kind) { overflow-wrap: anywhere; }
+.now-when { margin-left: 0; white-space: nowrap; }

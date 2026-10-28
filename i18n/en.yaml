@@ -11,3 +11,44 @@
   translation: "Go to the home page"
 - id: not_found_posts
   translation: "All blog posts"
+# /en/now/ — the overview (layouts/_default/now.html)
+- id: now_generated
+  translation: "Generated on"
+- id: now_source
+  translation: "source: Ratatoskr, from build state and GitHub"
+- id: now_no_data
+  translation: "No overview has been generated yet."
+- id: now_waiting
+  translation: "Waiting on Mark"
+- id: now_default
+  translation: "Without an answer"
+- id: now_stuck
+  translation: "Stuck"
+- id: now_nothing
+  translation: "Nothing."
+- id: now_projects
+  translation: "Projects"
+- id: now_private
+  translation: "private"
+- id: now_in_flight
+  translation: "In the making"
+- id: now_delivered
+  translation: "Shipped (7 days)"
+- id: now_stage_proposed
+  translation: "proposed"
+- id: now_stage_proposing
+  translation: "being written"
+- id: now_stage_queued
+  translation: "queued"
+- id: now_stage_building
+  translation: "building"
+- id: now_stage_merging
+  translation: "merging"
+- id: now_stage_deploying
+  translation: "deploying"
+- id: now_kind_spec
+  translation: "spec"
+- id: now_kind_merged
+  translation: "merged"
+- id: now_kind_deployed
+  translation: "live"
