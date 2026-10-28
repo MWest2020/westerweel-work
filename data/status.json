@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T14:28:04+01:00",
+ "generated": "2026-10-29T00:30:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -34,9 +34,50 @@
      "issue": 261,
      "url": "https://github.com/MWest2020/wordsworth/issues/261",
      "stage": "queued"
+    },
+    {
+     "change": "detect-dutch-particle-names",
+     "issue": 285,
+     "url": "https://github.com/MWest2020/wordsworth/issues/285",
+     "stage": "queued"
     }
    ],
    "delivered": [
+    {
+     "title": "hoge-beschikbaarheid: task 1.1 done",
+     "pr": 287,
+     "url": "https://github.com/MWest2020/wordsworth/pull/287",
+     "when": "2026-10-28T22:34:53Z",
+     "kind": "merged"
+    },
+    {
+     "title": "openspec: detect-dutch-particle-names",
+     "pr": 286,
+     "url": "https://github.com/MWest2020/wordsworth/pull/286",
+     "when": "2026-10-28T22:34:42Z",
+     "kind": "spec"
+    },
+    {
+     "title": "pilot report: results for Gooise Meren Woo-publicatie 2022",
+     "pr": 284,
+     "url": "https://github.com/MWest2020/wordsworth/pull/284",
+     "when": "2026-10-28T22:28:09Z",
+     "kind": "merged"
+    },
+    {
+     "title": "Key-user review of the console + five OpenSpec changes",
+     "pr": 283,
+     "url": "https://github.com/MWest2020/wordsworth/pull/283",
+     "when": "2026-10-28T22:23:39Z",
+     "kind": "merged"
+    },
+    {
+     "title": "pilot report: ranking questions, committed before any search",
+     "pr": 282,
+     "url": "https://github.com/MWest2020/wordsworth/pull/282",
+     "when": "2026-10-28T22:20:55Z",
+     "kind": "merged"
+    },
     {
      "title": "openspec: reindex-keeps-topics",
      "pr": 280,
@@ -57,41 +98,6 @@
      "url": "https://github.com/MWest2020/wordsworth/pull/276",
      "when": "2026-10-28T07:53:21Z",
      "kind": "spec"
-    },
-    {
-     "title": "build: redacted-pdf-size",
-     "pr": 271,
-     "url": "https://github.com/MWest2020/wordsworth/pull/271",
-     "when": "2026-10-28T00:08:56Z",
-     "kind": "deployed"
-    },
-    {
-     "title": "build: delete-dossiers-topics",
-     "pr": 269,
-     "url": "https://github.com/MWest2020/wordsworth/pull/269",
-     "when": "2026-10-27T23:46:35Z",
-     "kind": "deployed"
-    },
-    {
-     "title": "Remove the per-repo habitat role copies (roles come from the handbook)",
-     "pr": 268,
-     "url": "https://github.com/MWest2020/wordsworth/pull/268",
-     "when": "2026-10-27T20:03:34Z",
-     "kind": "merged"
-    },
-    {
-     "title": "openspec: redaction-overdetection",
-     "pr": 267,
-     "url": "https://github.com/MWest2020/wordsworth/pull/267",
-     "when": "2026-10-27T19:59:22Z",
-     "kind": "spec"
-    },
-    {
-     "title": "openspec: redaction-locate-remaining",
-     "pr": 265,
-     "url": "https://github.com/MWest2020/wordsworth/pull/265",
-     "when": "2026-10-27T09:23:20Z",
-     "kind": "spec"
     }
    ],
    "url": "https://github.com/MWest2020/wordsworth"
@@ -110,7 +116,7 @@
      "change": "demo-topdown-look",
      "issue": 66,
      "url": null,
-     "stage": "queued"
+     "stage": "building"
     },
     {
      "change": "demo-devnet-wallet",
@@ -384,6 +390,20 @@
    "in_flight": [],
    "delivered": [
     {
+     "title": "seaweedfs: 2 GiB memory limit",
+     "pr": 28,
+     "url": "https://github.com/MWest2020/homelab/pull/28",
+     "when": "2026-10-28T22:24:30Z",
+     "kind": "merged"
+    },
+    {
+     "title": "seaweedfs: second volume server on another node, wordsworth replicated 001",
+     "pr": 27,
+     "url": "https://github.com/MWest2020/homelab/pull/27",
+     "when": "2026-10-28T22:18:00Z",
+     "kind": "merged"
+    },
+    {
      "title": "Remove the per-repo habitat role copies (roles come from the handbook)",
      "pr": 26,
      "url": "https://github.com/MWest2020/homelab/pull/26",
@@ -425,25 +445,11 @@
  "stuck": [],
  "waiting": [
   {
-   "repo": "wordsworth",
-   "issue": 281,
-   "url": "https://github.com/MWest2020/wordsworth/issues/281",
-   "question": "Pilot: the PII read (Mark's slot in the pilot report)",
-   "default": "the pilot report stays open; nobody else fills the PII slot, and no recall figure is published."
-  },
-  {
    "repo": "convergence",
    "issue": 95,
    "url": null,
    "question": "risks-legal: sign off the legal questions before anything leaves devnet",
    "default": "no mainnet, no real SOL, no token sale. The demo stays on Solana devnet, and the reviewer fails any change that adds a mainnet endpoint."
-  },
-  {
-   "repo": "wordsworth",
-   "issue": 196,
-   "url": "https://github.com/MWest2020/wordsworth/issues/196",
-   "question": "Human-judged questions for ranking (after the derived collection)",
-   "default": "the pilot report stays open; ranking is not measured until Mark commits his questions (docs/explanation/pilot-report-template.md §3)."
   },
   {
    "repo": "wordsworth",
