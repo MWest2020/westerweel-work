@@ -2,6 +2,18 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-10-28 (overzicht /nu/)
+
+### Added
+- **`/nu/` en `/en/now/`**: een gegenereerd overzicht van waar ik aan werk:
+  wacht op Mark (met wat er gebeurt zonder antwoord), wat vastzit, en per
+  project wat er in de maak is en wat er deze week is opgeleverd. Rendert
+  `data/status.json`, dat ratatoskr elke twee uur uit feiten bouwt
+  (`orchestrator/status_site.py`). Layout `layouts/_default/now.html`, stijl in
+  `custom.css` (geen inline styles, i.v.m. de CSP), menu-item "nu" / "now".
+- Smoke test dekt beide pagina's, het hreflang-paar, de generatietijd en
+  het ontbreken van inline styles.
+
 ## 2026-10-20 (zestiende pass — NL/EN rechtgezet, NLnet eruit)
 
 ### Fixed

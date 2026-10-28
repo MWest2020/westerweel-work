@@ -75,7 +75,9 @@ for f in \
   "$PUBLIC_DIR/about/index.html" \
   "$PUBLIC_DIR/en/about/index.html" \
   "$PUBLIC_DIR/posts/index.html" \
-  "$PUBLIC_DIR/en/posts/index.html"
+  "$PUBLIC_DIR/en/posts/index.html" \
+  "$PUBLIC_DIR/nu/index.html" \
+  "$PUBLIC_DIR/en/now/index.html"
 do
   assert_file_exists "$f"
 done
@@ -172,6 +174,14 @@ assert_grep "$PUBLIC_DIR/en/about/index.html"  '"sameAs":\["https://github.com/M
 # Person schema must NOT leak onto service/post pages (they have their own BlogPosting/Person)
 assert_not_grep "$PUBLIC_DIR/diensten/index.html"  '"sameAs":\[' "full Person schema NOT on diensten"
 assert_not_grep "$PUBLIC_DIR/en/services/index.html" '"sameAs":\[' "full Person schema NOT on en/services"
+
+echo "==> /nu/ overview (generated from data/status.json by ratatoskr)"
+assert_grep "$PUBLIC_DIR/nu/index.html"     'hreflang=en href=https://westerweel.work/en/now/' "nu -> en/now hreflang"
+assert_grep "$PUBLIC_DIR/en/now/index.html" 'hreflang=nl href=https://westerweel.work/nu/'     "en/now -> nu hreflang"
+assert_grep "$PUBLIC_DIR/nu/index.html"     '<time datetime=[0-9]{4}-[0-9]{2}-[0-9]{2}T'     "nu shows the generation time"
+assert_grep "$PUBLIC_DIR/nu/index.html"     'Wacht op Mark'                                  "nu has the waiting-on-Mark panel"
+assert_grep "$PUBLIC_DIR/en/now/index.html" 'Waiting on Mark'                                "en/now has the waiting-on-Mark panel"
+assert_not_grep "$PUBLIC_DIR/nu/index.html" 'class="now[^"]*"[^>]* style='                   "nu has no inline styles (CSP)"
 
 # Sitemap layout: /sitemap.xml is the index, real URLs live in per-language
 # sub-sitemaps because Hugo splits them when the site has multiple languages.

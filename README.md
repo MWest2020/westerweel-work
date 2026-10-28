@@ -127,6 +127,23 @@ static/                   # favicon, _redirects, _headers, robots.txt
 themes/PaperMod/          # submodule
 ```
 
+## /nu/ — het gegenereerde overzicht
+
+`/nu/` en `/en/now/` tonen waar ik aan werk: per project wat er in de maak is,
+wat vastzit, wat er de afgelopen zeven dagen is opgeleverd en welke vragen op
+mij wachten, elk met wat er gebeurt als ik niet antwoord. De pagina rendert
+`data/status.json` met `layouts/_default/now.html`.
+
+Dat bestand schrijft niemand met de hand. `orchestrator/status_site.py` in
+[ratatoskr](https://github.com/MWest2020/ratatoskr) bouwt het elke twee uur uit
+bouwstatus en GitHub, filtert geheimen, e-mailadressen en ids eruit, en pusht
+naar `main` alleen als de inhoud veranderd is en hooguit eens per twee uur:
+elke push is een Cloudflare Pages-build, en de gratis laag heeft een
+maandbudget. Uitleg: `docs/how-to/status-site.md` in ratatoskr.
+
+Een vraag op het overzicht zetten: een issue met label `waiting-on-mark`, de
+vraag als titel en een regel `Default: …` in de body.
+
 ## Workshops / slidedecks
 
 Een deck is een **self-contained HTML-bestand** op

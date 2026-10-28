@@ -1,0 +1,427 @@
+{
+ "generated": "2026-10-28T14:20:11+01:00",
+ "projects": [
+  {
+   "name": "wordsworth",
+   "public": true,
+   "in_flight": [
+    {
+     "change": "redaction-overdetection",
+     "issue": 266,
+     "url": "https://github.com/MWest2020/wordsworth/issues/266",
+     "stage": "queued"
+    },
+    {
+     "change": "reindex-keeps-topics",
+     "issue": 278,
+     "url": "https://github.com/MWest2020/wordsworth/issues/278",
+     "stage": "queued"
+    },
+    {
+     "change": "console-hide-deleted",
+     "issue": 277,
+     "url": "https://github.com/MWest2020/wordsworth/issues/277",
+     "stage": "queued"
+    },
+    {
+     "change": "redacted-cache-version",
+     "issue": 275,
+     "url": "https://github.com/MWest2020/wordsworth/issues/275",
+     "stage": "queued"
+    },
+    {
+     "change": "redaction-locate-remaining",
+     "issue": 261,
+     "url": "https://github.com/MWest2020/wordsworth/issues/261",
+     "stage": "queued"
+    }
+   ],
+   "delivered": [
+    {
+     "title": "openspec: reindex-keeps-topics",
+     "pr": 280,
+     "url": "https://github.com/MWest2020/wordsworth/pull/280",
+     "when": "2026-10-28T09:13:54Z",
+     "kind": "spec"
+    },
+    {
+     "title": "openspec: console-hide-deleted",
+     "pr": 279,
+     "url": "https://github.com/MWest2020/wordsworth/pull/279",
+     "when": "2026-10-28T09:13:20Z",
+     "kind": "spec"
+    },
+    {
+     "title": "openspec: redacted-cache-version",
+     "pr": 276,
+     "url": "https://github.com/MWest2020/wordsworth/pull/276",
+     "when": "2026-10-28T07:53:21Z",
+     "kind": "spec"
+    },
+    {
+     "title": "build: redacted-pdf-size",
+     "pr": 271,
+     "url": "https://github.com/MWest2020/wordsworth/pull/271",
+     "when": "2026-10-28T00:08:56Z",
+     "kind": "deployed"
+    },
+    {
+     "title": "build: delete-dossiers-topics",
+     "pr": 269,
+     "url": "https://github.com/MWest2020/wordsworth/pull/269",
+     "when": "2026-10-27T23:46:35Z",
+     "kind": "deployed"
+    },
+    {
+     "title": "Remove the per-repo habitat role copies (roles come from the handbook)",
+     "pr": 268,
+     "url": "https://github.com/MWest2020/wordsworth/pull/268",
+     "when": "2026-10-27T20:03:34Z",
+     "kind": "merged"
+    },
+    {
+     "title": "openspec: redaction-overdetection",
+     "pr": 267,
+     "url": "https://github.com/MWest2020/wordsworth/pull/267",
+     "when": "2026-10-27T19:59:22Z",
+     "kind": "spec"
+    },
+    {
+     "title": "openspec: redaction-locate-remaining",
+     "pr": 265,
+     "url": "https://github.com/MWest2020/wordsworth/pull/265",
+     "when": "2026-10-27T09:23:20Z",
+     "kind": "spec"
+    }
+   ],
+   "url": "https://github.com/MWest2020/wordsworth"
+  },
+  {
+   "name": "convergence",
+   "public": false,
+   "in_flight": [
+    {
+     "change": "demo-marketplace",
+     "issue": 59,
+     "url": null,
+     "stage": "proposed"
+    },
+    {
+     "change": "demo-topdown-look",
+     "issue": 66,
+     "url": null,
+     "stage": "queued"
+    },
+    {
+     "change": "demo-devnet-wallet",
+     "issue": 60,
+     "url": null,
+     "stage": "proposed"
+    }
+   ],
+   "delivered": [
+    {
+     "title": "decision 0004 accepted: Godot for the 2D launch and 3D",
+     "pr": 94,
+     "url": null,
+     "when": "2026-10-28T09:07:54Z",
+     "kind": "merged"
+    },
+    {
+     "title": "Remove the per-repo habitat role copies (roles come from the handbook)",
+     "pr": 91,
+     "url": null,
+     "when": "2026-10-27T20:03:16Z",
+     "kind": "merged"
+    },
+    {
+     "title": "Tiled maps (OpenSpec change) and decision 0004: Godot (draft)",
+     "pr": 90,
+     "url": null,
+     "when": "2026-10-27T08:54:04Z",
+     "kind": "merged"
+    },
+    {
+     "title": "build: demo-zone-travel",
+     "pr": 88,
+     "url": null,
+     "when": "2026-10-27T02:17:27Z",
+     "kind": "deployed"
+    },
+    {
+     "title": "build: demo-zone-rules",
+     "pr": 85,
+     "url": null,
+     "when": "2026-10-27T01:13:49Z",
+     "kind": "deployed"
+    },
+    {
+     "title": "openspec: split the hard zone into demo-zone-rules and demo-zone-travel",
+     "pr": 83,
+     "url": null,
+     "when": "2026-10-27T00:44:24Z",
+     "kind": "spec"
+    },
+    {
+     "title": "build: demo-duel",
+     "pr": 79,
+     "url": null,
+     "when": "2026-10-26T23:55:20Z",
+     "kind": "deployed"
+    },
+    {
+     "title": "openspec: demo-duel",
+     "pr": 78,
+     "url": null,
+     "when": "2026-10-26T23:29:46Z",
+     "kind": "spec"
+    }
+   ],
+   "url": null
+  },
+  {
+   "name": "ratatoskr",
+   "public": true,
+   "in_flight": [],
+   "delivered": [
+    {
+     "title": "build: a deploy keeps the channel the hub is woken in",
+     "pr": 206,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/206",
+     "when": "2026-10-27T01:49:01Z",
+     "kind": "merged"
+    },
+    {
+     "title": "factory: convergence builds on the subscription again",
+     "pr": 205,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/205",
+     "when": "2026-10-26T23:02:04Z",
+     "kind": "merged"
+    },
+    {
+     "title": "factory: reviewing roles capped at $2",
+     "pr": 204,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/204",
+     "when": "2026-10-26T18:05:13Z",
+     "kind": "merged"
+    },
+    {
+     "title": "factory: roles from the handbook; convergence back on the credits",
+     "pr": 203,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/203",
+     "when": "2026-10-26T17:35:41Z",
+     "kind": "merged"
+    },
+    {
+     "title": "deploy: recipes with several images; convergence deploys after every build",
+     "pr": 202,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/202",
+     "when": "2026-10-26T11:39:55Z",
+     "kind": "merged"
+    },
+    {
+     "title": "factory: convergence builds back on the subscription",
+     "pr": 201,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/201",
+     "when": "2026-10-25T19:31:29Z",
+     "kind": "merged"
+    },
+    {
+     "title": "factory: API budget from the Console's credit",
+     "pr": 200,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/200",
+     "when": "2026-10-25T18:03:32Z",
+     "kind": "merged"
+    },
+    {
+     "title": "factory: role budgets from what roles cost",
+     "pr": 199,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/199",
+     "when": "2026-10-24T18:26:35Z",
+     "kind": "merged"
+    }
+   ],
+   "url": "https://github.com/MWest2020/ratatoskr"
+  },
+  {
+   "name": "habitat",
+   "public": true,
+   "in_flight": [],
+   "delivered": [
+    {
+     "title": "Remove the per-repo habitat role copies (roles come from the handbook)",
+     "pr": 45,
+     "url": "https://github.com/MWest2020/habitat/pull/45",
+     "when": "2026-10-27T20:03:39Z",
+     "kind": "merged"
+    },
+    {
+     "title": "roles-from-handbook: a role's definition comes from the handbook at a pinned commit",
+     "pr": 44,
+     "url": "https://github.com/MWest2020/habitat/pull/44",
+     "when": "2026-10-25T22:37:14Z",
+     "kind": "merged"
+    },
+    {
+     "title": "retry-structured-output: a role that fails its structured answer runs once more",
+     "pr": 43,
+     "url": "https://github.com/MWest2020/habitat/pull/43",
+     "when": "2026-10-24T18:21:57Z",
+     "kind": "merged"
+    },
+    {
+     "title": "builder-budget: the builder may get its own budget",
+     "pr": 42,
+     "url": "https://github.com/MWest2020/habitat/pull/42",
+     "when": "2026-10-24T17:16:07Z",
+     "kind": "merged"
+    },
+    {
+     "title": "builder-runs-npm: the builder may npm install and node --test",
+     "pr": 41,
+     "url": "https://github.com/MWest2020/habitat/pull/41",
+     "when": "2026-10-24T14:23:46Z",
+     "kind": "merged"
+    },
+    {
+     "title": "worker-api-auth: HABITAT_AUTH=api runs a worker on the API credits",
+     "pr": 40,
+     "url": "https://github.com/MWest2020/habitat/pull/40",
+     "when": "2026-10-24T13:19:57Z",
+     "kind": "merged"
+    },
+    {
+     "title": "verdict-is-final: the role prompt says the structured answer ends the run",
+     "pr": 39,
+     "url": "https://github.com/MWest2020/habitat/pull/39",
+     "when": "2026-10-24T10:57:43Z",
+     "kind": "merged"
+    },
+    {
+     "title": "builder-deadline: the builder gets an hour",
+     "pr": 38,
+     "url": "https://github.com/MWest2020/habitat/pull/38",
+     "when": "2026-10-24T03:15:14Z",
+     "kind": "merged"
+    }
+   ],
+   "url": "https://github.com/MWest2020/habitat"
+  },
+  {
+   "name": "handbook",
+   "public": true,
+   "in_flight": [
+    {
+     "change": "eco-mcp-readonly",
+     "issue": 36,
+     "url": "https://github.com/MWest2020/handbook/issues/36",
+     "stage": "queued"
+    }
+   ],
+   "delivered": [
+    {
+     "title": "openspec: eco-mcp-readonly",
+     "pr": 37,
+     "url": "https://github.com/MWest2020/handbook/pull/37",
+     "when": "2026-10-28T09:10:38Z",
+     "kind": "spec"
+    },
+    {
+     "title": "agents: habitat reads the roles from the handbook; architect seed",
+     "pr": 35,
+     "url": "https://github.com/MWest2020/handbook/pull/35",
+     "when": "2026-10-26T17:33:33Z",
+     "kind": "merged"
+    },
+    {
+     "title": "agents: pilotleider (factory)",
+     "pr": 34,
+     "url": "https://github.com/MWest2020/handbook/pull/34",
+     "when": "2026-10-23T20:27:38Z",
+     "kind": "merged"
+    },
+    {
+     "title": "odin: propose_change (!propose)",
+     "pr": 33,
+     "url": "https://github.com/MWest2020/handbook/pull/33",
+     "when": "2026-10-23T18:29:52Z",
+     "kind": "merged"
+    },
+    {
+     "title": "odin: consult_agents (!consult)",
+     "pr": 32,
+     "url": "https://github.com/MWest2020/handbook/pull/32",
+     "when": "2026-10-23T17:41:14Z",
+     "kind": "merged"
+    },
+    {
+     "title": "odin runs the factory: creates roles and channels, closing stays Mark's",
+     "pr": 31,
+     "url": "https://github.com/MWest2020/handbook/pull/31",
+     "when": "2026-10-22T17:34:11Z",
+     "kind": "merged"
+    },
+    {
+     "title": "agent → skills → tools: a chat agent's tools follow from its skills",
+     "pr": 30,
+     "url": "https://github.com/MWest2020/handbook/pull/30",
+     "when": "2026-10-22T17:23:42Z",
+     "kind": "merged"
+    },
+    {
+     "title": "Operating agreements: the experiment, and how to ask Mark",
+     "pr": 29,
+     "url": "https://github.com/MWest2020/handbook/pull/29",
+     "when": "2026-10-22T10:21:51Z",
+     "kind": "merged"
+    }
+   ],
+   "url": "https://github.com/MWest2020/handbook"
+  },
+  {
+   "name": "homelab",
+   "public": true,
+   "in_flight": [],
+   "delivered": [
+    {
+     "title": "Remove the per-repo habitat role copies (roles come from the handbook)",
+     "pr": 26,
+     "url": "https://github.com/MWest2020/homelab/pull/26",
+     "when": "2026-10-27T20:03:22Z",
+     "kind": "merged"
+    },
+    {
+     "title": "feat(convergence): public at convergence.westerweel.work",
+     "pr": 25,
+     "url": "https://github.com/MWest2020/homelab/pull/25",
+     "when": "2026-10-25T17:57:46Z",
+     "kind": "merged"
+    },
+    {
+     "title": "docs(convergence): pull-secret copy without jq",
+     "pr": 23,
+     "url": "https://github.com/MWest2020/homelab/pull/23",
+     "when": "2026-10-24T19:49:24Z",
+     "kind": "merged"
+    },
+    {
+     "title": "feat(convergence): host the game's site, demo and server",
+     "pr": 22,
+     "url": "https://github.com/MWest2020/homelab/pull/22",
+     "when": "2026-10-24T19:35:36Z",
+     "kind": "merged"
+    },
+    {
+     "title": "fix(wordsworth): refresh the login session before the Keycloak token expires",
+     "pr": 21,
+     "url": "https://github.com/MWest2020/homelab/pull/21",
+     "when": "2026-10-24T19:12:16Z",
+     "kind": "merged"
+    }
+   ],
+   "url": "https://github.com/MWest2020/homelab"
+  }
+ ],
+ "stuck": [],
+ "waiting": []
+}

@@ -68,6 +68,11 @@ Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestok
       url = "/projecten/"
       weight = 27
     [[languages.nl.menu.main]]
+      identifier = "nu"
+      name = "nu"
+      url = "/nu/"
+      weight = 28
+    [[languages.nl.menu.main]]
       identifier = "about"
       name = "over"
       url = "/about/"
@@ -119,6 +124,11 @@ Notes here, RCAs, and pieces on work I've put real time into. No hot takes, no A
       name = "projects"
       url = "/projects/"
       weight = 27
+    [[languages.en.menu.main]]
+      identifier = "nu"
+      name = "now"
+      url = "/now/"
+      weight = 28
     [[languages.en.menu.main]]
       identifier = "about"
       name = "about"
