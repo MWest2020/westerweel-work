@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T14:24:49+01:00",
+ "generated": "2026-10-28T14:26:05+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -423,5 +423,34 @@
   }
  ],
  "stuck": [],
- "waiting": []
+ "waiting": [
+  {
+   "repo": "wordsworth",
+   "issue": 281,
+   "url": "https://github.com/MWest2020/wordsworth/issues/281",
+   "question": "Pilot: the PII read (Mark's slot in the pilot report)",
+   "default": "the pilot report stays open; nobody else fills the PII slot, and no recall figure is published."
+  },
+  {
+   "repo": "convergence",
+   "issue": 95,
+   "url": "https://github.com/MWest2020/convergence/issues/95",
+   "question": "risks-legal: sign off the legal questions before anything leaves devnet",
+   "default": "no mainnet, no real SOL, no token sale. The demo stays on Solana devnet, and the reviewer fails any change that adds a mainnet endpoint."
+  },
+  {
+   "repo": "wordsworth",
+   "issue": 196,
+   "url": "https://github.com/MWest2020/wordsworth/issues/196",
+   "question": "Human-judged questions for ranking (after the derived collection)",
+   "default": "the pilot report stays open; ranking is not measured until Mark commits his questions (docs/explanation/pilot-report-template.md §3)."
+  },
+  {
+   "repo": "wordsworth",
+   "issue": 192,
+   "url": "https://github.com/MWest2020/wordsworth/issues/192",
+   "question": "Tailnet proxies on two nodes (hoge-beschikbaarheid 3.3) -- needs your tailnet admin",
+   "default": "the HA ingress stays single-pod on node-01 until the tailnet policy allows `svc:wordsworth-api` for `tag:k8s` (snippet in the comment above)."
+  }
+ ]
 }
