@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-28T14:20:11+01:00",
+ "generated": "2026-10-28T14:24:49+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -185,6 +185,13 @@
    "in_flight": [],
    "delivered": [
     {
+     "title": "status site: the public overview on westerweel.work/nu/",
+     "pr": 207,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/207",
+     "when": "2026-10-28T13:23:44Z",
+     "kind": "merged"
+    },
+    {
      "title": "build: a deploy keeps the channel the hub is woken in",
      "pr": 206,
      "url": "https://github.com/MWest2020/ratatoskr/pull/206",
@@ -231,13 +238,6 @@
      "pr": 200,
      "url": "https://github.com/MWest2020/ratatoskr/pull/200",
      "when": "2026-10-25T18:03:32Z",
-     "kind": "merged"
-    },
-    {
-     "title": "factory: role budgets from what roles cost",
-     "pr": 199,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/199",
-     "when": "2026-10-24T18:26:35Z",
      "kind": "merged"
     }
    ],
