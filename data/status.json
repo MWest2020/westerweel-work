@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29T00:30:02+01:00",
+ "generated": "2026-10-29T02:31:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -12,12 +12,6 @@
      "stage": "queued"
     },
     {
-     "change": "reindex-keeps-topics",
-     "issue": 278,
-     "url": "https://github.com/MWest2020/wordsworth/issues/278",
-     "stage": "queued"
-    },
-    {
      "change": "console-hide-deleted",
      "issue": 277,
      "url": "https://github.com/MWest2020/wordsworth/issues/277",
@@ -27,6 +21,12 @@
      "change": "redacted-cache-version",
      "issue": 275,
      "url": "https://github.com/MWest2020/wordsworth/issues/275",
+     "stage": "queued"
+    },
+    {
+     "change": "reindex-keeps-topics",
+     "issue": 278,
+     "url": "https://github.com/MWest2020/wordsworth/issues/278",
      "stage": "queued"
     },
     {
@@ -113,10 +113,10 @@
      "stage": "proposed"
     },
     {
-     "change": "demo-topdown-look",
-     "issue": 66,
+     "change": "demo-look-scale",
+     "issue": 99,
      "url": null,
-     "stage": "building"
+     "stage": "queued"
     },
     {
      "change": "demo-devnet-wallet",
@@ -126,6 +126,27 @@
     }
    ],
    "delivered": [
+    {
+     "title": "openspec: demo-look-scale",
+     "pr": 100,
+     "url": null,
+     "when": "2026-10-29T00:05:20Z",
+     "kind": "spec"
+    },
+    {
+     "title": "client: tile sheets load under the /play/ base path",
+     "pr": 98,
+     "url": null,
+     "when": "2026-10-29T00:00:10Z",
+     "kind": "deployed"
+    },
+    {
+     "title": "build: demo-topdown-look",
+     "pr": 96,
+     "url": null,
+     "when": "2026-10-28T23:55:01Z",
+     "kind": "deployed"
+    },
     {
      "title": "decision 0004 accepted: Godot for the 2D launch and 3D",
      "pr": 94,
@@ -160,27 +181,6 @@
      "url": null,
      "when": "2026-10-27T01:13:49Z",
      "kind": "deployed"
-    },
-    {
-     "title": "openspec: split the hard zone into demo-zone-rules and demo-zone-travel",
-     "pr": 83,
-     "url": null,
-     "when": "2026-10-27T00:44:24Z",
-     "kind": "spec"
-    },
-    {
-     "title": "build: demo-duel",
-     "pr": 79,
-     "url": null,
-     "when": "2026-10-26T23:55:20Z",
-     "kind": "deployed"
-    },
-    {
-     "title": "openspec: demo-duel",
-     "pr": 78,
-     "url": null,
-     "when": "2026-10-26T23:29:46Z",
-     "kind": "spec"
     }
    ],
    "url": null
