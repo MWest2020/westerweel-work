@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29T02:31:02+01:00",
+ "generated": "2026-10-29T04:31:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -248,70 +248,6 @@
     }
    ],
    "url": "https://github.com/MWest2020/ratatoskr"
-  },
-  {
-   "name": "habitat",
-   "public": true,
-   "in_flight": [],
-   "delivered": [
-    {
-     "title": "Remove the per-repo habitat role copies (roles come from the handbook)",
-     "pr": 45,
-     "url": "https://github.com/MWest2020/habitat/pull/45",
-     "when": "2026-10-27T20:03:39Z",
-     "kind": "merged"
-    },
-    {
-     "title": "roles-from-handbook: a role's definition comes from the handbook at a pinned commit",
-     "pr": 44,
-     "url": "https://github.com/MWest2020/habitat/pull/44",
-     "when": "2026-10-25T22:37:14Z",
-     "kind": "merged"
-    },
-    {
-     "title": "retry-structured-output: a role that fails its structured answer runs once more",
-     "pr": 43,
-     "url": "https://github.com/MWest2020/habitat/pull/43",
-     "when": "2026-10-24T18:21:57Z",
-     "kind": "merged"
-    },
-    {
-     "title": "builder-budget: the builder may get its own budget",
-     "pr": 42,
-     "url": "https://github.com/MWest2020/habitat/pull/42",
-     "when": "2026-10-24T17:16:07Z",
-     "kind": "merged"
-    },
-    {
-     "title": "builder-runs-npm: the builder may npm install and node --test",
-     "pr": 41,
-     "url": "https://github.com/MWest2020/habitat/pull/41",
-     "when": "2026-10-24T14:23:46Z",
-     "kind": "merged"
-    },
-    {
-     "title": "worker-api-auth: HABITAT_AUTH=api runs a worker on the API credits",
-     "pr": 40,
-     "url": "https://github.com/MWest2020/habitat/pull/40",
-     "when": "2026-10-24T13:19:57Z",
-     "kind": "merged"
-    },
-    {
-     "title": "verdict-is-final: the role prompt says the structured answer ends the run",
-     "pr": 39,
-     "url": "https://github.com/MWest2020/habitat/pull/39",
-     "when": "2026-10-24T10:57:43Z",
-     "kind": "merged"
-    },
-    {
-     "title": "builder-deadline: the builder gets an hour",
-     "pr": 38,
-     "url": "https://github.com/MWest2020/habitat/pull/38",
-     "when": "2026-10-24T03:15:14Z",
-     "kind": "merged"
-    }
-   ],
-   "url": "https://github.com/MWest2020/habitat"
   },
   {
    "name": "handbook",
