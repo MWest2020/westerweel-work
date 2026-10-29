@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29T06:32:02+01:00",
+ "generated": "2026-10-29T10:32:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -43,6 +43,13 @@
     }
    ],
    "delivered": [
+    {
+     "title": "hoge-beschikbaarheid: 3.3.3 done; 3.3.4 rolled back (Service 404)",
+     "pr": 292,
+     "url": "https://github.com/MWest2020/wordsworth/pull/292",
+     "when": "2026-10-29T08:27:48Z",
+     "kind": "merged"
+    },
     {
      "title": "hoge-beschikbaarheid: task 1.1 done",
      "pr": 287,
@@ -90,13 +97,6 @@
      "pr": 279,
      "url": "https://github.com/MWest2020/wordsworth/pull/279",
      "when": "2026-10-28T09:13:20Z",
-     "kind": "spec"
-    },
-    {
-     "title": "openspec: redacted-cache-version",
-     "pr": 276,
-     "url": "https://github.com/MWest2020/wordsworth/pull/276",
-     "when": "2026-10-28T07:53:21Z",
      "kind": "spec"
     }
    ],
@@ -191,6 +191,13 @@
    "in_flight": [],
    "delivered": [
     {
+     "title": "lessons: prove the new path before removing the old one",
+     "pr": 209,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/209",
+     "when": "2026-10-29T08:30:01Z",
+     "kind": "merged"
+    },
+    {
      "title": "status site: no links into private repos in the waiting list",
      "pr": 208,
      "url": "https://github.com/MWest2020/ratatoskr/pull/208",
@@ -237,13 +244,6 @@
      "pr": 202,
      "url": "https://github.com/MWest2020/ratatoskr/pull/202",
      "when": "2026-10-26T11:39:55Z",
-     "kind": "merged"
-    },
-    {
-     "title": "factory: convergence builds back on the subscription",
-     "pr": 201,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/201",
-     "when": "2026-10-25T19:31:29Z",
      "kind": "merged"
     }
    ],
@@ -390,6 +390,20 @@
    "in_flight": [],
    "delivered": [
     {
+     "title": "feat(wordsworth): https route onto the HA ProxyGroup (step 2 of wordsworth#192)",
+     "pr": 30,
+     "url": "https://github.com/MWest2020/homelab/pull/30",
+     "when": "2026-10-29T08:05:05Z",
+     "kind": "merged"
+    },
+    {
+     "title": "feat(wordsworth): HA tailnet ProxyGroup (step 1 of wordsworth#192)",
+     "pr": 29,
+     "url": "https://github.com/MWest2020/homelab/pull/29",
+     "when": "2026-10-29T08:02:23Z",
+     "kind": "merged"
+    },
+    {
      "title": "seaweedfs: 2 GiB memory limit",
      "pr": 28,
      "url": "https://github.com/MWest2020/homelab/pull/28",
@@ -429,13 +443,6 @@
      "pr": 22,
      "url": "https://github.com/MWest2020/homelab/pull/22",
      "when": "2026-10-24T19:35:36Z",
-     "kind": "merged"
-    },
-    {
-     "title": "fix(wordsworth): refresh the login session before the Keycloak token expires",
-     "pr": 21,
-     "url": "https://github.com/MWest2020/homelab/pull/21",
-     "when": "2026-10-24T19:12:16Z",
      "kind": "merged"
     }
    ],
