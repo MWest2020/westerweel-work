@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29T10:32:03+01:00",
+ "generated": "2026-10-30T00:33:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -21,12 +21,6 @@
      "change": "redacted-cache-version",
      "issue": 275,
      "url": "https://github.com/MWest2020/wordsworth/issues/275",
-     "stage": "queued"
-    },
-    {
-     "change": "reindex-keeps-topics",
-     "issue": 278,
-     "url": "https://github.com/MWest2020/wordsworth/issues/278",
      "stage": "queued"
     },
     {
@@ -191,6 +185,13 @@
    "in_flight": [],
    "delivered": [
     {
+     "title": "build: an architect FAIL spends no day slot; the breaker guards every build",
+     "pr": 210,
+     "url": "https://github.com/MWest2020/ratatoskr/pull/210",
+     "when": "2026-10-29T23:04:36Z",
+     "kind": "merged"
+    },
+    {
      "title": "lessons: prove the new path before removing the old one",
      "pr": 209,
      "url": "https://github.com/MWest2020/ratatoskr/pull/209",
@@ -237,13 +238,6 @@
      "pr": 203,
      "url": "https://github.com/MWest2020/ratatoskr/pull/203",
      "when": "2026-10-26T17:35:41Z",
-     "kind": "merged"
-    },
-    {
-     "title": "deploy: recipes with several images; convergence deploys after every build",
-     "pr": 202,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/202",
-     "when": "2026-10-26T11:39:55Z",
      "kind": "merged"
     }
    ],
@@ -359,27 +353,6 @@
      "url": "https://github.com/MWest2020/handbook/pull/32",
      "when": "2026-10-23T17:41:14Z",
      "kind": "merged"
-    },
-    {
-     "title": "odin runs the factory: creates roles and channels, closing stays Mark's",
-     "pr": 31,
-     "url": "https://github.com/MWest2020/handbook/pull/31",
-     "when": "2026-10-22T17:34:11Z",
-     "kind": "merged"
-    },
-    {
-     "title": "agent → skills → tools: a chat agent's tools follow from its skills",
-     "pr": 30,
-     "url": "https://github.com/MWest2020/handbook/pull/30",
-     "when": "2026-10-22T17:23:42Z",
-     "kind": "merged"
-    },
-    {
-     "title": "Operating agreements: the experiment, and how to ask Mark",
-     "pr": 29,
-     "url": "https://github.com/MWest2020/handbook/pull/29",
-     "when": "2026-10-22T10:21:51Z",
-     "kind": "merged"
     }
    ],
    "url": "https://github.com/MWest2020/handbook"
@@ -449,7 +422,15 @@
    "url": "https://github.com/MWest2020/homelab"
   }
  ],
- "stuck": [],
+ "stuck": [
+  {
+   "change": "reindex-keeps-topics",
+   "issue": 278,
+   "url": "https://github.com/MWest2020/wordsworth/issues/278",
+   "why": "reviewer FAIL:",
+   "repo": "wordsworth"
+  }
+ ],
  "waiting": [
   {
    "repo": "convergence",
