@@ -15,25 +15,23 @@
 - id: now_generated
   translation: "Gegenereerd op"
 - id: now_source
-  translation: "bron: Ratatoskr, uit bouwstatus en GitHub"
+  translation: "bron: de roadmap van elk project en de bouwstatus"
 - id: now_no_data
   translation: "Er is nog geen overzicht gegenereerd."
-- id: now_waiting
-  translation: "Wacht op Mark"
-- id: now_default
-  translation: "Zonder antwoord"
-- id: now_stuck
-  translation: "Vast"
-- id: now_nothing
-  translation: "Niets."
+- id: now_roadmap
+  translation: "Roadmap"
+- id: now_progress
+  translation: "Klaar in deze fase"
+- id: now_gap
+  translation: "Nog te doen in deze fase"
+- id: now_gap_none
+  translation: "Alles van deze fase is klaar."
 - id: now_projects
   translation: "Projecten"
 - id: now_private
   translation: "privé"
 - id: now_in_flight
   translation: "In de maak"
-- id: now_delivered
-  translation: "Opgeleverd (7 dagen)"
 - id: now_stage_proposed
   translation: "voorgesteld"
 - id: now_stage_proposing
@@ -46,9 +44,3 @@
   translation: "wordt gemerged"
 - id: now_stage_deploying
   translation: "wordt uitgerold"
-- id: now_kind_spec
-  translation: "spec"
-- id: now_kind_merged
-  translation: "gemerged"
-- id: now_kind_deployed
-  translation: "live"

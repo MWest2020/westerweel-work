@@ -4,6 +4,7 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
 
 ## 2026-10-30
 
+- **`/nu/` en `/en/now/` herzien** (Mark: "de fase en de roadmap, high-level, en wat de gap is tot het klaar is"): per project het doel, een fasestrook (gedaan, huidig, volgend), de voortgang naar "klaar" voor de huidige fase en de gap (de open punten), uit de `docs/reference/roadmap.yml` van elk project. De wijzigingen in de maak staan nog op één regel. "Wacht op Mark" en "vast" staan niet meer op de pagina; die gaan dagelijks per mail. Voortgang is een native `<progress>` (geen inline styles, CSP). Smoke test aangepast.
 - Projects page (NL + EN): "Boomhuis" is now called Ratatoskr, with the old name in brackets; the repository is public, so the "private repo" sentence goes and a code link comes in, plus one line on the agent factory odin runs from it.
 
 ## 2026-10-28 (overzicht /nu/)

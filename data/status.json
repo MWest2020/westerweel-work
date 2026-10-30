@@ -1,438 +1,319 @@
 {
- "generated": "2026-10-30T04:35:02+01:00",
+ "generated": "2026-10-30T20:07:29+01:00",
  "projects": [
   {
    "name": "wordsworth",
    "public": true,
+   "url": "https://github.com/MWest2020/wordsworth",
    "in_flight": [
     {
      "change": "console-dossier-home",
-     "issue": 294,
-     "url": "https://github.com/MWest2020/wordsworth/issues/294",
      "stage": "proposed"
     },
     {
      "change": "console-hide-deleted",
-     "issue": 277,
-     "url": "https://github.com/MWest2020/wordsworth/issues/277",
      "stage": "queued"
     },
     {
      "change": "detect-dutch-particle-names",
-     "issue": 285,
-     "url": "https://github.com/MWest2020/wordsworth/issues/285",
      "stage": "queued"
     }
    ],
-   "delivered": [
+   "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
+   "phases": [
     {
-     "title": "build: redacted-cache-version",
-     "pr": 301,
-     "url": "https://github.com/MWest2020/wordsworth/pull/301",
-     "when": "2026-10-30T01:41:02Z",
-     "kind": "deployed"
+     "id": "poc",
+     "name": "Proof of concept",
+     "summary": "ingest, anonymise, search, reversible tokens with grants, the console",
+     "state": "past"
     },
     {
-     "title": "build: redaction-overdetection",
-     "pr": 299,
-     "url": "https://github.com/MWest2020/wordsworth/pull/299",
-     "when": "2026-10-30T01:22:35Z",
-     "kind": "deployed"
+     "id": "pilot",
+     "name": "Pilot: Gooise Meren",
+     "summary": "one real Woo publication (415 documents) end to end, for a key user",
+     "state": "current"
     },
     {
-     "title": "build: redaction-locate-remaining",
-     "pr": 297,
-     "url": "https://github.com/MWest2020/wordsworth/pull/297",
-     "when": "2026-10-30T01:02:01Z",
-     "kind": "deployed"
-    },
-    {
-     "title": "hoge-beschikbaarheid: 3.3.3 done; 3.3.4 rolled back (Service 404)",
-     "pr": 292,
-     "url": "https://github.com/MWest2020/wordsworth/pull/292",
-     "when": "2026-10-29T08:27:48Z",
-     "kind": "merged"
-    },
-    {
-     "title": "hoge-beschikbaarheid: task 1.1 done",
-     "pr": 287,
-     "url": "https://github.com/MWest2020/wordsworth/pull/287",
-     "when": "2026-10-28T22:34:53Z",
-     "kind": "merged"
-    },
-    {
-     "title": "openspec: detect-dutch-particle-names",
-     "pr": 286,
-     "url": "https://github.com/MWest2020/wordsworth/pull/286",
-     "when": "2026-10-28T22:34:42Z",
-     "kind": "spec"
-    },
-    {
-     "title": "pilot report: results for Gooise Meren Woo-publicatie 2022",
-     "pr": 284,
-     "url": "https://github.com/MWest2020/wordsworth/pull/284",
-     "when": "2026-10-28T22:28:09Z",
-     "kind": "merged"
-    },
-    {
-     "title": "Key-user review of the console + five OpenSpec changes",
-     "pr": 283,
-     "url": "https://github.com/MWest2020/wordsworth/pull/283",
-     "when": "2026-10-28T22:23:39Z",
-     "kind": "merged"
+     "id": "production",
+     "name": "Production",
+     "summary": "survives a node, NORA-aligned, ready for a first organisation",
+     "state": "next"
     }
    ],
-   "url": "https://github.com/MWest2020/wordsworth"
+   "phase": "Pilot: Gooise Meren",
+   "progress": {
+    "done": 2,
+    "total": 9
+   },
+   "gap": [
+    {
+     "item": "No untokenised names left (names with particles like ter, van der)",
+     "url": "https://github.com/MWest2020/wordsworth/issues/285"
+    },
+    {
+     "item": "A redacted PDF for every reversible document in the dossier",
+     "url": "https://github.com/MWest2020/wordsworth/issues/259"
+    },
+    {
+     "item": "Console for the key user: deleted documents hidden, a dossier home",
+     "url": "https://github.com/MWest2020/wordsworth/issues/277"
+    },
+    {
+     "item": "Readable topics (named by the language model) and search that shows the matching passage",
+     "url": "https://github.com/MWest2020/wordsworth/blob/main/docs/explanation/review-key-user-2026-10-28.md"
+    },
+    {
+     "item": "Share from the console with layered anonymisation (a grant at a PPL, the redacted and reveal PDF)",
+     "url": "https://github.com/MWest2020/wordsworth/blob/main/docs/explanation/review-key-user-2026-10-28.md"
+    },
+    {
+     "item": "Documents survive a node (storage on two nodes, proven)",
+     "url": "https://github.com/MWest2020/wordsworth/issues/193"
+    },
+    {
+     "item": "The API survives a node (tailnet ingress on two nodes)",
+     "url": "https://github.com/MWest2020/wordsworth/issues/192"
+    }
+   ]
   },
   {
    "name": "convergence",
    "public": false,
+   "url": null,
    "in_flight": [
     {
      "change": "demo-marketplace",
-     "issue": 59,
-     "url": null,
      "stage": "proposed"
     },
     {
      "change": "demo-look-scale",
-     "issue": 99,
-     "url": null,
      "stage": "queued"
     },
     {
      "change": "demo-devnet-wallet",
-     "issue": 60,
-     "url": null,
      "stage": "proposed"
     }
    ],
-   "delivered": [
+   "goal": "An online soulslike with a real crypto stake and seasons; phase 1 is the playable 2D demo, the economy, the site and the pitch, on devnet only.",
+   "phases": [
     {
-     "title": "openspec: demo-look-scale",
-     "pr": 100,
-     "url": null,
-     "when": "2026-10-29T00:05:20Z",
-     "kind": "spec"
+     "id": "phase-1",
+     "name": "Phase 1: 2D demo",
+     "summary": "GDD with a balanced economy, a playable 2D demo on devnet, website, pitch and deck",
+     "state": "current"
     },
     {
-     "title": "client: tile sheets load under the /play/ base path",
-     "pr": 98,
-     "url": null,
-     "when": "2026-10-29T00:00:10Z",
-     "kind": "deployed"
+     "id": "launch-2d",
+     "name": "2D launch",
+     "summary": "the game in 2D for real players, after the legal questions are signed off",
+     "state": "next"
     },
     {
-     "title": "build: demo-topdown-look",
-     "pr": 96,
-     "url": null,
-     "when": "2026-10-28T23:55:01Z",
-     "kind": "deployed"
-    },
-    {
-     "title": "decision 0004 accepted: Godot for the 2D launch and 3D",
-     "pr": 94,
-     "url": null,
-     "when": "2026-10-28T09:07:54Z",
-     "kind": "merged"
-    },
-    {
-     "title": "Remove the per-repo habitat role copies (roles come from the handbook)",
-     "pr": 91,
-     "url": null,
-     "when": "2026-10-27T20:03:16Z",
-     "kind": "merged"
-    },
-    {
-     "title": "Tiled maps (OpenSpec change) and decision 0004: Godot (draft)",
-     "pr": 90,
-     "url": null,
-     "when": "2026-10-27T08:54:04Z",
-     "kind": "merged"
-    },
-    {
-     "title": "build: demo-zone-travel",
-     "pr": 88,
-     "url": null,
-     "when": "2026-10-27T02:17:27Z",
-     "kind": "deployed"
-    },
-    {
-     "title": "build: demo-zone-rules",
-     "pr": 85,
-     "url": null,
-     "when": "2026-10-27T01:13:49Z",
-     "kind": "deployed"
+     "id": "3d",
+     "name": "3D",
+     "summary": "the end goal: the same game in 3D (engine candidate: Godot, decision 0004)",
+     "state": "next"
     }
    ],
-   "url": null
+   "phase": "Phase 1: 2D demo",
+   "progress": {
+    "done": 2,
+    "total": 8
+   },
+   "gap": [
+    {
+     "item": "Win condition as a pluggable rule module",
+     "url": null
+    },
+    {
+     "item": "2D demo playable on devnet with every mechanic (zones, bonfire, death and retrieve, duel, marketplace, wallet)",
+     "url": null
+    },
+    {
+     "item": "Website live in the homelab with the demo and an interest form that collects",
+     "url": null
+    },
+    {
+     "item": "Pitch (docs/pitch.md) plus the deck as an HTML/CSS zip",
+     "url": null
+    },
+    {
+     "item": "risks-legal.md and open-questions.md complete",
+     "url": null
+    },
+    {
+     "item": "Reviewer sign-off on everything; no real SOL or mainnet in the code",
+     "url": null
+    }
+   ]
   },
   {
    "name": "ratatoskr",
    "public": true,
+   "url": "https://github.com/MWest2020/ratatoskr",
    "in_flight": [],
-   "delivered": [
+   "goal": "The coordination layer of Mark's agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
+   "phases": [
     {
-     "title": "build: an architect FAIL spends no day slot; the breaker guards every build",
-     "pr": 210,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/210",
-     "when": "2026-10-29T23:04:36Z",
-     "kind": "merged"
+     "id": "chat",
+     "name": "Phases 0-3: relay and chat agents",
+     "summary": "self-hosted relay, notifications, chat agents from one source, chat to habitat",
+     "state": "past"
     },
     {
-     "title": "lessons: prove the new path before removing the old one",
-     "pr": 209,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/209",
-     "when": "2026-10-29T08:30:01Z",
-     "kind": "merged"
+     "id": "factory",
+     "name": "The factory runs itself",
+     "summary": "propose, build, merge and deploy from chat, within budgets, without Mark in the loop",
+     "state": "current"
     },
     {
-     "title": "status site: no links into private repos in the waiting list",
-     "pr": 208,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/208",
-     "when": "2026-10-28T13:28:01Z",
-     "kind": "merged"
-    },
-    {
-     "title": "status site: the public overview on westerweel.work/nu/",
-     "pr": 207,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/207",
-     "when": "2026-10-28T13:23:44Z",
-     "kind": "merged"
-    },
-    {
-     "title": "build: a deploy keeps the channel the hub is woken in",
-     "pr": 206,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/206",
-     "when": "2026-10-27T01:49:01Z",
-     "kind": "merged"
-    },
-    {
-     "title": "factory: convergence builds on the subscription again",
-     "pr": 205,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/205",
-     "when": "2026-10-26T23:02:04Z",
-     "kind": "merged"
-    },
-    {
-     "title": "factory: reviewing roles capped at $2",
-     "pr": 204,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/204",
-     "when": "2026-10-26T18:05:13Z",
-     "kind": "merged"
-    },
-    {
-     "title": "factory: roles from the handbook; convergence back on the credits",
-     "pr": 203,
-     "url": "https://github.com/MWest2020/ratatoskr/pull/203",
-     "when": "2026-10-26T17:35:41Z",
-     "kind": "merged"
+     "id": "ecosystem",
+     "name": "Ecosystem",
+     "summary": "every project on the factory, readable through one MCP",
+     "state": "next"
     }
    ],
-   "url": "https://github.com/MWest2020/ratatoskr"
+   "phase": "The factory runs itself",
+   "progress": {
+    "done": 5,
+    "total": 7
+   },
+   "gap": [
+    {
+     "item": "A public overview of phase and gap per project",
+     "url": "https://github.com/MWest2020/ratatoskr/blob/main/docs/how-to/status-site.md"
+    },
+    {
+     "item": "A daily digest mail of decisions and impediments for Mark",
+     "url": "https://github.com/MWest2020/ratatoskr/blob/main/docs/how-to/status-site.md"
+    }
+   ]
   },
   {
    "name": "habitat",
    "public": true,
+   "url": "https://github.com/MWest2020/habitat",
    "in_flight": [],
-   "delivered": [
+   "goal": "A minimal platform on which Claude Code agents work on repositories autonomously, inside explicit, non-negotiable limits: work distribution, execution, isolation, escalation, audit.",
+   "phases": [
     {
-     "title": "Remove the per-repo habitat role copies (roles come from the handbook)",
-     "pr": 45,
-     "url": "https://github.com/MWest2020/habitat/pull/45",
-     "when": "2026-10-27T20:03:39Z",
-     "kind": "merged"
+     "id": "cage",
+     "name": "The cage",
+     "summary": "one dispatch, Kubernetes Jobs, git as the hand-over, a guard on every tool",
+     "state": "past"
     },
     {
-     "title": "roles-from-handbook: a role's definition comes from the handbook at a pinned commit",
-     "pr": 44,
-     "url": "https://github.com/MWest2020/habitat/pull/44",
-     "when": "2026-10-25T22:37:14Z",
-     "kind": "merged"
+     "id": "chains",
+     "name": "Role chains",
+     "summary": "architect, builder, reviewer, security with real tests and budgets",
+     "state": "past"
     },
     {
-     "title": "retry-structured-output: a role that fails its structured answer runs once more",
-     "pr": 43,
-     "url": "https://github.com/MWest2020/habitat/pull/43",
-     "when": "2026-10-24T18:21:57Z",
-     "kind": "merged"
-    },
-    {
-     "title": "builder-budget: the builder may get its own budget",
-     "pr": 42,
-     "url": "https://github.com/MWest2020/habitat/pull/42",
-     "when": "2026-10-24T17:16:07Z",
-     "kind": "merged"
-    },
-    {
-     "title": "builder-runs-npm: the builder may npm install and node --test",
-     "pr": 41,
-     "url": "https://github.com/MWest2020/habitat/pull/41",
-     "when": "2026-10-24T14:23:46Z",
-     "kind": "merged"
-    },
-    {
-     "title": "worker-api-auth: HABITAT_AUTH=api runs a worker on the API credits",
-     "pr": 40,
-     "url": "https://github.com/MWest2020/habitat/pull/40",
-     "when": "2026-10-24T13:19:57Z",
-     "kind": "merged"
-    },
-    {
-     "title": "verdict-is-final: the role prompt says the structured answer ends the run",
-     "pr": 39,
-     "url": "https://github.com/MWest2020/habitat/pull/39",
-     "when": "2026-10-24T10:57:43Z",
-     "kind": "merged"
-    },
-    {
-     "title": "builder-deadline: the builder gets an hour",
-     "pr": 38,
-     "url": "https://github.com/MWest2020/habitat/pull/38",
-     "when": "2026-10-24T03:15:14Z",
-     "kind": "merged"
+     "id": "roles",
+     "name": "Roles from the handbook",
+     "summary": "every role and skill from one canonical source, for every project",
+     "state": "current"
     }
    ],
-   "url": "https://github.com/MWest2020/habitat"
+   "phase": "Roles from the handbook",
+   "progress": {
+    "done": 2,
+    "total": 4
+   },
+   "gap": [
+    {
+     "item": "An execution role for the designer (ontwerper)",
+     "url": "https://github.com/MWest2020/handbook/blob/main/docs/agents/ontwerper.md"
+    },
+    {
+     "item": "The reviewer runs the project's tests itself",
+     "url": "https://github.com/MWest2020/habitat/blob/main/worker/settings/reviewer.json"
+    }
+   ]
   },
   {
    "name": "handbook",
    "public": true,
+   "url": "https://github.com/MWest2020/handbook",
    "in_flight": [],
-   "delivered": [
+   "goal": "The hub of the personal repository ecosystem: one map of every repo's docs, the canonical agents and skills, and one MCP to read it all.",
+   "phases": [
     {
-     "title": "build: eco-mcp-readonly",
-     "pr": 39,
-     "url": "https://github.com/MWest2020/handbook/pull/39",
-     "when": "2026-10-30T01:53:52Z",
-     "kind": "merged"
+     "id": "hub",
+     "name": "Docs hub",
+     "summary": "every repo's docs aggregated at build time, under one docs contract",
+     "state": "past"
     },
     {
-     "title": "openspec: eco-mcp-readonly",
-     "pr": 37,
-     "url": "https://github.com/MWest2020/handbook/pull/37",
-     "when": "2026-10-28T09:10:38Z",
-     "kind": "spec"
+     "id": "registry",
+     "name": "Agent and skill registry",
+     "summary": "one canonical definition per role and skill, read by every consumer",
+     "state": "current"
     },
     {
-     "title": "agents: habitat reads the roles from the handbook; architect seed",
-     "pr": 35,
-     "url": "https://github.com/MWest2020/handbook/pull/35",
-     "when": "2026-10-26T17:33:33Z",
-     "kind": "merged"
-    },
-    {
-     "title": "agents: pilotleider (factory)",
-     "pr": 34,
-     "url": "https://github.com/MWest2020/handbook/pull/34",
-     "when": "2026-10-23T20:27:38Z",
-     "kind": "merged"
-    },
-    {
-     "title": "odin: propose_change (!propose)",
-     "pr": 33,
-     "url": "https://github.com/MWest2020/handbook/pull/33",
-     "when": "2026-10-23T18:29:52Z",
-     "kind": "merged"
-    },
-    {
-     "title": "odin: consult_agents (!consult)",
-     "pr": 32,
-     "url": "https://github.com/MWest2020/handbook/pull/32",
-     "when": "2026-10-23T17:41:14Z",
-     "kind": "merged"
+     "id": "mcp",
+     "name": "Ecosystem MCP",
+     "summary": "one read-only MCP for docs, roles, skills, factory status and search",
+     "state": "next"
     }
    ],
-   "url": "https://github.com/MWest2020/handbook"
+   "phase": "Agent and skill registry",
+   "progress": {
+    "done": 3,
+    "total": 4
+   },
+   "gap": [
+    {
+     "item": "The MCP connected to odin and the habitat roles",
+     "url": "https://github.com/MWest2020/handbook/tree/main/handbook_mcp"
+    }
+   ]
   },
   {
    "name": "homelab",
    "public": true,
+   "url": "https://github.com/MWest2020/homelab",
    "in_flight": [],
-   "delivered": [
+   "goal": "Infrastructure as code for a three-node Kubernetes homelab, run through GitOps, that the other projects can rely on.",
+   "phases": [
     {
-     "title": "feat(wordsworth): https route onto the HA ProxyGroup (step 2 of wordsworth#192)",
-     "pr": 30,
-     "url": "https://github.com/MWest2020/homelab/pull/30",
-     "when": "2026-10-29T08:05:05Z",
-     "kind": "merged"
+     "id": "gitops",
+     "name": "Cluster and GitOps",
+     "summary": "three nodes, ArgoCD, certificates, tunnels",
+     "state": "past"
     },
     {
-     "title": "feat(wordsworth): HA tailnet ProxyGroup (step 1 of wordsworth#192)",
-     "pr": 29,
-     "url": "https://github.com/MWest2020/homelab/pull/29",
-     "when": "2026-10-29T08:02:23Z",
-     "kind": "merged"
+     "id": "ha",
+     "name": "High availability",
+     "summary": "losing one node loses no data and no service",
+     "state": "current"
     },
     {
-     "title": "seaweedfs: 2 GiB memory limit",
-     "pr": 28,
-     "url": "https://github.com/MWest2020/homelab/pull/28",
-     "when": "2026-10-28T22:24:30Z",
-     "kind": "merged"
-    },
-    {
-     "title": "seaweedfs: second volume server on another node, wordsworth replicated 001",
-     "pr": 27,
-     "url": "https://github.com/MWest2020/homelab/pull/27",
-     "when": "2026-10-28T22:18:00Z",
-     "kind": "merged"
-    },
-    {
-     "title": "Remove the per-repo habitat role copies (roles come from the handbook)",
-     "pr": 26,
-     "url": "https://github.com/MWest2020/homelab/pull/26",
-     "when": "2026-10-27T20:03:22Z",
-     "kind": "merged"
-    },
-    {
-     "title": "feat(convergence): public at convergence.westerweel.work",
-     "pr": 25,
-     "url": "https://github.com/MWest2020/homelab/pull/25",
-     "when": "2026-10-25T17:57:46Z",
-     "kind": "merged"
-    },
-    {
-     "title": "docs(convergence): pull-secret copy without jq",
-     "pr": 23,
-     "url": "https://github.com/MWest2020/homelab/pull/23",
-     "when": "2026-10-24T19:49:24Z",
-     "kind": "merged"
-    },
-    {
-     "title": "feat(convergence): host the game's site, demo and server",
-     "pr": 22,
-     "url": "https://github.com/MWest2020/homelab/pull/22",
-     "when": "2026-10-24T19:35:36Z",
-     "kind": "merged"
+     "id": "hardened",
+     "name": "Hardened",
+     "summary": "backups proven, secrets rotated, monitoring that pages",
+     "state": "next"
     }
    ],
-   "url": "https://github.com/MWest2020/homelab"
-  }
- ],
- "stuck": [
-  {
-   "change": "reindex-keeps-topics",
-   "issue": 278,
-   "url": "https://github.com/MWest2020/wordsworth/issues/278",
-   "why": "reviewer FAIL:",
-   "repo": "wordsworth"
-  }
- ],
- "waiting": [
-  {
-   "repo": "convergence",
-   "issue": 95,
-   "url": null,
-   "question": "risks-legal: sign off the legal questions before anything leaves devnet",
-   "default": "no mainnet, no real SOL, no token sale. The demo stays on Solana devnet, and the reviewer fails any change that adds a mainnet endpoint."
-  },
-  {
-   "repo": "wordsworth",
-   "issue": 192,
-   "url": "https://github.com/MWest2020/wordsworth/issues/192",
-   "question": "Tailnet proxies on two nodes (hoge-beschikbaarheid 3.3) -- needs your tailnet admin",
-   "default": "the HA ingress stays single-pod on node-01 until the tailnet policy allows `svc:wordsworth-api` for `tag:k8s` (snippet in the comment above)."
+   "phase": "High availability",
+   "progress": {
+    "done": 2,
+    "total": 5
+   },
+   "gap": [
+    {
+     "item": "Storage survives a node: filer metadata on Postgres, node drain test",
+     "url": "https://github.com/MWest2020/wordsworth/issues/193"
+    },
+    {
+     "item": "Tailnet ingress on two nodes",
+     "url": "https://github.com/MWest2020/wordsworth/issues/192"
+    },
+    {
+     "item": "Free disk headroom on node-01 (now about 82% full)",
+     "url": "https://github.com/MWest2020/homelab/blob/main/docusaurus/docs/runbooks/seaweedfs.md"
+    }
+   ]
   }
  ]
 }

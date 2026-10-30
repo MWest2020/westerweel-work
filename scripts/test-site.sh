@@ -179,8 +179,10 @@ echo "==> /nu/ overview (generated from data/status.json by ratatoskr)"
 assert_grep "$PUBLIC_DIR/nu/index.html"     'hreflang=en href=https://westerweel.work/en/now/' "nu -> en/now hreflang"
 assert_grep "$PUBLIC_DIR/en/now/index.html" 'hreflang=nl href=https://westerweel.work/nu/'     "en/now -> nu hreflang"
 assert_grep "$PUBLIC_DIR/nu/index.html"     '<time datetime=[0-9]{4}-[0-9]{2}-[0-9]{2}T'     "nu shows the generation time"
-assert_grep "$PUBLIC_DIR/nu/index.html"     'Wacht op Mark'                                  "nu has the waiting-on-Mark panel"
-assert_grep "$PUBLIC_DIR/en/now/index.html" 'Waiting on Mark'                                "en/now has the waiting-on-Mark panel"
+assert_grep "$PUBLIC_DIR/nu/index.html"     'Nog te doen in deze fase'                       "nu shows the gap per project"
+assert_grep "$PUBLIC_DIR/en/now/index.html" 'Still to do in this phase'                      "en/now shows the gap per project"
+assert_grep "$PUBLIC_DIR/nu/index.html"     '<progress value=[0-9]+ max=[0-9]+'              "nu shows progress toward done"
+assert_not_grep "$PUBLIC_DIR/nu/index.html" 'Wacht op Mark'                                  "nu carries no questions to Mark (they go by mail)"
 assert_not_grep "$PUBLIC_DIR/nu/index.html" 'class="now[^"]*"[^>]* style='                   "nu has no inline styles (CSP)"
 
 # Sitemap layout: /sitemap.xml is the index, real URLs live in per-language
