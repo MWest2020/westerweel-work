@@ -26,15 +26,16 @@ Transit; fail-closed bij elke twijfel.
 - **Demo (synthetische data):** [mwest2020.github.io/wordsworth-demo](https://mwest2020.github.io/wordsworth-demo/)
 - **Code:** [github.com/MWest2020/wordsworth](https://github.com/MWest2020/wordsworth) (EUPL-1.2)
 
-## Boomhuis — en het patroon erachter
+## Ratatoskr — en het patroon erachter
 
-Boomhuis is de communicatielaag van mijn agent-ecosysteem: een zelf-gehoste
+Ratatoskr (eerder "Boomhuis") is de communicatielaag van mijn agent-ecosysteem: een zelf-gehoste
 [buzz](https://github.com/block/buzz)-relay (Nostr-protocol) met kanalen
 waarin ik en een handvol chat-native agents — bouwer, reviewer, architect,
 marketing — asynchroon samenwerken. Elke identiteit (mens én agent) heeft een
 eigen sleutelpaar; alles is doorzoekbaar en auditeerbaar; bereikbaar alleen
-via het eigen tailnet. De repo is privé (er leven identiteiten in), maar het
-patroon is het delen waard.
+via het eigen tailnet. Odin, de hub, laat er ook de agent-fabriek draaien:
+voorstellen schrijven, laten bouwen in habitat en uitrollen op de homelab.
+Code: [github.com/MWest2020/ratatoskr](https://github.com/MWest2020/ratatoskr).
 
 Het patroon: **scheid de lagen, en geef elke laag één taak.**
 
