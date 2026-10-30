@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-10-30 (licence)
+
+- Projects page (NL + EN): wordsworth and habitat are MIT-licensed (their LICENSE files say so), not EUPL-1.2 as the page said.
+
 ## 2026-10-30 (stale names)
 
 - `data/renames.yml`: names that changed (Boomhuis → Ratatoskr, coordinator → odin) and parked projects. `scripts/test-site.sh` fails when an old name comes back on a standing page (blog posts keep the name of their day; a mention after "eerder"/"formerly" is allowed). ratatoskr's weekly `site_freshness.py` reads the same file.

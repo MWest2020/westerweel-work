@@ -24,7 +24,7 @@ pipeline's state machine. Envelope encryption via OpenBao Transit;
 fail-closed on any doubt.
 
 - **Demo (synthetic data):** [mwest2020.github.io/wordsworth-demo](https://mwest2020.github.io/wordsworth-demo/)
-- **Code:** [github.com/MWest2020/wordsworth](https://github.com/MWest2020/wordsworth) (EUPL-1.2)
+- **Code:** [github.com/MWest2020/wordsworth](https://github.com/MWest2020/wordsworth) (MIT)
 
 ## Ratatoskr — and the pattern behind it
 
@@ -44,7 +44,7 @@ The pattern: **separate the layers, give each layer one job.**
    messages are coordination and mirror — never authoritative state.
 2. **Execution lives in a cage.** Agents that build code run as Kubernetes
    Jobs with deny-by-default allowlists per role
-   ([habitat](https://github.com/MWest2020/habitat), EUPL-1.2), with no
+   ([habitat](https://github.com/MWest2020/habitat), MIT), with no
    access to the relay or to secrets. Communication and execution only meet
    through git.
 3. **Knowledge has a hub.** One repo
