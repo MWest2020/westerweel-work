@@ -1,0 +1,20 @@
+# Names that changed: the old one must not come back on the site's standing
+# pages (content/nl/*.md, content/en/*.md; blog posts keep the name of their
+# day). Read by scripts/test-site.sh and by ratatoskr's
+# orchestrator/site_freshness.py, a weekly job that keeps the pages current.
+# A mention right after a "formerly" marker (eerder, voorheen, formerly,
+# previously, ex-) is allowed: 'Ratatoskr (eerder "Boomhuis")'.
+renames:
+  - old: Boomhuis
+    new: Ratatoskr
+    what: the communication layer of the agent ecosystem
+  - old: coordinator
+    new: odin
+    what: the hub agent (renamed 2026-09-07, handbook docs/agents/index.md)
+
+# Projects that are parked or archived: the pages should not present them as
+# current work (site_freshness.py flags them).
+parked:
+  - crible
+  - Road_to_el_DORA
+  - habitat-testrepo
