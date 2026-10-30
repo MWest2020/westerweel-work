@@ -203,6 +203,18 @@ assert_grep    "$PUBLIC_DIR/robots.txt" 'Sitemap: https://westerweel.work/sitema
 assert_grep    "$PUBLIC_DIR/robots.txt" '^Disallow:[[:space:]]*$'                     "robots.txt disallows nothing"
 assert_not_grep "$PUBLIC_DIR/robots.txt" '^Disallow:[[:space:]]*/'                    "robots.txt does NOT disallow everything"
 
+# Stale names: a renamed project must not come back on the standing pages
+# (data/renames.yml, shared with ratatoskr's orchestrator/site_freshness.py).
+# Blog posts keep the name of their day. A mention right after a "formerly"
+# marker (eerder, voorheen, formerly, previously, ex-) is allowed.
+while IFS= read -r old; do
+  [[ -z "$old" ]] && continue
+  hits=$(perl -ne 'BEGIN{$o=shift} while(/(?<![\w-])\Q$o\E(?!\w)/gi){ my $pre=substr($_,0,$-[0]); next if $pre =~ /(eerder|voorheen|formerly|previously|ex-)\W{0,3}$/i; print "$ARGV:$. " } close ARGV if eof' "$old" content/nl/*.md content/en/*.md || true)
+  if [[ -z "$hits" ]]; then ok "no stale name '$old' on the standing pages"
+  else fail "stale name '$old' (data/renames.yml): $hits"
+  fi
+done < <(sed -n 's/^[[:space:]]*-[[:space:]]*old:[[:space:]]*//p' data/renames.yml | tr -d '"')
+
 echo
 echo "==> $PASS passed, $FAIL failed"
 [[ "$FAIL" -eq 0 ]]
