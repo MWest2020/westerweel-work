@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30T20:07:29+01:00",
+ "generated": "2026-10-30T22:11:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -7,16 +7,16 @@
    "url": "https://github.com/MWest2020/wordsworth",
    "in_flight": [
     {
+     "change": "originals-crypto-shred",
+     "stage": "proposed"
+    },
+    {
      "change": "console-dossier-home",
      "stage": "proposed"
     },
     {
-     "change": "console-hide-deleted",
-     "stage": "queued"
-    },
-    {
      "change": "detect-dutch-particle-names",
-     "stage": "queued"
+     "stage": "proposed"
     }
    ],
    "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
@@ -32,6 +32,12 @@
      "name": "Pilot: Gooise Meren",
      "summary": "one real Woo publication (415 documents) end to end, for a key user",
      "state": "current"
+    },
+    {
+     "id": "data-autonomy",
+     "name": "Data autonomy",
+     "summary": "the organisation holds the keys: originals encrypted, rights per group, a separate key service, keys exportable (ADR-0008, ADR-0009)",
+     "state": "next"
     },
     {
      "id": "production",
@@ -86,8 +92,8 @@
      "stage": "proposed"
     },
     {
-     "change": "demo-look-scale",
-     "stage": "queued"
+     "change": "demo-zone-travel",
+     "stage": "proposed"
     },
     {
      "change": "demo-devnet-wallet",
