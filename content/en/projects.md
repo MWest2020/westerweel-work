@@ -26,15 +26,17 @@ fail-closed on any doubt.
 - **Demo (synthetic data):** [mwest2020.github.io/wordsworth-demo](https://mwest2020.github.io/wordsworth-demo/)
 - **Code:** [github.com/MWest2020/wordsworth](https://github.com/MWest2020/wordsworth) (EUPL-1.2)
 
-## Boomhuis — and the pattern behind it
+## Ratatoskr — and the pattern behind it
 
-Boomhuis ("treehouse") is the communication layer of my agent ecosystem: a
+Ratatoskr (formerly "Boomhuis") is the communication layer of my agent ecosystem: a
 self-hosted [buzz](https://github.com/block/buzz) relay (Nostr protocol)
 with channels where I and a handful of chat-native agents — builder,
 reviewer, architect, marketing — collaborate asynchronously. Every identity
 (human and agent) has its own keypair; everything is searchable and
-auditable; reachable only over my own tailnet. The repo is private (it holds
-identities), but the pattern is worth sharing.
+auditable; reachable only over my own tailnet. Odin, the hub, also runs the
+agent factory from it: writing proposals, building them in habitat and
+deploying them to the homelab.
+Code: [github.com/MWest2020/ratatoskr](https://github.com/MWest2020/ratatoskr).
 
 The pattern: **separate the layers, give each layer one job.**
 

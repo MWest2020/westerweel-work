@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-10-30
+
+- Projects page (NL + EN): "Boomhuis" is now called Ratatoskr, with the old name in brackets; the repository is public, so the "private repo" sentence goes and a code link comes in, plus one line on the agent factory odin runs from it.
+
 ## 2026-10-28 (overzicht /nu/)
 
 ### Added
