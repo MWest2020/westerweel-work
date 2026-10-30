@@ -1,32 +1,26 @@
 {
- "generated": "2026-10-30T00:33:02+01:00",
+ "generated": "2026-10-30T02:34:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
    "public": true,
    "in_flight": [
     {
-     "change": "redaction-overdetection",
-     "issue": 266,
-     "url": "https://github.com/MWest2020/wordsworth/issues/266",
-     "stage": "queued"
-    },
-    {
-     "change": "console-hide-deleted",
-     "issue": 277,
-     "url": "https://github.com/MWest2020/wordsworth/issues/277",
-     "stage": "queued"
+     "change": "console-dossier-home",
+     "issue": 294,
+     "url": "https://github.com/MWest2020/wordsworth/issues/294",
+     "stage": "proposed"
     },
     {
      "change": "redacted-cache-version",
      "issue": 275,
      "url": "https://github.com/MWest2020/wordsworth/issues/275",
-     "stage": "queued"
+     "stage": "building"
     },
     {
-     "change": "redaction-locate-remaining",
-     "issue": 261,
-     "url": "https://github.com/MWest2020/wordsworth/issues/261",
+     "change": "console-hide-deleted",
+     "issue": 277,
+     "url": "https://github.com/MWest2020/wordsworth/issues/277",
      "stage": "queued"
     },
     {
@@ -37,6 +31,20 @@
     }
    ],
    "delivered": [
+    {
+     "title": "build: redaction-overdetection",
+     "pr": 299,
+     "url": "https://github.com/MWest2020/wordsworth/pull/299",
+     "when": "2026-10-30T01:22:35Z",
+     "kind": "deployed"
+    },
+    {
+     "title": "build: redaction-locate-remaining",
+     "pr": 297,
+     "url": "https://github.com/MWest2020/wordsworth/pull/297",
+     "when": "2026-10-30T01:02:01Z",
+     "kind": "deployed"
+    },
     {
      "title": "hoge-beschikbaarheid: 3.3.3 done; 3.3.4 rolled back (Service 404)",
      "pr": 292,
@@ -78,20 +86,6 @@
      "url": "https://github.com/MWest2020/wordsworth/pull/282",
      "when": "2026-10-28T22:20:55Z",
      "kind": "merged"
-    },
-    {
-     "title": "openspec: reindex-keeps-topics",
-     "pr": 280,
-     "url": "https://github.com/MWest2020/wordsworth/pull/280",
-     "when": "2026-10-28T09:13:54Z",
-     "kind": "spec"
-    },
-    {
-     "title": "openspec: console-hide-deleted",
-     "pr": 279,
-     "url": "https://github.com/MWest2020/wordsworth/pull/279",
-     "when": "2026-10-28T09:13:20Z",
-     "kind": "spec"
     }
    ],
    "url": "https://github.com/MWest2020/wordsworth"
