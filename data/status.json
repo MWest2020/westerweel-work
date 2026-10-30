@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30T02:34:02+01:00",
+ "generated": "2026-10-30T04:35:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -10,12 +10,6 @@
      "issue": 294,
      "url": "https://github.com/MWest2020/wordsworth/issues/294",
      "stage": "proposed"
-    },
-    {
-     "change": "redacted-cache-version",
-     "issue": 275,
-     "url": "https://github.com/MWest2020/wordsworth/issues/275",
-     "stage": "building"
     },
     {
      "change": "console-hide-deleted",
@@ -31,6 +25,13 @@
     }
    ],
    "delivered": [
+    {
+     "title": "build: redacted-cache-version",
+     "pr": 301,
+     "url": "https://github.com/MWest2020/wordsworth/pull/301",
+     "when": "2026-10-30T01:41:02Z",
+     "kind": "deployed"
+    },
     {
      "title": "build: redaction-overdetection",
      "pr": 299,
@@ -78,13 +79,6 @@
      "pr": 283,
      "url": "https://github.com/MWest2020/wordsworth/pull/283",
      "when": "2026-10-28T22:23:39Z",
-     "kind": "merged"
-    },
-    {
-     "title": "pilot report: ranking questions, committed before any search",
-     "pr": 282,
-     "url": "https://github.com/MWest2020/wordsworth/pull/282",
-     "when": "2026-10-28T22:20:55Z",
      "kind": "merged"
     }
    ],
@@ -304,15 +298,15 @@
   {
    "name": "handbook",
    "public": true,
-   "in_flight": [
-    {
-     "change": "eco-mcp-readonly",
-     "issue": 36,
-     "url": "https://github.com/MWest2020/handbook/issues/36",
-     "stage": "queued"
-    }
-   ],
+   "in_flight": [],
    "delivered": [
+    {
+     "title": "build: eco-mcp-readonly",
+     "pr": 39,
+     "url": "https://github.com/MWest2020/handbook/pull/39",
+     "when": "2026-10-30T01:53:52Z",
+     "kind": "merged"
+    },
     {
      "title": "openspec: eco-mcp-readonly",
      "pr": 37,
