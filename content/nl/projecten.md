@@ -24,7 +24,7 @@ tegelijk de state machine van de pijplijn. Envelope-encryptie via OpenBao
 Transit; fail-closed bij elke twijfel.
 
 - **Demo (synthetische data):** [mwest2020.github.io/wordsworth-demo](https://mwest2020.github.io/wordsworth-demo/)
-- **Code:** [github.com/MWest2020/wordsworth](https://github.com/MWest2020/wordsworth) (EUPL-1.2)
+- **Code:** [github.com/MWest2020/wordsworth](https://github.com/MWest2020/wordsworth) (MIT)
 
 ## Ratatoskr — en het patroon erachter
 
@@ -43,7 +43,7 @@ Het patroon: **scheid de lagen, en geef elke laag één taak.**
    Chatberichten zijn coördinatie en spiegel — nooit gezaghebbende state.
 2. **Executie zit in een kooi.** Agents die code bouwen draaien als
    Kubernetes-Jobs met deny-by-default allowlists per rol
-   ([habitat](https://github.com/MWest2020/habitat), EUPL-1.2), zonder
+   ([habitat](https://github.com/MWest2020/habitat), MIT), zonder
    toegang tot de relay of tot secrets. Communicatie en uitvoering raken
    elkaar alleen via git.
 3. **Kennis heeft één vaste plek.** Eén repo
