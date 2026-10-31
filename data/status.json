@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31T00:12:02+01:00",
+ "generated": "2026-10-31T02:13:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -92,11 +92,11 @@
      "stage": "proposed"
     },
     {
-     "change": "demo-tiled-maps",
-     "stage": "building"
+     "change": "demo-devnet-wallet",
+     "stage": "proposed"
     },
     {
-     "change": "demo-devnet-wallet",
+     "change": "demo-tiled-maps-client",
      "stage": "proposed"
     }
    ],
