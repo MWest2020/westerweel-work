@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31T10:15:03+01:00",
+ "generated": "2026-10-31T20:17:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -93,6 +93,10 @@
    "in_flight": [
     {
      "change": "demo-marketplace",
+     "stage": "proposed"
+    },
+    {
+     "change": "demo-tiled-maps",
      "stage": "proposed"
     },
     {
