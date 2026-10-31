@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31T20:17:02+01:00",
+ "generated": "2026-10-31T22:42:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -21,6 +21,14 @@
     {
      "change": "detect-dutch-particle-names",
      "stage": "proposed"
+    },
+    {
+     "change": "originals-cipher-and-key-store",
+     "stage": "proposed"
+    },
+    {
+     "change": "topic-terms-nouns",
+     "stage": "merging"
     }
    ],
    "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
