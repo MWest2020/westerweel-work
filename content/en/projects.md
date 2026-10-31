@@ -62,6 +62,22 @@ No platform bought, no SaaS: a relay, a cluster, a few repos, and strict
 agreements. It doesn't scale to a thousand people — it only has to scale to
 one human and a crew of agents.
 
+## Homelab — the iron under everything
+
+Everything above runs on three mini PCs at home: a Kubernetes cluster built
+by hand ("the hard way"), so that every part is understood rather than
+inherited. The cluster is run through **GitOps**: Argo CD rolls out what is in
+git, and what isn't in git doesn't exist. Secrets are encrypted in the repo
+(SOPS) or kept out of git, never readable.
+
+It runs PostgreSQL (CloudNativePG), an S3-compatible object store (SeaweedFS,
+with Object Lock), a key vault (OpenBao), local models, and habitat's agents
+as Kubernetes Jobs. Access goes through a tailnet; what must be public goes
+through a tunnel, with no open ports. Every intervention has a runbook, and
+an outage gets a write-up with the measured downtime.
+
+- **Code and runbooks:** [github.com/MWest2020/homelab](https://github.com/MWest2020/homelab)
+
 ## netnl — measurable internet, in bulk
 
 A command-line client for the **[Internet.nl](https://internet.nl) batch
