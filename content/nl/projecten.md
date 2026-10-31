@@ -61,6 +61,22 @@ Geen platform gekocht, geen SaaS: een relay, een cluster, een paar repo's en
 strakke afspraken. Het schaalt niet naar duizend man — het hoeft maar naar
 één mens en een handvol agents.
 
+## Homelab — het ijzer onder alles
+
+Alles hierboven draait op drie mini-pc's thuis: een Kubernetes-cluster dat
+met de hand is opgebouwd ("the hard way"), zodat elk onderdeel begrepen is in
+plaats van geërfd. Het cluster wordt beheerd via **GitOps**: Argo CD rolt uit
+wat in git staat, en wat niet in git staat, bestaat niet. Secrets staan
+versleuteld in de repo (SOPS) of buiten git, nooit leesbaar.
+
+Erop draaien PostgreSQL (CloudNativePG), een S3-compatibele object-store
+(SeaweedFS, met Object Lock), een sleutelkluis (OpenBao), lokale modellen en
+de agents van habitat als Kubernetes-Jobs. Toegang loopt via een tailnet; wat
+publiek moet, gaat via een tunnel, zonder open poorten. Elke ingreep heeft een
+runbook, en een storing krijgt een verslag met de gemeten uitval.
+
+- **Code en runbooks:** [github.com/MWest2020/homelab](https://github.com/MWest2020/homelab)
+
 ## netnl — meetbaar internet, in bulk
 
 Een command-line client voor de **batch-API van
