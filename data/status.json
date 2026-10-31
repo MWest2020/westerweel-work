@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-31T02:13:03+01:00",
+ "generated": "2026-10-31T10:15:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -12,6 +12,10 @@
     },
     {
      "change": "console-dossier-home",
+     "stage": "proposed"
+    },
+    {
+     "change": "reanonymise-particle-name-documents",
      "stage": "proposed"
     },
     {
