@@ -323,3 +323,20 @@ body.home .logo a::after {
 }
 .now-stage-proposed { color: var(--now-blue); border-color: var(--now-blue); }
 .now-stage-building, .now-stage-merging, .now-stage-deploying { color: var(--now-amber); border-color: var(--now-amber); }
+
+/* /boekenclub/: a site page with one entry per book, linking to its deck. */
+.bc-books { display: grid; gap: 1rem; margin-top: 1.2rem; }
+.bc-book {
+  border: 1px solid var(--westerweel-border);
+  border-radius: 6px;
+  background: var(--entry);
+  padding: 0.9rem 1.1rem;
+}
+.bc-book p { margin: 0.2rem 0; }
+.bc-title { font-size: 1.25rem; margin: 0 0 0.2rem; }
+.bc-title a { box-shadow: none; }
+.bc-meta, .bc-who { color: var(--secondary); font-size: 0.92rem; }
+.bc-score strong { font-size: 1.4rem; }
+.bc-go { margin-top: 0.5rem !important; font-weight: 600; }
+.bc-next { margin-top: 2rem; }
+.bc-next h2 { font-size: 1.1rem; margin-bottom: 0.3rem; }

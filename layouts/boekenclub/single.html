@@ -28,10 +28,13 @@
 </section>
 
 {{- range $k, $in := .Params.insights }}
-<section class="slide insight{{ if $in.emphasis }} emphasis{{ end }} t-{{ index $trees (mod (add $offset (add $k 1)) 9) }}">
+<section class="slide insight{{ if $in.emphasis }} emphasis{{ end }}{{ if $in.nugget }} has-nugget{{ end }} t-{{ index $trees (mod (add $offset (add $k 1)) 9) }}">
   <p class="kicker">{{ if $in.emphasis }}Het belangrijkste{{ else }}Inzicht {{ add $k 1 }}{{ end }}</p>
   <h2>{{ $in.title }}</h2>
   <p>{{ $in.text }}</p>
+  {{- with $in.nugget }}
+  <div class="nugget"><b>Uit het boek{{ with $in.chapter }} · {{ . }}{{ end }}</b><span>{{ . }}</span></div>
+  {{- end }}
   {{- with $in.doe }}
   <div class="doe"><b>Wat ik ermee doe</b><span{{ if hasPrefix . "TODO" }} class="todo"{{ end }}>{{ . }}</span></div>
   {{- end }}
