@@ -5,7 +5,7 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
 ## 2026-11-01 (boekenclub, kleinere PDF)
 
 - De PDF was 13,7 MB: een CSS-filter en -masker op de bomen lieten Chromium elke slide als grote PNG insluiten. Sepia en de vervaagde randen zitten nu in de JPEG's zelf; de PDF is ~1,5 MB.
-- "Verder lezen" bij Becoming SRE: ook *Seeking SRE* en *SRE with AIOps* (Mark).
+- "Verder lezen" bij Becoming SRE: ook *Seeking SRE*, *SRE with AIOps*, *Building Secure and Reliable Systems* en *Platform Engineering* (Mark).
 
 ## 2026-11-01 (boekenclub, juiste boek)
 
