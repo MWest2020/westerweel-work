@@ -1,7 +1,7 @@
 """Maak de LinkedIn-PDF van één boekenclub-deck: één pagina per slide, 1080×1350.
 
-    uv run --with playwright --with pypdf scripts/boekenclub_pdf.py seeking-sre
-    # -> boekenclub-pdf/seeking-sre.pdf (en met --shots ook PNG's per slide: 1080 px, en op een
+    uv run --with playwright --with pypdf scripts/boekenclub_pdf.py becoming-sre
+    # -> boekenclub-pdf/becoming-sre.pdf (en met --shots ook PNG's per slide: 1080 px, en op een
     #    geëmuleerde telefoon van 390 px breed)
 
 Chromium rondt de paginahoogte af (1013,04 pt); daarna zet pypdf elke pagina op precies
@@ -45,7 +45,7 @@ def exact(pdf):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("slug", help="het boek, bijvoorbeeld seeking-sre")
+    ap.add_argument("slug", help="het boek, bijvoorbeeld becoming-sre")
     ap.add_argument("--out", default=os.path.join(ROOT, "boekenclub-pdf"))
     ap.add_argument("--shots", action="store_true", help="ook een PNG per slide, op 1080 en op 390 px breed")
     a = ap.parse_args()

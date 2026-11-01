@@ -121,7 +121,7 @@ assert_not_grep "$PUBLIC_DIR/en/index.html" 'Ik bouw' "EN home intro is NOT Dutc
 
 echo "==> boekenclub (NL-only by design, 2026-11-01: no translationKey/parity)"
 assert_file_exists "$PUBLIC_DIR/boekenclub/index.html"
-assert_file_exists "$PUBLIC_DIR/boekenclub/seeking-sre/index.html"
+assert_file_exists "$PUBLIC_DIR/boekenclub/becoming-sre/index.html"
 for deck in "$PUBLIC_DIR"/boekenclub/*/index.html; do
   [[ "$deck" == */assets/* ]] && continue
   bc_slides=$(grep -o 'class="slide' "$deck" | wc -l)
@@ -130,8 +130,8 @@ for deck in "$PUBLIC_DIR"/boekenclub/*/index.html; do
   assert_not_grep "$deck" 'TODO' "no TODO left on $deck"
   assert_not_grep "$deck" 'style=' "no inline style on $deck (site CSP)"
 done
-assert_grep "$PUBLIC_DIR/boekenclub/index.html" 'href="?/boekenclub/seeking-sre/' "boekenclub index links to the seeking-sre deck"
-assert_not_grep "$PUBLIC_DIR/index.xml" 'boekenclub/seeking-sre' "books stay out of the site RSS feed"
+assert_grep "$PUBLIC_DIR/boekenclub/index.html" 'href="?/boekenclub/becoming-sre/' "boekenclub index links to the becoming-sre deck"
+assert_not_grep "$PUBLIC_DIR/index.xml" 'boekenclub/becoming-sre' "books stay out of the site RSS feed"
 
 echo "==> every content file declares translationKey"
 missing_tk_count=0

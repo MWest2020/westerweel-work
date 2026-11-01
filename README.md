@@ -169,7 +169,7 @@ de slides. Elk boek heeft een eigen deck op `/boekenclub/<slug>/`. Slides zijn s
 (LinkedIn-carrousel), werken met pijltjes, spatie, vegen en tikken, en `#3` opent slide 3.
 De stijl komt uit tree-presentations (Cormorant Garamond, sepia, een boom per slide).
 
-**Een boek toevoegen = één bestand:** kopieer `content/nl/boekenclub/seeking-sre.md` naar
+**Een boek toevoegen = één bestand:** kopieer `content/nl/boekenclub/becoming-sre.md` naar
 `content/nl/boekenclub/<slug>.md` en vul de front matter in. Daarin staan titel, auteur,
 uitgever en jaar, de cover-zin (`hook`), 3–5 inzichten (met optioneel `nugget` + `chapter` voor een concreet voorbeeld uit het boek, `doe` en
 `emphasis`; een deck heeft 7–9 slides, de build faalt daarbuiten), de scores op de vaste rubriek, voor wie en niet voor wie, `further_reading`
@@ -183,8 +183,8 @@ de bomen: `CREDITS.md`.
 
 ```bash
 uv run --with playwright playwright install chromium     # eenmalig
-uv run --with playwright --with pypdf scripts/boekenclub_pdf.py seeking-sre           # -> boekenclub-pdf/seeking-sre.pdf
-uv run --with playwright --with pypdf scripts/boekenclub_pdf.py seeking-sre --shots   # + PNG per slide (1080 px, en een telefoon van 390 px)
+uv run --with playwright --with pypdf scripts/boekenclub_pdf.py becoming-sre           # -> boekenclub-pdf/becoming-sre.pdf
+uv run --with playwright --with pypdf scripts/boekenclub_pdf.py becoming-sre --shots   # + PNG per slide (1080 px, en een telefoon van 390 px)
 ```
 
 `boekenclub-pdf/` staat in `.gitignore`: de PDF is voor LinkedIn, niet voor de site.
