@@ -3,3 +3,7 @@
 
 # Example: if you ever rename a slug, redirect old URL here.
 # /old-slug/  /posts/new-slug/  301
+
+# 2026-11-01: het eerste boek was Becoming SRE, niet Seeking SRE; de oude link bleef in een mail staan.
+/boekenclub/seeking-sre/  /boekenclub/becoming-sre/  301
+/boekenclub/seeking-sre  /boekenclub/becoming-sre/  301

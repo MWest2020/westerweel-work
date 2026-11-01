@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-01 (boekenclub, juiste boek)
+
+- Het eerste boek is *Becoming SRE* (David N. Blank-Edelman, O'Reilly, 2024), niet *Seeking SRE*: Mark corrigeerde dat. Bestand en URL heten nu `becoming-sre`; `/boekenclub/seeking-sre/` stuurt door (301, `static/_redirects`). Becoming SRE staat niet meer onder "verder lezen". De vier voorbeelden ("Uit het boek") komen van Mark; een hoofdstuk staat er alleen bij waar de inhoudsopgave van Becoming SRE het onderwerp noemt (hfst. 2, hfst. 12).
+
 ## 2026-11-01 (boekenclub, feedback)
 
 - `/boekenclub/` is a normal site page now (header, menu, one entry per book with its score, for whom and a link to the slides) instead of a deck (Mark: "dat mag site zijn, met link naar de slides"). The book decks are unchanged.
