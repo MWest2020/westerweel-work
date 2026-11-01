@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{{ .Title }} · Boekenclub · westerweel.work</title>
+<title>{{ .Title }}{{ if not .IsSection }} · Boekenclub{{ end }} · westerweel.work</title>
 <meta name="description" content="{{ with .Params.hook }}{{ . }}{{ else }}{{ .Description }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="stylesheet" href="/boekenclub/assets/deck.css">

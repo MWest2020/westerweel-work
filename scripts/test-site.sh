@@ -122,12 +122,16 @@ assert_not_grep "$PUBLIC_DIR/en/index.html" 'Ik bouw' "EN home intro is NOT Dutc
 echo "==> boekenclub (NL-only by design, 2026-11-01: no translationKey/parity)"
 assert_file_exists "$PUBLIC_DIR/boekenclub/index.html"
 assert_file_exists "$PUBLIC_DIR/boekenclub/seeking-sre/index.html"
-bc_slides=$(grep -o 'class="slide' "$PUBLIC_DIR/boekenclub/seeking-sre/index.html" | wc -l)
-if [[ "$bc_slides" -ge 7 && "$bc_slides" -le 9 ]]; then ok "seeking-sre deck has $bc_slides slides (7-9)"
-else fail "seeking-sre deck has $bc_slides slides, expected 7-9"; fi
+for deck in "$PUBLIC_DIR"/boekenclub/*/index.html; do
+  [[ "$deck" == */assets/* ]] && continue
+  bc_slides=$(grep -o 'class="slide' "$deck" | wc -l)
+  if [[ "$bc_slides" -ge 7 && "$bc_slides" -le 9 ]]; then ok "$deck has $bc_slides slides (7-9)"
+  else fail "$deck has $bc_slides slides, expected 7-9"; fi
+  assert_not_grep "$deck" 'TODO' "no TODO left on $deck"
+  assert_not_grep "$deck" 'style=' "no inline style on $deck (site CSP)"
+done
 assert_grep "$PUBLIC_DIR/boekenclub/index.html" 'href="?/boekenclub/seeking-sre/' "boekenclub index links to the seeking-sre deck"
-assert_not_grep "$PUBLIC_DIR/boekenclub/seeking-sre/index.html" 'TODO' "no TODO left on the seeking-sre deck"
-assert_not_grep "$PUBLIC_DIR/boekenclub/seeking-sre/index.html" 'style=' "no inline style (site CSP)"
+assert_not_grep "$PUBLIC_DIR/index.xml" 'boekenclub/seeking-sre' "books stay out of the site RSS feed"
 
 echo "==> every content file declares translationKey"
 missing_tk_count=0

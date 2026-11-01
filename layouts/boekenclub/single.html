@@ -6,10 +6,8 @@
 {{- $offset := mul (sub (.Weight | default 1) 1) 2 -}}
 {{- $n := add (len .Params.insights) 4 -}}
 {{- $foot := .Title -}}
-{{- /* Eindscore: gemiddelde van de criteria, afgerond op 0,5 (halven naar boven). */ -}}
-{{- $sum := 0.0 -}}{{- range .Params.scores }}{{ $sum = add $sum (float .value) }}{{ end -}}
-{{- $mean := div $sum (len .Params.scores) -}}
-{{- $total := div (math.Floor (add (mul $mean 2) 0.5)) 2 -}}
+{{- if or (lt $n 7) (gt $n 9) }}{{ errorf "boekenclub %s: %d slides; een deck heeft er 7-9, dus 3-5 inzichten" .File.Path $n }}{{ end -}}
+{{- $total := partial "boekenclub/score.html" . -}}
 <!doctype html>
 <html lang="nl">
 <head>
@@ -19,12 +17,14 @@
 <main class="stage" aria-label="{{ .Title }}">
 
 <section class="slide cover t-{{ index $trees (mod $offset 9) }}">
+  {{- with .Params.photo }}<img class="cover-photo" src="{{ . | relURL }}" alt="">{{ end }}
   <p class="kicker">Boekenclub</p>
   <h1>{{ .Title }}</h1>
   <p class="sub">{{ .Params.subtitle }}</p>
   <p class="meta">{{ .Params.author }} · {{ .Params.publisher }}, {{ .Params.year }}</p>
   <p class="hook">{{ .Params.hook }}</p>
-  <div class="foot"><span>westerweel.work/boekenclub</span><span>1/{{ $n }}</span></div>
+  {{- with .Params.quote }}<p class="quote">“{{ . }}”</p>{{ end }}
+  <div class="foot"><a href="/">westerweel.work</a><span>1/{{ $n }}</span></div>
 </section>
 
 {{- range $k, $in := .Params.insights }}
@@ -49,7 +49,7 @@
       {{- with .note }}<span class="note">{{ . }}</span>{{ end }}</li>
   {{- end }}
   </ul>
-  <div class="total"><strong>{{ replace (string $total) "." "," }}</strong><span>van 5 · gemiddelde, afgerond op 0,5</span></div>
+  <div class="total"><strong>{{ $total }}</strong><span>van 5 · gemiddelde, afgerond op 0,5</span></div>
   <div class="foot"><span>{{ $foot }}</span><span>{{ add $s 1 }}/{{ $n }}</span></div>
 </section>
 

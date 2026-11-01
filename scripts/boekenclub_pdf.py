@@ -1,17 +1,21 @@
 """Maak de LinkedIn-PDF van één boekenclub-deck: één pagina per slide, 1080×1350.
 
-    uv run --with playwright scripts/boekenclub_pdf.py seeking-sre
-    # -> boekenclub-pdf/seeking-sre.pdf (en met --shots ook PNG's per slide, 1080 en 390 px breed)
+    uv run --with playwright --with pypdf scripts/boekenclub_pdf.py seeking-sre
+    # -> boekenclub-pdf/seeking-sre.pdf (en met --shots ook PNG's per slide: 1080 px, en op een
+    #    geëmuleerde telefoon van 390 px breed)
 
-Bouwt de site met hugo in een tijdelijke map, serveert die lokaal en laat Chromium
+Chromium rondt de paginahoogte af (1013,04 pt); daarna zet pypdf elke pagina op precies
+1080×1350 CSS-px = 810×1012,5 pt. Bouwt de site met hugo in een tijdelijke map, serveert die lokaal en laat Chromium
 de pagina afdrukken met de print-CSS van het deck. Eenmalig: `uv run --with playwright
 playwright install chromium`, of wijs BOEKENCLUB_CHROME naar een bestaande Chromium.
 """
 import argparse, functools, http.server, os, subprocess, sys, tempfile, threading
 from playwright.sync_api import sync_playwright
+from pypdf import PdfReader, PdfWriter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 W, H = 1080, 1350
+PT_W, PT_H = W * 0.75, H * 0.75  # 1 CSS-px = 0,75 pt
 
 
 class Quiet(http.server.SimpleHTTPRequestHandler):
@@ -24,6 +28,19 @@ def serve(directory):
     httpd = http.server.ThreadingHTTPServer(("127.0.0.1", 0), handler)
     threading.Thread(target=httpd.serve_forever, daemon=True).start()
     return httpd
+
+
+def exact(pdf):
+    """Zet elke pagina op precies 810×1012,5 pt; het strookje dat Chromium onderaan toevoegt, valt weg."""
+    reader, writer = PdfReader(pdf), PdfWriter()
+    for page in reader.pages:
+        top = float(page.mediabox.top)
+        for box in (page.mediabox, page.cropbox):
+            box.lower_left = (0, top - PT_H)
+            box.upper_right = (PT_W, top)
+        writer.add_page(page)
+    with open(pdf, "wb") as f:
+        writer.write(f)
 
 
 def main():
@@ -49,10 +66,16 @@ def main():
             pdf = os.path.join(a.out, f"{a.slug}.pdf")
             page.pdf(path=pdf, width=f"{W}px", height=f"{H}px", print_background=True,
                      prefer_css_page_size=True, margin={"top": "0", "right": "0", "bottom": "0", "left": "0"})
-            print(f"{pdf}: {slides} slides")
+            exact(pdf)
+            pages = len(PdfReader(pdf).pages)
+            if pages != slides:
+                sys.exit(f"{pdf}: {pages} pagina's voor {slides} slides")
+            print(f"{pdf}: {slides} slides, {pages} pagina's van {W}×{H}")
             if a.shots:
                 for width in (W, 390):
-                    shot = browser.new_page(viewport={"width": width, "height": round(width * H / W)})
+                    phone = width < W  # een echte telefoon: mobiele viewport en touch, zoals de LinkedIn-app
+                    shot = browser.new_page(viewport={"width": width, "height": 844 if phone else H},
+                                            is_mobile=phone, has_touch=phone, device_scale_factor=3 if phone else 1)
                     for k in range(1, slides + 1):
                         shot.goto(f"{url}#{k}", wait_until="networkidle")
                         shot.evaluate("document.fonts.ready")

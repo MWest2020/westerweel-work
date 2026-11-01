@@ -8,6 +8,7 @@ author: "David N. Blank-Edelman (redactie)"
 publisher: "O'Reilly Media"
 year: 2018
 weight: 1                 # volgorde in de boekenclub
+date: 2026-11-01
 photo: ""                 # eigen foto voor de cover (pad onder static/), leeg = typografische cover
 quote: ""                 # hooguit één citaat onder de 15 woorden, alleen aangeleverd door Mark
 
@@ -17,14 +18,14 @@ insights:
   - title: "Groene en rode vlaggen"
     text: "Scherpe signalen waaraan je ziet of SRE in een organisatie gezond is, of juist niet."
     doe: "TODO: wat ik ermee doe (Mark)"
-  - title: "Eerst de mens"
+  - title: "Cultuur en profiel"
     text: "Cultuur en het profiel van een SRE: wat voor mens je moet zijn, niet alleen welke techniek je beheerst."
     doe: "TODO: wat ik ermee doe (Mark)"
   - title: "Er is geen ‘zo moet het’"
     text: "SRE ziet er niet overal hetzelfde uit. Zoek wat bij jouw organisatie past, met de vlaggen als kompas."
   - title: "Van push naar pull"
     emphasis: true
-    text: "Mensen en samenwerking staan centraal. Hou je niet van meetings, begin dan niet aan SRE. Eerst ga jij naar de teams. Het doel: de teams komen naar jou. Dan werkt het."
+    text: "Mensen en samenwerking staan centraal. Ontwikkelaars die niet van meetings houden, kunnen beter niet aan SRE beginnen. Eerst push je: jij gaat naar de teams. Het doel is pull: de teams komen naar jou. Dat is het teken dat het werkt."
     doe: "TODO: wat ik ermee doe (Mark)"
   - title: "Toegankelijker dan het Google-boek"
     text: "Leest makkelijker dan Site Reliability Engineering (1e editie), dat vrij snel heel Google-specifiek wordt."
@@ -42,7 +43,7 @@ scores:
     value: 3.6
     note: "over vijf jaar misschien achterhaald, de kern blijft"
 
-for_whom_line: "Voor startende SRE-teams en wie ze aanneemt."
+for_whom_line: "Voor startende SRE-teams en managers die SRE's aannemen."
 for_whom:
   - "Startende SRE-teams"
   - "Product leads en managers die SRE's aannemen"

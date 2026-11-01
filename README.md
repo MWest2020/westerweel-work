@@ -171,9 +171,9 @@ De stijl komt uit tree-presentations (Cormorant Garamond, sepia, een boom per sl
 
 **Een boek toevoegen = één bestand:** kopieer `content/nl/boekenclub/seeking-sre.md` naar
 `content/nl/boekenclub/<slug>.md` en vul de front matter in. Daarin staan titel, auteur,
-uitgever en jaar, de cover-zin (`hook`), 4–6 inzichten (met optioneel `doe` en
-`emphasis`), de scores op de vaste rubriek, voor wie en niet voor wie, `further_reading`
-en `question`. `weight` bepaalt de volgorde. De eindscore rekent het template uit:
+uitgever en jaar, de cover-zin (`hook`), 3–5 inzichten (met optioneel `doe` en
+`emphasis`; een deck heeft 7–9 slides, de build faalt daarbuiten), de scores op de vaste rubriek, voor wie en niet voor wie, `further_reading`
+en `question`, en optioneel `photo` (eigen foto op de cover) en `quote` (hooguit één, onder de 15 woorden). `weight` bepaalt de volgorde. De eindscore rekent het template uit:
 het gemiddelde, afgerond op 0,5 (halven naar boven). Wat je nu leest, staat in
 `content/nl/boekenclub/_index.md` (`reading_now`). Opmaak:
 `layouts/boekenclub/{single,list}.html` en `static/boekenclub/assets/`. Licenties van
@@ -183,9 +183,9 @@ de bomen: `CREDITS.md`.
 
 ```bash
 uv run --with playwright playwright install chromium     # eenmalig
-uv run --with playwright scripts/boekenclub_pdf.py seeking-sre           # -> boekenclub-pdf/seeking-sre.pdf
-uv run --with playwright scripts/boekenclub_pdf.py seeking-sre --shots   # + PNG per slide op 1080 en 390 px
-uv run --with playwright scripts/boekenclub_pdf.py index                 # de boekenclub zelf
+uv run --with playwright --with pypdf scripts/boekenclub_pdf.py seeking-sre           # -> boekenclub-pdf/seeking-sre.pdf
+uv run --with playwright --with pypdf scripts/boekenclub_pdf.py seeking-sre --shots   # + PNG per slide (1080 px, en een telefoon van 390 px)
+uv run --with playwright --with pypdf scripts/boekenclub_pdf.py index                 # de boekenclub zelf
 ```
 
 `boekenclub-pdf/` staat in `.gitignore`: de PDF is voor LinkedIn, niet voor de site.

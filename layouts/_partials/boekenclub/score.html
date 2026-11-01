@@ -1,0 +1,5 @@
+{{- /* Eindscore van een boek: gemiddelde van de criteria, afgerond op 0,5 (halven naar boven).
+  Geeft de score als tekst met een komma, bijvoorbeeld "4,5". */ -}}
+{{- $sum := 0.0 -}}{{- range .Params.scores }}{{ $sum = add $sum (float .value) }}{{ end -}}
+{{- $total := div (math.Floor (add (mul (div $sum (len .Params.scores)) 2) 0.5)) 2 -}}
+{{- return (replace (string $total) "." ",") -}}

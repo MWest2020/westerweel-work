@@ -6,7 +6,9 @@
   var i = 0;
 
   function fit() {
-    var s = Math.min(window.innerWidth / 1080, window.innerHeight / 1350);
+    // clientWidth, niet innerWidth: op een telefoon rekent innerWidth de overloop van het podium mee.
+    var de = document.documentElement;
+    var s = Math.min(de.clientWidth / 1080, de.clientHeight / 1350);
     stage.style.transform = 'scale(' + s + ')';
   }
   function go(n) {
@@ -36,6 +38,7 @@
     x0 = null;
   });
 
+  window.addEventListener('hashchange', function () { go((parseInt(location.hash.slice(1), 10) || 1) - 1); });
   window.addEventListener('resize', fit);
   fit();
   go((parseInt(location.hash.slice(1), 10) || 1) - 1);
