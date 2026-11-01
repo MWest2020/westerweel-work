@@ -119,6 +119,20 @@ assert_grep    "$PUBLIC_DIR/index.html"    'Ik bouw' "NL home intro is Dutch"
 assert_grep    "$PUBLIC_DIR/en/index.html" 'I build' "EN home intro is English"
 assert_not_grep "$PUBLIC_DIR/en/index.html" 'Ik bouw' "EN home intro is NOT Dutch"
 
+echo "==> boekenclub (NL-only by design, 2026-11-01: no translationKey/parity)"
+assert_file_exists "$PUBLIC_DIR/boekenclub/index.html"
+assert_file_exists "$PUBLIC_DIR/boekenclub/seeking-sre/index.html"
+for deck in "$PUBLIC_DIR"/boekenclub/*/index.html; do
+  [[ "$deck" == */assets/* ]] && continue
+  bc_slides=$(grep -o 'class="slide' "$deck" | wc -l)
+  if [[ "$bc_slides" -ge 7 && "$bc_slides" -le 9 ]]; then ok "$deck has $bc_slides slides (7-9)"
+  else fail "$deck has $bc_slides slides, expected 7-9"; fi
+  assert_not_grep "$deck" 'TODO' "no TODO left on $deck"
+  assert_not_grep "$deck" 'style=' "no inline style on $deck (site CSP)"
+done
+assert_grep "$PUBLIC_DIR/boekenclub/index.html" 'href="?/boekenclub/seeking-sre/' "boekenclub index links to the seeking-sre deck"
+assert_not_grep "$PUBLIC_DIR/index.xml" 'boekenclub/seeking-sre' "books stay out of the site RSS feed"
+
 echo "==> every content file declares translationKey"
 missing_tk_count=0
 while IFS= read -r -d '' f; do
@@ -126,7 +140,7 @@ while IFS= read -r -d '' f; do
     fail "$f missing or empty translationKey"
     missing_tk_count=$((missing_tk_count + 1))
   fi
-done < <(find content -name '*.md' -print0)
+done < <(find content -name '*.md' -not -path 'content/nl/boekenclub/*' -print0)
 if [[ "$missing_tk_count" -eq 0 ]]; then
   ok "all content files declare translationKey"
 fi
@@ -137,7 +151,7 @@ echo "==> NL/EN translationKey parity"
 # bilingual content invariant honest.
 extract_keys() {
   local dir="$1"
-  find "$dir" -name '*.md' -exec grep -hE '^translationKey:' {} + 2>/dev/null || true
+  find "$dir" -name '*.md' -not -path '*/boekenclub/*' -exec grep -hE '^translationKey:' {} + 2>/dev/null || true
 }
 nl_keys=$(extract_keys content/nl | sed -E 's/translationKey:[[:space:]]*"([^"]+)".*/\1/' | sort -u)
 en_keys=$(extract_keys content/en | sed -E 's/translationKey:[[:space:]]*"([^"]+)".*/\1/' | sort -u)

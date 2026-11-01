@@ -1,0 +1,43 @@
+{{- /* /boekenclub/ is zelf een deck: titelslide, één slide per boek (uit de
+  boekbestanden in deze sectie, op weight), en als laatste "Wat lees ik hierna?". */ -}}
+{{- $trees := slice "eik-blery" "eik-kolbe" "eik-ward" "eik-rousseau" "wilg-bloemaert" "eik-tidemand" "eik-woburn" "wilg-duncan" "eik-kolbe-studie" -}}
+{{- $books := .Pages.ByWeight -}}
+{{- $n := add (len $books) 2 -}}
+<!doctype html>
+<html lang="nl">
+<head>
+{{ partial "boekenclub/head.html" . }}
+</head>
+<body>
+<main class="stage" aria-label="Boekenclub">
+
+<section class="slide cover t-{{ index $trees 0 }}">
+  <h1>Boekenclub</h1>
+  <p class="sub">{{ .Description }}</p>
+  <div class="foot"><a href="/">westerweel.work</a><span>1/{{ $n }}</span></div>
+</section>
+
+{{- range $k, $b := $books }}
+<section class="slide book t-{{ index $trees (mod (add $k 1) 9) }}">
+  <p class="kicker">Boek {{ add $k 1 }}</p>
+  <h2>{{ $b.Title }}</h2>
+  <p class="meta">{{ $b.Params.author }} · {{ $b.Params.year }}</p>
+  <p class="score">{{ partial "boekenclub/score.html" $b }} <span class="sub">van 5</span></p>
+  <p>{{ $b.Params.for_whom_line }}</p>
+  <p class="go"><a href="{{ $b.RelPermalink }}">Bekijk de slides →</a></p>
+  <div class="foot"><span>Boekenclub</span><span>{{ add $k 2 }}/{{ $n }}</span></div>
+</section>
+{{- end }}
+
+<section class="slide closer t-{{ index $trees (mod (add (len $books) 1) 9) }}">
+  <p class="question">Wat lees ik hierna?</p>
+  {{- with .Params.reading_now }}
+  <h3>Nu aan het lezen</h3>
+  <ul class="reading"><li>{{ .title }} <em>({{ .author }}, {{ .year }})</em></li></ul>
+  {{- end }}
+  <div class="foot"><span>Boekenclub</span><span>{{ $n }}/{{ $n }}</span></div>
+</section>
+
+</main>
+</body>
+</html>
