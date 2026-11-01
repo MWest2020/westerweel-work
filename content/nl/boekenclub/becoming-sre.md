@@ -70,5 +70,9 @@ further_reading:
     year: 2018
   - title: "SRE with AIOps"
     year: 2026
+  - title: "Building Secure and Reliable Systems"
+    year: 2020
+  - title: "Platform Engineering"
+    year: 2024
 question: "Welke zou jij als eerste lezen? Of mis ik er een?"
 ---
