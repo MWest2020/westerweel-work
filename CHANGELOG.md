@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-01 (boekenclub)
+
+- **Boekenclub** op `/boekenclub/` (alleen NL, bewust): de sectie is zelf een staand deck (1080×1350). Elk boek is één bestand in `content/nl/boekenclub/` met een eigen deck. Eerste boek: *Seeking SRE*. Stijl uit tree-presentations, met negen nieuwe boomstudies (public domain/CC0, nagekeken op Commons, zie `CREDITS.md`). PDF-export via `scripts/boekenclub_pdf.py` (Playwright). Menu-item "boekenclub". De smoke test slaat `content/nl/boekenclub/` over bij de NL/EN-pariteit en controleert de decks zelf (7–9 slides, geen TODO, geen inline style).
+
 ## 2026-10-30 (licence)
 
 - Projects page (NL + EN): wordsworth and habitat are MIT-licensed (their LICENSE files say so), not EUPL-1.2 as the page said.

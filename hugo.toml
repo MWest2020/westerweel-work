@@ -73,6 +73,11 @@ Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestok
       url = "/nu/"
       weight = 28
     [[languages.nl.menu.main]]
+      identifier = "boekenclub"
+      name = "boekenclub"
+      url = "/boekenclub/"
+      weight = 29
+    [[languages.nl.menu.main]]
       identifier = "about"
       name = "over"
       url = "/about/"

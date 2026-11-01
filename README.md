@@ -162,6 +162,35 @@ De overzichtspagina's zijn gewone Hugo-content en vallen onder de NL/EN-pariteit
 (`translationKey: workshops`, op `/workshops/` en `/en/workshops/`). De decks
 zelf staan in `static/` en vallen er buiten — een deck mag dus eentalig zijn.
 
+## Boekenclub
+
+`/boekenclub/` is zelf een deck, met een titelslide, één slide per boek en "Wat lees ik hierna?".
+Elk boek heeft een eigen deck op `/boekenclub/<slug>/`. Slides zijn staand 1080×1350
+(LinkedIn-carrousel), werken met pijltjes, spatie, vegen en tikken, en `#3` opent slide 3.
+De stijl komt uit tree-presentations (Cormorant Garamond, sepia, een boom per slide).
+
+**Een boek toevoegen = één bestand:** kopieer `content/nl/boekenclub/seeking-sre.md` naar
+`content/nl/boekenclub/<slug>.md` en vul de front matter in. Daarin staan titel, auteur,
+uitgever en jaar, de cover-zin (`hook`), 4–6 inzichten (met optioneel `doe` en
+`emphasis`), de scores op de vaste rubriek, voor wie en niet voor wie, `further_reading`
+en `question`. `weight` bepaalt de volgorde. De eindscore rekent het template uit:
+het gemiddelde, afgerond op 0,5 (halven naar boven). Wat je nu leest, staat in
+`content/nl/boekenclub/_index.md` (`reading_now`). Opmaak:
+`layouts/boekenclub/{single,list}.html` en `static/boekenclub/assets/`. Licenties van
+de bomen: `CREDITS.md`.
+
+**PDF voor LinkedIn** (één pagina per slide, exact 1080×1350):
+
+```bash
+uv run --with playwright playwright install chromium     # eenmalig
+uv run --with playwright scripts/boekenclub_pdf.py seeking-sre           # -> boekenclub-pdf/seeking-sre.pdf
+uv run --with playwright scripts/boekenclub_pdf.py seeking-sre --shots   # + PNG per slide op 1080 en 390 px
+uv run --with playwright scripts/boekenclub_pdf.py index                 # de boekenclub zelf
+```
+
+`boekenclub-pdf/` staat in `.gitignore`: de PDF is voor LinkedIn, niet voor de site.
+De smoke test faalt zolang er nog een `TODO` in een deck staat.
+
 ## Theme bijwerken
 
 ```bash
