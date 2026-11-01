@@ -45,14 +45,14 @@ def exact(pdf):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("slug", help="het boek, bijvoorbeeld seeking-sre (of 'index' voor de boekenclub zelf)")
+    ap.add_argument("slug", help="het boek, bijvoorbeeld seeking-sre")
     ap.add_argument("--out", default=os.path.join(ROOT, "boekenclub-pdf"))
     ap.add_argument("--shots", action="store_true", help="ook een PNG per slide, op 1080 en op 390 px breed")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     with tempfile.TemporaryDirectory() as public:
         subprocess.run(["hugo", "--gc", "--quiet", "-d", public], cwd=ROOT, check=True)
-        path = "boekenclub/" if a.slug == "index" else f"boekenclub/{a.slug}/"
+        path = f"boekenclub/{a.slug}/"
         if not os.path.exists(os.path.join(public, path, "index.html")):
             sys.exit(f"geen deck op /{path}: bestaat content/nl/boekenclub/{a.slug}.md?")
         httpd = serve(public)
@@ -63,6 +63,16 @@ def main():
             page.goto(url, wait_until="networkidle")
             page.evaluate("document.fonts.ready")
             slides = page.locator(".slide").count()
+            # Geen tekst over de voettekst: in afdrukweergave staan alle slides onder elkaar.
+            page.emulate_media(media="print")
+            clash = page.evaluate("""() => [...document.querySelectorAll('.slide')].map((s, k) => {
+                const foot = s.querySelector('.foot'); if (!foot) return null;
+                const top = foot.getBoundingClientRect().top, sTop = s.getBoundingClientRect().top;
+                const over = [...s.children].filter(c => c !== foot)
+                    .some(c => c.getBoundingClientRect().bottom > top - 8 || c.getBoundingClientRect().top < sTop);
+                return over ? k + 1 : null }).filter(Boolean)""")
+            if clash:
+                sys.exit(f"tekst loopt over de rand of de voettekst op slide {clash}: maak de tekst korter")
             pdf = os.path.join(a.out, f"{a.slug}.pdf")
             page.pdf(path=pdf, width=f"{W}px", height=f"{H}px", print_background=True,
                      prefer_css_page_size=True, margin={"top": "0", "right": "0", "bottom": "0", "left": "0"})

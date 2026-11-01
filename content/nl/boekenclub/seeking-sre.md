@@ -2,6 +2,8 @@
 # Eén boek = dit ene bestand. De opmaak staat in layouts/boekenclub/;
 # hier staat alleen inhoud. Alles hieronder komt van Mark (opdracht of
 # interview, 2026-11-01); niets is door de bouwer ingevuld.
+# Per inzicht kan er een `nugget` bij (een concreet voorbeeld uit het boek) met
+# optioneel `chapter` (bijvoorbeeld "hfst. 7"); die komen van Mark.
 title: "Seeking SRE"
 subtitle: "Conversations About Running Production Systems at Scale"
 author: "David N. Blank-Edelman (redactie)"

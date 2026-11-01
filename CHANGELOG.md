@@ -2,6 +2,11 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-01 (boekenclub, feedback)
+
+- `/boekenclub/` is a normal site page now (header, menu, one entry per book with its score, for whom and a link to the slides) instead of a deck (Mark: "dat mag site zijn, met link naar de slides"). The book decks are unchanged.
+- An insight slide can carry a concrete example from the book (`nugget`, optional `chapter`), shown as "Uit het boek"; with an example the slide's text is set slightly smaller. `scripts/boekenclub_pdf.py` now fails when text runs into the footer or off the slide.
+
 ## 2026-11-01 (boekenclub)
 
 - **Boekenclub** op `/boekenclub/` (alleen NL, bewust): de sectie is zelf een staand deck (1080×1350). Elk boek is één bestand in `content/nl/boekenclub/` met een eigen deck. Eerste boek: *Seeking SRE*. Stijl uit tree-presentations, met negen nieuwe boomstudies (public domain/CC0, nagekeken op Commons, zie `CREDITS.md`). PDF-export via `scripts/boekenclub_pdf.py` (Playwright). Menu-item "boekenclub". De smoke test slaat `content/nl/boekenclub/` over bij de NL/EN-pariteit en controleert de decks zelf (7–9 slides, geen TODO, geen inline style).

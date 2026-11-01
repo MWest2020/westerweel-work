@@ -164,14 +164,14 @@ zelf staan in `static/` en vallen er buiten — een deck mag dus eentalig zijn.
 
 ## Boekenclub
 
-`/boekenclub/` is zelf een deck, met een titelslide, één slide per boek en "Wat lees ik hierna?".
-Elk boek heeft een eigen deck op `/boekenclub/<slug>/`. Slides zijn staand 1080×1350
+`/boekenclub/` is een gewone pagina van de site: per boek de score, voor wie, en een link naar
+de slides. Elk boek heeft een eigen deck op `/boekenclub/<slug>/`. Slides zijn staand 1080×1350
 (LinkedIn-carrousel), werken met pijltjes, spatie, vegen en tikken, en `#3` opent slide 3.
 De stijl komt uit tree-presentations (Cormorant Garamond, sepia, een boom per slide).
 
 **Een boek toevoegen = één bestand:** kopieer `content/nl/boekenclub/seeking-sre.md` naar
 `content/nl/boekenclub/<slug>.md` en vul de front matter in. Daarin staan titel, auteur,
-uitgever en jaar, de cover-zin (`hook`), 3–5 inzichten (met optioneel `doe` en
+uitgever en jaar, de cover-zin (`hook`), 3–5 inzichten (met optioneel `nugget` + `chapter` voor een concreet voorbeeld uit het boek, `doe` en
 `emphasis`; een deck heeft 7–9 slides, de build faalt daarbuiten), de scores op de vaste rubriek, voor wie en niet voor wie, `further_reading`
 en `question`, en optioneel `photo` (eigen foto op de cover) en `quote` (hooguit één, onder de 15 woorden). `weight` bepaalt de volgorde. De eindscore rekent het template uit:
 het gemiddelde, afgerond op 0,5 (halven naar boven). Wat je nu leest, staat in
@@ -185,7 +185,6 @@ de bomen: `CREDITS.md`.
 uv run --with playwright playwright install chromium     # eenmalig
 uv run --with playwright --with pypdf scripts/boekenclub_pdf.py seeking-sre           # -> boekenclub-pdf/seeking-sre.pdf
 uv run --with playwright --with pypdf scripts/boekenclub_pdf.py seeking-sre --shots   # + PNG per slide (1080 px, en een telefoon van 390 px)
-uv run --with playwright --with pypdf scripts/boekenclub_pdf.py index                 # de boekenclub zelf
 ```
 
 `boekenclub-pdf/` staat in `.gitignore`: de PDF is voor LinkedIn, niet voor de site.

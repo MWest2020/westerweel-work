@@ -48,6 +48,15 @@ p{font-size:57px;line-height:1.3;margin:0 0 28px}
 .doe b{display:block;font-size:32px;letter-spacing:.12em;text-transform:uppercase;color:var(--sepia);margin-bottom:8px;font-weight:700}
 .doe span{font-size:52px;font-style:italic;line-height:1.28}
 .todo{color:#a03a1a}
+.nugget{margin-top:6px;padding:24px 30px;border:2px solid var(--rule);background:rgba(248,240,222,.82)}
+.nugget b{display:block;font-size:30px;letter-spacing:.12em;text-transform:uppercase;color:var(--sepia);margin-bottom:8px;font-weight:700}
+.nugget span{font-size:50px;line-height:1.25}
+/* Met een voorbeeld uit het boek staan er drie blokken op de slide: alles iets kleiner. */
+.has-nugget{padding-top:96px}
+.has-nugget h2,.has-nugget.emphasis h2{font-size:84px;margin-bottom:26px;padding-bottom:16px}
+.has-nugget p{font-size:48px;margin-bottom:20px}
+.has-nugget .nugget{padding:20px 26px}.has-nugget .nugget span{font-size:44px}
+.has-nugget .doe{margin-top:22px;padding:20px 26px}.has-nugget .doe span{font-size:44px}
 .emphasis h2{font-size:104px}
 .emphasis .kicker{color:var(--deep);font-weight:700}
 
