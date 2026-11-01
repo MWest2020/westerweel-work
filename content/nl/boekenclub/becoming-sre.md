@@ -66,5 +66,9 @@ further_reading:
     year: 2018
   - title: "Site Reliability Engineering, 2e editie"
     year: 2026
+  - title: "Seeking SRE"
+    year: 2018
+  - title: "SRE with AIOps"
+    year: 2026
 question: "Welke zou jij als eerste lezen? Of mis ik er een?"
 ---
