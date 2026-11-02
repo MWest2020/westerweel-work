@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T00:49:02+01:00",
+ "generated": "2026-11-02T02:50:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -100,12 +100,12 @@
      "stage": "proposed"
     },
     {
-     "change": "demo-tiled-maps-client-gate",
-     "stage": "building"
+     "change": "demo-tiled-maps-client-load",
+     "stage": "proposed"
     },
     {
-     "change": "demo-tiled-maps-client-load",
-     "stage": "building"
+     "change": "demo-tiled-maps-client-gate",
+     "stage": "proposed"
     }
    ],
    "goal": "An online soulslike with a real crypto stake and seasons; phase 1 is the playable 2D demo, the economy, the site and the pitch, on devnet only.",
