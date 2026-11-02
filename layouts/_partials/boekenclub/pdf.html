@@ -1,0 +1,6 @@
+{{- /* The site path of a book's PDF, or "" when it hasn't been published.
+  scripts/boekenclub_pdf.py --publish writes static/boekenclub/pdf/<slug>.pdf
+  (NL) and <slug>-en.pdf (EN). */ -}}
+{{- $name := printf "%s%s.pdf" .File.ContentBaseName (cond (eq site.Language.Lang "nl") "" "-en") -}}
+{{- $path := printf "boekenclub/pdf/%s" $name -}}
+{{- return (cond (fileExists (printf "static/%s" $path)) (printf "/%s" $path) "") -}}

@@ -9,7 +9,7 @@ Chromium rondt de paginahoogte af (1013,04 pt); daarna zet pypdf elke pagina op 
 de pagina afdrukken met de print-CSS van het deck. Eenmalig: `uv run --with playwright
 playwright install chromium`, of wijs BOEKENCLUB_CHROME naar een bestaande Chromium.
 """
-import argparse, functools, http.server, os, subprocess, sys, tempfile, threading
+import argparse, functools, http.server, os, shutil, subprocess, sys, tempfile, threading
 from playwright.sync_api import sync_playwright
 from pypdf import PdfReader, PdfWriter
 
@@ -46,13 +46,16 @@ def exact(pdf):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("slug", help="het boek, bijvoorbeeld becoming-sre")
+    ap.add_argument("--lang", choices=["nl", "en"], default="nl", help="nl: /boekenclub/<slug>/, en: /en/bookclub/<slug>/")
     ap.add_argument("--out", default=os.path.join(ROOT, "boekenclub-pdf"))
+    ap.add_argument("--publish", action="store_true",
+                    help="ook naar static/boekenclub/pdf/ kopiëren, voor de downloadknop op de site")
     ap.add_argument("--shots", action="store_true", help="ook een PNG per slide, op 1080 en op 390 px breed")
     a = ap.parse_args()
     os.makedirs(a.out, exist_ok=True)
     with tempfile.TemporaryDirectory() as public:
         subprocess.run(["hugo", "--gc", "--quiet", "-d", public], cwd=ROOT, check=True)
-        path = f"boekenclub/{a.slug}/"
+        path = f"boekenclub/{a.slug}/" if a.lang == "nl" else f"en/bookclub/{a.slug}/"
         if not os.path.exists(os.path.join(public, path, "index.html")):
             sys.exit(f"geen deck op /{path}: bestaat content/nl/boekenclub/{a.slug}.md?")
         httpd = serve(public)
@@ -73,7 +76,8 @@ def main():
                 return over ? k + 1 : null }).filter(Boolean)""")
             if clash:
                 sys.exit(f"tekst loopt over de rand of de voettekst op slide {clash}: maak de tekst korter")
-            pdf = os.path.join(a.out, f"{a.slug}.pdf")
+            name = a.slug if a.lang == "nl" else f"{a.slug}-en"
+            pdf = os.path.join(a.out, f"{name}.pdf")
             page.pdf(path=pdf, width=f"{W}px", height=f"{H}px", print_background=True,
                      prefer_css_page_size=True, margin={"top": "0", "right": "0", "bottom": "0", "left": "0"})
             exact(pdf)
@@ -81,6 +85,11 @@ def main():
             if pages != slides:
                 sys.exit(f"{pdf}: {pages} pagina's voor {slides} slides")
             print(f"{pdf}: {slides} slides, {pages} pagina's van {W}×{H}")
+            if a.publish:
+                dest = os.path.join(ROOT, "static", "boekenclub", "pdf", f"{name}.pdf")
+                os.makedirs(os.path.dirname(dest), exist_ok=True)
+                shutil.copyfile(pdf, dest)
+                print(f"gepubliceerd: {dest} (commit dit bestand)")
             if a.shots:
                 for width in (W, 390):
                     phone = width < W  # een echte telefoon: mobiele viewport en touch, zoals de LinkedIn-app
@@ -90,7 +99,7 @@ def main():
                         shot.goto(f"{url}#{k}", wait_until="networkidle")
                         shot.evaluate("document.fonts.ready")
                         shot.reload(wait_until="networkidle")
-                        shot.screenshot(path=os.path.join(a.out, f"{a.slug}-{width}-{k:02d}.png"))
+                        shot.screenshot(path=os.path.join(a.out, f"{name}-{width}-{k:02d}.png"))
                     shot.close()
             browser.close()
         httpd.shutdown()

@@ -164,13 +164,14 @@ zelf staan in `static/` en vallen er buiten — een deck mag dus eentalig zijn.
 
 ## Boekenclub
 
-`/boekenclub/` is een gewone pagina van de site: per boek de score, voor wie, en een link naar
-de slides. Elk boek heeft een eigen deck op `/boekenclub/<slug>/`. Slides zijn staand 1080×1350
+`/boekenclub/` (en `/en/bookclub/`) is een gewone pagina van de site: per boek de score, voor wie, een link naar
+de slides en een downloadknop voor de PDF. Elk boek heeft een eigen deck op `/boekenclub/<slug>/` en `/en/bookclub/<slug>/`. Slides zijn staand 1080×1350
 (LinkedIn-carrousel), werken met pijltjes, spatie, vegen en tikken, en `#3` opent slide 3.
 De stijl komt uit tree-presentations (Cormorant Garamond, sepia, een boom per slide).
 
-**Een boek toevoegen = één bestand:** kopieer `content/nl/boekenclub/becoming-sre.md` naar
-`content/nl/boekenclub/<slug>.md` en vul de front matter in. Daarin staan titel, auteur,
+**Een boek toevoegen = één bestand per taal:** kopieer `content/nl/boekenclub/becoming-sre.md` naar
+`content/nl/boekenclub/<slug>.md` en `content/en/bookclub/becoming-sre.md` naar `content/en/bookclub/<slug>.md`
+(zelfde `translationKey`), en vul de front matter in. De smoke test eist beide talen. Daarin staan titel, auteur,
 uitgever en jaar, de cover-zin (`hook`), 3–5 inzichten (met optioneel `nugget` + `chapter` voor een concreet voorbeeld uit het boek, `doe` en
 `emphasis`; een deck heeft 7–9 slides, de build faalt daarbuiten), de scores op de vaste rubriek, voor wie en niet voor wie, `further_reading`
 en `question`, en optioneel `photo` (eigen foto op de cover) en `quote` (hooguit één, onder de 15 woorden). `weight` bepaalt de volgorde. De eindscore rekent het template uit:
@@ -185,9 +186,11 @@ de bomen: `CREDITS.md`.
 uv run --with playwright playwright install chromium     # eenmalig
 uv run --with playwright --with pypdf scripts/boekenclub_pdf.py becoming-sre           # -> boekenclub-pdf/becoming-sre.pdf
 uv run --with playwright --with pypdf scripts/boekenclub_pdf.py becoming-sre --shots   # + PNG per slide (1080 px, en een telefoon van 390 px)
+uv run --with playwright --with pypdf scripts/boekenclub_pdf.py becoming-sre --lang en  # de Engelse versie
+uv run --with playwright --with pypdf scripts/boekenclub_pdf.py becoming-sre --publish  # ook naar static/boekenclub/pdf/ (downloadknop); commit die PDF
 ```
 
-`boekenclub-pdf/` staat in `.gitignore`: de PDF is voor LinkedIn, niet voor de site.
+`boekenclub-pdf/` staat in `.gitignore`. Met `--publish` komt de PDF ook in `static/boekenclub/pdf/`; die staat wel in git, want de site biedt hem aan als download. Maak hem opnieuw na elke tekstwijziging (de smoke test controleert dat hij er is, niet dat hij actueel is).
 De smoke test faalt zolang er nog een `TODO` in een deck staat.
 
 ## Theme bijwerken

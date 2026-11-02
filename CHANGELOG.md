@@ -2,6 +2,12 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-02 (boekenclub, Engels en download)
+
+- **Engelse versie** op `/en/bookclub/` (Mark: "ik mis de engelse parity"), met dezelfde `translationKey`s en een menu-item "book club". De vaste teksten van de decks staan nu in `i18n/`. De uitzondering in de smoke test voor de boekenclub is weg: NL en EN moeten beide bestaan.
+- **Downloadknop voor de PDF** op de boekenclub-pagina en op elk deck ("PDF ↓", niet zichtbaar in de PDF zelf), voor LinkedIn. `scripts/boekenclub_pdf.py --publish` zet de PDF in `static/boekenclub/pdf/`.
+- Becoming SRE, slide 3: "Wat ik ermee doe" is "SLO's baseren we op de eindgebruiker." Slide 4: "niet alleen wie verantwoordelijk is, maar wie dat ook voelt" (Mark).
+
 ## 2026-11-01 (boekenclub, kleinere PDF)
 
 - De PDF was 13,7 MB: een CSS-filter en -masker op de bomen lieten Chromium elke slide als grote PNG insluiten. Sepia en de vervaagde randen zitten nu in de JPEG's zelf; de PDF is ~1,5 MB.

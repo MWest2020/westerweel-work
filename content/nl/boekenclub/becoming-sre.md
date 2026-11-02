@@ -7,6 +7,7 @@
 # 2026-11-01: het boek is Becoming SRE, niet Seeking SRE (Mark). Hoofdstukken
 # alleen waar de inhoudsopgave van Becoming SRE het onderwerp letterlijk noemt.
 title: "Becoming SRE"
+translationKey: "boekenclub-becoming-sre"
 subtitle: "First Steps Toward Reliability for You and Your Organization"
 author: "David N. Blank-Edelman"
 publisher: "O'Reilly Media"
@@ -27,10 +28,10 @@ insights:
     text: "Cultuur en het profiel van een SRE: wat voor mens je moet zijn, niet alleen welke techniek je beheerst."
     nugget: "Onderzoeken hoe dingen falen en hoe dat voor de eindgebruiker voelt. SLO's baseer je op gebruikers, niet op eigen drempelwaarden."
     chapter: "hfst. 2"
-    doe: "Cultuur is waar we naar zoeken bij nieuwe collega's."
+    doe: "SLO's baseren we op de eindgebruiker."
   - title: "Er is geen ‘zo moet het’"
     text: "SRE ziet er niet overal hetzelfde uit. Zoek wat bij jouw organisatie past, met de vlaggen als kompas."
-    nugget: "Een SRE-label op DevOps of een L3-servicedesk plakken werkt niet. Het gaat erom wie verantwoordelijk is voor de betrouwbaarheid."
+    nugget: "Een SRE-label op DevOps of een L3-servicedesk plakken werkt niet. Het gaat er niet alleen om wie verantwoordelijk is voor de betrouwbaarheid, maar wie dat ook voelt."
     chapter: "hfst. 12"
   - title: "Van push naar pull"
     emphasis: true
