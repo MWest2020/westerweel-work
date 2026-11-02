@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02T08:51:02+01:00",
+ "generated": "2026-11-02T10:52:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -7,15 +7,15 @@
    "url": "https://github.com/MWest2020/wordsworth",
    "in_flight": [
     {
-     "change": "originals-encrypted-ingest",
-     "stage": "merging"
-    },
-    {
      "change": "originals-crypto-shred",
      "stage": "proposed"
     },
     {
      "change": "console-dossier-home",
+     "stage": "proposed"
+    },
+    {
+     "change": "originals-encrypted-ingest-proofs",
      "stage": "proposed"
     },
     {
