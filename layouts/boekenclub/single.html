@@ -9,7 +9,7 @@
 {{- if or (lt $n 7) (gt $n 9) }}{{ errorf "boekenclub %s: %d slides; een deck heeft er 7-9, dus 3-5 inzichten" .File.Path $n }}{{ end -}}
 {{- $total := partial "boekenclub/score.html" . -}}
 <!doctype html>
-<html lang="nl">
+<html lang="{{ site.Language.Lang }}">
 <head>
 {{ partial "boekenclub/head.html" . }}
 </head>
@@ -18,7 +18,7 @@
 
 <section class="slide cover t-{{ index $trees (mod $offset 9) }}">
   {{- with .Params.photo }}<img class="cover-photo" src="{{ . | relURL }}" alt="">{{ end }}
-  <p class="kicker">Boekenclub</p>
+  <p class="kicker">{{ i18n "bc_club" }}</p>
   <h1>{{ .Title }}</h1>
   <p class="sub">{{ .Params.subtitle }}</p>
   <p class="meta">{{ .Params.author }} · {{ .Params.publisher }}, {{ .Params.year }}</p>
@@ -29,14 +29,14 @@
 
 {{- range $k, $in := .Params.insights }}
 <section class="slide insight{{ if $in.emphasis }} emphasis{{ end }}{{ if $in.nugget }} has-nugget{{ end }} t-{{ index $trees (mod (add $offset (add $k 1)) 9) }}">
-  <p class="kicker">{{ if $in.emphasis }}Het belangrijkste{{ else }}Inzicht {{ add $k 1 }}{{ end }}</p>
+  <p class="kicker">{{ if $in.emphasis }}{{ i18n "bc_key" }}{{ else }}{{ i18n "bc_insight" }} {{ add $k 1 }}{{ end }}</p>
   <h2>{{ $in.title }}</h2>
   <p>{{ $in.text }}</p>
   {{- with $in.nugget }}
-  <div class="nugget"><b>Uit het boek{{ with $in.chapter }} · {{ . }}{{ end }}</b><span>{{ . }}</span></div>
+  <div class="nugget"><b>{{ i18n "bc_from_book" }}{{ with $in.chapter }} · {{ . }}{{ end }}</b><span>{{ . }}</span></div>
   {{- end }}
   {{- with $in.doe }}
-  <div class="doe"><b>Wat ik ermee doe</b><span{{ if hasPrefix . "TODO" }} class="todo"{{ end }}>{{ . }}</span></div>
+  <div class="doe"><b>{{ i18n "bc_doe" }}</b><span{{ if hasPrefix . "TODO" }} class="todo"{{ end }}>{{ . }}</span></div>
   {{- end }}
   <div class="foot"><span>{{ $foot }}</span><span>{{ add $k 2 }}/{{ $n }}</span></div>
 </section>
@@ -44,22 +44,22 @@
 
 {{- $s := add (len .Params.insights) 1 }}
 <section class="slide score t-{{ index $trees (mod (add $offset $s) 9) }}">
-  <p class="kicker">Mijn score</p>
+  <p class="kicker">{{ i18n "bc_score" }}</p>
   <ul class="scores">
   {{- range .Params.scores }}
-    <li><span class="row"><span>{{ .name }}</span><span>{{ replace (string .value) "." "," }}</span></span>
-      <meter min="0" max="5" value="{{ .value }}">{{ .value }} van 5</meter>
+    <li><span class="row"><span>{{ .name }}</span><span>{{ cond (eq site.Language.Lang "nl") (replace (string .value) "." ",") (string .value) }}</span></span>
+      <meter min="0" max="5" value="{{ .value }}">{{ .value }} {{ i18n "bc_of5" }}</meter>
       {{- with .note }}<span class="note">{{ . }}</span>{{ end }}</li>
   {{- end }}
   </ul>
-  <div class="total"><strong>{{ $total }}</strong><span>van 5 · gemiddelde, afgerond op 0,5</span></div>
+  <div class="total"><strong>{{ $total }}</strong><span>{{ i18n "bc_of5" }} · {{ i18n "bc_rule" }}</span></div>
   <div class="foot"><span>{{ $foot }}</span><span>{{ add $s 1 }}/{{ $n }}</span></div>
 </section>
 
 <section class="slide t-{{ index $trees (mod (add $offset (add $s 1)) 9) }}">
-  <h3>Voor wie</h3>
+  <h3>{{ i18n "bc_for" }}</h3>
   <ul class="who yes">{{ range .Params.for_whom }}<li>{{ . }}</li>{{ end }}</ul>
-  <h3>Niet voor wie</h3>
+  <h3>{{ i18n "bc_notfor" }}</h3>
   <ul class="who no">{{ range .Params.not_for_whom }}<li>{{ . }}</li>{{ end }}</ul>
   <div class="foot"><span>{{ $foot }}</span><span>{{ add $s 2 }}/{{ $n }}</span></div>
 </section>
@@ -67,13 +67,16 @@
 <section class="slide closer t-{{ index $trees (mod (add $offset (add $s 2)) 9) }}">
   <p class="question">{{ .Params.question }}</p>
   {{- with .Params.further_reading }}
-  <h3>Verder lezen</h3>
+  <h3>{{ i18n "bc_further" }}</h3>
   <ul class="reading">{{ range . }}<li>{{ .title }} <em>({{ .year }})</em></li>{{ end }}</ul>
   {{- end }}
-  <p class="site">Meer boeken: <a href="{{ .Parent.Permalink }}">westerweel.work/boekenclub</a></p>
+  <p class="site">{{ i18n "bc_more" }}: <a href="{{ .Parent.Permalink }}">{{ .Parent.Permalink | strings.TrimPrefix "https://" | strings.TrimSuffix "/" }}</a></p>
   <div class="foot"><span>{{ $foot }}</span><span>{{ $n }}/{{ $n }}</span></div>
 </section>
 
 </main>
+{{- with partial "boekenclub/pdf.html" . }}
+<a class="dl" href="{{ . }}" download title="{{ i18n "bc_pdf" }}">{{ i18n "bc_pdf_short" }} ↓</a>
+{{- end }}
 </body>
 </html>

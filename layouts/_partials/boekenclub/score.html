@@ -2,4 +2,4 @@
   Geeft de score als tekst met een komma, bijvoorbeeld "4,5". */ -}}
 {{- $sum := 0.0 -}}{{- range .Params.scores }}{{ $sum = add $sum (float .value) }}{{ end -}}
 {{- $total := div (math.Floor (add (mul (div $sum (len .Params.scores)) 2) 0.5)) 2 -}}
-{{- return (replace (string $total) "." ",") -}}
+{{- return (cond (eq site.Language.Lang "nl") (replace (string $total) "." ",") (string $total)) -}}

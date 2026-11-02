@@ -12,22 +12,23 @@
 
   {{- with .Content }}<div class="post-content md-content">{{ . }}</div>{{ end }}
 
-  <section class="bc-books" aria-label="Boeken">
+  <section class="bc-books" aria-label="{{ i18n "bc_books" }}">
     {{- range .Pages.ByWeight }}
     <div class="bc-book">
       <h2 class="bc-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
       <p class="bc-meta">{{ .Params.author }} · {{ .Params.publisher }}, {{ .Params.year }}</p>
-      <p class="bc-score"><strong>{{ partial "boekenclub/score.html" . }}</strong> van 5</p>
+      <p class="bc-score"><strong>{{ partial "boekenclub/score.html" . }}</strong> {{ i18n "bc_of5" }}</p>
       <p class="bc-who">{{ .Params.for_whom_line }}</p>
-      <p class="bc-go"><a href="{{ .RelPermalink }}">Bekijk de slides →</a></p>
+      <p class="bc-go"><a href="{{ .RelPermalink }}">{{ i18n "bc_view" }}</a>
+        {{- with partial "boekenclub/pdf.html" . }} · <a href="{{ . }}" download>{{ i18n "bc_pdf" }}</a>{{ end }}</p>
     </div>
     {{- end }}
   </section>
 
   {{- with .Params.reading_now }}
   <section class="bc-next">
-    <h2>Wat lees ik hierna?</h2>
-    <p>Nu aan het lezen: <em>{{ .title }}</em> ({{ .author }}, {{ .year }}).</p>
+    <h2>{{ i18n "bc_next" }}</h2>
+    <p>{{ i18n "bc_now" }}: <em>{{ .title }}</em> ({{ .author }}, {{ .year }}).</p>
   </section>
   {{- end }}
 </article>

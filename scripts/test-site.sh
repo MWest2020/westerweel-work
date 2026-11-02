@@ -119,18 +119,22 @@ assert_grep    "$PUBLIC_DIR/index.html"    'Ik bouw' "NL home intro is Dutch"
 assert_grep    "$PUBLIC_DIR/en/index.html" 'I build' "EN home intro is English"
 assert_not_grep "$PUBLIC_DIR/en/index.html" 'Ik bouw' "EN home intro is NOT Dutch"
 
-echo "==> boekenclub (NL-only by design, 2026-11-01: no translationKey/parity)"
+echo "==> boekenclub (NL) and bookclub (EN)"
 assert_file_exists "$PUBLIC_DIR/boekenclub/index.html"
 assert_file_exists "$PUBLIC_DIR/boekenclub/becoming-sre/index.html"
-for deck in "$PUBLIC_DIR"/boekenclub/*/index.html; do
+for deck in "$PUBLIC_DIR"/boekenclub/*/index.html "$PUBLIC_DIR"/en/bookclub/*/index.html; do
   [[ "$deck" == */assets/* ]] && continue
   bc_slides=$(grep -o 'class="slide' "$deck" | wc -l)
   if [[ "$bc_slides" -ge 7 && "$bc_slides" -le 9 ]]; then ok "$deck has $bc_slides slides (7-9)"
   else fail "$deck has $bc_slides slides, expected 7-9"; fi
   assert_not_grep "$deck" 'TODO' "no TODO left on $deck"
   assert_not_grep "$deck" 'style=' "no inline style on $deck (site CSP)"
+  pdf=$(grep -o 'class=dl href=[^ >]*\|class="dl" href="[^"]*' "$deck" | sed -E 's/.*href="?//' | head -1)
+  if [[ -n "$pdf" && -f "$PUBLIC_DIR$pdf" ]]; then ok "$deck offers its PDF ($pdf)"; else fail "$deck has no downloadable PDF"; fi
 done
 assert_grep "$PUBLIC_DIR/boekenclub/index.html" 'href="?/boekenclub/becoming-sre/' "boekenclub index links to the becoming-sre deck"
+assert_grep "$PUBLIC_DIR/en/bookclub/index.html" 'href="?/en/bookclub/becoming-sre/' "bookclub index links to the English deck"
+assert_grep "$PUBLIC_DIR/boekenclub/index.html" 'hreflang=en href=https://westerweel.work/en/bookclub/' "boekenclub -> en/bookclub hreflang"
 assert_not_grep "$PUBLIC_DIR/index.xml" 'boekenclub/becoming-sre' "books stay out of the site RSS feed"
 
 echo "==> every content file declares translationKey"
@@ -140,7 +144,7 @@ while IFS= read -r -d '' f; do
     fail "$f missing or empty translationKey"
     missing_tk_count=$((missing_tk_count + 1))
   fi
-done < <(find content -name '*.md' -not -path 'content/nl/boekenclub/*' -print0)
+done < <(find content -name '*.md' -print0)
 if [[ "$missing_tk_count" -eq 0 ]]; then
   ok "all content files declare translationKey"
 fi
@@ -151,7 +155,7 @@ echo "==> NL/EN translationKey parity"
 # bilingual content invariant honest.
 extract_keys() {
   local dir="$1"
-  find "$dir" -name '*.md' -not -path '*/boekenclub/*' -exec grep -hE '^translationKey:' {} + 2>/dev/null || true
+  find "$dir" -name '*.md' -exec grep -hE '^translationKey:' {} + 2>/dev/null || true
 }
 nl_keys=$(extract_keys content/nl | sed -E 's/translationKey:[[:space:]]*"([^"]+)".*/\1/' | sort -u)
 en_keys=$(extract_keys content/en | sed -E 's/translationKey:[[:space:]]*"([^"]+)".*/\1/' | sort -u)

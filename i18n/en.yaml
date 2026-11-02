@@ -44,3 +44,42 @@
   translation: "merging"
 - id: now_stage_deploying
   translation: "deploying"
+# /boekenclub/ and /en/bookclub/ (layouts/boekenclub/)
+- id: bc_club
+  translation: "Book club"
+- id: bc_insight
+  translation: "Insight"
+- id: bc_key
+  translation: "The key point"
+- id: bc_from_book
+  translation: "From the book"
+- id: bc_doe
+  translation: "What I do with it"
+- id: bc_score
+  translation: "My score"
+- id: bc_of5
+  translation: "out of 5"
+- id: bc_rule
+  translation: "average, rounded to 0.5"
+- id: bc_for
+  translation: "Who it's for"
+- id: bc_notfor
+  translation: "Who it's not for"
+- id: bc_further
+  translation: "Further reading"
+- id: bc_more
+  translation: "More books"
+- id: bc_view
+  translation: "View the slides →"
+- id: bc_next
+  translation: "What am I reading next?"
+- id: bc_now
+  translation: "Currently reading"
+- id: bc_book
+  translation: "Book"
+- id: bc_books
+  translation: "Books"
+- id: bc_pdf
+  translation: "Download the PDF (for LinkedIn)"
+- id: bc_pdf_short
+  translation: "PDF"
