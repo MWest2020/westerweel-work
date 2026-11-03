@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T10:54:03+01:00",
+ "generated": "2026-11-03T12:55:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -19,7 +19,7 @@
      "stage": "proposed"
     },
     {
-     "change": "detect-dutch-particle-names",
+     "change": "originals-ingest-seam",
      "stage": "proposed"
     }
    ],
