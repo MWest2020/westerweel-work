@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03T08:54:03+01:00",
+ "generated": "2026-11-03T10:54:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -21,10 +21,6 @@
     {
      "change": "detect-dutch-particle-names",
      "stage": "proposed"
-    },
-    {
-     "change": "originals-ingest-seam",
-     "stage": "building"
     }
    ],
    "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
@@ -102,10 +98,6 @@
     {
      "change": "demo-tiled-maps-client",
      "stage": "proposed"
-    },
-    {
-     "change": "demo-tiled-maps-client-gate",
-     "stage": "building"
     }
    ],
    "goal": "An online soulslike with a real crypto stake and seasons; phase 1 is the playable 2D demo, the economy, the site and the pitch, on devnet only.",
