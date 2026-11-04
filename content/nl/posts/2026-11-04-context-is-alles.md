@@ -35,9 +35,10 @@ geaggregeerde documentatie geeft *met herkomst*. Eigenaar, reviewdatum,
 bron. Daarna kwam de vraag hoe je zorgt dat een agent die server ook
 echt gebruikt.
 
-Het antwoord is een hub: één repository die de ingang is naar een stuk
-of tien infrastructuur-repo's. Wie een sessie start, start die daar. De
-hub regelt drie dingen.
+Het antwoord is een hub: de coördinator voor een stuk of tien
+infrastructuur-repo's. Wie een sessie start, start die daar. De ingang
+naar het kenniscentrum is de MCP-server; de hub zorgt dat de agent die
+ook echt gebruikt. Hij regelt drie dingen.
 
 1. Wat erin gaat: elke vraag over een component, het cluster, een
    versie of een procedure begint met een zoekactie in de kennisbank.
@@ -175,7 +176,8 @@ Context(management) is alles.
 
 ---
 
-*P.S. Thuis draai ik geen lokale modellen. Daar heb ik de hardware niet
-voor, dus daar loopt alles via mijn Claude-abonnement. Heeft iemand nog
+*P.S. Thuis draai ik geen grote lokale modellen. Daar heb ik de hardware
+(nog) niet voor, dus het zware werk loopt via mijn Claude-abonnement.
+Wat er wel lokaal draait, zijn hele kleine, gespecialiseerde modellen. Heeft iemand nog
 een machine met heel veel geheugen over die een goed thuis zoekt? Ik
 ken een homelab dat graag wil meedoen.*
