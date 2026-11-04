@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-04 (deck: PDF voor LinkedIn)
+
+- `scripts/slides_pdf.py`: PDF van een deck onder `static/slides/`, één pagina per slide (1920×1080, ~2 MB). Voor "Context is alles" in NL en EN, gelinkt op de workshops-pagina. De beschrijving daar volgt de correctie: van een MCP die agents naar de kennisbank stuurt (Mark).
+
 ## 2026-11-04 (post en deck: context is alles, MCP)
 
 - Post en deck "Context is alles" (NL + EN): met de MCP ingeladen maakt het niet uit waar je een sessie start of waarvoor je het patroon gebruikt; de hub staat niet meer in die passage. De tekening in de deck heeft de MCP in het midden (Mark).
