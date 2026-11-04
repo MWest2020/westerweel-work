@@ -4,7 +4,7 @@ date: 2026-11-04
 draft: false
 tags: ["ai", "agents", "context", "sre", "soevereiniteit", "lokale modellen"]
 translationKey: "context-is-alles"
-summary: "Een agent die gokt, mist meestal context, geen intelligentie. Van een hub voor infra-repo's naar SREna, een lokale SRE-agent: de kennisbank gaat hallucineren tegen, niet het model."
+summary: "Een agent die gokt, mist meestal context, geen intelligentie. Van een MCP die agents naar de kennisbank stuurt naar SREna, een lokale SRE-agent: de kennisbank gaat hallucineren tegen, niet het model."
 ---
 
 *Over de kennisbank als het eigenlijke verschil, en waarom die de
@@ -36,8 +36,10 @@ bron. Daarna kwam de vraag hoe je zorgt dat een agent die server ook
 echt gebruikt.
 
 Het antwoord is een MCP: die laad je in, en die stuurt de agent naar de
-kennisbank. Een sessie start in de hub, de coördinator voor een stuk of
-tien infrastructuur-repo's. Samen regelen ze drie dingen.
+kennisbank. Met die MCP ingeladen maakt het niet uit waar je een sessie
+start, en ook niet waarvoor je dit patroon gebruikt. Voor mijn homelab
+doet het andere dingen dan voor SREna. Samen regelen ze op een platform
+bijvoorbeeld drie dingen.
 
 1. Wat erin gaat: elke vraag over een component, het cluster, een
    versie of een procedure begint met een zoekactie in de kennisbank.

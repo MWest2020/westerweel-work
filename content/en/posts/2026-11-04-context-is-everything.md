@@ -4,7 +4,7 @@ date: 2026-11-04
 draft: false
 tags: ["ai", "agents", "context", "sre", "sovereignty", "local models"]
 translationKey: "context-is-alles"
-summary: "An agent that guesses is usually missing context, not intelligence. From a hub for infra repos to SREna, a local SRE agent: the knowledge base is what prevents hallucination, not the model."
+summary: "An agent that guesses is usually missing context, not intelligence. From an MCP that sends agents to the knowledge base to SREna, a local SRE agent: the knowledge base is what prevents hallucination, not the model."
 ---
 
 *On the knowledge base as the real difference, and why it is the key to
@@ -36,8 +36,10 @@ The next question was how to make sure an agent actually uses that
 server.
 
 The answer is an MCP: you load it, and it sends the agent to the
-knowledge base. A session starts in the hub, the coordinator for ten or
-so infrastructure repos. Together they take care of three things.
+knowledge base. With that MCP loaded, it doesn't matter where you start
+a session, or what you use this pattern for. For my homelab it does
+different things than for SREna. On a platform, for example, together
+they take care of three things.
 
 1. What goes in: every question about a component, the cluster, a
    version or a procedure starts with a search in the knowledge base.

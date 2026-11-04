@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-04 (post en deck: context is alles, MCP)
+
+- Post en deck "Context is alles" (NL + EN): met de MCP ingeladen maakt het niet uit waar je een sessie start of waarvoor je het patroon gebruikt; de hub staat niet meer in die passage. De tekening in de deck heeft de MCP in het midden (Mark).
+
 ## 2026-11-04 (deck "Context is alles")
 
 - **Deck** `static/slides/context-is-alles/` (NL en EN, 17 slides), gebouwd in tree-presentations (`python3 build.py context-is-alles`, daarna `rsync -a --delete dist/context-is-alles/ static/slides/context-is-alles/`). Tien eigen pentekeningen; LinkedIn-cover `cover.jpg`. Staat bovenaan de workshops-pagina, met een link naar de blogpost (PR #25).
