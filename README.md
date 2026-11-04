@@ -162,6 +162,13 @@ De overzichtspagina's zijn gewone Hugo-content en vallen onder de NL/EN-pariteit
 (`translationKey: workshops`, op `/workshops/` en `/en/workshops/`). De decks
 zelf staan in `static/` en vallen er buiten — een deck mag dus eentalig zijn.
 
+## PDF van een deck (LinkedIn)
+
+`uv run --with playwright --with pypdf --with pillow scripts/slides_pdf.py <naam> --lang nl` (en `--lang en`)
+maakt `static/slides/<naam>/<naam>-<taal>.pdf`: één pagina per slide, 1920×1080, gefotografeerd
+zonder taalknop en teller. Commit de PDF en link hem vanaf de workshops-pagina. Maak hem opnieuw
+na elke wijziging aan de deck.
+
 ## Boekenclub
 
 `/boekenclub/` (en `/en/bookclub/`) is een gewone pagina van de site: per boek de score, voor wie, een link naar

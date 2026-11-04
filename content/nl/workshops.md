@@ -12,10 +12,12 @@ voor terug.
 ## Decks
 
 - **[Context is alles](/slides/context-is-alles/)** — waarom de kennisbank,
-  en niet het model, hallucineren tegengaat: van één ingang voor infra-repo's
-  naar een SRE-agent die volledig lokaal draait. Hoort bij
+  en niet het model, hallucineren tegengaat: van een MCP die agents naar de
+  kennisbank stuurt naar een SRE-agent die volledig lokaal draait. Hoort bij
   [de blogpost](/posts/2026-11-04-context-is-alles/). Talk.
   *(Nederlands en Engels, wissel rechtsboven of met `L`)*
+  PDF voor LinkedIn: [Nederlands](/slides/context-is-alles/context-is-alles-nl.pdf),
+  [Engels](/slides/context-is-alles/context-is-alles-en.pdf).
 - **[AI zijn net mensen *(maar dan anders)*](/slides/ai-zijn-net-mensen/)** —
   waarom AI-agents dezelfde fouten maken als mensen, en wat je eraan doet:
   aandacht, briefing, vakmensen per taak, en waar de vergelijking ophoudt.
