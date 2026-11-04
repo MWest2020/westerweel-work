@@ -4,7 +4,7 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
 
 ## 2026-11-04 (post: context is alles, correctie)
 
-- "Context is alles" (NL + EN): de hub is de coördinator waar een sessie start; de MCP-server is de ingang naar het kenniscentrum. De P.S. zegt nu dat er thuis geen grote lokale modellen draaien (de hardware is er nog niet), wel hele kleine, gespecialiseerde modellen (Mark).
+- "Context is alles" (NL + EN): het antwoord is een MCP die je inlaadt en die de agent naar de kennisbank stuurt; de hub is de coördinator waar een sessie start. De P.S. zegt nu dat er thuis geen grote lokale modellen draaien (de hardware is er nog niet), wel hele kleine, gespecialiseerde modellen (Mark).
 
 ## 2026-11-04 (post "Context is alles")
 
