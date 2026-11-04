@@ -10,6 +10,11 @@ browser — navigate with the arrow keys (`←` / `→`), space for the next sli
 
 ## Decks
 
+- **[Context is everything](/slides/context-is-alles/?lang=en)** — why the
+  knowledge base, not the model, is what prevents hallucination: from one entry
+  point for infra repos to an SRE agent that runs entirely locally. Goes with
+  [the blog post](/en/posts/2026-11-04-context-is-everything/). Talk.
+  *(English and Dutch, switch top right or press `L`)*
 - **[AIs are just like people *(only different)*](/slides/ai-zijn-net-mensen/?lang=en)** —
   why AI agents make the same mistakes as people, and what you can do about it:
   attention, briefing, specialists per task, and where the comparison ends.
