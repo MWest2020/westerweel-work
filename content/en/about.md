@@ -6,7 +6,11 @@ translationKey: "about"
 
 Mark Westerweel. 42, North Holland, sometimes Ameland.
 
-I've spent years in and around Common Ground and the Dutch municipal
+Currently I'm an SRE engineer at Schiphol Airport, defining
+customer-first SLOs, killing toil and falling in love with complex
+systems.
+
+Before that I spent years in and around Common Ground and the Dutch municipal
 landscape. Platform and DevOps work: multi-tenant Kubernetes, Nextcloud
 at scale, ISO 27001 work, grant applications (MIT, WBSO, innovation
 budgets), and the paperwork that comes with all of it.
