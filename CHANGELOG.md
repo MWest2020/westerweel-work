@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-04 (post: context is alles, correctie)
+
+- "Context is alles" (NL + EN): de hub is de coördinator waar een sessie start; de MCP-server is de ingang naar het kenniscentrum. De P.S. zegt nu dat er thuis geen grote lokale modellen draaien (de hardware is er nog niet), wel hele kleine, gespecialiseerde modellen (Mark).
+
 ## 2026-11-04 (post "Context is alles")
 
 - **Nieuwe post** "Context is alles" / "Context is everything" (`content/{nl,en}/posts/2026-11-04-*`, `translationKey: context-is-alles`). Van de docs-hub met stap 0 via een hook, via het eigen ecosysteem (handbook, habitat, ratatoskr), naar SREna als lokale SRE-agent in de evaluatiefase. Sluit aan op de post over levende documentatie van 2026-07-14.

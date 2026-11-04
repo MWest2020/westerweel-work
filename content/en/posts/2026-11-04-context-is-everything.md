@@ -35,9 +35,10 @@ aggregated documentation *with provenance*. Owner, review date, source.
 The next question was how to make sure an agent actually uses that
 server.
 
-The answer is a hub: one repository that is the entry point to ten or
-so infrastructure repos. Whoever starts a session starts it there. The
-hub takes care of three things.
+The answer is a hub: the coordinator for ten or so infrastructure
+repos. Whoever starts a session starts it there. The entry point to the
+knowledge centre is the MCP server; the hub makes sure the agent
+actually uses it. It takes care of three things.
 
 1. What goes in: every question about a component, the cluster, a
    version or a procedure starts with a search in the knowledge base.
@@ -182,7 +183,8 @@ Context (management) is everything.
 
 ---
 
-*P.S. At home I do not run local models. I do not have the hardware for
-it, so everything there runs on my Claude subscription. Does anyone
+*P.S. At home I do not run large local models. I do not have the
+hardware for it (yet), so the heavy lifting runs on my Claude
+subscription. What does run locally are very small, specialised models. Does anyone
 have a machine with a lot of memory looking for a good home? I know a
 homelab that would love to join in.*
