@@ -35,10 +35,9 @@ geaggregeerde documentatie geeft *met herkomst*. Eigenaar, reviewdatum,
 bron. Daarna kwam de vraag hoe je zorgt dat een agent die server ook
 echt gebruikt.
 
-Het antwoord is een hub: de coördinator voor een stuk of tien
-infrastructuur-repo's. Wie een sessie start, start die daar. De ingang
-naar het kenniscentrum is de MCP-server; de hub zorgt dat de agent die
-ook echt gebruikt. Hij regelt drie dingen.
+Het antwoord is een MCP: die laad je in, en die stuurt de agent naar de
+kennisbank. Een sessie start in de hub, de coördinator voor een stuk of
+tien infrastructuur-repo's. Samen regelen ze drie dingen.
 
 1. Wat erin gaat: elke vraag over een component, het cluster, een
    versie of een procedure begint met een zoekactie in de kennisbank.

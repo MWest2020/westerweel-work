@@ -35,10 +35,9 @@ aggregated documentation *with provenance*. Owner, review date, source.
 The next question was how to make sure an agent actually uses that
 server.
 
-The answer is a hub: the coordinator for ten or so infrastructure
-repos. Whoever starts a session starts it there. The entry point to the
-knowledge centre is the MCP server; the hub makes sure the agent
-actually uses it. It takes care of three things.
+The answer is an MCP: you load it, and it sends the agent to the
+knowledge base. A session starts in the hub, the coordinator for ten or
+so infrastructure repos. Together they take care of three things.
 
 1. What goes in: every question about a component, the cluster, a
    version or a procedure starts with a search in the knowledge base.
