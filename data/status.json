@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-04T08:58:03+01:00",
+ "generated": "2026-11-04T12:58:04+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -20,7 +20,7 @@
     },
     {
      "change": "originals-ingest-readers",
-     "stage": "building"
+     "stage": "proposed"
     },
     {
      "change": "originals-ingest-seam",
