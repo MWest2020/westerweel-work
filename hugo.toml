@@ -26,11 +26,11 @@ pygmentsUseClasses = true
     weight = 1
     contentDir = "content/nl"
     [languages.nl.params]
-      description = "Mark Westerweel — Platform & DevOps. Aantekeningen, blogs, en wat ik doe."
+      description = "Mark Westerweel — SRE engineer. Aantekeningen, blogs, en wat ik doe."
       [languages.nl.params.homeInfoParams]
         Title = "westerweel.work"
         Content = """
-Mark Westerweel — Platform & DevOps consultant.
+Mark Westerweel — SRE engineer.
 
 Ik bouw en repareer infrastructuur voor Nederlandse organisaties die soevereiniteit serieus nemen. Kubernetes, Proxmox, ArgoCD, ISO 27001. Open source waar het kan, eigen ijzer waar het moet.
 
@@ -88,11 +88,11 @@ Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestok
     weight = 2
     contentDir = "content/en"
     [languages.en.params]
-      description = "Mark Westerweel — Platform & DevOps. Notes, posts, and what I do."
+      description = "Mark Westerweel — SRE engineer. Notes, posts, and what I do."
       [languages.en.params.homeInfoParams]
         Title = "westerweel.work"
         Content = """
-Mark Westerweel — Platform & DevOps consultant.
+Mark Westerweel — SRE engineer.
 
 I build and fix infrastructure for Dutch organizations that take sovereignty seriously. Kubernetes, Proxmox, ArgoCD, ISO 27001. Open source where possible, own hardware where necessary.
 

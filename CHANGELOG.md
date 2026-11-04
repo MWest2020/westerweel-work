@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-04 (SRE engineer)
+
+- Home en site-beschrijving (NL + EN): "Mark Westerweel — SRE engineer" in plaats van "Platform & DevOps consultant". Diensten / Services: nieuwe secties SRE en Spreker (Mark).
+
 ## 2026-11-04 (over mij)
 
 - Over / About (NL + EN): huidige rol als SRE-engineer bij Schiphol; het Common Ground-werk staat nu als "daarvoor" (Mark).

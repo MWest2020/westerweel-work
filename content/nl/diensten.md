@@ -1,7 +1,7 @@
 ---
 title: "Diensten"
 url: "/diensten/"
-summary: "Wat ik doe als DevOps-consultant."
+summary: "Wat ik doe: SRE, platform en infrastructuur, spreken."
 translationKey: "services"
 ---
 
@@ -31,6 +31,17 @@ In volgorde van hoe vaak het gevraagd wordt:
 - Innovatiebudget Digitale Overheid en vergelijkbare trajecten.
 - WBSO: technische onderbouwing die de RVO-toets doorstaat.
 - Code en proposal hand-in-hand, geen mooi-weer-deliverables.
+
+### SRE
+
+- SLO's die bij de klant beginnen.
+- Toil opruimen.
+- En verliefd worden op complexe systemen.
+
+### Spreker
+
+- Talks en workshops over SRE, AI-agents en context. De decks staan bij
+  [workshops](/workshops/).
 
 ### Hoe ik werk
 

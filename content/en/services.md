@@ -1,6 +1,6 @@
 ---
 title: "Services"
-summary: "What I do as a DevOps consultant."
+summary: "What I do: SRE, platform and infrastructure, speaking."
 translationKey: "services"
 ---
 
@@ -31,6 +31,17 @@ In order of how often it's asked:
 - WBSO (Dutch R&D tax credit): technical substantiation that survives
   the RVO review.
 - Code and proposal hand in hand — no fair-weather deliverables.
+
+### SRE
+
+- SLOs that start with the customer.
+- Killing toil.
+- And falling in love with complex systems.
+
+### Speaker
+
+- Talks and workshops on SRE, AI agents and context. The decks are on
+  the [workshops](/en/workshops/) page.
 
 ### How I work
 
