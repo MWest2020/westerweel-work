@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-04 (over mij)
+
+- Over / About (NL + EN): huidige rol als SRE-engineer bij Schiphol; het Common Ground-werk staat nu als "daarvoor" (Mark).
+
 ## 2026-11-04 (deck: PDF voor LinkedIn)
 
 - `scripts/slides_pdf.py`: PDF van een deck onder `static/slides/`, één pagina per slide (1920×1080, ~2 MB). Voor "Context is alles" in NL en EN, gelinkt op de workshops-pagina. De beschrijving daar volgt de correctie: van een MCP die agents naar de kennisbank stuurt (Mark).

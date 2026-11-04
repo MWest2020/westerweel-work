@@ -7,7 +7,10 @@ translationKey: "about"
 
 Mark Westerweel. 42, Noord-Holland, soms Ameland.
 
-Ik werk al jaren in en rond Common Ground en het Nederlands gemeentelijk
+Op dit moment ben ik SRE-engineer bij Schiphol: ik definieer SLO's die bij
+de klant beginnen, ruim toil op en word verliefd op complexe systemen.
+
+Daarvoor werkte ik jaren in en rond Common Ground en het Nederlands gemeentelijk
 landschap. Platform- en DevOps-werk: multi-tenant Kubernetes, Nextcloud
 op schaal, ISO 27001-trajecten, subsidieaanvragen (MIT, WBSO,
 innovatiebudgetten), en de papierwinkel die daar bij hoort.
