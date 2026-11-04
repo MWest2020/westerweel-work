@@ -2,6 +2,11 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-04 (deck "Context is alles")
+
+- **Deck** `static/slides/context-is-alles/` (NL en EN, 17 slides), gebouwd in tree-presentations (`python3 build.py context-is-alles`, daarna `rsync -a --delete dist/context-is-alles/ static/slides/context-is-alles/`). Tien eigen pentekeningen; LinkedIn-cover `cover.jpg`. Staat bovenaan de workshops-pagina, met een link naar de blogpost (PR #25).
+- De links op de deck naar de blogpost werken zodra PR #25 gemerged is.
+
 ## 2026-11-04 (post: context is alles, correctie)
 
 - "Context is alles" (NL + EN): de hub is de coördinator waar een sessie start; de MCP-server is de ingang naar het kenniscentrum. De P.S. zegt nu dat er thuis geen grote lokale modellen draaien (de hardware is er nog niet), wel hele kleine, gespecialiseerde modellen (Mark).

@@ -1,0 +1,40 @@
+/* Cormorant Garamond, self-hosted (SIL OFL, see fonts/OFL.txt): no third-party requests, works under a strict CSP */
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:500;font-display:swap;src:url(fonts/cormorant-garamond-latin-ext-500-italic.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/cormorant-garamond-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/cormorant-garamond-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:700;font-display:swap;src:url(fonts/cormorant-garamond-latin-700-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:700;font-display:swap;src:url(fonts/cormorant-garamond-latin-ext-700-italic.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+*{box-sizing:border-box}body{margin:0;font-family:'Cormorant Garamond',Georgia,serif;background:#f3e9d2;color:#3b2a1a;overflow:hidden}
+.slide{display:none;position:absolute;inset:0;padding:8vh 8vw;flex-direction:column;justify-content:center;
+background:radial-gradient(ellipse at center,#f7efdc 0%,#e8d8b4 100%)}
+.slide::before{content:'';position:absolute;right:3vw;bottom:2vh;width:36vw;height:94vh;background:var(--photo,none) no-repeat center bottom/contain,var(--tree) no-repeat center bottom/contain;opacity:.55;mix-blend-mode:multiply;filter:var(--fx,grayscale(1) brightness(1.07) contrast(1.25) sepia(.7));pointer-events:none;
+-webkit-mask-image:radial-gradient(closest-side,#000 62%,transparent);mask-image:radial-gradient(closest-side,#000 62%,transparent)}
+.slide>*{position:relative;max-width:56vw}.slide.active{display:flex}
+h1{font-size:4.2vw;font-weight:700;color:#4a2f17;margin:0 0 3vh;border-bottom:1px solid #a5835a;padding-bottom:1vh}
+li,p{font-size:2.3vw;line-height:1.45;margin:1vh 0}ul{padding-left:1.2em}li::marker{color:#8a6a43}
+.sub{color:#7a5c3a;font-style:italic}
+#counter{position:fixed;bottom:2vh;right:3vw;color:#8a6a43;font-size:1.3vw}
+.deck{display:none}.deck.active{display:block}
+#lang{position:fixed;top:2vh;right:3vw;display:flex;gap:.3em;z-index:2}
+#lang button{font:inherit;font-size:1.1vw;letter-spacing:.08em;background:none;border:1px solid #a5835a;color:#8a6a43;padding:.2em .6em;cursor:pointer;border-radius:2px}
+#lang button.on{background:#4a2f17;border-color:#4a2f17;color:#f3e9d2}
+@media print{#lang{display:none}body{overflow:visible}.slide{display:flex;position:relative;height:100vh;page-break-after:always}#counter{display:none}}
+.credits{justify-content:flex-start}.credits>*{max-width:84vw}.credits h1{font-size:3.2vw}.credits ul{columns:3;column-gap:3vw;padding:0;list-style:none;margin:0}
+.credits li{font-size:1.15vw;line-height:1.3;margin:0 0 1.4vh;break-inside:avoid}.credits b{font-weight:700}
+.credits li a{color:#8a6a43}.credits p{font-size:1.3vw;font-style:italic;color:#7a5c3a;margin-top:2vh}
+.credits::before{opacity:.15}
+a{color:#7a4a1f;text-decoration-color:#a5835a;text-underline-offset:.15em}
+.has-figure::before{opacity:.22}
+figure{margin:2vh 0 0;max-width:62vw}figure svg{width:100%;max-height:52vh;display:block}
+figure text{font-family:'Cormorant Garamond',Georgia,serif}
+@media (max-aspect-ratio:1/1){
+.slide{padding:9vh 7vw 8vh;justify-content:flex-start;overflow-y:auto}
+.slide::before{width:100vw;height:60vh;opacity:.2}.slide>*,figure,.credits>*{max-width:100%}
+h1{font-size:8.5vw}li,p{font-size:4.6vw}figure svg{max-height:none}
+.credits ul{columns:1}.credits li,.credits p{font-size:3.6vw}
+#counter{font-size:3.4vw}#lang button{font-size:3.4vw}}
+
+.bg1{--photo:url('trees/johan-christian-dahl-eiche-eik-nasjonalmuseet-ng.k-h.b.01846.jpg');--tree:none}.bg2{--photo:url('trees/a-large-tree-at-albano-met-dp819690.jpg');--tree:none}.bg3{--photo:url('trees/alexander-cozens-study-of-two-willows-google-art-project.jpg');--tree:none}.bg4{--photo:url('trees/hippolyte-lalaisse-a-pollard-willow-by-a-stream-c.-1840-nga-204661.jpg');--tree:none}.bg5{--photo:url('trees/eichenstudie.jpg');--tree:none}.bg6{--photo:url('trees/cornelis-steffelaar-a-giant-oak-at-the-edge-of-a-forest-1840s-nga-164379.jpg');--tree:none}.bg7{--photo:url('trees/willow-tree-sm-2311z-.jpg');--tree:none}.bg8{--photo:url('trees/alexander-cozens-study-of-two-willows-google-art-project.jpg');--tree:none}.bg9{--photo:url('trees/group-of-oaks-near-wolfheze-the-netherlands-drawing-with-pen-brush-and-ink.jpg');--tree:none;--fx:grayscale(1) brightness(1.4) contrast(1.6) sepia(.7)}.bg10{--photo:url('trees/hippolyte-lalaisse-a-pollard-willow-by-a-stream-c.-1840-nga-204661.jpg');--tree:none}.bg11{--photo:url('trees/willow-tree-sm-2311z-.jpg');--tree:none}.bg12{--photo:url('trees/caspar-scheuren-baumstudie-eiche-.jpg');--tree:none}.bg13{--photo:url('trees/dillis-baumstudie-1820.jpg');--tree:none}.bg14{--photo:url('trees/an-oak-tree-pk-t-aw-2368-pk-t-aw-2185.tiff.jpg');--tree:none;--fx:grayscale(1) brightness(1.4) contrast(1.6) sepia(.7)}.bg15{--photo:url('trees/alexander-cozens-study-of-two-willows-google-art-project.jpg');--tree:none}.bg16{--photo:url('trees/hippolyte-lalaisse-a-pollard-willow-by-a-stream-c.-1840-nga-204661.jpg');--tree:none}.bg17{--photo:url('trees/eikenboom-in-niederwald-rp-t-1994-32-19.jpg');--tree:none}.credits{--tree:url('trees/credits.svg')}
