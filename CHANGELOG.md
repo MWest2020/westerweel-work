@@ -2,6 +2,11 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-04 (post "Context is alles")
+
+- **Nieuwe post** "Context is alles" / "Context is everything" (`content/{nl,en}/posts/2026-11-04-*`, `translationKey: context-is-alles`). Van de docs-hub met stap 0 via een hook, via het eigen ecosysteem (handbook, habitat, ratatoskr), naar SREna als lokale SRE-agent in de evaluatiefase. Sluit aan op de post over levende documentatie van 2026-07-14.
+- Bewust generiek: geen werkgever, applicaties, modelnamen of meetcijfers (Mark). De alinea over goud/zilver/brons-annotatie is letterlijk van Mark.
+
 ## 2026-11-02 (boekenclub, Engels en download)
 
 - **Engelse versie** op `/en/bookclub/` (Mark: "ik mis de engelse parity"), met dezelfde `translationKey`s en een menu-item "book club". De vaste teksten van de decks staan nu in `i18n/`. De uitzondering in de smoke test voor de boekenclub is weg: NL en EN moeten beide bestaan.
