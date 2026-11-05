@@ -1,11 +1,15 @@
 {
- "generated": "2026-11-04T12:58:04+01:00",
+ "generated": "2026-11-05T09:03:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
    "public": true,
    "url": "https://github.com/MWest2020/wordsworth",
    "in_flight": [
+    {
+     "change": "originals-ingest-write",
+     "stage": "building"
+    },
     {
      "change": "originals-crypto-shred",
      "stage": "proposed"
@@ -161,7 +165,12 @@
    "name": "ratatoskr",
    "public": true,
    "url": "https://github.com/MWest2020/ratatoskr",
-   "in_flight": [],
+   "in_flight": [
+    {
+     "change": "chain-next-step-after-merge",
+     "stage": "building"
+    }
+   ],
    "goal": "The coordination layer of Mark's agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
    "phases": [
     {
