@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05T09:03:02+01:00",
+ "generated": "2026-11-05T13:04:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -7,8 +7,12 @@
    "url": "https://github.com/MWest2020/wordsworth",
    "in_flight": [
     {
-     "change": "originals-ingest-write",
-     "stage": "building"
+     "change": "originals-ingest-switch",
+     "stage": "proposed"
+    },
+    {
+     "change": "particle-names-brake",
+     "stage": "proposed"
     },
     {
      "change": "originals-crypto-shred",
@@ -165,12 +169,7 @@
    "name": "ratatoskr",
    "public": true,
    "url": "https://github.com/MWest2020/ratatoskr",
-   "in_flight": [
-    {
-     "change": "chain-next-step-after-merge",
-     "stage": "building"
-    }
-   ],
+   "in_flight": [],
    "goal": "The coordination layer of Mark's agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
    "phases": [
     {
@@ -212,7 +211,12 @@
    "name": "habitat",
    "public": true,
    "url": "https://github.com/MWest2020/habitat",
-   "in_flight": [],
+   "in_flight": [
+    {
+     "change": "worker-push-retry",
+     "stage": "proposed"
+    }
+   ],
    "goal": "A minimal platform on which Claude Code agents work on repositories autonomously, inside explicit, non-negotiable limits: work distribution, execution, isolation, escalation, audit.",
    "phases": [
     {
