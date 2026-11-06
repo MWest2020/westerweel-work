@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05T13:04:03+01:00",
+ "generated": "2026-11-06T09:06:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -7,11 +7,11 @@
    "url": "https://github.com/MWest2020/wordsworth",
    "in_flight": [
     {
-     "change": "originals-ingest-switch",
-     "stage": "proposed"
+     "change": "person-aggregate-dedupe",
+     "stage": "building"
     },
     {
-     "change": "particle-names-brake",
+     "change": "originals-ingest-switch",
      "stage": "proposed"
     },
     {
@@ -24,14 +24,6 @@
     },
     {
      "change": "reanonymise-particle-name-documents",
-     "stage": "proposed"
-    },
-    {
-     "change": "originals-ingest-readers",
-     "stage": "proposed"
-    },
-    {
-     "change": "originals-ingest-seam",
      "stage": "proposed"
     }
    ],
@@ -211,12 +203,7 @@
    "name": "habitat",
    "public": true,
    "url": "https://github.com/MWest2020/habitat",
-   "in_flight": [
-    {
-     "change": "worker-push-retry",
-     "stage": "proposed"
-    }
-   ],
+   "in_flight": [],
    "goal": "A minimal platform on which Claude Code agents work on repositories autonomously, inside explicit, non-negotiable limits: work distribution, execution, isolation, escalation, audit.",
    "phases": [
     {
