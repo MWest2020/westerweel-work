@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07T21:12:02+01:00",
+ "generated": "2026-11-07T23:12:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -353,12 +353,12 @@
    ],
    "phase": "Brand app in the stores",
    "progress": {
-    "done": 4,
-    "total": 8
+    "done": 6,
+    "total": 10
    },
    "gap": [
     {
-     "item": "Release automation: fastlane builds, signs, uploads to Play internal testing and TestFlight, pushes listings and screenshots from store/",
+     "item": "First automated release: fastlane android internal uploads to Play internal testing (needs the Play service-account key)",
      "url": "https://github.com/MWest2020/bubbels/blob/main/docs/release.md"
     },
     {
