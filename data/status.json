@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07T23:12:03+01:00",
+ "generated": "2026-11-08T01:13:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -56,7 +56,7 @@
    ],
    "phase": "Pilot: Gooise Meren",
    "progress": {
-    "done": 3,
+    "done": 4,
     "total": 9
    },
    "gap": [
@@ -79,10 +79,6 @@
     {
      "item": "Share from the console with layered anonymisation (a grant at a PPL, the redacted and reveal PDF)",
      "url": "https://github.com/MWest2020/wordsworth/blob/main/docs/explanation/review-key-user-2026-10-28.md"
-    },
-    {
-     "item": "Documents survive a node (storage on two nodes, proven)",
-     "url": "https://github.com/MWest2020/wordsworth/issues/193"
     }
    ]
   },
@@ -307,14 +303,10 @@
    ],
    "phase": "High availability",
    "progress": {
-    "done": 2,
+    "done": 3,
     "total": 5
    },
    "gap": [
-    {
-     "item": "Storage survives a node: filer metadata on Postgres, node drain test",
-     "url": "https://github.com/MWest2020/wordsworth/issues/193"
-    },
     {
      "item": "Tailnet ingress on two nodes",
      "url": "https://github.com/MWest2020/wordsworth/issues/192"
@@ -353,8 +345,8 @@
    ],
    "phase": "Brand app in the stores",
    "progress": {
-    "done": 6,
-    "total": 10
+    "done": 7,
+    "total": 11
    },
    "gap": [
     {
