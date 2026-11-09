@@ -26,6 +26,20 @@ fail-closed on any doubt.
 - **Demo (synthetic data):** [mwest2020.github.io/wordsworth-demo](https://mwest2020.github.io/wordsworth-demo/)
 - **Code:** [github.com/MWest2020/wordsworth](https://github.com/MWest2020/wordsworth) (MIT)
 
+## Bazibo — games without ads
+
+Games for kids from about 3 to 10, without ads and without tracking. A
+bubble shooter, Dogudoku, Picturedoku, four in a row, a snake that learns
+to count and spell, colouring pages and mandalas, and telling time. Dutch
+and English.
+
+No account, no server, no cookies. Progress stays on the device itself.
+Every game has a free part; for one euro, once, you get everything. The
+story behind it: [Your kid is not a data cow](/en/posts/2026-11-09-your-kid-is-not-a-data-cow/).
+
+- **Play:** [bazibo.nl](https://bazibo.nl) (the app is coming to the Play Store)
+- **Code:** [github.com/MWest2020/bazibo](https://github.com/MWest2020/bazibo) (MIT)
+
 ## Ratatoskr — and the pattern behind it
 
 Ratatoskr (formerly "Boomhuis") is the communication layer of my agent ecosystem: a
