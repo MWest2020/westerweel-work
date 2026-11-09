@@ -1,5 +1,5 @@
 ---
-title: "Je kind is geen datakoe"
+title: "Jouw kind is geen datakoe"
 date: 2026-11-09
 draft: false
 tags: ["bazibo", "soevereiniteit", "privacy", "open source", "kinderen", "apps"]
@@ -36,8 +36,8 @@ niet bij één spel. Al snel werden het er een paar, met ideeën voor meer.
 
 ## Bazibo
 
-Het kreeg een naam. "Bazi" is Farsi voor spel. "Bo" omdat het rijmt op
-gazebo. Vandaar het prieeltje in het logo.
+Het kreeg een naam: Bazibo. "Bazi" is Farsi voor spel. En "bo"? Dat is
+gewoon schattig. Bazibo, gazebo. Vandaar het prieeltje in het logo.
 
 ## Wat het nu is
 
@@ -66,4 +66,4 @@ Bazibo op draait. Zonder die mensen was dit er niet geweest.
 Meer spelletjes, meer leerspelletjes, zonder dat er iemand meekijkt.
 Wie doet mee?
 
-Je kind is geen datakoe.
+Jouw kind is geen datakoe.

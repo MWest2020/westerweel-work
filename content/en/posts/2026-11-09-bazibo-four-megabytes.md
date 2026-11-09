@@ -35,8 +35,8 @@ stay at one game. Soon there were a few, with ideas for more.
 
 ## Bazibo
 
-It got a name. "Bazi" is Farsi for game. "Bo" because it rhymes with
-gazebo. Hence the little gazebo in the logo.
+It got a name: Bazibo. "Bazi" is Farsi for game. And "bo"? That's just
+cute. Bazibo, gazebo. Hence the little gazebo in the logo.
 
 ## What it is now
 
