@@ -2,13 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
-## 2026-11-09
+## 2026-11-09 (Bazibo)
 
-- Projects page: Bazibo added (NL/EN).
-
-## 2026-11-09 (blog: Bazibo)
-
-- Nieuwe post (NL + EN): "Bazibo: vier megabyte, geen tracker" / "Bazibo: four megabytes, no trackers". Over klein bouwen, data alleen op het toestel, eerlijk over werken per toestel, open source en de euro voor doorontwikkeling en teruggeven aan opensourceprojecten (Mark; concept, Mark reviewt voor de merge).
+- Nieuwe post (NL + EN): "Jouw kind is geen datakoe" / "Your kid is not a data cow". Het verhaal achter Bazibo: reclame om de dertig seconden, zelf bouwen, geen tracking, een euro voor alles (Mark).
+- Projectenpagina (NL + EN): Bazibo toegevoegd.
 
 ## 2026-11-04 (SRE engineer)
 
