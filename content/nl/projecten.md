@@ -26,6 +26,20 @@ Transit; fail-closed bij elke twijfel.
 - **Demo (synthetische data):** [mwest2020.github.io/wordsworth-demo](https://mwest2020.github.io/wordsworth-demo/)
 - **Code:** [github.com/MWest2020/wordsworth](https://github.com/MWest2020/wordsworth) (MIT)
 
+## Bazibo — spelletjes zonder reclame
+
+Spelletjes voor kinderen van een jaar of 3 tot 10, zonder reclame en
+zonder tracking. Bubbels schieten, Dogudoku, Picturedoku, vier op een rij,
+een slangetje dat leert tellen en spellen, kleurplaten en mandala's, en
+klok kijken. Nederlands en Engels.
+
+Geen account, geen server, geen cookies. De voortgang staat op het toestel
+zelf. Elk spel heeft een gratis stuk; voor één euro, eenmalig, krijg je
+alles. Het verhaal erachter: [Jouw kind is geen datakoe](/posts/2026-11-09-jouw-kind-is-geen-datakoe/).
+
+- **Spelen:** [bazibo.nl](https://bazibo.nl) (de app komt in de Play Store)
+- **Code:** [github.com/MWest2020/bazibo](https://github.com/MWest2020/bazibo) (MIT)
+
 ## Ratatoskr — en het patroon erachter
 
 Ratatoskr (eerder "Boomhuis") is de communicatielaag van mijn agent-ecosysteem: een zelf-gehoste
