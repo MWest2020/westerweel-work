@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-09 (blog: Bazibo)
+
+- Nieuwe post (NL + EN): "Bazibo: vier megabyte, geen tracker" / "Bazibo: four megabytes, no trackers". Over klein bouwen, data alleen op het toestel, eerlijk over werken per toestel, open source en de euro voor doorontwikkeling en teruggeven aan opensourceprojecten (Mark; concept, Mark reviewt voor de merge).
+
 ## 2026-11-04 (SRE engineer)
 
 - Home en site-beschrijving (NL + EN): "Mark Westerweel — SRE engineer" in plaats van "Platform & DevOps consultant". Diensten / Services: nieuwe secties SRE en Spreker (Mark).
