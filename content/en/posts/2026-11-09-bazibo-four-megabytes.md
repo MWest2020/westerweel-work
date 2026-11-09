@@ -1,93 +1,66 @@
 ---
-title: "Bazibo: games without ads, and without us"
+title: "Your kid is not a data cow"
 date: 2026-11-09
 draft: false
 tags: ["bazibo", "sovereignty", "privacy", "open source", "children", "apps"]
 translationKey: "bazibo-vier-megabyte"
-summary: "A games app for kids of just over four megabytes. No account, no cookies, nothing that comes back to us. And one euro for everything."
+summary: "I played a game with my kid. An ad every thirty seconds, with zombies and tanks. So I made my own. No ads, no tracking."
 ---
 
-A while ago I was playing a bubble shooter on my phone with my kid.
-Nice game, except it was full of ads. And bubble shooter code isn't
-exactly rare, so I figured: we'll make our own. Without the ads.
+I was playing a game on my phone with my kid. Yes. Wrong. Yes. There
+was no alternative at that moment.
 
-That turned into [Bazibo](https://bazibo.nl). Six games for kids from
-about 3 to 10: a bubble shooter, Dogudoku (a sort of sudoku with
-puppies), Picturedoku (sudoku with pictures), four in a row, a snake
-that learns to count and spell, and colouring pages with mandalas for
-the older ones. Telling time is next. Everything in Dutch and English.
+Actually, I wasn't even playing along. I was being called over. Every
+thirty seconds: level done, ad. Ten seconds of watching, then hunting
+for that tiny little cross in the top left corner to carry on.
 
-The name comes from *bāzi*, Persian for game. It also sounds a bit like
-gazebo, hence the little gazebo in the logo.
+## What was in those ads
 
-## Small
+A woman being thrown out on the street. Zombies. A shooting game with
+tanks. In a game I'd picked precisely because it looked so harmless:
+shooting bubbles.
 
-The Android app is just over 4 MB. On the website it's under one
-megabyte. Have a look sometime at how big the average game in the store
-is. Tens or hundreds of megabytes isn't unusual.
+Annoying. And not exactly what you want in such a small head. I don't
+blame the parents who download games like that, I did it myself. It's
+the business model. The game is free, so the child is the product.
 
-That's not because I'm clever. There's just not much in it. No game
-engine, no ad SDK, no analytics. It's HTML, CSS and JavaScript. The
-bubbles, the puppies and the mandalas are drawn in code, and the sounds
-are made on the spot. There isn't a single sound file in it. The only
-images are the app icons.
+## I can do that
 
-## Collecting nothing
+I looked at that bubble game and it reminded me of a school assignment
+for software engineers. How do you actually make an Android app? Kotlin
+or Java, right? With AI these days that's not so hard.
 
-No account, no server, no cookies. We don't measure anything and we
-don't follow anyone. The games don't even open an internet connection.
+Ads out. No tracking. And if possible, a bit more educational. It didn't
+stay at one game. Soon there were a few, with ideas for more.
 
-Progress, stars, colouring pages and whether you paid: it all lives on
-the phone itself. At most it goes along in the backup your phone already
-makes, under your own Google or Apple account. We can't get to it.
+## Bazibo
 
-There is a catch. Because there's no account, everything works per
-device. If your kid plays on the phone and on the tablet, that's two
-separate sets of progress. New phone without a backup? Back to level 1.
+It got a name. "Bazi" is Farsi for game. "Bo" because it rhymes with
+gazebo. Hence the little gazebo in the logo.
 
-You don't lose the purchase, that sits with Google Play. With the same
-account you tap "Restore purchase" and everything's unlocked again, on
-the tablet too.
+## What it is now
 
-You keep progress with your phone's normal backup (Android: Settings ›
-Google › Backup). I'm also building "Move progress": you show a QR code
-on one device and scan it with the other. No server in between.
+The demo version is on [bazibo.nl](https://bazibo.nl). The app is
+waiting on the Play Store.
 
-Oh, and the website. It runs at an ordinary hosting company, which,
-like any web server, keeps log files with IP addresses. That's in the
-[privacy statement](https://bazibo.nl/en/privacy/) too. The app itself
-doesn't talk to the website.
+Every game has a free part. For one euro, once, you get everything,
+including a randomizer that keeps making new puzzles at the hardest
+level. No ads, no tracking. It works per device: progress lives on the
+phone itself, not with me. All in our own hands.
 
-## Open source, and one euro
+For anyone who wants to check: the app is just over 4 MB, plain HTML,
+CSS and JavaScript, with no ad or analytics SDKs. Soon you'll be able to
+move progress from one device to another with a QR code. The code is on
+[GitHub](https://github.com/MWest2020/bazibo) under MIT, and what is and
+isn't stored is in the
+[privacy statement](https://bazibo.nl/en/privacy/).
 
-The code is on [GitHub](https://github.com/MWest2020/bazibo), under
-MIT. Anyone who wants to can see exactly what the app does. And what it
-doesn't.
+## Why that euro
 
-Every game has a free part. For one euro, once, you get everything: all
-the levels and after that endless new puzzles. No subscription, no
-coins, no ads to buy your way out of. Buying goes through a little sum
-for parents, so your kid can't just tap "buy".
+That euro pays for the site and the time that goes into it. And with a
+bit of luck I can give something back to the open source parts Bazibo
+runs on. Without those people this wouldn't exist.
 
-That euro pays for building more. And part of it goes back to the open
-source projects this runs on, like Capacitor and the plugin that does
-the purchases. Without those people I wouldn't have put this together
-so quickly.
+More games, more learning games, without anyone watching. Who's in?
 
-## What I learned
-
-Leaving things out is easier than building them. No account means no
-passwords, no database and no data breach. No server means nothing to
-patch.
-
-That also made Google's forms for kids' apps quick. Does the app collect
-data? No. Ads? No. Done.
-
-Most of the work was in the edges. A back button that does what you
-expect. A lock on the purchase that a toddler can't get around. Progress
-that doesn't vanish when the app starts up weird once. I built it with
-AI agents, and every game went past a separate agent for review before
-it went live. It found something every time.
-
-You can play at [bazibo.nl](https://bazibo.nl). It'll be in the Play
-Store soon.
+Your kid is not a data cow.
