@@ -57,7 +57,14 @@ gesynchroniseerd. Krijg je een nieuwe telefoon zonder back-up, dan
 begint je kind opnieuw.
 
 De aankoop raak je niet kwijt. Die staat bij Google Play, en met
-hetzelfde account zet je hem terug met "Aankoop herstellen".
+hetzelfde account zet je hem terug met "Aankoop herstellen", op elk
+toestel.
+
+Wil je de voortgang bewaren, zet dan de gewone back-up van je telefoon
+aan (Android: Instellingen › Google › Back-up). Die neemt Bazibo mee,
+en op een nieuwe telefoon komt het terug. Binnenkort komt er ook
+"Voortgang overzetten": een QR-code op het ene toestel, scannen met het
+andere. Zonder server, zonder internet.
 
 En de website? Die draait bij een gewone hostingpartij. Zoals elke
 webserver houdt die logbestanden bij met IP-adressen, voor beveiliging

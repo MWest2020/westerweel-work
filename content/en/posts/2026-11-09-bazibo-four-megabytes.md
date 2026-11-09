@@ -53,7 +53,12 @@ and on a tablet, those are two separate sets of progress. They don't
 sync. Get a new phone without a backup, and your child starts over.
 
 You don't lose the purchase. That lives with Google Play, and with the
-same account you get it back with "Restore purchase".
+same account you get it back with "Restore purchase", on every device.
+
+Want to keep the progress? Turn on your phone's normal backup (Android:
+Settings › Google › Backup). It includes Bazibo, and a new phone gets
+it back. Coming soon is "Move progress": a QR code on one device,
+scanned by the other. No server, no internet.
 
 And the website? It runs at an ordinary hosting company. Like any web
 server, it keeps log files with IP addresses, for security and
