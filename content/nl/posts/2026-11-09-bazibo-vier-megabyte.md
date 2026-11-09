@@ -29,7 +29,8 @@ het product.
 
 Ik keek naar dat bubbelspel en moest denken aan een schoolopdracht voor
 software engineers. Hoe maak je eigenlijk een Android-app? Kotlin of
-Java, toch? Met AI valt dat tegenwoordig wel mee.
+Java, toch? Kennelijk kan het gewoon met niets anders dan wat HTML, CSS
+en JavaScript. En met AI valt het bouwen tegenwoordig wel mee.
 
 Reclame eruit. Geen tracking. En als het kan, wat leerzamer. Het bleef
 niet bij één spel. Al snel werden het er een paar, met ideeën voor meer.
@@ -50,8 +51,8 @@ moeilijkste niveau. Geen reclame, geen tracking. Het werkt per toestel:
 de voortgang staat op de telefoon zelf, niet bij mij. Alles in eigen
 beheer.
 
-Voor wie het wil nakijken: de app is ruim 4 MB, gewoon HTML, CSS en
-JavaScript, zonder reclame- of analytics-SDK's. Voortgang zet je straks
+Voor wie het wil nakijken: de app is ruim 4 MB, zonder reclame- of
+analytics-SDK's. Voortgang zet je straks
 met een QR-code over van het ene toestel naar het andere. De code staat
 onder MIT op [GitHub](https://github.com/MWest2020/bazibo), en wat er
 wel en niet bewaard wordt, staat in de

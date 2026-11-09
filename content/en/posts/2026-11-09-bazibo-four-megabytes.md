@@ -28,7 +28,8 @@ the business model. The game is free, so the child is the product.
 
 I looked at that bubble game and it reminded me of a school assignment
 for software engineers. How do you actually make an Android app? Kotlin
-or Java, right? With AI these days that's not so hard.
+or Java, right? Turns out you can do it with nothing but some HTML, CSS
+and JavaScript. And with AI, building it isn't so hard these days.
 
 Ads out. No tracking. And if possible, a bit more educational. It didn't
 stay at one game. Soon there were a few, with ideas for more.
@@ -48,8 +49,8 @@ including a randomizer that keeps making new puzzles at the hardest
 level. No ads, no tracking. It works per device: progress lives on the
 phone itself, not with me. All in our own hands.
 
-For anyone who wants to check: the app is just over 4 MB, plain HTML,
-CSS and JavaScript, with no ad or analytics SDKs. Soon you'll be able to
+For anyone who wants to check: the app is just over 4 MB, with no ad or
+analytics SDKs. Soon you'll be able to
 move progress from one device to another with a QR code. The code is on
 [GitHub](https://github.com/MWest2020/bazibo) under MIT, and what is and
 isn't stored is in the
