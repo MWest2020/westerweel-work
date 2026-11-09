@@ -1,111 +1,96 @@
 ---
-title: "Bazibo: vier megabyte, geen tracker"
+title: "Bazibo: spelletjes zonder reclame, en zonder ons"
 date: 2026-11-09
 draft: false
 tags: ["bazibo", "soevereiniteit", "privacy", "open source", "kinderen", "apps"]
 translationKey: "bazibo-vier-megabyte"
-summary: "Een kinderspelletjes-app van vier megabyte, zonder account, cookies of trackers. Wat ik leerde van klein bouwen, waarom alles op het toestel blijft, en waarom de volledige versie één euro kost."
+summary: "Een spelletjesapp voor kinderen van ruim vier megabyte. Geen account, geen cookies, niks dat naar ons toe gaat. En een euro voor alles."
 ---
 
-*Over Bazibo, een app met spelletjes voor kinderen, en wat ik leerde
-door hem zo klein en zo saai mogelijk te houden.*
+Ik speelde laatst met mijn kind een bubble shooter op mijn telefoon.
+Leuk spel, alleen zat het vol reclame. Bubble shooter-code is nou ook
+niet bepaald zeldzaam, dus dacht ik: dat maken we zelf. Zonder reclame.
 
-Het begon met een bubble shooter op de telefoon, samen met mijn kind.
-Het spel zelf was leuk, maar het zat vol reclame. Toen dacht ik: dit
-kan anders.
+Dat is inmiddels [Bazibo](https://bazibo.nl) geworden. Zes spelletjes
+voor kinderen van een jaar of 3 tot 10: bubbels schieten, Dogudoku (een
+soort sudoku met hondjes), Picturedoku (sudoku met plaatjes), vier op
+een rij, een slangetje dat leert tellen en spellen, en kleurplaten met
+mandala's voor de groteren. Klok kijken komt eraan. Alles in het
+Nederlands en het Engels.
 
-Dat werd [Bazibo](https://bazibo.nl). Zes spellen voor kinderen van 3
-tot 10 jaar: Bubbels schieten, Dogudoku, Picturedoku, Vier op een rij,
-Slangetje en Kleurplaten. Klok kijken komt eraan. Alles in het
-Nederlands en Engels. De naam komt van *bāzi*, het Perzische woord voor
-spel.
+De naam komt van *bāzi*, Perzisch voor spel. Het klinkt ook een beetje
+als gazebo, vandaar het prieeltje in het logo.
 
-## Vier megabyte
+## Klein
 
-De Android-app is ongeveer 4 megabyte. De webversie is minder dan één.
-Veel spelletjes-apps in de store zijn tientallen tot honderden
-megabytes. Dat verschil zit niet in slimmigheid, maar in wat je
-weglaat.
+De Android-app is ruim 4 MB. Op de website is het nog geen megabyte.
+Kijk voor de grap eens hoe groot een gemiddelde spelletjesapp in de
+store is. Dat loopt al snel in de tientallen of honderden megabytes.
 
-Bazibo is gewoon HTML, CSS en JavaScript, op een canvas en in SVG. Er
-zit geen game-engine in. De bubbels, de hondjes, de mandala's en de
-klok zijn in code getekend. De geluiden worden ter plekke gemaakt met
-de Web Audio API, er zit geen enkel geluidsbestand in. De enige
-plaatjes zijn de app-iconen. En er zit geen reclame-SDK en geen
-analytics in. Juist die maken apps groot.
+Dat komt niet doordat ik zo slim ben. Er zit gewoon weinig in. Geen
+game-engine, geen reclame-SDK, geen analytics. Het is HTML, CSS en
+JavaScript. De bubbels, de hondjes en de mandala's worden in code
+getekend, en de geluidjes worden ter plekke gemaakt. Er zit geen enkel
+geluidsbestand in. De enige plaatjes zijn de app-iconen.
 
-## Alles blijft op het toestel
+## Niks verzamelen
 
-Bazibo heeft geen account, geen server en geen cookies. We meten niets
-en we volgen niemand. De spellen maken geen enkele internetverbinding.
+Geen account, geen server, geen cookies. We meten niks en we volgen
+niemand. De spelletjes maken niet eens een internetverbinding.
 
-Wat de app onthoudt, zoals sterren, voortgang, kleurplaten en of de
-volledige versie gekocht is, staat op het toestel zelf. Hooguit gaat
-het mee in de gewone back-up van je telefoon, onder je eigen Google- of
-Apple-account. Daar kunnen wij niet bij.
+Voortgang, sterren, kleurplaten en of je betaald hebt: dat staat
+allemaal op de telefoon zelf. Het gaat hooguit mee in de back-up die je
+telefoon toch al maakt, onder je eigen Google- of Apple-account. Daar
+kunnen wij niet bij.
 
-Dat is de soevereiniteit waar ik het vaker over heb, maar dan klein:
-de gegevens van je kind blijven van jou, omdat ze nergens anders
-heen gaan.
+Daar zit wel een nadeel aan. Omdat er geen account is, werkt alles per
+toestel. Speelt je kind op de telefoon en op de tablet, dan zijn dat
+twee losse voortgangen. Nieuwe telefoon zonder back-up? Dan begint het
+weer bij level 1.
 
-## Eerlijk: dat werkt per toestel
+De aankoop raak je niet kwijt, die zit bij Google Play. Met hetzelfde
+account tik je op "Aankoop herstellen" en alles staat weer open, ook op
+de tablet.
 
-Dit heeft een keerzijde, en die wil ik niet wegmoffelen. Omdat er geen
-account is, werkt alles per toestel. Speel je op de telefoon en op de
-tablet, dan zijn dat twee aparte voortgangen. Ze worden niet
-gesynchroniseerd. Krijg je een nieuwe telefoon zonder back-up, dan
-begint je kind opnieuw.
+De voortgang bewaar je met de gewone back-up van je telefoon (Android:
+Instellingen › Google › Back-up). Daarnaast bouw ik "Voortgang
+overzetten": je laat een QR-code zien op het ene toestel en scant die
+met het andere. Geen server ertussen.
 
-De aankoop raak je niet kwijt. Die staat bij Google Play, en met
-hetzelfde account zet je hem terug met "Aankoop herstellen", op elk
-toestel.
+O ja, de website. Die draait bij een gewone hoster, en die houdt zoals
+elke webserver logbestanden bij met IP-adressen. Dat staat ook in de
+[privacyverklaring](https://bazibo.nl/nl/privacy/). De app zelf praat
+niet met de website.
 
-Wil je de voortgang bewaren, zet dan de gewone back-up van je telefoon
-aan (Android: Instellingen › Google › Back-up). Die neemt Bazibo mee,
-en op een nieuwe telefoon komt het terug. Binnenkort komt er ook
-"Voortgang overzetten": een QR-code op het ene toestel, scannen met het
-andere. Zonder server, zonder internet.
+## Open source, en een euro
 
-En de website? Die draait bij een gewone hostingpartij. Zoals elke
-webserver houdt die logbestanden bij met IP-adressen, voor beveiliging
-en storingen. Dat staat ook in de
-[privacyverklaring](https://bazibo.nl/nl/privacy/). De app zelf gebruikt
-de website niet.
+De code staat op [GitHub](https://github.com/MWest2020/bazibo), onder
+MIT. Wie wil, kan precies zien wat de app doet. En wat hij niet doet.
 
-## Open source, en één euro
+Elk spel heeft een gratis stuk. Voor een euro, eenmalig, krijg je alles:
+alle levels en daarna eindeloos nieuwe puzzels. Geen abonnement, geen
+munten, geen reclame die je weg moet kopen. Kopen gaat via een
+rekensommetje voor ouders, zodat je kind niet zomaar op "kopen" tikt.
 
-Alle code staat open op
-[GitHub](https://github.com/MWest2020/bazibo), onder de MIT-licentie.
-Iedereen kan meekijken wat de app doet en wat hij níet doet.
+Van die euro bouw ik verder. En een deel gaat terug naar de
+opensourceprojecten waar dit op draait, zoals Capacitor en de plugin
+voor de aankopen. Zonder die mensen had ik dit niet zo snel in elkaar
+gezet.
 
-Elk spel heeft een gratis deel. De volledige versie kost één euro,
-eenmalig, voor alles. Geen abonnement, geen munten, geen reclame om weg
-te kopen. De aankoop zit achter een rekensom voor ouders, zodat een
-kind niet per ongeluk iets koopt.
+## Wat ik ervan leerde
 
-Die euro is voor doorontwikkeling: meer spellen, meer levels. En we
-geven een deel terug aan de opensourceprojecten waar Bazibo op leunt,
-zoals Capacitor, cordova-plugin-purchase, Playwright en fastlane.
-Zonder hen had dit veel meer werk gekost.
+Weglaten is makkelijker dan bouwen. Geen account betekent geen
+wachtwoorden, geen database en geen datalek. Geen server betekent niks
+om te patchen.
 
-## Wat ik leerde
+De formulieren van Google voor kinderapps waren daardoor ook zo
+ingevuld. Verzamelt de app gegevens? Nee. Advertenties? Nee. Klaar.
 
-- **Weglaten is makkelijker dan toevoegen.** Geen account betekent geen
-  wachtwoorden, geen database en geen datalek. Geen server betekent
-  niets om te patchen.
-- **Niets verzamelen maakt de store makkelijk.** De formulieren van
-  Google voor kinderapps en gegevensveiligheid waren snel ingevuld. Bij
-  bijna elke vraag was het antwoord "nee".
-- **Tekenen in code schaalt.** Een mandala-generator maakt eindeloos
-  nieuwe kleurplaten, zonder dat de app een byte groter wordt.
-- **De rand is de echte test.** Een ouderslot, een terugknop die doet
-  wat je verwacht, voortgang die niet kwijtraakt na een mislukte start.
-  Daar zat het meeste werk.
+Het meeste werk zat in de randjes. Een terugknop die doet wat je
+verwacht. Een slot op de aankoop dat een kleuter niet omzeilt. Voortgang
+die niet kwijtraakt als de app een keer raar opstart. Ik heb het met
+AI-agents gebouwd, en elk spel liet ik eerst door een aparte agent
+nakijken voordat het live ging. Die vond elke keer wel iets.
 
-Ik bouwde het met AI-agents, met per spel een onafhankelijke review
-voordat iets live ging. Die reviews vonden steeds dingen die ik zelf
-niet had gezien.
-
-Bazibo staat op [bazibo.nl](https://bazibo.nl) en komt binnenkort in de
-Google Play Store. De code staat op
-[github.com/MWest2020/bazibo](https://github.com/MWest2020/bazibo).
+Spelen kan op [bazibo.nl](https://bazibo.nl). In de Play Store staat
+hij binnenkort.
