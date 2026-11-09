@@ -3,7 +3,7 @@ title: "Your kid is not a data cow"
 date: 2026-11-09
 draft: false
 tags: ["bazibo", "sovereignty", "privacy", "open source", "children", "apps"]
-translationKey: "bazibo-vier-megabyte"
+translationKey: "jouw-kind-is-geen-datakoe"
 summary: "I played a game with my kid. An ad every thirty seconds, with zombies and tanks. So I made my own. No ads, no tracking."
 ---
 

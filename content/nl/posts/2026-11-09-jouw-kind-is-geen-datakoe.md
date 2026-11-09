@@ -3,7 +3,7 @@ title: "Jouw kind is geen datakoe"
 date: 2026-11-09
 draft: false
 tags: ["bazibo", "soevereiniteit", "privacy", "open source", "kinderen", "apps"]
-translationKey: "bazibo-vier-megabyte"
+translationKey: "jouw-kind-is-geen-datakoe"
 summary: "Ik speelde een spelletje met mijn kind. Om de dertig seconden reclame, met zombies en tanks. Dus maakte ik het zelf. Zonder reclame, zonder tracking."
 ---
 
