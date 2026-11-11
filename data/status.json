@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T09:26:06+01:00",
+ "generated": "2026-11-11T11:26:34+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -21,10 +21,6 @@
     {
      "change": "reanonymise-particle-name-documents",
      "stage": "proposed"
-    },
-    {
-     "change": "originals-ocr-sealed",
-     "stage": "building"
     }
    ],
    "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
@@ -117,18 +113,34 @@
     {
      "id": "3d",
      "name": "3D",
-     "summary": "the end goal: the same game in 3D (engine candidate: Godot, decision 0004)",
+     "summary": "the end goal: the same game in 3D (engine: three.js, Mark 2026-11-10; replaces the Godot candidate of decision 0004)",
      "state": "next"
     }
    ],
    "phase": "Phase 1: 2D demo",
    "progress": {
-    "done": 2,
-    "total": 8
+    "done": 3,
+    "total": 13
    },
    "gap": [
     {
      "item": "Win condition as a pluggable rule module",
+     "url": null
+    },
+    {
+     "item": "RPG demo in English, with HUD (hearts, shards) and phone controls",
+     "url": null
+    },
+    {
+     "item": "Second zone (hard) reached through the gate, and back",
+     "url": null
+    },
+    {
+     "item": "Enemies and combat (attack, damage, knockback) in the RPG demo",
+     "url": null
+    },
+    {
+     "item": "Money rules ported to the RPG demo: shards, death and pile, retrieve, duel",
      "url": null
     },
     {
