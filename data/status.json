@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-11T11:26:34+01:00",
+ "generated": "2026-11-11T17:27:04+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -119,8 +119,8 @@
    ],
    "phase": "Phase 1: 2D demo",
    "progress": {
-    "done": 3,
-    "total": 13
+    "done": 7,
+    "total": 14
    },
    "gap": [
     {
@@ -128,19 +128,7 @@
      "url": null
     },
     {
-     "item": "RPG demo in English, with HUD (hearts, shards) and phone controls",
-     "url": null
-    },
-    {
-     "item": "Second zone (hard) reached through the gate, and back",
-     "url": null
-    },
-    {
-     "item": "Enemies and combat (attack, damage, knockback) in the RPG demo",
-     "url": null
-    },
-    {
-     "item": "Money rules ported to the RPG demo: shards, death and pile, retrieve, duel",
+     "item": "Duel in the RPG demo (the last money rule)",
      "url": null
     },
     {
