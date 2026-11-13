@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13T04:03:05+01:00",
+ "generated": "2026-11-13T07:55:06+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -128,7 +128,7 @@
      "url": null
     },
     {
-     "item": "Devnet switched on in the homelab (funded authority key in a k8s secret, token set up) and one real transaction seen in the explorer",
+     "item": "Devnet switched on in the homelab (funded authority key in a k8s secret, token set up) and one real transaction seen in the explorer; the authority key exists and waits for Mark to fund it (#161)",
      "url": null
     },
     {
@@ -362,7 +362,7 @@
    },
    "gap": [
     {
-     "item": "Live on Google Play: 1.0.0 submitted 9 Nov and in Google's review; 1.4.0 replaces it as a draft for Mark to roll out",
+     "item": "Live on Google Play: 1.0.0 in Google's review since 9 Nov (store page still 404); the 1.4.0 production draft waits on Mark's rollout; 1.6.0 (Tekenen, slower voice) in internal testing",
      "url": "https://github.com/MWest2020/bazibo/blob/main/docs/release.md"
     },
     {
