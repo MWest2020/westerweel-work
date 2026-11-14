@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T13:49:55+01:00",
+ "generated": "2026-11-14T17:40:36+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -375,12 +375,7 @@
    "name": "jarvis",
    "public": false,
    "url": null,
-   "in_flight": [
-    {
-     "change": "add-voice-bridge (weekend slice only)",
-     "stage": "proposed"
-    }
-   ],
+   "in_flight": [],
    "goal": "Talk to a Claude Code session hands-free from an Android phone, on your own machines, over Tailscale.",
    "phases": [
     {
@@ -404,18 +399,10 @@
    ],
    "phase": "Weekend test",
    "progress": {
-    "done": 2,
+    "done": 4,
     "total": 5
    },
    "gap": [
-    {
-     "item": "Bridge service on the tailnet with token, headless Claude Code, session resume",
-     "url": null
-    },
-    {
-     "item": "Local STT (faster-whisper) and TTS (Kokoro) on the machine",
-     "url": null
-    },
     {
      "item": "A spoken round trip from the phone over the tailnet (HTTP Shortcuts)",
      "url": null
