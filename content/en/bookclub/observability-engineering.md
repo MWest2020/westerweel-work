@@ -30,7 +30,7 @@ insights:
   - title: "Honest about their own bias"
     text: "They built Honeycomb and say so, more than once. Even so, they fairly explain when buying is the smarter move."
     nugget: "Building your own observability stack? Count on hidden maintenance and engineering capacity nobody budgets for."
-  - title: "Open source is free. Except it isn't."
+  - title: "Open source is free. Or so you thought."
     text: "Free, but not free of time, energy and capacity. Building it yourself works if you're big enough. Otherwise you're fooling yourself."
     nugget: "SaaS can be expensive. The book explains why, and how to bring costs down. It closes with a maturity model."
 
