@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T08:00:25+01:00",
+ "generated": "2026-11-14T13:49:55+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -368,6 +368,57 @@
     {
      "item": "Live on the App Store",
      "url": "https://github.com/MWest2020/bazibo/blob/main/docs/release.md"
+    }
+   ]
+  },
+  {
+   "name": "jarvis",
+   "public": false,
+   "url": null,
+   "in_flight": [
+    {
+     "change": "add-voice-bridge (weekend slice only)",
+     "stage": "proposed"
+    }
+   ],
+   "goal": "Talk to a Claude Code session hands-free from an Android phone, on your own machines, over Tailscale.",
+   "phases": [
+    {
+     "id": "weekend-test",
+     "name": "Weekend test",
+     "summary": "spoken round trip from the phone (HTTP Shortcuts) to headless Claude Code, local STT/TTS",
+     "state": "current"
+    },
+    {
+     "id": "plugin",
+     "name": "Plugin",
+     "summary": "machine side as a Claude Code plugin others can install",
+     "state": "next"
+    },
+    {
+     "id": "android-app",
+     "name": "Android app",
+     "summary": "a native phone client built on the lessons of the test",
+     "state": "next"
+    }
+   ],
+   "phase": "Weekend test",
+   "progress": {
+    "done": 2,
+    "total": 5
+   },
+   "gap": [
+    {
+     "item": "Bridge service on the tailnet with token, headless Claude Code, session resume",
+     "url": null
+    },
+    {
+     "item": "Local STT (faster-whisper) and TTS (Kokoro) on the machine",
+     "url": null
+    },
+    {
+     "item": "A spoken round trip from the phone over the tailnet (HTTP Shortcuts)",
+     "url": null
     }
    ]
   },
