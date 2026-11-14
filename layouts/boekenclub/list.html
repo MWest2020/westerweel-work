@@ -28,7 +28,9 @@
   {{- with .Params.reading_now }}
   <section class="bc-next">
     <h2>{{ i18n "bc_next" }}</h2>
-    <p>{{ i18n "bc_now" }}: <em>{{ .title }}</em> ({{ .author }}, {{ .year }}).</p>
+    {{- /* one book (a map) or several (a list); an optional url links the title */ -}}
+    {{- $list := cond (reflect.IsSlice .) . (slice .) }}
+    <p>{{ i18n "bc_now" }}: {{ range $i, $b := $list }}{{ if $i }} {{ i18n "bc_and" }} {{ end }}<em>{{ with $b.url }}<a href="{{ . }}">{{ $b.title }}</a>{{ else }}{{ $b.title }}{{ end }}</em> ({{ $b.author }}, {{ $b.year }}){{ end }}.</p>
   </section>
   {{- end }}
 </article>

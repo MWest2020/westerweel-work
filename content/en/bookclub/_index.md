@@ -8,9 +8,12 @@ cascade:
   build:
     list: local
 description: "Books I've read. For each, what it gave me, and the slides."
-# The last section of the book club page: what I'm reading now.
 reading_now:
-  title: "Observability Engineering"
-  author: "Charity Majors, Liz Fong-Jones and George Miranda"
-  year: 2022
+  - title: "Seeking SRE"
+    author: "David N. Blank-Edelman (ed.)"
+    year: 2018
+  - title: "Building Secure and Reliable Systems"
+    author: "Heather Adkins et al."
+    year: 2020
+    url: "https://google.github.io/building-secure-and-reliable-systems/raw/toc.html"
 ---
