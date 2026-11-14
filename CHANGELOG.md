@@ -2,6 +2,11 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-14 (Boekenclub: Platform Engineering en Observability Engineering)
+
+- Boekenclub (NL + EN): twee nieuwe boeken, elk met slides en PDF: *Platform Engineering* (Fournier, Nowland) en *Observability Engineering* (Majors, Fong-Jones, Miranda). Inhoud uit Marks briefs van 2026-11-14; de scores zijn nog een voorstel tot Mark ze bevestigt.
+- "Nu aan het lezen" (Observability Engineering) weg uit de boekenclub: dat boek is uit.
+
 ## 2026-11-09 (Bazibo)
 
 - Nieuwe post (NL + EN): "Jouw kind is geen datakoe" / "Your kid is not a data cow". Het verhaal achter Bazibo: reclame om de dertig seconden, zelf bouwen, geen tracking, een euro voor alles (Mark).
