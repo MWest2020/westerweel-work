@@ -15,24 +15,26 @@ date: 2026-11-14
 photo: ""                 # eigen foto voor de cover (pad onder static/), leeg = typografische cover
 quote: ""                 # hooguit één citaat onder de 15 woorden, alleen aangeleverd door Mark
 
-hook: "Ik pakte een boek voor platform engineers. De ondertitel had ik niet gelezen: het is een gids voor leiders."
+hook: "Ondertitel niet gelezen. Ik dacht: een boek voor platform engineers. Het is een gids voor hun leiders. Fout van mij. Goed boek."
 
 insights:
-  - title: "Er bestaat geen kant-en-klare platform engineer"
+  - title: "‘Een platform engineer’ bestaat niet"
     emphasis: true
-    text: "Laatst zag ik op LinkedIn een vacature voor ‘een platform engineer’. Het boek maakt duidelijk dat je een platformteam nodig hebt, vooral uit systems engineers, en dat profiel heeft zich bewezen. DevOps-engineers kunnen heel goed zijn, maar willen vaak geen on-call draaien. SRE's vullen dat gat, en doen het met plezier."
+    text: "Laatst zag ik op LinkedIn een vacature voor ‘een platform engineer’. Die vind je niet. Je bouwt een team. DevOps-engineers zijn vaak goed, maar willen geen on-call. SRE's wel."
+    nugget: "Een platformteam haal je vooral uit systems engineers. Dat profiel heeft zich bewezen."
   - title: "Het platform is een product"
-    text: "Behandel je platform als product en los problemen op, geen nieuwe techniek of architectuur. Volgens sommige reviews is het boek voor 90% gezond verstand. Voor managers misschien, maar voor ongeveer 90% van de mensen is het dat niet. Juist engineers schieten in over-engineering en scope creep, dus fijn dat het boek dat zo expliciet benoemt."
-  - title: "Hoe platforms werken, en hoe ze falen"
-    text: "Het boek legt helder uit hoe platforms werken en hoe ze stukgaan. Daar heb ik van genoten. En het helpt leiders te zien wanneer engineers aan het over-engineeren zijn. Dat doen we graag."
-    nugget: "Shitterating: rondjes draaien om hetzelfde probleem met dezelfde aanpak, in plaats van echt itereren. Volgens het audioboek bedacht door ‘een voormalige collega’, zonder naam. Wie het ook is: held."
+    text: "Gezond verstand, zou je zeggen. Voor negen van de tien mensen is het dat niet."
+    nugget: "Los problemen op. Geen nieuwe techniek, geen nieuwe architectuur."
+  - title: "Waar platforms op stuklopen"
+    text: "Hoe platforms werken en hoe ze falen. Helder uitgelegd, genoten. En leiders leren zien wanneer engineers over-engineeren. Doen we graag."
+    nugget: "Shitterating: rondjes draaien om hetzelfde probleem met dezelfde aanpak, in plaats van echt itereren."
   - title: "Groeien zonder te verzuipen"
-    text: "Supportlagen (eerste en tweede lijn) naarmate het platform groeit, en hoe je opschaalt van een lokaal platform binnen één bedrijf naar een wereldwijd platform. Heel goed gedaan."
-    nugget: "Support in lagen: eerste lijn en tweede lijn, naarmate het platform groeit."
-  - title: "Niet te vroeg een projectmanager"
-    text: "Een teamgenoot vond dat we een projectmanager nodig hadden, maar bedoelde een initiative manager. Dat had het team pijn gedaan. Een project is tijdelijk, met vaste scope, doelen en tijdlijn; in een klein team geeft een projectmanager vooral ruis. Mee eens."
-    nugget: "Wacht met een projectmanager tot je rond de 50 engineers zit."
-    doe: "Werk wel helder afbakenen, ook zonder projectmanager."
+    text: "Eerste en tweede lijn support zodra het platform groeit. Van één bedrijf naar wereldwijd. Heel goed gedaan."
+    nugget: "Support in lagen: eerste lijn, tweede lijn."
+  - title: "Wacht met die projectmanager"
+    text: "In een klein team is een projectmanager ruis. Ik zag het van dichtbij: een team vroeg om een projectmanager en bedoelde een initiative manager. Dat had het gesloopt."
+    nugget: "Wacht tot je rond de 50 engineers zit."
+    doe: "Werk wel scherp afbakenen. Ook zonder projectmanager."
 
 scores:
   - name: "Direct toepasbaar"
@@ -59,5 +61,5 @@ further_reading:
     year: 2024
   - title: "Observability Engineering"
     year: 2022
-question: "Beste auteurs: noem zulke helden voortaan bij naam."
+question: "‘Shitterating’, bedacht door een collega. Naam? Niet genoemd. Wtf."
 ---

@@ -14,21 +14,25 @@ date: 2026-11-14
 photo: ""
 quote: ""
 
-hook: "This book is just freaking gold. It goes deep from the first chapters, and held up a mirror to me the whole way through."
+hook: "This book is just freaking gold. Chapter one and you're already deep in. It holds up a mirror the whole way through. Timeless."
 
 insights:
-  - title: "High cardinality, high dimensionality, explorability"
-    text: "Nuggets of gold from the start. Valid observability needs high-cardinality data, high dimensionality and the ability to explore it. That basic formula gets you a long way. In my opinion, that section alone is almost worth the price of the book."
-  - title: "The basics, and debugging from first principles"
-    text: "The fundamentals are well covered: the three pillars, what an event is, what spans are and what goes in them. Some of it may feel obvious to experienced readers, much like the ‘90% common sense’ complaint about Platform Engineering, but it's done well. And you learn to investigate from first principles: a verifiable way to get to the bottom of problems."
-    nugget: "A guest chapter from Slack: how they did it, what works and what doesn't."
-  - title: "Dashboards that confirm your own bias"
+  - title: "Cardinality, dimensions, exploring"
+    text: "Gold from the start. Those three get you a long way. That section alone is almost worth the price of the book."
+    nugget: "Real observability needs high-cardinality data, high dimensionality, and the ability to explore it."
+  - title: "Back to first principles"
+    text: "The basics are well covered. Sometimes obvious for experienced readers, but done well. And you learn to debug from first principles. Verifiable."
+    nugget: "Three pillars, what an event is, what spans are and what goes in them. Plus a guest chapter from Slack: what worked, what didn't."
+  - title: "Dashboards for your own bias"
     emphasis: true
-    text: "The hard truth that hits closest to home. Many engineers monitor only via logging and build dashboards on known unknowns, mostly to confirm their own bias. I see it wherever I work. With LAMP stacks that maybe worked twenty years ago; with microservices and the cloud it can't. Prepare for unknown unknowns."
+    text: "This one hit hardest. Many engineers monitor only through logs and build dashboards on known unknowns. Mostly to confirm their own bias. I see it everywhere I go."
+    nugget: "With a LAMP stack that maybe worked twenty years ago. With microservices and cloud it doesn't. Prepare for unknown unknowns."
   - title: "Honest about their own bias"
-    text: "Hats off: they built Honeycomb and openly admit their bias. Even so, they fairly explain when buying is better, and what you hit when you build your own. That goes for any open-source tool: build it if you really need to and you're big enough. Otherwise you're fooling yourself, with hidden maintenance and capacity."
-  - title: "Open source is free, but not free"
-    text: "Open source is free, but not free of time, energy and capacity. I see that fallacy online a lot. SaaS can be expensive; the book explains why, and how to bring those costs down. It closes with a maturity model, which is good too."
+    text: "They built Honeycomb and say so, more than once. Even so, they fairly explain when buying is the smarter move."
+    nugget: "Building your own observability stack? Count on hidden maintenance and engineering capacity nobody budgets for."
+  - title: "Open source is free. Except it isn't."
+    text: "Free, but not free of time, energy and capacity. Building it yourself works if you're big enough. Otherwise you're fooling yourself."
+    nugget: "SaaS can be expensive. The book explains why, and how to bring costs down. It closes with a maturity model."
 
 scores:
   - name: "Directly applicable"
