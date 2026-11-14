@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T21:41:02+01:00",
+ "generated": "2026-11-14T23:42:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -8,10 +8,6 @@
    "in_flight": [
     {
      "change": "synthetic-long-corpus",
-     "stage": "proposed"
-    },
-    {
-     "change": "originals-crypto-shred",
      "stage": "proposed"
     },
     {
@@ -403,8 +399,8 @@
    ],
    "phase": "Weekend test",
    "progress": {
-    "done": 4,
-    "total": 5
+    "done": 6,
+    "total": 7
    },
    "gap": [
     {
