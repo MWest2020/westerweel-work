@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-14T17:40:36+01:00",
+ "generated": "2026-11-14T21:41:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -53,7 +53,7 @@
    "phase": "Pilot: Gooise Meren",
    "progress": {
     "done": 4,
-    "total": 9
+    "total": 10
    },
    "gap": [
     {
@@ -73,8 +73,12 @@
      "url": "https://github.com/MWest2020/wordsworth/pull/433"
     },
     {
-     "item": "Share from the console with layered anonymisation: proposals #439/#440 merged, PDF views built (#436); the build waits for Mark (#416, #417, #444) and the read gate #446",
+     "item": "Share from the console with layered anonymisation: proposals #439/#440 merged, PDF views built (#436); Mark decided the design (#416, #417, #444, defaults, 2026-11-14) and the read-gate proposal is merged (#446); the read gate and the share build are next",
      "url": "https://github.com/MWest2020/wordsworth/pull/440"
+    },
+    {
+     "item": "Only corpus readers reach the corpus over the API and the console: every route has a recorded check, and a logged-in caller on no read list is refused (the deploy gate for sharing)",
+     "url": "https://github.com/MWest2020/wordsworth/issues/442"
     }
    ]
   },
@@ -408,44 +412,6 @@
      "url": null
     }
    ]
-  },
-  {
-   "name": "bubbels2",
-   "public": false,
-   "url": null,
-   "in_flight": [
-    {
-     "change": "grid-core",
-     "stage": "proposed"
-    },
-    {
-     "change": "pwa-and-smoke",
-     "stage": "proposed"
-    },
-    {
-     "change": "levels-and-progress",
-     "stage": "proposed"
-    },
-    {
-     "change": "audio-and-ui",
-     "stage": "proposed"
-    }
-   ],
-   "goal": "Bubbels: a free, ad-free bubble shooter for children as a plain HTML/CSS/JS canvas game, later wrapped for Android",
-   "phases": [
-    {
-     "id": "phase-1",
-     "name": "Phase 1",
-     "summary": "the first working version",
-     "state": "current"
-    }
-   ],
-   "phase": "Phase 1",
-   "progress": {
-    "done": 1,
-    "total": 1
-   },
-   "gap": []
   }
  ]
 }
