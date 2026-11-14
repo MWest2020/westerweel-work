@@ -81,5 +81,7 @@
   translation: "Books"
 - id: bc_pdf
   translation: "Download the PDF (for LinkedIn)"
+- id: bc_and
+  translation: "and"
 - id: bc_pdf_short
   translation: "PDF"

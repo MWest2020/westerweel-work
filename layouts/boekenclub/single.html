@@ -67,8 +67,8 @@
 <section class="slide closer t-{{ index $trees (mod (add $offset (add $s 2)) 9) }}">
   <p class="question">{{ .Params.question }}</p>
   {{- with .Params.further_reading }}
-  <h3>{{ i18n "bc_further" }}</h3>
-  <ul class="reading">{{ range . }}<li>{{ .title }} <em>({{ .year }})</em></li>{{ end }}</ul>
+  <h3>{{ with $.Params.further_heading }}{{ . }}{{ else }}{{ i18n "bc_further" }}{{ end }}</h3>
+  <ul class="reading">{{ range . }}<li>{{ .title }}{{ with .year }} <em>({{ . }})</em>{{ end }}</li>{{ end }}</ul>
   {{- end }}
   <p class="site">{{ i18n "bc_more" }}: <a href="{{ .Parent.Permalink }}">{{ .Parent.Permalink | strings.TrimPrefix "https://" | strings.TrimSuffix "/" }}</a></p>
   <div class="foot"><span>{{ $foot }}</span><span>{{ $n }}/{{ $n }}</span></div>

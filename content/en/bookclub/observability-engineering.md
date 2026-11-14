@@ -2,8 +2,7 @@
 # One book = this one file; the English translation of
 # content/nl/boekenclub/observability-engineering.md. Content from Mark's brief of
 # 2026-11-14; nothing about the book was made up by the builder. No chapter numbers,
-# no employer named. SCORES, for whom and further reading: the builder's proposal,
-# waiting for Mark.
+# no employer named. Scores and "read it yourself": Mark (mail 2026-11-14).
 title: "Observability Engineering"
 translationKey: "boekenclub-observability-engineering"
 subtitle: "Achieving Production Excellence"
@@ -33,12 +32,12 @@ insights:
 
 scores:
   - name: "Directly applicable"
-    value: 4
+    value: 4.5
   - name: "Depth"
     value: 5
     note: "from the very first chapters"
   - name: "Readability"
-    value: 4
+    value: 4.5
   - name: "Shelf life"
     value: 5
     note: "timeless"
@@ -51,10 +50,8 @@ for_whom:
 not_for_whom:
   - "People outside tech"
 
+further_heading: "Read it yourself"
 further_reading:
-  - title: "Becoming SRE"
-    year: 2024
-  - title: "Platform Engineering"
-    year: 2024
+  - title: "This book: free PDF via honeycomb.io"
 question: "Which hard truth hit you hardest?"
 ---

@@ -3,7 +3,7 @@
 # "Platform Engineering"); niets over het boek is door de bouwer verzonnen. Geen
 # hoofdstuknummers: de opdracht noemt er geen. Alleen de audioboek-verwijzing
 # (Spotify, track 14) komt van Mark.
-# SCORES: voorstel van de bouwer op basis van Marks woorden, wachten op Mark.
+# Scores: Mark (mail 2026-11-14).
 title: "Platform Engineering"
 translationKey: "boekenclub-platform-engineering"
 subtitle: "A Guide for Technical, Product, and People Leaders"
@@ -39,11 +39,12 @@ scores:
     value: 4
     note: "voor leiders"
   - name: "Diepgang"
-    value: 4
+    value: 3.5
   - name: "Leesbaarheid"
     value: 4
   - name: "Houdbaarheid"
-    value: 4
+    value: 3.5
+    note: "wie weet heet het over vijf jaar anders, met wat tweaks"
 
 for_whom_line: "Voor technische leiders, productleiders en people leaders."
 for_whom:

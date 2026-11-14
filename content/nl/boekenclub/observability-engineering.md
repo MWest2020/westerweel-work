@@ -2,7 +2,7 @@
 # Eén boek = dit ene bestand. Inhoud uit Marks opdracht van 2026-11-14 (agent-prompt
 # "Observability Engineering"); niets over het boek is door de bouwer verzonnen. Geen
 # hoofdstuknummers: de opdracht noemt er geen. Geen werkgever genoemd (Mark).
-# SCORES, voor wie en verder lezen: voorstel van de bouwer, wachten op Mark.
+# Scores, zelf lezen: Mark (mail 2026-11-14). Voor wie: voorstel van de bouwer, door Mark niet gewijzigd.
 title: "Observability Engineering"
 translationKey: "boekenclub-observability-engineering"
 subtitle: "Achieving Production Excellence"
@@ -32,12 +32,12 @@ insights:
 
 scores:
   - name: "Direct toepasbaar"
-    value: 4
+    value: 4.5
   - name: "Diepgang"
     value: 5
     note: "al vanaf de eerste hoofdstukken"
   - name: "Leesbaarheid"
-    value: 4
+    value: 4.5
   - name: "Houdbaarheid"
     value: 5
     note: "tijdloos"
@@ -50,10 +50,8 @@ for_whom:
 not_for_whom:
   - "Mensen buiten tech"
 
+further_heading: "Zelf lezen"
 further_reading:
-  - title: "Becoming SRE"
-    year: 2024
-  - title: "Platform Engineering"
-    year: 2024
+  - title: "Dit boek: gratis PDF via honeycomb.io"
 question: "Welke harde waarheid kwam bij jou het hardst aan?"
 ---

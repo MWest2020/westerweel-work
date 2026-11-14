@@ -4,8 +4,8 @@ All notable changes to this site. Dates are `YYYY-MM-DD`.
 
 ## 2026-11-14 (Boekenclub: Platform Engineering en Observability Engineering)
 
-- Boekenclub (NL + EN): twee nieuwe boeken, elk met slides en PDF: *Platform Engineering* (Fournier, Nowland) en *Observability Engineering* (Majors, Fong-Jones, Miranda). Inhoud uit Marks briefs van 2026-11-14; de scores zijn nog een voorstel tot Mark ze bevestigt.
-- "Nu aan het lezen" (Observability Engineering) weg uit de boekenclub: dat boek is uit.
+- Boekenclub (NL + EN): twee nieuwe boeken, elk met slides en PDF: *Platform Engineering* (Fournier, Nowland) en *Observability Engineering* (Majors, Fong-Jones, Miranda). Inhoud uit Marks briefs van 2026-11-14, scores van Mark (mail, zelfde dag).
+- "Nu aan het lezen": Seeking SRE en Building Secure and Reliable Systems (met link naar de online versie); de boekenclub-pagina kan nu meerdere boeken tonen. Een deck kan "Verder lezen" een eigen kop geven (Observability: "Zelf lezen").
 
 ## 2026-11-09 (Bazibo)
 

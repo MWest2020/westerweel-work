@@ -2,7 +2,7 @@
 # One book = this one file; the English translation of
 # content/nl/boekenclub/platform-engineering.md. Content from Mark's brief of
 # 2026-11-14; nothing about the book was made up by the builder. No chapter numbers
-# (the brief gives none). SCORES: the builder's proposal, waiting for Mark.
+# (the brief gives none). Scores: Mark (mail 2026-11-14).
 title: "Platform Engineering"
 translationKey: "boekenclub-platform-engineering"
 subtitle: "A Guide for Technical, Product, and People Leaders"
@@ -38,11 +38,12 @@ scores:
     value: 4
     note: "for leaders"
   - name: "Depth"
-    value: 4
+    value: 3.5
   - name: "Readability"
     value: 4
   - name: "Shelf life"
-    value: 4
+    value: 3.5
+    note: "who knows, in five years it may be called something else, with a few tweaks"
 
 for_whom_line: "For technical, product and people leaders."
 for_whom:
