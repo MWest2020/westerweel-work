@@ -80,7 +80,7 @@
 - id: bc_books
   translation: "Books"
 - id: bc_pdf
-  translation: "Download the PDF (for LinkedIn)"
+  translation: "Download the PDF"
 - id: bc_and
   translation: "and"
 - id: bc_pdf_short
