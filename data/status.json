@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15T07:44:03+01:00",
+ "generated": "2026-11-15T10:04:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -9,10 +9,6 @@
     {
      "change": "originals-encrypt-existing",
      "stage": "proposed"
-    },
-    {
-     "change": "synthetic-long-corpus",
-     "stage": "merging"
     },
     {
      "change": "console-dossier-home",
@@ -52,33 +48,29 @@
    ],
    "phase": "Pilot: Gooise Meren",
    "progress": {
-    "done": 4,
+    "done": 5,
     "total": 10
    },
    "gap": [
     {
-     "item": "No untokenised names left (names with particles like ter, van der)",
-     "url": "https://github.com/MWest2020/wordsworth/issues/285"
+     "item": "No untokenised names left (names with particles like ter, van der): the reprocess with a count-only check is built (#449) and deployed (homelab#58); the run over the dossier is next",
+     "url": "https://github.com/MWest2020/wordsworth/pull/449"
     },
     {
      "item": "A redacted PDF for every reversible document in the dossier",
      "url": "https://github.com/MWest2020/wordsworth/issues/259"
     },
     {
-     "item": "Console for the key user: deleted documents hidden, a dossier home (built in #426; live after the next deploy)",
-     "url": "https://github.com/MWest2020/wordsworth/pull/426"
-    },
-    {
-     "item": "Readable topics (named by the language model) and search that shows the matching passage (built in #433 and #432; live after the next deploy, label quality judged at the rehearsal)",
+     "item": "Readable topics (named by the language model) and search that shows the matching passage (built in #433 and #432, in production since 2026-11-14 with homelab#58; label quality judged at the rehearsal)",
      "url": "https://github.com/MWest2020/wordsworth/pull/433"
     },
     {
-     "item": "Share from the console with layered anonymisation: proposals #439/#440 merged, PDF views built (#436); Mark decided the design (#416, #417, #444, defaults, 2026-11-14) and the read-gate proposal is merged (#446); the read gate and the share build are next, and the share deploy also waits on #487 (reveal answers about a document before the grant check)",
+     "item": "Share from the console with layered anonymisation: proposals #439/#440 merged, PDF views built (#436); Mark decided the design (#416, #417, #444, defaults, 2026-11-14) and the read-gate proposal is merged (#446); the read gate is merged (#485); the share build is next, and the share deploy also waits on Mark: #487 (reveal answers about a document before the grant check; proposal #494, default: authorize first)",
      "url": "https://github.com/MWest2020/wordsworth/pull/440"
     },
     {
-     "item": "Only corpus readers reach the corpus over the API and the console: every route has a recorded check, and a logged-in caller on no read list is refused (the deploy gate for sharing)",
-     "url": "https://github.com/MWest2020/wordsworth/issues/442"
+     "item": "Only corpus readers reach the corpus over the API and the console: every route has a recorded check, and a logged-in caller on no read list is refused (the deploy gate for sharing): merged (#485) and deployed with an empty list (homelab#63, behaviour unchanged); the rollout (tasks 6.1-6.4) is next",
+     "url": "https://github.com/MWest2020/wordsworth/pull/485"
     }
    ]
   },
@@ -124,7 +116,7 @@
    "phase": "Phase 1: 2D demo",
    "progress": {
     "done": 12,
-    "total": 22
+    "total": 23
    },
    "gap": [
     {
@@ -132,7 +124,7 @@
      "url": null
     },
     {
-     "item": "Devnet switched on in the homelab (funded authority key in a k8s secret, token set up) and one real transaction seen in the explorer; the authority key exists and waits for Mark to fund it (#161)",
+     "item": "Devnet switched on in the homelab (Mark funded the authority key, shard mint and pools set up, wallet sign-in live: homelab#56, docs #165); a gameplay transaction (pick-up or bank) still to be seen in the explorer (#161)",
      "url": null
     },
     {
@@ -141,6 +133,10 @@
     },
     {
      "item": "Stamina and a dodge roll with i-frames (round 5, tuned with Mark in a real browser)",
+     "url": null
+    },
+    {
+     "item": "Round 6: a one-round planar 3D spike in three.js (Tunic / Death's Door style), after the 2D rounds 4 and 5 (Mark 2026-11-14: 3D later, #160)",
      "url": null
     },
     {
@@ -197,10 +193,14 @@
    ],
    "phase": "The factory runs itself",
    "progress": {
-    "done": 5,
-    "total": 7
+    "done": 6,
+    "total": 9
    },
    "gap": [
+    {
+     "item": "Agents post images to the chat (agent-image-to-chat, proposed #239): the build (#243) stopped at gate 1.1, one real image post, which waits on Mark's step",
+     "url": "https://github.com/MWest2020/ratatoskr/issues/243"
+    },
     {
      "item": "A public overview of phase and gap per project",
      "url": "https://github.com/MWest2020/ratatoskr/blob/main/docs/how-to/status-site.md"
@@ -319,14 +319,10 @@
    ],
    "phase": "High availability",
    "progress": {
-    "done": 3,
+    "done": 4,
     "total": 5
    },
    "gap": [
-    {
-     "item": "Tailnet ingress on two nodes",
-     "url": "https://github.com/MWest2020/wordsworth/issues/192"
-    },
     {
      "item": "Free disk headroom on node-01 (now about 82% full)",
      "url": "https://github.com/MWest2020/homelab/blob/main/docusaurus/docs/runbooks/seaweedfs.md"
@@ -404,7 +400,7 @@
    "phase": "Weekend test",
    "progress": {
     "done": 8,
-    "total": 12
+    "total": 13
    },
    "gap": [
     {
@@ -412,7 +408,7 @@
      "url": null
     },
     {
-     "item": "Change add-android-client approved by Mark",
+     "item": "Change add-android-client approved by Mark: waits on Mark: #13 (default: built as proposed, CI keeps a debug-signed APK)",
      "url": null
     },
     {
@@ -420,7 +416,11 @@
      "url": null
     },
     {
-     "item": "Android app: release-signed APK from CI (needs Mark's signing key as GitHub secrets)",
+     "item": "Android app: release-signed APK from CI (needs Mark's signing key as GitHub secrets: #13)",
+     "url": null
+    },
+    {
+     "item": "Change add-drive-mode (the next phase) proposed (#9); approval waits on Mark: #10 (default: nothing is built until the PR is merged)",
      "url": null
     }
    ]
