@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15T10:04:02+01:00",
+ "generated": "2026-11-15T14:05:02+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -400,7 +400,7 @@
    "phase": "Weekend test",
    "progress": {
     "done": 8,
-    "total": 13
+    "total": 14
    },
    "gap": [
     {
@@ -421,6 +421,10 @@
     },
     {
      "item": "Change add-drive-mode (the next phase) proposed (#9); approval waits on Mark: #10 (default: nothing is built until the PR is merged)",
+     "url": null
+    },
+    {
+     "item": "Every project (Mark, 2026-11-15): bridge GET /projects and JARVIS_PROJECTS=*, sync of every own non-archived repo, the app's picker from the bridge; built in #18, waits on review and deploy",
      "url": null
     }
    ]
