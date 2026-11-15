@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-15T14:05:02+01:00",
+ "generated": "2026-11-15T18:05:04+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -395,12 +395,18 @@
      "name": "Android app",
      "summary": "a native phone client built on the lessons of the test",
      "state": "next"
+    },
+    {
+     "id": "full-agent",
+     "name": "Full agent",
+     "summary": "Jarvis can do what the coding session can, on its host, under the same rules, with a spoken yes for irreversible actions",
+     "state": "next"
     }
    ],
    "phase": "Weekend test",
    "progress": {
     "done": 8,
-    "total": 14
+    "total": 19
    },
    "gap": [
     {
@@ -421,6 +427,26 @@
     },
     {
      "item": "Change add-drive-mode (the next phase) proposed (#9); approval waits on Mark: #10 (default: nothing is built until the PR is merged)",
+     "url": null
+    },
+    {
+     "item": "Change jarvis-full-agent proposed (proposal, design, tasks, spec delta); Mark decided 2026-11-15, nothing is built until the PR is reviewed and merged",
+     "url": null
+    },
+    {
+     "item": "Full agent, agent host side: wrapper behind a forced-command key, confirmation gate, per-turn record",
+     "url": null
+    },
+    {
+     "item": "Full agent, bridge side: readonly and full modes, remote adapter over ssh, read-back and spoken yes",
+     "url": null
+    },
+    {
+     "item": "Full agent wired over the tailnet and proven (key refused for anything but a turn; a merge only after a yes)",
+     "url": null
+    },
+    {
+     "item": "Full agent: daily line in the notes, and Mark's parked test (merge by voice)",
      "url": null
     },
     {
