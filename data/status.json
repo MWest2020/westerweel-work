@@ -1,11 +1,15 @@
 {
- "generated": "2026-11-14T23:42:02+01:00",
+ "generated": "2026-11-15T01:43:03+01:00",
  "projects": [
   {
    "name": "wordsworth",
    "public": true,
    "url": "https://github.com/MWest2020/wordsworth",
    "in_flight": [
+    {
+     "change": "originals-encrypt-existing",
+     "stage": "proposed"
+    },
     {
      "change": "synthetic-long-corpus",
      "stage": "proposed"
@@ -399,12 +403,24 @@
    ],
    "phase": "Weekend test",
    "progress": {
-    "done": 6,
-    "total": 7
+    "done": 8,
+    "total": 12
    },
    "gap": [
     {
      "item": "A spoken round trip from the phone over the tailnet (HTTP Shortcuts)",
+     "url": null
+    },
+    {
+     "item": "Change add-android-client approved by Mark",
+     "url": null
+    },
+    {
+     "item": "Android app: a spoken round trip on Mark's phone, recorded in the how-to",
+     "url": null
+    },
+    {
+     "item": "Android app: release-signed APK from CI (needs Mark's signing key as GitHub secrets)",
      "url": null
     }
    ]
