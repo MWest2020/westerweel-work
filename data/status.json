@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16T17:06:52+01:00",
+ "generated": "2026-11-16T19:07:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -425,7 +425,7 @@
    "phase": "Voice and speed",
    "progress": {
     "done": 16,
-    "total": 28
+    "total": 29
    },
    "gap": [
     {
@@ -441,7 +441,11 @@
      "url": null
     },
     {
-     "item": "Android app: release-signed APK from CI (needs Mark's signing key as GitHub secrets: #13)",
+     "item": "Android app: main APKs signed with one stable key, so an update installs over the app (key and secrets 2026-11-16, #54)",
+     "url": null
+    },
+    {
+     "item": "Android app: a release build attached to a GitHub release by CI (task 4.3)",
      "url": null
     },
     {
