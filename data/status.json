@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16T10:16:52+01:00",
+ "generated": "2026-11-16T13:05:04+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -383,31 +383,37 @@
      "id": "weekend-test",
      "name": "Weekend test",
      "summary": "spoken round trip from the phone (HTTP Shortcuts) to headless Claude Code, local STT/TTS",
-     "state": "current"
+     "state": "past"
     },
     {
      "id": "plugin",
      "name": "Plugin",
      "summary": "machine side as a Claude Code plugin others can install",
-     "state": "next"
+     "state": "past"
     },
     {
      "id": "android-app",
      "name": "Android app",
      "summary": "a native phone client built on the lessons of the test",
-     "state": "next"
+     "state": "past"
     },
     {
      "id": "full-agent",
      "name": "Full agent",
      "summary": "Jarvis can do what the coding session can, on its host, under the same rules, with a spoken yes for irreversible actions",
-     "state": "next"
+     "state": "past"
+    },
+    {
+     "id": "voice-and-speed",
+     "name": "Voice and speed",
+     "summary": "Mark (2026-11-16): Jarvis wakes on Mark's voice, hands-free, and answers fast; plus talking without a project",
+     "state": "current"
     }
    ],
-   "phase": "Weekend test",
+   "phase": "Voice and speed",
    "progress": {
-    "done": 9,
-    "total": 21
+    "done": 14,
+    "total": 24
    },
    "gap": [
     {
@@ -435,27 +441,19 @@
      "url": null
     },
     {
-     "item": "Full agent, agent host side: the wrapper and per-turn record are built (1a, #34)",
-     "url": null
-    },
-    {
-     "item": "Full agent, agent host side: the confirmation gate is built (1b1 #43, 1b2 #44): gated calls refused, read back from rules, released once by a grant, in CI with a fake claude",
-     "url": null
-    },
-    {
-     "item": "Full agent, agent host side: installer and how-to are built (1c, #40); every phase-1 item stays open until the host checks of task 1.17 pass on the agent host, full mode is enabled nowhere before that",
-     "url": null
-    },
-    {
-     "item": "Full agent wired to the agent host and proven (key refused for anything but a turn; a merge only after a yes)",
-     "url": null
-    },
-    {
      "item": "Full agent: daily line in the notes, and Mark's parked test (merge by voice)",
      "url": null
     },
     {
-     "item": "Every project (Mark, 2026-11-15): bridge GET /projects and JARVIS_PROJECTS=*, sync of every own non-archived repo, the app's picker from the bridge; built in #18, waits on review and deploy",
+     "item": "Talk without a project: jarvis-home as the home base (done 2026-11-16); a pinned General entry in the app, the project list from the agent host, and a new repo usable by voice at once (change jarvis-general-conversation, being built)",
+     "url": null
+    },
+    {
+     "item": "Wake on Mark's voice: hands-free start with a wake word on the phone, and Jarvis reacts only to Mark (speaker verification, #23; proposal in #29, waits on #30)",
+     "url": null
+    },
+    {
+     "item": "Speed: a typical turn under 10 s (measured 2026-11-16: about 15-25 s; done so far: 4 CPUs and a 160-character spoken answer; next: per-stage timing, thinking off for voice turns, streaming speech)",
      "url": null
     }
    ]
