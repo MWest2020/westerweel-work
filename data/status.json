@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16T08:16:40+01:00",
+ "generated": "2026-11-16T10:16:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -406,8 +406,8 @@
    ],
    "phase": "Weekend test",
    "progress": {
-    "done": 8,
-    "total": 19
+    "done": 9,
+    "total": 21
    },
    "gap": [
     {
@@ -435,11 +435,15 @@
      "url": null
     },
     {
-     "item": "Full agent, agent host side: wrapper behind a forced-command key, confirmation gate, per-turn record",
+     "item": "Full agent, agent host side: the wrapper and per-turn record are built (1a, #34)",
      "url": null
     },
     {
-     "item": "Full agent, bridge side: readonly and full modes, remote adapter over ssh, read-back and spoken yes",
+     "item": "Full agent, agent host side: the confirmation gate is built (1b1 #43, 1b2 #44): gated calls refused, read back from rules, released once by a grant, in CI with a fake claude",
+     "url": null
+    },
+    {
+     "item": "Full agent, agent host side: installer and how-to are built (1c, #40); every phase-1 item stays open until the host checks of task 1.17 pass on the agent host, full mode is enabled nowhere before that",
      "url": null
     },
     {
