@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16T06:00:21+01:00",
+ "generated": "2026-11-16T08:16:40+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -193,7 +193,7 @@
    ],
    "phase": "The factory runs itself",
    "progress": {
-    "done": 6,
+    "done": 7,
     "total": 9
    },
    "gap": [
@@ -202,11 +202,7 @@
      "url": "https://github.com/MWest2020/ratatoskr/issues/243"
     },
     {
-     "item": "A public overview of phase and gap per project",
-     "url": "https://github.com/MWest2020/ratatoskr/blob/main/docs/how-to/status-site.md"
-    },
-    {
-     "item": "A daily digest mail of decisions and impediments for Mark",
+     "item": "A daily digest mail of decisions and impediments for Mark: the digest file is built every two hours (#212); the daily mail from the coding session is not yet shown by a mail record",
      "url": "https://github.com/MWest2020/ratatoskr/blob/main/docs/how-to/status-site.md"
     }
    ]
@@ -447,7 +443,7 @@
      "url": null
     },
     {
-     "item": "Full agent wired over the tailnet and proven (key refused for anything but a turn; a merge only after a yes)",
+     "item": "Full agent wired to the agent host and proven (key refused for anything but a turn; a merge only after a yes)",
      "url": null
     },
     {
