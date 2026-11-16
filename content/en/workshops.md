@@ -10,6 +10,9 @@ browser — navigate with the arrow keys (`←` / `→`), space for the next sli
 
 ## Decks
 
+- **[Agents, skills & tools](/slides/agents-skills-tools/)** — lessons learned
+  building a local SRE agent, told in stories: the toddler and the cookie jar,
+  the golem, David against Goliath. Talk, 3 December (draft).
 - **[Context is everything](/slides/context-is-alles/?lang=en)** — why the
   knowledge base, not the model, is what prevents hallucination: from an MCP
   that sends agents to the knowledge base to an SRE agent that runs entirely

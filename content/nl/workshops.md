@@ -11,6 +11,10 @@ voor terug.
 
 ## Decks
 
+- **[Agents, skills & tools](/slides/agents-skills-tools/)** — wat ik leerde
+  bij het bouwen van een lokale SRE-agent, in verhalen: de peuter en de
+  koektrommel, de golem, David tegen Goliath. Talk, 3 december (concept).
+  *(Engels)*
 - **[Context is alles](/slides/context-is-alles/)** — waarom de kennisbank,
   en niet het model, hallucineren tegengaat: van een MCP die agents naar de
   kennisbank stuurt naar een SRE-agent die volledig lokaal draait. Hoort bij
