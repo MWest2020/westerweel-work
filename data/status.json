@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16T15:05:52+01:00",
+ "generated": "2026-11-16T17:06:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -408,12 +408,24 @@
      "name": "Voice and speed",
      "summary": "Mark (2026-11-16): Jarvis wakes on Mark's voice, hands-free, and answers fast; plus talking without a project",
      "state": "current"
+    },
+    {
+     "id": "notifications",
+     "name": "Notifications",
+     "summary": "Jarvis tells the phone that something needs Mark: a build, a question, a reply, a pending confirmation; self-hosted, tailnet-only, no Google",
+     "state": "next"
+    },
+    {
+     "id": "biometric-confirm",
+     "name": "Fingerprint confirmation",
+     "summary": "an irreversible action can be released by a signature from the phone that needs Mark's fingerprint, verified on the agent host",
+     "state": "next"
     }
    ],
    "phase": "Voice and speed",
    "progress": {
-    "done": 14,
-    "total": 24
+    "done": 16,
+    "total": 28
    },
    "gap": [
     {
@@ -445,15 +457,23 @@
      "url": null
     },
     {
-     "item": "Talk without a project: jarvis-home as the home base (done 2026-11-16); a pinned General entry in the app, the project list from the agent host, and a new repo usable by voice at once: change jarvis-general-conversation proposed and built in #50, waits on review, deploy (bridge first, then agent host) and Mark's phone test",
-     "url": null
-    },
-    {
-     "item": "Wake on Mark's voice: hands-free start with a wake word on the phone, and Jarvis reacts only to Mark (speaker verification, #23; proposal in #29, waits on #30)",
+     "item": "Wake on Mark's voice: hands-free start with a wake word on the phone, and Jarvis reacts only to Mark (speaker verification, #23; proposal in #29, approved by Mark 2026-11-16)",
      "url": null
     },
     {
      "item": "Speed: a typical turn under 10 s (measured 2026-11-16: about 15-25 s; done so far: 4 CPUs and a 160-character spoken answer; next: per-stage timing, thinking off for voice turns, streaming speech)",
+     "url": null
+    },
+    {
+     "item": "Notifications: POST /notify on the bridge, the ntfy broker on the tailnet, the app's listener with fixed words on the lock screen, the battery number measured",
+     "url": null
+    },
+    {
+     "item": "Fingerprint confirmation: a signed confirmation verified on the agent host, the method per class, the parked test",
+     "url": null
+    },
+    {
+     "item": "Speaker check, phase 0: the measurement of false refusals and false accepts, with a go or no-go",
      "url": null
     }
    ]
