@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-16T13:05:04+01:00",
+ "generated": "2026-11-16T15:05:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -445,7 +445,7 @@
      "url": null
     },
     {
-     "item": "Talk without a project: jarvis-home as the home base (done 2026-11-16); a pinned General entry in the app, the project list from the agent host, and a new repo usable by voice at once (change jarvis-general-conversation, being built)",
+     "item": "Talk without a project: jarvis-home as the home base (done 2026-11-16); a pinned General entry in the app, the project list from the agent host, and a new repo usable by voice at once: change jarvis-general-conversation proposed and built in #50, waits on review, deploy (bridge first, then agent host) and Mark's phone test",
      "url": null
     },
     {
