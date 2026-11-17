@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17T19:57:52+01:00",
+ "generated": "2026-11-17T23:58:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -431,7 +431,7 @@
    "phase": "Voice and speed",
    "progress": {
     "done": 21,
-    "total": 44
+    "total": 45
    },
    "gap": [
     {
@@ -511,8 +511,12 @@
      "url": "https://github.com/MWest2020/jarvis/blob/main/docs/how-to/agent-host.md#the-voice-profile"
     },
     {
-     "item": "Easter egg (Mark 2026-11-17): Jarvis sings when asked; public-domain tunes on the bridge (happy-birthday, twinkle, frere-jacques), the agent's own lyrics, Kokoro plus numpy TD-PSOLA and a soft organ, at most 20 s, never a read-back, JARVIS_SING=0 off; change jarvis-sing built with tests in CI; deployed, the prompt installed on the agent host and heard on the phone",
+     "item": "Easter egg (Mark 2026-11-17): Jarvis sings when asked; public-domain tunes on the bridge (happy-birthday, twinkle, frere-jacques, mountain-king, ode-to-joy) plus one marked parody (iron-man, the riff only, own words, JARVIS_SING_PARODY=0 off), the agent's own lyrics, Kokoro plus numpy TD-PSOLA and a soft organ, at most 20 s, never a read-back, JARVIS_SING=0 off; change jarvis-sing built with tests in CI; deployed, the prompt installed on the agent host and heard on the phone",
      "url": "https://github.com/MWest2020/jarvis/pull/78"
+    },
+    {
+     "item": "Claude Code plugin: the gate as a standalone plugin, then the bridge setup",
+     "url": "https://github.com/MWest2020/jarvis/issues/73"
     },
     {
      "item": "Notifications: POST /notify on the bridge, the ntfy broker on the tailnet, the app's listener with fixed words on the lock screen, the battery number measured",
