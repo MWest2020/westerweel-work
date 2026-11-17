@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17T13:55:52+01:00",
+ "generated": "2026-11-17T15:55:53+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -9,6 +9,10 @@
     {
      "change": "originals-encrypt-existing",
      "stage": "proposed"
+    },
+    {
+     "change": "keycloak-groups-to-roles",
+     "stage": "building"
     },
     {
      "change": "console-dossier-home",
@@ -369,8 +373,8 @@
   },
   {
    "name": "jarvis",
-   "public": false,
-   "url": null,
+   "public": true,
+   "url": "https://github.com/MWest2020/jarvis",
    "in_flight": [
     {
      "change": "jarvis-full-agent",
@@ -420,73 +424,115 @@
      "name": "Fingerprint confirmation",
      "summary": "an irreversible action can be released by a signature from the phone that needs Mark's fingerprint, verified on the agent host",
      "state": "next"
+    },
+    {
+     "id": "drive-mode",
+     "name": "Drive mode",
+     "summary": "the drive as the unit (approved 2026-11-17): where was I, nothing lost, arrivals, a drive log at the desk, then the screen off with the wheel button",
+     "state": "next"
     }
    ],
    "phase": "Voice and speed",
    "progress": {
-    "done": 17,
-    "total": 32
+    "done": 19,
+    "total": 43
    },
    "gap": [
     {
      "item": "A spoken round trip from the phone over the tailnet (HTTP Shortcuts)",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/tree/main/openspec/changes/archive/2026-11-14-add-voice-bridge/tasks.md"
     },
     {
      "item": "Change add-android-client approved by Mark: waits on Mark: #13 (default: built as proposed, CI keeps a debug-signed APK)",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/pull/12"
     },
     {
      "item": "Android app: a spoken round trip on Mark's phone, recorded in the how-to",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/blob/main/docs/how-to/android-app.md#test-record"
     },
     {
      "item": "Android app: main APKs signed with one stable key, so an update installs over the app (key and secrets 2026-11-16, #54)",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/pull/54"
     },
     {
      "item": "Android app: a release build attached to a GitHub release by CI (task 4.3)",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-android-client/tasks.md"
     },
     {
-     "item": "Change add-drive-mode (the next phase) proposed (#9); approval waits on Mark: #10 (default: nothing is built until the PR is merged)",
-     "url": null
+     "item": "Change add-drive-mode rewritten against what exists (2026-11-17): handoffs replaced by the full agent's gated calls and the desk handoff, the web client by the app, the wake word left to #23, the plugin moved out; seven small phases; merged",
+     "url": "https://github.com/MWest2020/jarvis/pull/9"
+    },
+    {
+     "item": "Drive mode 1: the journal on the bridge, \"where was I\" without an agent turn, \"note\"",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-drive-mode/tasks.md#1-journal-recap-and-notes-bridge"
+    },
+    {
+     "item": "Drive mode 2: nothing lost: a turn id runs once, slow turns and dropped connections become arrivals, \"what's new\", \"cancel\", an unheard read-back cancelled",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-drive-mode/tasks.md#2-nothing-lost-bridge"
+    },
+    {
+     "item": "Drive mode 3: the app in the drive (arrival and problem tones, one retry under the same turn id) and Mark's parked test",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-drive-mode/tasks.md#3-the-app-in-the-drive"
+    },
+    {
+     "item": "Drive mode 4: the drive log handed to the agent host; the coding session takes up the notes",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-drive-mode/tasks.md#4-the-drive-log-at-the-desk"
+    },
+    {
+     "item": "Drive mode 5: project by voice, the app following the bridge",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-drive-mode/tasks.md#5-project-by-voice"
+    },
+    {
+     "item": "Drive mode 6: long replies in parts (go on, repeat, back)",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-drive-mode/tasks.md#6-replies-in-parts"
+    },
+    {
+     "item": "Drive mode 7: screen off and the wheel button, then the first use on the road",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-drive-mode/tasks.md#7-screen-off-and-the-wheel-button"
     },
     {
      "item": "Change jarvis-full-agent proposed (proposal, design, tasks, spec delta); Mark decided 2026-11-15, nothing is built until the PR is reviewed and merged",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/pull/20"
     },
     {
      "item": "Full agent: daily line in the notes, and Mark's parked test (merge by voice)",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-full-agent/tasks.md#4-daily-line-and-parked-test"
     },
     {
      "item": "Wake on Mark's voice: hands-free start with a wake word on the phone, and Jarvis reacts only to Mark (speaker verification, #23; proposal in #29, approved by Mark 2026-11-16)",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/issues/23"
     },
     {
-     "item": "Speed: a typical turn under 10 s (measured 2026-11-16: about 15-25 s; done so far: 4 CPUs and a 160-character spoken answer; next: streaming speech, a voice profile and Whisper settings switched on, a shorter resumed session)",
-     "url": null
+     "item": "Speed: a typical turn under 10 s (measured 2026-11-16: about 15-25 s; done so far: 4 CPUs, a 160-character spoken answer, streaming speech built (#66); next: streaming speech deployed, a voice profile and Whisper settings switched on, a shorter resumed session)",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/docs/how-to/bridge-service.md#where-the-20-seconds-went-2026-11-17-before-this-timing-existed"
+    },
+    {
+     "item": "Speed: streaming speech live: bridge deployed, the new APK on Mark's phone, first_audio_ms of real turns in the how-to and how it sounds at sentence boundaries",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-streaming-speech/tasks.md"
+    },
+    {
+     "item": "Hands-free send (Mark 2026-11-17, #67): after a tap the app sends the question by itself after 3 s of silence that follows speech (loudness against a noise floor on the phone, no library, no permission), a cough is never sent, a countdown on the button, adjustable 1.5-6 s or off; change jarvis-silence-send; built and tested in CI, waits on review and a test on the phone",
+     "url": "https://github.com/MWest2020/jarvis/issues/67"
     },
     {
      "item": "Speed: a voice profile (voice_model, voice_effort) and Whisper settings (language, beam) built and measured, default unchanged; proposed: effort low (about 5 s off multi-step turns, same answers), JARVIS_WHISPER_LANGUAGE=en (0.8 s); not switched on yet",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/blob/main/docs/how-to/agent-host.md#the-voice-profile"
     },
     {
      "item": "Speed and conversations (Mark 2026-11-17, #61): a fresh session after an hour without a turn (session_idle_minutes, saves about 3 s per turn and the cache rewrite), and Jarvis offers to close a finished conversation and closes it on request (SESSION: close); built and tested in CI (change jarvis-session-lifetime, #68), prompt checked with real turns; waits on review, install and a turn through the wrapper on the agent host",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/pull/68"
     },
     {
      "item": "Notifications: POST /notify on the bridge, the ntfy broker on the tailnet, the app's listener with fixed words on the lock screen, the battery number measured",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-notifications/tasks.md"
     },
     {
      "item": "Fingerprint confirmation: a signed confirmation verified on the agent host, the method per class, the parked test",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-biometric-confirm/tasks.md"
     },
     {
      "item": "Speaker check, phase 0: the measurement of false refusals and false accepts, with a go or no-go",
-     "url": null
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-speaker-verification/tasks.md#0-the-measurement"
     }
    ]
   }
