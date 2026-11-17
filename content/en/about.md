@@ -6,7 +6,10 @@ translationKey: "about"
 
 Mark Westerweel. 42, North Holland, sometimes Ameland.
 
-Currently I'm an SRE engineer at Schiphol Airport, defining
+I take on freelance work and talks: see [services](/en/services/) and
+[speaker](/en/speaker/).
+
+Currently I'm a Site Reliability Engineer at Schiphol Airport, defining
 customer-first SLOs, killing toil and falling in love with complex
 systems.
 

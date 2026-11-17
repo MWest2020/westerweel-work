@@ -7,8 +7,12 @@ translationKey: "about"
 
 Mark Westerweel. 42, Noord-Holland, soms Ameland.
 
-Op dit moment ben ik SRE-engineer bij Schiphol: ik definieer SLO's die bij
-de klant beginnen, ruim toil op en word verliefd op complexe systemen.
+Ik neem freelance opdrachten en talks aan: zie [diensten](/diensten/) en
+[spreker](/spreker/).
+
+Op dit moment ben ik Site Reliability Engineer bij Schiphol: ik definieer
+SLO's die bij de klant beginnen, ruim toil op en word verliefd op complexe
+systemen.
 
 Daarvoor werkte ik jaren in en rond Common Ground en het Nederlands gemeentelijk
 landschap. Platform- en DevOps-werk: multi-tenant Kubernetes, Nextcloud

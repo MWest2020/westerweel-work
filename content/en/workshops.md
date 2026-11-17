@@ -8,6 +8,9 @@ Slide decks I use for workshops, sessions and talks. They run entirely in your
 browser — navigate with the arrow keys (`←` / `→`), space for the next slide,
 `F` for fullscreen. On mobile: tap right to advance, left to go back.
 
+One of these talks at your event? See [speaker](/en/speaker/): per talk the
+length, the level and the language, and a bio to copy.
+
 ## Decks
 
 - **[Agents, skills & tools](/slides/agents-skills-tools/)** — lessons learned

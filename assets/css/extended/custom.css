@@ -340,3 +340,30 @@ body.home .logo a::after {
 .bc-go { margin-top: 0.5rem !important; font-weight: 600; }
 .bc-next { margin-top: 2rem; }
 .bc-next h2 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+
+/* Home: one line under the intro that points at /diensten/ and /spreker/
+   (and /en/services/, /en/speaker/). Set in hugo.toml homeInfoParams. */
+.cta { margin: 1.2em 0; }
+.home-info .cta-link {
+  display: inline-block;
+  margin: 0.5em 0.6em 0 0;
+  padding: 0.25em 0.9em;
+  border: 1px solid var(--westerweel-accent);
+  border-radius: 4px;
+}
+.home-info .cta-link::after { content: " \2192"; }
+.home-info .cta-link:hover {
+  background: var(--westerweel-bg-elevated);
+  border-color: var(--westerweel-accent-hover);
+}
+
+/* Placeholders that wait on Mark (headshot, past talks, availability).
+   Easy to spot in a preview, easy to grep: class="todo". */
+.post-content .todo {
+  border: 1px dashed var(--now-amber, #d29922);
+  border-radius: 4px;
+  color: #d29922;
+  padding: 0.5em 0.9em;
+  font-size: 0.9rem;
+}
+.post-content span.todo { padding: 0 0.4em; font-size: 0.85rem; }

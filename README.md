@@ -109,6 +109,7 @@ content/
 │   ├── _index.md         # home
 │   ├── about.md
 │   ├── diensten.md
+│   ├── spreker.md        # talks, bio en contact voor organisatoren
 │   ├── workshops.md      # overzicht van slidedecks
 │   └── posts/
 │       └── *.md
@@ -116,6 +117,7 @@ content/
     ├── _index.md
     ├── about.md
     ├── services.md
+    ├── speaker.md
     ├── workshops.md
     └── posts/
         └── *.md

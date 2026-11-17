@@ -9,6 +9,9 @@ in je browser — navigeer met de pijltjestoetsen (`←` / `→`), spatie voor d
 volgende slide, `F` voor fullscreen. Op mobiel: tik rechts voor verder, links
 voor terug.
 
+Een van deze talks op je evenement? Zie [spreker](/spreker/): per talk de
+lengte, het niveau en de taal, en een bio om over te nemen.
+
 ## Decks
 
 - **[Agents, skills & tools](/slides/agents-skills-tools/)** — wat ik leerde
