@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17T17:56:52+01:00",
+ "generated": "2026-11-17T19:57:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -9,10 +9,6 @@
     {
      "change": "originals-encrypt-existing",
      "stage": "proposed"
-    },
-    {
-     "change": "keycloak-groups-to-roles",
-     "stage": "building"
     },
     {
      "change": "console-dossier-home",
@@ -435,7 +431,7 @@
    "phase": "Voice and speed",
    "progress": {
     "done": 21,
-    "total": 43
+    "total": 44
    },
    "gap": [
     {
@@ -513,6 +509,10 @@
     {
      "item": "Speed: a voice profile (voice_model, voice_effort) and Whisper settings (language, beam) built and measured, default unchanged; proposed: effort low (about 5 s off multi-step turns, same answers), JARVIS_WHISPER_LANGUAGE=en (0.8 s); not switched on yet",
      "url": "https://github.com/MWest2020/jarvis/blob/main/docs/how-to/agent-host.md#the-voice-profile"
+    },
+    {
+     "item": "Easter egg (Mark 2026-11-17): Jarvis sings when asked; public-domain tunes on the bridge (happy-birthday, twinkle, frere-jacques), the agent's own lyrics, Kokoro plus numpy TD-PSOLA and a soft organ, at most 20 s, never a read-back, JARVIS_SING=0 off; change jarvis-sing built with tests in CI; deployed, the prompt installed on the agent host and heard on the phone",
+     "url": "https://github.com/MWest2020/jarvis/pull/78"
     },
     {
      "item": "Notifications: POST /notify on the bridge, the ntfy broker on the tailnet, the app's listener with fixed words on the lock screen, the battery number measured",
