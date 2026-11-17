@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17T15:55:53+01:00",
+ "generated": "2026-11-17T17:56:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -434,7 +434,7 @@
    ],
    "phase": "Voice and speed",
    "progress": {
-    "done": 19,
+    "done": 21,
     "total": 43
    },
    "gap": [
@@ -511,16 +511,8 @@
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-streaming-speech/tasks.md"
     },
     {
-     "item": "Hands-free send (Mark 2026-11-17, #67): after a tap the app sends the question by itself after 3 s of silence that follows speech (loudness against a noise floor on the phone, no library, no permission), a cough is never sent, a countdown on the button, adjustable 1.5-6 s or off; change jarvis-silence-send; built and tested in CI, waits on review and a test on the phone",
-     "url": "https://github.com/MWest2020/jarvis/issues/67"
-    },
-    {
      "item": "Speed: a voice profile (voice_model, voice_effort) and Whisper settings (language, beam) built and measured, default unchanged; proposed: effort low (about 5 s off multi-step turns, same answers), JARVIS_WHISPER_LANGUAGE=en (0.8 s); not switched on yet",
      "url": "https://github.com/MWest2020/jarvis/blob/main/docs/how-to/agent-host.md#the-voice-profile"
-    },
-    {
-     "item": "Speed and conversations (Mark 2026-11-17, #61): a fresh session after an hour without a turn (session_idle_minutes, saves about 3 s per turn and the cache rewrite), and Jarvis offers to close a finished conversation and closes it on request (SESSION: close); built and tested in CI (change jarvis-session-lifetime, #68), prompt checked with real turns; waits on review, install and a turn through the wrapper on the agent host",
-     "url": "https://github.com/MWest2020/jarvis/pull/68"
     },
     {
      "item": "Notifications: POST /notify on the bridge, the ntfy broker on the tailnet, the app's listener with fixed words on the lock screen, the battery number measured",
