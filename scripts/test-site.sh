@@ -201,6 +201,13 @@ assert_grep "$PUBLIC_DIR/nu/index.html"     'Hierna'                            
 assert_grep "$PUBLIC_DIR/en/now/index.html" 'Next up'                                        "en/now shows what comes next per project"
 assert_grep "$PUBLIC_DIR/nu/index.html"     'fase [0-9]+ van [0-9]+'                         "nu shows the phase in Dutch"
 assert_not_grep "$PUBLIC_DIR/nu/index.html" 'Next up|Still to do|open items? in this phase'  "nu carries no English page text"
+# No English in the NL project list: common English words that are not Dutch.
+nl_projects="$(tr -d '\n' < "$PUBLIC_DIR/nu/index.html" | grep -oE 'class="?now-projects.*</section>' | sed -E 's/<[^>]+>/ /g' || true)"
+if [[ -n "$nl_projects" ]] && ! grep -qiwE 'the|and|with|for|this|that|every|which|from|into|phase|done|items?|on' <<<"$nl_projects"; then
+  ok "nu project list has no English words"
+else
+  fail "nu project list has no English words (or no project list)"
+fi
 # Mark, 2026-11-17: the page showed too much. The generator strips these; the
 # page must not bring them back (data/status.json is generated, not edited).
 for page in nu/index.html en/now/index.html; do
@@ -209,7 +216,7 @@ for page in nu/index.html en/now/index.html; do
   else fail "$page has no issue or PR numbers (or no project list)"
   fi
   assert_not_grep "$PUBLIC_DIR/$page" 'waits on Mark|Mark decided|ADR-[0-9]' "$page has no coordination notes"
-  assert_not_grep "$PUBLIC_DIR/$page" 'convergence|Gooise Meren'            "$page has no private project or client name"
+  assert_not_grep "$PUBLIC_DIR/$page" 'convergence|jarvis'                  "$page has no private project"
   assert_not_grep "$PUBLIC_DIR/$page" 'github\.com/MWest2020/[^/"]+/(pull|issues)/' "$page has no evidence links"
 done
 assert_grep "$PUBLIC_DIR/nu/index.html"     '<progress value=[0-9]+ max=[0-9]+'              "nu shows progress toward done"

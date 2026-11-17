@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17T14:54:03+01:00",
+ "generated": "2026-11-17T15:05:25+01:00",
  "schema": 2,
  "projects": [
   {
@@ -39,11 +39,11 @@
    "phase_index": 2,
    "phase_count": 3,
    "en": {
-    "goal": "The coordination layer of Mark's agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
+    "goal": "The coordination layer of my agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
     "phase": "The factory runs itself",
     "next": [
      "Agents post images to the chat",
-     "A daily digest mail of decisions and impediments for Mark"
+     "A daily mail with the open decisions and impediments"
     ],
     "note": null
    },

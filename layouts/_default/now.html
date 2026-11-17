@@ -49,7 +49,7 @@
       {{- with $p.progress }}
       <p class="now-progress">
         <span class="now-progress-label">{{ i18n "now_progress" }}</span>
-        <progress value="{{ .done }}" max="{{ .total }}">{{ .done }}/{{ .total }}</progress>
+        <progress value="{{ .done }}" max="{{ .total }}" aria-hidden="true"></progress>
         <span class="now-progress-count">{{ .done }}/{{ .total }}</span>
       </p>
       {{- end }}
