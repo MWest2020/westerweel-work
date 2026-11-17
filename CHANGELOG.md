@@ -2,6 +2,10 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-17 (/nu: minder intern, alles in de taal van de pagina)
+
+- /nu/ en /en/now/ (NL + EN): per project alleen nog naam, doel, huidige fase, voortgang (x/y) en twee tot vier punten "Hierna" / "Next up"; de fasestrook, de gap met bewijslinks en de regel "In de maak" zijn weg. De NL-pagina toont alleen Nederlandse tekst: zonder Nederlandse omschrijving in de roadmap het fasenummer en het aantal open punten. Privéprojecten en klantnamen staan er niet meer op (Mark). Leest `data/status.json` met `"schema": 2` van ratatoskr's `status_site.py`; een ander schema toont "nog geen overzicht" in plaats van een gok.
+
 ## 2026-11-16 (Agents, skills & tools)
 
 - Slides: *Agents, skills & tools* (EN) op /slides/agents-skills-tools/, gebouwd in tree-presentations; concept voor de talk van 3 december. Vermeld op de workshops-pagina (NL + EN).

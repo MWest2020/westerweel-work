@@ -197,8 +197,21 @@ echo "==> /nu/ overview (generated from data/status.json by ratatoskr)"
 assert_grep "$PUBLIC_DIR/nu/index.html"     'hreflang=en href=https://westerweel.work/en/now/' "nu -> en/now hreflang"
 assert_grep "$PUBLIC_DIR/en/now/index.html" 'hreflang=nl href=https://westerweel.work/nu/'     "en/now -> nu hreflang"
 assert_grep "$PUBLIC_DIR/nu/index.html"     '<time datetime=[0-9]{4}-[0-9]{2}-[0-9]{2}T'     "nu shows the generation time"
-assert_grep "$PUBLIC_DIR/nu/index.html"     'Nog te doen in deze fase'                       "nu shows the gap per project"
-assert_grep "$PUBLIC_DIR/en/now/index.html" 'Still to do in this phase'                      "en/now shows the gap per project"
+assert_grep "$PUBLIC_DIR/nu/index.html"     'Hierna'                                         "nu shows what comes next per project"
+assert_grep "$PUBLIC_DIR/en/now/index.html" 'Next up'                                        "en/now shows what comes next per project"
+assert_grep "$PUBLIC_DIR/nu/index.html"     'fase [0-9]+ van [0-9]+'                         "nu shows the phase in Dutch"
+assert_not_grep "$PUBLIC_DIR/nu/index.html" 'Next up|Still to do|open items? in this phase'  "nu carries no English page text"
+# Mark, 2026-11-17: the page showed too much. The generator strips these; the
+# page must not bring them back (data/status.json is generated, not edited).
+for page in nu/index.html en/now/index.html; do
+  projects="$(tr -d '\n' < "$PUBLIC_DIR/$page" | grep -oE 'class="?now-projects.*</section>' || true)"
+  if [[ -n "$projects" ]] && ! grep -qE '#[0-9]+' <<<"$projects"; then ok "$page has no issue or PR numbers"
+  else fail "$page has no issue or PR numbers (or no project list)"
+  fi
+  assert_not_grep "$PUBLIC_DIR/$page" 'waits on Mark|Mark decided|ADR-[0-9]' "$page has no coordination notes"
+  assert_not_grep "$PUBLIC_DIR/$page" 'convergence|Gooise Meren'            "$page has no private project or client name"
+  assert_not_grep "$PUBLIC_DIR/$page" 'github\.com/MWest2020/[^/"]+/(pull|issues)/' "$page has no evidence links"
+done
 assert_grep "$PUBLIC_DIR/nu/index.html"     '<progress value=[0-9]+ max=[0-9]+'              "nu shows progress toward done"
 assert_not_grep "$PUBLIC_DIR/nu/index.html" 'Wacht op Mark'                                  "nu carries no questions to Mark (they go by mail)"
 assert_not_grep "$PUBLIC_DIR/nu/index.html" 'class="now[^"]*"[^>]* style='                   "nu has no inline styles (CSP)"

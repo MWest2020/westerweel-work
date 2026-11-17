@@ -1,494 +1,159 @@
 {
- "generated": "2026-11-17T13:55:52+01:00",
+ "generated": "2026-11-17T14:54:03+01:00",
+ "schema": 2,
  "projects": [
   {
    "name": "wordsworth",
-   "public": true,
    "url": "https://github.com/MWest2020/wordsworth",
-   "in_flight": [
-    {
-     "change": "originals-encrypt-existing",
-     "stage": "proposed"
-    },
-    {
-     "change": "console-dossier-home",
-     "stage": "proposed"
-    },
-    {
-     "change": "reanonymise-particle-name-documents",
-     "stage": "proposed"
-    }
-   ],
-   "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
-   "phases": [
-    {
-     "id": "poc",
-     "name": "Proof of concept",
-     "summary": "ingest, anonymise, search, reversible tokens with grants, the console",
-     "state": "past"
-    },
-    {
-     "id": "pilot",
-     "name": "Pilot: Gooise Meren",
-     "summary": "one real Woo publication (415 documents) end to end, for a key user",
-     "state": "current"
-    },
-    {
-     "id": "data-autonomy",
-     "name": "Data autonomy",
-     "summary": "the organisation holds the keys: originals encrypted, rights per group, a separate key service, keys exportable (ADR-0008, ADR-0009)",
-     "state": "next"
-    },
-    {
-     "id": "production",
-     "name": "Production",
-     "summary": "survives a node, NORA-aligned, ready for a first organisation",
-     "state": "next"
-    }
-   ],
-   "phase": "Pilot: Gooise Meren",
    "progress": {
     "done": 5,
     "total": 10
    },
-   "gap": [
-    {
-     "item": "No untokenised names left (names with particles like ter, van der): the reprocess with a count-only check is built (#449) and deployed (homelab#58); the run over the dossier is next",
-     "url": "https://github.com/MWest2020/wordsworth/pull/449"
-    },
-    {
-     "item": "A redacted PDF for every reversible document in the dossier",
-     "url": "https://github.com/MWest2020/wordsworth/issues/259"
-    },
-    {
-     "item": "Readable topics (named by the language model) and search that shows the matching passage (built in #433 and #432, in production since 2026-11-14 with homelab#58; label quality judged at the rehearsal)",
-     "url": "https://github.com/MWest2020/wordsworth/pull/433"
-    },
-    {
-     "item": "Share from the console with layered anonymisation: proposals #439/#440 merged, PDF views built (#436); Mark decided the design (#416, #417, #444, defaults, 2026-11-14) and the read-gate proposal is merged (#446); the read gate is merged (#485); the share build is next, and the share deploy also waits on Mark: #487 (reveal answers about a document before the grant check; proposal #494, default: authorize first)",
-     "url": "https://github.com/MWest2020/wordsworth/pull/440"
-    },
-    {
-     "item": "Only corpus readers reach the corpus over the API and the console: every route has a recorded check, and a logged-in caller on no read list is refused (the deploy gate for sharing): merged (#485) and deployed with an empty list (homelab#63, behaviour unchanged); the rollout (tasks 6.1-6.4) is next",
-     "url": "https://github.com/MWest2020/wordsworth/pull/485"
-    }
-   ]
-  },
-  {
-   "name": "convergence",
-   "public": false,
-   "url": null,
-   "in_flight": [
-    {
-     "change": "demo-marketplace",
-     "stage": "proposed"
-    },
-    {
-     "change": "demo-devnet-wallet",
-     "stage": "proposed"
-    },
-    {
-     "change": "demo-tiled-maps-client",
-     "stage": "proposed"
-    }
-   ],
-   "goal": "An online soulslike with a real crypto stake and seasons; phase 1 is the playable 2D demo, the economy, the site and the pitch, on devnet only.",
-   "phases": [
-    {
-     "id": "phase-1",
-     "name": "Phase 1: 2D demo",
-     "summary": "GDD with a balanced economy, a playable 2D demo on devnet, website, pitch and deck",
-     "state": "current"
-    },
-    {
-     "id": "launch-2d",
-     "name": "2D launch",
-     "summary": "the game in 2D for real players, after the legal questions are signed off",
-     "state": "next"
-    },
-    {
-     "id": "3d",
-     "name": "3D",
-     "summary": "the end goal: the same game in 3D (engine: three.js, Mark 2026-11-10; replaces the Godot candidate of decision 0004)",
-     "state": "next"
-    }
-   ],
-   "phase": "Phase 1: 2D demo",
-   "progress": {
-    "done": 12,
-    "total": 23
+   "phase_index": 2,
+   "phase_count": 4,
+   "en": {
+    "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
+    "phase": "Pilot: a Dutch municipality",
+    "next": [
+     "No untokenised names left (names with particles like ter, van der)",
+     "A redacted PDF for every reversible document in the dossier",
+     "Readable topics (named by the language model) and search that shows the matching passage",
+     "Share from the console with layered anonymisation"
+    ],
+    "note": null
    },
-   "gap": [
-    {
-     "item": "Win condition as a pluggable rule module",
-     "url": null
-    },
-    {
-     "item": "Devnet switched on in the homelab (Mark funded the authority key, shard mint and pools set up, wallet sign-in live: homelab#56, docs #165); a gameplay transaction (pick-up or bank) still to be seen in the explorer (#161)",
-     "url": null
-    },
-    {
-     "item": "Banking at the bonfire and a program in place of the game's key (decision 0005)",
-     "url": null
-    },
-    {
-     "item": "Stamina and a dodge roll with i-frames (round 5, tuned with Mark in a real browser)",
-     "url": null
-    },
-    {
-     "item": "Round 6: a one-round planar 3D spike in three.js (Tunic / Death's Door style), after the 2D rounds 4 and 5 (Mark 2026-11-14: 3D later, #160)",
-     "url": null
-    },
-    {
-     "item": "Duel in the RPG demo (the last money rule)",
-     "url": null
-    },
-    {
-     "item": "2D demo playable on devnet with every mechanic (zones, bonfire, death and retrieve, duel, marketplace, wallet)",
-     "url": null
-    },
-    {
-     "item": "Website live in the homelab with the demo and an interest form that collects",
-     "url": null
-    },
-    {
-     "item": "Pitch (docs/pitch.md) plus the deck as an HTML/CSS zip",
-     "url": null
-    },
-    {
-     "item": "risks-legal.md and open-questions.md complete",
-     "url": null
-    },
-    {
-     "item": "Reviewer sign-off on everything; no real SOL or mainnet in the code",
-     "url": null
-    }
-   ]
+   "nl": {
+    "goal": null,
+    "phase": null,
+    "next": [],
+    "note": "5 open punten in deze fase; de omschrijving volgt."
+   }
   },
   {
    "name": "ratatoskr",
-   "public": true,
    "url": "https://github.com/MWest2020/ratatoskr",
-   "in_flight": [],
-   "goal": "The coordination layer of Mark's agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
-   "phases": [
-    {
-     "id": "chat",
-     "name": "Phases 0-3: relay and chat agents",
-     "summary": "self-hosted relay, notifications, chat agents from one source, chat to habitat",
-     "state": "past"
-    },
-    {
-     "id": "factory",
-     "name": "The factory runs itself",
-     "summary": "propose, build, merge and deploy from chat, within budgets, without Mark in the loop",
-     "state": "current"
-    },
-    {
-     "id": "ecosystem",
-     "name": "Ecosystem",
-     "summary": "every project on the factory, readable through one MCP",
-     "state": "next"
-    }
-   ],
-   "phase": "The factory runs itself",
    "progress": {
     "done": 7,
     "total": 9
    },
-   "gap": [
-    {
-     "item": "Agents post images to the chat (agent-image-to-chat, proposed #239): the build (#243) stopped at gate 1.1, one real image post, which waits on Mark's step",
-     "url": "https://github.com/MWest2020/ratatoskr/issues/243"
-    },
-    {
-     "item": "A daily digest mail of decisions and impediments for Mark: the digest file is built every two hours (#212); the daily mail from the coding session is not yet shown by a mail record",
-     "url": "https://github.com/MWest2020/ratatoskr/blob/main/docs/how-to/status-site.md"
-    }
-   ]
+   "phase_index": 2,
+   "phase_count": 3,
+   "en": {
+    "goal": "The coordination layer of Mark's agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
+    "phase": "The factory runs itself",
+    "next": [
+     "Agents post images to the chat",
+     "A daily digest mail of decisions and impediments for Mark"
+    ],
+    "note": null
+   },
+   "nl": {
+    "goal": "De communicatielaag van mijn agent-ecosysteem: kanalen waar mensen en agents samenwerken, en de fabriek die een besluit in de chat omzet in een uitgerolde wijziging.",
+    "phase": "De fabriek draait zelf",
+    "next": [
+     "Agents plaatsen afbeeldingen in de chat",
+     "Een dagelijkse mail met de open besluiten en de knelpunten"
+    ],
+    "note": null
+   }
   },
   {
    "name": "habitat",
-   "public": true,
    "url": "https://github.com/MWest2020/habitat",
-   "in_flight": [],
-   "goal": "A minimal platform on which Claude Code agents work on repositories autonomously, inside explicit, non-negotiable limits: work distribution, execution, isolation, escalation, audit.",
-   "phases": [
-    {
-     "id": "cage",
-     "name": "The cage",
-     "summary": "one dispatch, Kubernetes Jobs, git as the hand-over, a guard on every tool",
-     "state": "past"
-    },
-    {
-     "id": "chains",
-     "name": "Role chains",
-     "summary": "architect, builder, reviewer, security with real tests and budgets",
-     "state": "past"
-    },
-    {
-     "id": "roles",
-     "name": "Roles from the handbook",
-     "summary": "every role and skill from one canonical source, for every project",
-     "state": "current"
-    }
-   ],
-   "phase": "Roles from the handbook",
    "progress": {
     "done": 2,
     "total": 4
    },
-   "gap": [
-    {
-     "item": "An execution role for the designer (ontwerper)",
-     "url": "https://github.com/MWest2020/handbook/blob/main/docs/agents/ontwerper.md"
-    },
-    {
-     "item": "The reviewer runs the project's tests itself",
-     "url": "https://github.com/MWest2020/habitat/blob/main/worker/settings/reviewer.json"
-    }
-   ]
+   "phase_index": 3,
+   "phase_count": 3,
+   "en": {
+    "goal": "A minimal platform on which Claude Code agents work on repositories autonomously, inside explicit, non-negotiable limits: work distribution, execution, isolation, escalation, audit.",
+    "phase": "Roles from the handbook",
+    "next": [
+     "An execution role for the designer (ontwerper)",
+     "The reviewer runs the project's tests itself"
+    ],
+    "note": null
+   },
+   "nl": {
+    "goal": null,
+    "phase": null,
+    "next": [],
+    "note": "2 open punten in deze fase; de omschrijving volgt."
+   }
   },
   {
    "name": "handbook",
-   "public": true,
    "url": "https://github.com/MWest2020/handbook",
-   "in_flight": [],
-   "goal": "The hub of the personal repository ecosystem: one map of every repo's docs, the canonical agents and skills, and one MCP to read it all.",
-   "phases": [
-    {
-     "id": "hub",
-     "name": "Docs hub",
-     "summary": "every repo's docs aggregated at build time, under one docs contract",
-     "state": "past"
-    },
-    {
-     "id": "registry",
-     "name": "Agent and skill registry",
-     "summary": "one canonical definition per role and skill, read by every consumer",
-     "state": "current"
-    },
-    {
-     "id": "mcp",
-     "name": "Ecosystem MCP",
-     "summary": "one read-only MCP for docs, roles, skills, factory status and search",
-     "state": "next"
-    }
-   ],
-   "phase": "Agent and skill registry",
    "progress": {
     "done": 3,
     "total": 4
    },
-   "gap": [
-    {
-     "item": "The MCP connected to odin and the habitat roles",
-     "url": "https://github.com/MWest2020/handbook/tree/main/handbook_mcp"
-    }
-   ]
+   "phase_index": 2,
+   "phase_count": 3,
+   "en": {
+    "goal": "The hub of the personal repository ecosystem: one map of every repo's docs, the canonical agents and skills, and one MCP to read it all.",
+    "phase": "Agent and skill registry",
+    "next": [
+     "The MCP connected to odin and the habitat roles"
+    ],
+    "note": null
+   },
+   "nl": {
+    "goal": null,
+    "phase": null,
+    "next": [],
+    "note": "1 open punt in deze fase; de omschrijving volgt."
+   }
   },
   {
    "name": "homelab",
-   "public": true,
    "url": "https://github.com/MWest2020/homelab",
-   "in_flight": [],
-   "goal": "Infrastructure as code for a three-node Kubernetes homelab, run through GitOps, that the other projects can rely on.",
-   "phases": [
-    {
-     "id": "gitops",
-     "name": "Cluster and GitOps",
-     "summary": "three nodes, ArgoCD, certificates, tunnels",
-     "state": "past"
-    },
-    {
-     "id": "ha",
-     "name": "High availability",
-     "summary": "losing one node loses no data and no service",
-     "state": "current"
-    },
-    {
-     "id": "hardened",
-     "name": "Hardened",
-     "summary": "backups proven, secrets rotated, monitoring that pages",
-     "state": "next"
-    }
-   ],
-   "phase": "High availability",
    "progress": {
     "done": 4,
     "total": 5
    },
-   "gap": [
-    {
-     "item": "Free disk headroom on node-01 (now about 82% full)",
-     "url": "https://github.com/MWest2020/homelab/blob/main/docusaurus/docs/runbooks/seaweedfs.md"
-    }
-   ]
+   "phase_index": 2,
+   "phase_count": 3,
+   "en": {
+    "goal": "Infrastructure as code for a three-node Kubernetes homelab, run through GitOps, that the other projects can rely on.",
+    "phase": "High availability",
+    "next": [
+     "Free disk headroom on node-01 (now about 82% full)"
+    ],
+    "note": null
+   },
+   "nl": {
+    "goal": null,
+    "phase": null,
+    "next": [],
+    "note": "1 open punt in deze fase; de omschrijving volgt."
+   }
   },
   {
    "name": "bazibo",
-   "public": true,
    "url": "https://github.com/MWest2020/bazibo",
-   "in_flight": [],
-   "goal": "One app of play-and-learn games for children of 3 to 10: no ads, no trackers, one €1 purchase that opens every game.",
-   "phases": [
-    {
-     "id": "game",
-     "name": "Bubbels, the first game",
-     "summary": "the bubble shooter: 30 levels, pop sounds, offline, playable on the web",
-     "state": "past"
-    },
-    {
-     "id": "launch",
-     "name": "Brand app in the stores",
-     "summary": "one app with a tile per game, Dutch and English, the €1 unlock behind a parental gate, on Google Play and then the App Store",
-     "state": "current"
-    },
-    {
-     "id": "learning",
-     "name": "Learning games",
-     "summary": "games that teach, for children who cannot read yet and for those who can",
-     "state": "next"
-    }
-   ],
-   "phase": "Brand app in the stores",
    "progress": {
     "done": 9,
     "total": 11
    },
-   "gap": [
-    {
-     "item": "Live on Google Play: 1.8.0 (version code 10, all fifteen games) sent for production review on 2026-11-17, replacing 1.0.0 (in review since 9 Nov) and the 1.4.0 draft, and on internal testing; the store page goes live when Google approves it",
-     "url": "https://github.com/MWest2020/bazibo/blob/main/docs/release.md"
-    },
-    {
-     "item": "Live on the App Store",
-     "url": "https://github.com/MWest2020/bazibo/blob/main/docs/release.md"
-    }
-   ]
-  },
-  {
-   "name": "jarvis",
-   "public": false,
-   "url": null,
-   "in_flight": [
-    {
-     "change": "jarvis-full-agent",
-     "stage": "proposed"
-    }
-   ],
-   "goal": "Talk to a Claude Code session hands-free from an Android phone, on your own machines, over Tailscale.",
-   "phases": [
-    {
-     "id": "weekend-test",
-     "name": "Weekend test",
-     "summary": "spoken round trip from the phone (HTTP Shortcuts) to headless Claude Code, local STT/TTS",
-     "state": "past"
-    },
-    {
-     "id": "plugin",
-     "name": "Plugin",
-     "summary": "machine side as a Claude Code plugin others can install",
-     "state": "past"
-    },
-    {
-     "id": "android-app",
-     "name": "Android app",
-     "summary": "a native phone client built on the lessons of the test",
-     "state": "past"
-    },
-    {
-     "id": "full-agent",
-     "name": "Full agent",
-     "summary": "Jarvis can do what the coding session can, on its host, under the same rules, with a spoken yes for irreversible actions",
-     "state": "past"
-    },
-    {
-     "id": "voice-and-speed",
-     "name": "Voice and speed",
-     "summary": "Mark (2026-11-16): Jarvis wakes on Mark's voice, hands-free, and answers fast; plus talking without a project",
-     "state": "current"
-    },
-    {
-     "id": "notifications",
-     "name": "Notifications",
-     "summary": "Jarvis tells the phone that something needs Mark: a build, a question, a reply, a pending confirmation; self-hosted, tailnet-only, no Google",
-     "state": "next"
-    },
-    {
-     "id": "biometric-confirm",
-     "name": "Fingerprint confirmation",
-     "summary": "an irreversible action can be released by a signature from the phone that needs Mark's fingerprint, verified on the agent host",
-     "state": "next"
-    }
-   ],
-   "phase": "Voice and speed",
-   "progress": {
-    "done": 17,
-    "total": 32
+   "phase_index": 2,
+   "phase_count": 3,
+   "en": {
+    "goal": "One app of play-and-learn games for children of 3 to 10: no ads, no trackers, one €1 purchase that opens every game.",
+    "phase": "Brand app in the stores",
+    "next": [
+     "Live on Google Play",
+     "Live on the App Store"
+    ],
+    "note": null
    },
-   "gap": [
-    {
-     "item": "A spoken round trip from the phone over the tailnet (HTTP Shortcuts)",
-     "url": null
-    },
-    {
-     "item": "Change add-android-client approved by Mark: waits on Mark: #13 (default: built as proposed, CI keeps a debug-signed APK)",
-     "url": null
-    },
-    {
-     "item": "Android app: a spoken round trip on Mark's phone, recorded in the how-to",
-     "url": null
-    },
-    {
-     "item": "Android app: main APKs signed with one stable key, so an update installs over the app (key and secrets 2026-11-16, #54)",
-     "url": null
-    },
-    {
-     "item": "Android app: a release build attached to a GitHub release by CI (task 4.3)",
-     "url": null
-    },
-    {
-     "item": "Change add-drive-mode (the next phase) proposed (#9); approval waits on Mark: #10 (default: nothing is built until the PR is merged)",
-     "url": null
-    },
-    {
-     "item": "Change jarvis-full-agent proposed (proposal, design, tasks, spec delta); Mark decided 2026-11-15, nothing is built until the PR is reviewed and merged",
-     "url": null
-    },
-    {
-     "item": "Full agent: daily line in the notes, and Mark's parked test (merge by voice)",
-     "url": null
-    },
-    {
-     "item": "Wake on Mark's voice: hands-free start with a wake word on the phone, and Jarvis reacts only to Mark (speaker verification, #23; proposal in #29, approved by Mark 2026-11-16)",
-     "url": null
-    },
-    {
-     "item": "Speed: a typical turn under 10 s (measured 2026-11-16: about 15-25 s; done so far: 4 CPUs and a 160-character spoken answer; next: streaming speech, a voice profile and Whisper settings switched on, a shorter resumed session)",
-     "url": null
-    },
-    {
-     "item": "Speed: a voice profile (voice_model, voice_effort) and Whisper settings (language, beam) built and measured, default unchanged; proposed: effort low (about 5 s off multi-step turns, same answers), JARVIS_WHISPER_LANGUAGE=en (0.8 s); not switched on yet",
-     "url": null
-    },
-    {
-     "item": "Speed and conversations (Mark 2026-11-17, #61): a fresh session after an hour without a turn (session_idle_minutes, saves about 3 s per turn and the cache rewrite), and Jarvis offers to close a finished conversation and closes it on request (SESSION: close); built and tested in CI (change jarvis-session-lifetime, #68), prompt checked with real turns; waits on review, install and a turn through the wrapper on the agent host",
-     "url": null
-    },
-    {
-     "item": "Notifications: POST /notify on the bridge, the ntfy broker on the tailnet, the app's listener with fixed words on the lock screen, the battery number measured",
-     "url": null
-    },
-    {
-     "item": "Fingerprint confirmation: a signed confirmation verified on the agent host, the method per class, the parked test",
-     "url": null
-    },
-    {
-     "item": "Speaker check, phase 0: the measurement of false refusals and false accepts, with a go or no-go",
-     "url": null
-    }
-   ]
+   "nl": {
+    "goal": null,
+    "phase": null,
+    "next": [],
+    "note": "2 open punten in deze fase; de omschrijving volgt."
+   }
   }
  ]
 }

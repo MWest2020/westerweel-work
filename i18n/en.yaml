@@ -15,35 +15,17 @@
 - id: now_generated
   translation: "Generated on"
 - id: now_source
-  translation: "source: each project's roadmap and the build state"
+  translation: "source: each project's roadmap"
 - id: now_no_data
   translation: "No overview has been generated yet."
-- id: now_roadmap
-  translation: "Roadmap"
 - id: now_progress
   translation: "Done in this phase"
-- id: now_gap
-  translation: "Still to do in this phase"
-- id: now_gap_none
-  translation: "Everything in this phase is done."
+- id: now_phase_step
+  translation: "phase {{ .I }} of {{ .N }}"
+- id: now_next
+  translation: "Next up"
 - id: now_projects
   translation: "Projects"
-- id: now_private
-  translation: "private"
-- id: now_in_flight
-  translation: "In the making"
-- id: now_stage_proposed
-  translation: "proposed"
-- id: now_stage_proposing
-  translation: "being written"
-- id: now_stage_queued
-  translation: "queued"
-- id: now_stage_building
-  translation: "building"
-- id: now_stage_merging
-  translation: "merging"
-- id: now_stage_deploying
-  translation: "deploying"
 # /boekenclub/ and /en/bookclub/ (layouts/boekenclub/)
 - id: bc_club
   translation: "Book club"
