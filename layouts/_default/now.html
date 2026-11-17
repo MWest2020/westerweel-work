@@ -1,12 +1,18 @@
 {{- define "main" }}
-{{- /* The overview at /nu/ and /en/now/: per project the phase, the roadmap
-       and the gap to done (Mark, 2026-10-30). It renders data/status.json,
-       which ratatoskr's orchestrator/status_site.py generates from each
-       project's docs/reference/roadmap.yml and the build state. What waits on
-       Mark and what is stuck go to him by mail, never to this page. No inline
-       styles or scripts: the CSP pins both by hash; styling lives in
+{{- /* The overview at /nu/ and /en/now/. Per project (Mark, 2026-11-17):
+       name, one-line goal, current phase, progress (done/total) and two to
+       four "next up" lines, in the page's language only: each project carries
+       an `en` and an `nl` block and this page reads the one for its language,
+       never the other. It renders data/status.json ("schema": 2), which
+       ratatoskr's orchestrator/status_site.py generates from each project's
+       docs/reference/roadmap.yml; that generator strips issue numbers and
+       other coordination notes, and leaves out private projects and client
+       names. Any other schema shows "no overview" rather than a guess. What
+       waits on Mark goes to him by mail, never to this page. No inline styles
+       or scripts: the CSP pins both by hash; styling lives in
        assets/css/extended/custom.css. */ -}}
 {{- $s := site.Data.status }}
+{{- $lang := site.Language.Lang }}
 <article class="post-single now">
   <header class="post-header">
     <h1 class="post-title">{{ .Title }}</h1>
@@ -22,59 +28,44 @@
 
   <div class="post-content md-content now-intro">{{ .Content }}</div>
 
-  {{- if not $s }}
+  {{- if or (not $s) (ne (int ($s.schema | default 0)) 2) }}
   <p class="now-empty">{{ i18n "now_no_data" }}</p>
   {{- else }}
   <section class="now-projects" aria-label="{{ i18n "now_projects" }}">
     {{- range $s.projects }}
+    {{- $p := . }}
+    {{- with index $p $lang }}
     <div class="now-project">
       <h2 class="now-project-name">
-        {{- if .url }}<a href="{{ .url }}">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}
-        {{- if not .public }} <span class="now-private">{{ i18n "now_private" }}</span>{{ end }}
+        {{- if $p.url }}<a href="{{ $p.url }}">{{ $p.name }}</a>{{ else }}{{ $p.name }}{{ end -}}
       </h2>
       {{- with .goal }}<p class="now-goal">{{ . }}</p>{{ end }}
 
-      {{- with .phases }}
-      <ol class="now-phases" aria-label="{{ i18n "now_roadmap" }}">
-        {{- range . }}
-        <li class="now-phase now-phase-{{ .state }}"{{ if eq .state "current" }} aria-current="step"{{ end }}>
-          <span class="now-phase-name">{{ .name }}</span>
-          {{- with .summary }}<span class="now-phase-summary">{{ . }}</span>{{ end }}
-        </li>
-        {{- end }}
-      </ol>
-      {{- end }}
+      <p class="now-phase-line">
+        <span class="now-phase-step">{{ i18n "now_phase_step" (dict "I" $p.phase_index "N" $p.phase_count) }}</span>
+        {{- with .phase }} <span class="now-phase-name">{{ . }}</span>{{ end }}
+      </p>
 
-      {{- with .progress }}
+      {{- with $p.progress }}
       <p class="now-progress">
         <span class="now-progress-label">{{ i18n "now_progress" }}</span>
-        <progress value="{{ .done }}" max="{{ .total }}">{{ .done }}/{{ .total }}</progress>
+        <progress value="{{ .done }}" max="{{ .total }}" aria-hidden="true"></progress>
         <span class="now-progress-count">{{ .done }}/{{ .total }}</span>
       </p>
       {{- end }}
 
-      {{- if .progress }}
-      <h3>{{ i18n "now_gap" }}</h3>
-      {{- with .gap }}
-      <ul class="now-list now-gap">
+      <h3>{{ i18n "now_next" }}</h3>
+      {{- with .next }}
+      <ul class="now-list now-next">
         {{- range . }}
-        <li>{{ if .url }}<a href="{{ .url }}">{{ .item }}</a>{{ else }}{{ .item }}{{ end }}</li>
+        <li>{{ . }}</li>
         {{- end }}
       </ul>
       {{- else }}
-      <p class="now-empty">{{ i18n "now_gap_none" }}</p>
-      {{- end }}
-      {{- end }}
-
-      {{- with .in_flight }}
-      <p class="now-flight">
-        <span class="now-flight-label">{{ i18n "now_in_flight" }}:</span>
-        {{- range $i, $f := . }}{{ if $i }},{{ end }}
-        <code>{{ $f.change }}</code> <span class="now-stage now-stage-{{ $f.stage }}">{{ i18n (printf "now_stage_%s" $f.stage) | default $f.stage }}</span>
-        {{- end }}
-      </p>
+      <p class="now-empty">{{ .note }}</p>
       {{- end }}
     </div>
+    {{- end }}
     {{- end }}
   </section>
   {{- end }}

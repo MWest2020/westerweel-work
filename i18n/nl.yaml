@@ -15,35 +15,17 @@
 - id: now_generated
   translation: "Gegenereerd op"
 - id: now_source
-  translation: "bron: de roadmap van elk project en de bouwstatus"
+  translation: "bron: de roadmap van elk project"
 - id: now_no_data
   translation: "Er is nog geen overzicht gegenereerd."
-- id: now_roadmap
-  translation: "Roadmap"
 - id: now_progress
   translation: "Klaar in deze fase"
-- id: now_gap
-  translation: "Nog te doen in deze fase"
-- id: now_gap_none
-  translation: "Alles van deze fase is klaar."
+- id: now_phase_step
+  translation: "fase {{ .I }} van {{ .N }}"
+- id: now_next
+  translation: "Hierna"
 - id: now_projects
   translation: "Projecten"
-- id: now_private
-  translation: "privé"
-- id: now_in_flight
-  translation: "In de maak"
-- id: now_stage_proposed
-  translation: "voorgesteld"
-- id: now_stage_proposing
-  translation: "wordt geschreven"
-- id: now_stage_queued
-  translation: "in de rij"
-- id: now_stage_building
-  translation: "bouwt"
-- id: now_stage_merging
-  translation: "wordt gemerged"
-- id: now_stage_deploying
-  translation: "wordt uitgerold"
 # /boekenclub/ and /en/bookclub/ (layouts/boekenclub/)
 - id: bc_club
   translation: "Boekenclub"
