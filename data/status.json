@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18T10:14:52+01:00",
+ "generated": "2026-11-18T12:14:53+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -353,8 +353,8 @@
    ],
    "phase": "Brand app in the stores",
    "progress": {
-    "done": 10,
-    "total": 11
+    "done": 11,
+    "total": 12
    },
    "gap": [
     {
