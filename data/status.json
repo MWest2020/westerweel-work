@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17T23:58:52+01:00",
+ "generated": "2026-11-18T08:11:18+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -65,7 +65,7 @@
      "url": "https://github.com/MWest2020/wordsworth/pull/433"
     },
     {
-     "item": "Share from the console with layered anonymisation: proposals #439/#440 merged, PDF views built (#436); Mark decided the design (#416, #417, #444, defaults, 2026-11-14) and the read-gate proposal is merged (#446); the read gate is merged (#485); the share build is next, and the share deploy also waits on Mark: #487 (reveal answers about a document before the grant check; proposal #494, default: authorize first)",
+     "item": "Share from the console with layered anonymisation: proposals #439/#440 merged, PDF views built (#436); Mark decided the design (#416, #417, #444, defaults, 2026-11-14) and the read-gate proposal is merged (#446); the read gate is merged (#485); reveal now checks the grant first (#518 on the default of #487, in production since 2026-11-17, homelab d30c4fe); the share build is next",
      "url": "https://github.com/MWest2020/wordsworth/pull/440"
     },
     {
@@ -430,7 +430,7 @@
    ],
    "phase": "Voice and speed",
    "progress": {
-    "done": 21,
+    "done": 25,
     "total": 45
    },
    "gap": [
@@ -439,24 +439,12 @@
      "url": "https://github.com/MWest2020/jarvis/tree/main/openspec/changes/archive/2026-11-14-add-voice-bridge/tasks.md"
     },
     {
-     "item": "Change add-android-client approved by Mark: waits on Mark: #13 (default: built as proposed, CI keeps a debug-signed APK)",
-     "url": "https://github.com/MWest2020/jarvis/pull/12"
-    },
-    {
      "item": "Android app: a spoken round trip on Mark's phone, recorded in the how-to",
      "url": "https://github.com/MWest2020/jarvis/blob/main/docs/how-to/android-app.md#test-record"
     },
     {
-     "item": "Android app: main APKs signed with one stable key, so an update installs over the app (key and secrets 2026-11-16, #54)",
-     "url": "https://github.com/MWest2020/jarvis/pull/54"
-    },
-    {
      "item": "Android app: a release build attached to a GitHub release by CI (task 4.3)",
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-android-client/tasks.md"
-    },
-    {
-     "item": "Change add-drive-mode rewritten against what exists (2026-11-17): handoffs replaced by the full agent's gated calls and the desk handoff, the web client by the app, the wake word left to #23, the plugin moved out; seven small phases; merged",
-     "url": "https://github.com/MWest2020/jarvis/pull/9"
     },
     {
      "item": "Drive mode 1: the journal on the bridge, \"where was I\" without an agent turn, \"note\"",
@@ -487,10 +475,6 @@
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-drive-mode/tasks.md#7-screen-off-and-the-wheel-button"
     },
     {
-     "item": "Change jarvis-full-agent proposed (proposal, design, tasks, spec delta); Mark decided 2026-11-15, nothing is built until the PR is reviewed and merged",
-     "url": "https://github.com/MWest2020/jarvis/pull/20"
-    },
-    {
      "item": "Full agent: daily line in the notes, and Mark's parked test (merge by voice)",
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-full-agent/tasks.md#4-daily-line-and-parked-test"
     },
@@ -499,11 +483,11 @@
      "url": "https://github.com/MWest2020/jarvis/issues/23"
     },
     {
-     "item": "Speed: a typical turn under 10 s (measured 2026-11-16: about 15-25 s; done so far: 4 CPUs, a 160-character spoken answer, streaming speech built (#66); next: streaming speech deployed, a voice profile and Whisper settings switched on, a shorter resumed session)",
+     "item": "Speed: a typical turn under 10 s (measured 2026-11-16: about 15-25 s; done so far: 4 CPUs, a 160-character spoken answer, streaming speech built and deployed (#66, homelab#74), a fresh session after an hour idle (#68); next: a voice profile and Whisper settings switched on)",
      "url": "https://github.com/MWest2020/jarvis/blob/main/docs/how-to/bridge-service.md#where-the-20-seconds-went-2026-11-17-before-this-timing-existed"
     },
     {
-     "item": "Speed: streaming speech live: bridge deployed, the new APK on Mark's phone, first_audio_ms of real turns in the how-to and how it sounds at sentence boundaries",
+     "item": "Speed: streaming speech live: bridge deployed (homelab#74) and the APK released (android-87bcad4, 2026-11-17); open: Mark's turns on the phone, first_audio_ms of real turns in the how-to and how it sounds at sentence boundaries (task 3.3)",
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-streaming-speech/tasks.md"
     },
     {
@@ -511,7 +495,7 @@
      "url": "https://github.com/MWest2020/jarvis/blob/main/docs/how-to/agent-host.md#the-voice-profile"
     },
     {
-     "item": "Easter egg (Mark 2026-11-17): Jarvis sings when asked; public-domain tunes on the bridge (happy-birthday, twinkle, frere-jacques, mountain-king, ode-to-joy) plus one marked parody (iron-man, the riff only, own words, JARVIS_SING_PARODY=0 off), the agent's own lyrics, Kokoro plus numpy TD-PSOLA and a soft organ, at most 20 s, never a read-back, JARVIS_SING=0 off; change jarvis-sing built with tests in CI; deployed, the prompt installed on the agent host and heard on the phone",
+     "item": "Easter egg (Mark 2026-11-17): Jarvis sings when asked; public-domain tunes on the bridge (happy-birthday, twinkle, frere-jacques, mountain-king, ode-to-joy) plus one marked parody (iron-man, the riff only, own words, JARVIS_SING_PARODY=0 off), the agent's own lyrics, Kokoro plus numpy TD-PSOLA and a soft organ, at most 20 s, never a read-back, JARVIS_SING=0 off; change jarvis-sing built with tests in CI (#78, #79, #81); bridge with every tune deployed 2026-11-17 (homelab#78); open: the prompt installed on the agent host and a song heard on the phone, recorded",
      "url": "https://github.com/MWest2020/jarvis/pull/78"
     },
     {
