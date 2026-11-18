@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18T08:11:18+01:00",
+ "generated": "2026-11-18T10:14:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -353,14 +353,10 @@
    ],
    "phase": "Brand app in the stores",
    "progress": {
-    "done": 9,
+    "done": 10,
     "total": 11
    },
    "gap": [
-    {
-     "item": "Live on Google Play: 1.8.0 (version code 10, all fifteen games) sent for production review on 2026-11-17, replacing 1.0.0 (in review since 9 Nov) and the 1.4.0 draft, and on internal testing; the store page goes live when Google approves it",
-     "url": "https://github.com/MWest2020/bazibo/blob/main/docs/release.md"
-    },
     {
      "item": "Live on the App Store",
      "url": "https://github.com/MWest2020/bazibo/blob/main/docs/release.md"
