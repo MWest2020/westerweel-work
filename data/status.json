@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-20T08:29:54+01:00",
+ "generated": "2026-11-20T10:30:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -430,8 +430,8 @@
    ],
    "phase": "Voice and speed",
    "progress": {
-    "done": 25,
-    "total": 45
+    "done": 27,
+    "total": 48
    },
    "gap": [
     {
@@ -445,10 +445,6 @@
     {
      "item": "Android app: a release build attached to a GitHub release by CI (task 4.3)",
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-android-client/tasks.md"
-    },
-    {
-     "item": "Drive mode 1: the journal on the bridge, \"where was I\" without an agent turn, \"note\"",
-     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-drive-mode/tasks.md#1-journal-recap-and-notes-bridge"
     },
     {
      "item": "Drive mode 2: nothing lost: a turn id runs once, slow turns and dropped connections become arrivals, \"what's new\", \"cancel\", an unheard read-back cancelled",
@@ -499,8 +495,16 @@
      "url": "https://github.com/MWest2020/jarvis/pull/78"
     },
     {
+     "item": "Easter egg 2 (Mark 2026-11-18, \"Can it beatbox?\"): Jarvis beatboxes when asked; three beats on the bridge (boots-and-cats, hip-hop, jarvis-hook with a hummed bass and a sung hook) or one at random, sounds cut from its own Kokoro voice over synthesised drums, numpy only, at most 15 s, never a read-back, JARVIS_BEATBOX=0 off; change jarvis-beatbox built with tests in CI; open: merged, the bridge image deployed, the prompt installed on the agent host and a beat heard on the phone",
+     "url": "https://github.com/MWest2020/jarvis/pull/86"
+    },
+    {
      "item": "Claude Code plugin: the gate as a standalone plugin, then the bridge setup",
      "url": "https://github.com/MWest2020/jarvis/issues/73"
+    },
+    {
+     "item": "Egress stage 0, observe only (jarvis-credential-proxy): a proxy on loopback under its own user passes every connection of a full turn through by name and logs it (origin, address, TLS server name; never bodies, headers or queries), the turn record gets a summary, egress.mode = off by default, nothing denied; built with tests in CI, reviewed and merged (#87), installed on agent-lxc and live in observe since 2026-11-20 with its host checks passing (traffic through the proxy, timing within noise, desk unchanged, gate checks 4-6 and 12); pinning the proxy variables built (0.13, needs a reinstall); open: a week of voice turns observed, the list for stage 1",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/docs/how-to/agent-host.md#host-checks-of-stage-0-task-010-2026-11-20"
     },
     {
      "item": "Notifications: POST /notify on the bridge, the ntfy broker on the tailnet, the app's listener with fixed words on the lock screen, the battery number measured",
