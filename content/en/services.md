@@ -73,8 +73,7 @@ agent.
 
 ## Availability
 
-<p class="todo">TODO (Mark): which one is true? "At most 8 hours a week,
-well-defined assignments" or "By the day, by the project, or interim".</p>
+By the day, by the project, or as an interim.
 
 Remote from North Holland, on site when needed.
 

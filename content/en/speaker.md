@@ -12,9 +12,6 @@ English or Dutch.
 
 The decks are on the [workshops](/en/workshops/) page and run in your browser.
 
-<p class="todo">TODO (Mark): headshot (a photo for organisers, portrait and
-square).</p>
-
 ## Talks
 
 ### Agents, skills & tools
@@ -26,8 +23,6 @@ its own, from monitoring only to fully self-directed. David against Goliath: a
 small local model against a cloud baseline, and where it still loses.
 
 - **Format:** talk
-- **Length:** <span class="todo">TODO (Mark)</span>
-- **Level:** <span class="todo">TODO (Mark)</span>
 - **Language:** English
 - **Deck:** [/slides/agents-skills-tools/](/slides/agents-skills-tools/) (draft)
 
@@ -41,8 +36,6 @@ biggest lesson: the knowledge base is what prevents hallucination, not the
 model.
 
 - **Format:** talk
-- **Length:** <span class="todo">TODO (Mark)</span>
-- **Level:** <span class="todo">TODO (Mark)</span>
 - **Language:** English or Dutch
 - **Deck:** [/slides/context-is-alles/](/slides/context-is-alles/?lang=en),
   goes with [the blog post](/en/posts/2026-11-04-context-is-everything/)
@@ -56,8 +49,6 @@ the comparison ends: no memory between sessions, never tired, but wrong with
 great confidence. Ends with a checklist for tomorrow.
 
 - **Format:** talk or workshop
-- **Length:** <span class="todo">TODO (Mark)</span>
-- **Level:** <span class="todo">TODO (Mark)</span>
 - **Language:** English or Dutch
 - **Deck:** [/slides/ai-zijn-net-mensen/](/slides/ai-zijn-net-mensen/?lang=en)
 
@@ -71,7 +62,6 @@ version and code as a hand-out.
 
 - **Format:** dev session
 - **Length:** ~1 hour
-- **Level:** <span class="todo">TODO (Mark)</span>
 - **Language:** Dutch
 - **Deck:** [/slides/claude-shift-left/](/slides/claude-shift-left/),
   [reading version](/slides/claude-shift-left/lees/),
@@ -87,14 +77,8 @@ the moment CI/CD takes over.
 
 - **Format:** dev session
 - **Length:** ~1 hour
-- **Level:** <span class="todo">TODO (Mark)</span>
 - **Language:** Dutch
 - **Deck:** [/slides/docker-101/](/slides/docker-101/)
-
-## Past talks
-
-<p class="todo">TODO (Mark): which events, with date and title. And the talk
-on 3 December: at which event?</p>
 
 ## Topics
 

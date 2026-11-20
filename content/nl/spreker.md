@@ -12,9 +12,6 @@ cloud native, in het Nederlands of het Engels.
 
 De decks staan bij [workshops](/workshops/) en draaien in je browser.
 
-<p class="todo">TODO (Mark): headshot (foto voor organisatoren, staand en
-vierkant).</p>
-
 ## Talks
 
 ### Agents, skills & tools
@@ -27,8 +24,6 @@ tegen Goliath: een klein lokaal model tegen een cloud-baseline, en waar hij
 nog verliest.
 
 - **Vorm:** talk
-- **Lengte:** <span class="todo">TODO (Mark)</span>
-- **Niveau:** <span class="todo">TODO (Mark)</span>
 - **Taal:** Engels
 - **Deck:** [/slides/agents-skills-tools/](/slides/agents-skills-tools/) (concept)
 
@@ -41,8 +36,6 @@ wat een klein lokaal model je leert over je eigen context. De grootste les:
 de kennisbank gaat hallucineren tegen, niet het model.
 
 - **Vorm:** talk
-- **Lengte:** <span class="todo">TODO (Mark)</span>
-- **Niveau:** <span class="todo">TODO (Mark)</span>
 - **Taal:** Nederlands of Engels
 - **Deck:** [/slides/context-is-alles/](/slides/context-is-alles/), hoort bij
   [de blogpost](/posts/2026-11-04-context-is-alles/)
@@ -56,8 +49,6 @@ de vergelijking ophoudt: geen geheugen tussen sessies, niet moe, wel met veel
 zelfvertrouwen fout. Eindigt met een checklist voor morgen.
 
 - **Vorm:** talk of workshop
-- **Lengte:** <span class="todo">TODO (Mark)</span>
-- **Niveau:** <span class="todo">TODO (Mark)</span>
 - **Taal:** Nederlands of Engels
 - **Deck:** [/slides/ai-zijn-net-mensen/](/slides/ai-zijn-net-mensen/)
 
@@ -71,7 +62,6 @@ leesversie en code als hand-out.
 
 - **Vorm:** dev-sessie
 - **Lengte:** ±1 uur
-- **Niveau:** <span class="todo">TODO (Mark)</span>
 - **Taal:** Nederlands
 - **Deck:** [/slides/claude-shift-left/](/slides/claude-shift-left/),
   [leesversie](/slides/claude-shift-left/lees/),
@@ -87,14 +77,8 @@ overneemt.
 
 - **Vorm:** dev-sessie
 - **Lengte:** ±1 uur
-- **Niveau:** <span class="todo">TODO (Mark)</span>
 - **Taal:** Nederlands
 - **Deck:** [/slides/docker-101/](/slides/docker-101/)
-
-## Eerder gesproken
-
-<p class="todo">TODO (Mark): welke evenementen, met datum en titel. En de talk
-van 3 december: op welk evenement?</p>
 
 ## Onderwerpen
 

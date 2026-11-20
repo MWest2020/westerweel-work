@@ -72,8 +72,7 @@ MCP die agents naar de kennisbank stuurt naar SREna, een lokale SRE-agent.
 
 ## Beschikbaarheid
 
-<p class="todo">TODO (Mark): welke klopt? "Maximaal 8 uur per week,
-afgebakende opdrachten" of "Per dag, per project, of als interim".</p>
+Per dag, per project, of als interim.
 
 Op afstand vanuit Noord-Holland, op locatie als het moet.
 
