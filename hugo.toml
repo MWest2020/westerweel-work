@@ -26,15 +26,17 @@ pygmentsUseClasses = true
     weight = 1
     contentDir = "content/nl"
     [languages.nl.params]
-      description = "Mark Westerweel — SRE engineer. Aantekeningen, blogs, en wat ik doe."
+      description = "Mark Westerweel — Site Reliability Engineer. Aantekeningen, blogs, en wat ik doe."
       [languages.nl.params.homeInfoParams]
         Title = "westerweel.work"
         Content = """
-Mark Westerweel — SRE engineer.
+Mark Westerweel — Site Reliability Engineer.
 
 Ik bouw en repareer infrastructuur voor Nederlandse organisaties die soevereiniteit serieus nemen. Kubernetes, Proxmox, ArgoCD, ISO 27001. Open source waar het kan, eigen ijzer waar het moet.
 
-Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestoken. Geen hot takes, geen AI-content marketing, geen LinkedIn cross-posts.
+<p class="cta">Beschikbaar voor afgebakende opdrachten en talks.<br><a class="cta-link" href="/diensten/">diensten</a> <a class="cta-link" href="/spreker/">spreker</a></p>
+
+Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestoken. Geen hot takes, geen AI-content marketing.
 """
     [languages.nl.params.footer]
       text = "<a href=\"mailto:mark@westerweel.work\">mark@westerweel.work</a> · <a href=\"https://github.com/MWest2020\" target=\"_blank\" rel=\"noopener\">GitHub</a> · <a href=\"/posts/index.xml\">RSS</a>"
@@ -63,6 +65,11 @@ Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestok
       url = "/workshops/"
       weight = 25
     [[languages.nl.menu.main]]
+      identifier = "spreker"
+      name = "spreker"
+      url = "/spreker/"
+      weight = 26
+    [[languages.nl.menu.main]]
       identifier = "projecten"
       name = "projecten"
       url = "/projecten/"
@@ -88,15 +95,17 @@ Hier staan aantekeningen, RCA's, en stukken over werk waar ik tijd in heb gestok
     weight = 2
     contentDir = "content/en"
     [languages.en.params]
-      description = "Mark Westerweel — SRE engineer. Notes, posts, and what I do."
+      description = "Mark Westerweel — Site Reliability Engineer. Notes, posts, and what I do."
       [languages.en.params.homeInfoParams]
         Title = "westerweel.work"
         Content = """
-Mark Westerweel — SRE engineer.
+Mark Westerweel — Site Reliability Engineer.
 
 I build and fix infrastructure for Dutch organizations that take sovereignty seriously. Kubernetes, Proxmox, ArgoCD, ISO 27001. Open source where possible, own hardware where necessary.
 
-Notes here, RCAs, and pieces on work I've put real time into. No hot takes, no AI content marketing, no LinkedIn cross-posts.
+<p class="cta">Available for well-defined assignments and talks.<br><a class="cta-link" href="/en/services/">services</a> <a class="cta-link" href="/en/speaker/">speaker</a></p>
+
+Notes here, RCAs, and pieces on work I've put real time into. No hot takes, no AI content marketing.
 """
     [languages.en.params.footer]
       text = "<a href=\"mailto:mark@westerweel.work\">mark@westerweel.work</a> · <a href=\"https://github.com/MWest2020\" target=\"_blank\" rel=\"noopener\">GitHub</a> · <a href=\"/en/posts/index.xml\">RSS</a>"
@@ -124,6 +133,11 @@ Notes here, RCAs, and pieces on work I've put real time into. No hot takes, no A
       name = "workshops"
       url = "/workshops/"
       weight = 25
+    [[languages.en.menu.main]]
+      identifier = "speaker"
+      name = "speaker"
+      url = "/speaker/"
+      weight = 26
     [[languages.en.menu.main]]
       identifier = "projects"
       name = "projects"

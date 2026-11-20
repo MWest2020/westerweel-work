@@ -2,6 +2,14 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-17 (freelance en spreker)
+
+- Home (NL + EN): "Site Reliability Engineer" in plaats van "SRE engineer" (ook in de site-beschrijving en de Person JSON-LD). Onder de intro een regel "Beschikbaar voor afgebakende opdrachten en talks." met knoppen naar diensten en spreker. "Geen LinkedIn cross-posts" is weg (Marks opdracht van 2026-11-17).
+- Diensten / Services (NL + EN): drie kernaanbiedingen (soevereine platforms, ISO 27001 zonder papierwinkel, AI-agents in operations), elk met voor wie, wat je krijgt en een bewijsregel naar een bestaande post of project. Subsidies, SRE en spreken onder "Ook". De beschikbaarheid staat als TODO tot Mark kiest.
+- Nieuwe pagina Spreker / Speaker (`/spreker/`, `/en/speaker/`, `translationKey: speaker`) in het menu: pitch, de vijf decks van /workshops/ als talks, onderwerpen, korte en lange bio, contact. Headshot, eerder gesproken, lengte en niveau staan als TODO (`class="todo"`). Workshops en spreker linken naar elkaar.
+- Over / About (NL + EN): regel bovenaan over freelance werk en talks; "Site Reliability Engineer" in plaats van "SRE-engineer".
+- Smoke test: spreker/speaker bestaan, zijn gepaard, staan in het menu en de home linkt ernaar.
+
 ## 2026-11-16 (Agents, skills & tools)
 
 - Slides: *Agents, skills & tools* (EN) op /slides/agents-skills-tools/, gebouwd in tree-presentations; concept voor de talk van 3 december. Vermeld op de workshops-pagina (NL + EN).

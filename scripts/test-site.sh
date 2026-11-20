@@ -77,7 +77,9 @@ for f in \
   "$PUBLIC_DIR/posts/index.html" \
   "$PUBLIC_DIR/en/posts/index.html" \
   "$PUBLIC_DIR/nu/index.html" \
-  "$PUBLIC_DIR/en/now/index.html"
+  "$PUBLIC_DIR/en/now/index.html" \
+  "$PUBLIC_DIR/spreker/index.html" \
+  "$PUBLIC_DIR/en/speaker/index.html"
 do
   assert_file_exists "$f"
 done
@@ -109,6 +111,15 @@ assert_grep "$PUBLIC_DIR/diensten/index.html"    'lang-menu[^<]*<li>[^<]*<a href
 assert_grep "$PUBLIC_DIR/en/services/index.html" 'lang-menu[^<]*<li>[^<]*<a href=[^>]*/diensten/'     "header on /en/services/ links to /diensten/"
 assert_grep "$PUBLIC_DIR/about/index.html"       'lang-menu[^<]*<li>[^<]*<a href=[^>]*/en/about/'     "header on /about/ links to /en/about/"
 assert_grep "$PUBLIC_DIR/en/about/index.html"    'lang-menu[^<]*<li>[^<]*<a href=[^>]*/about/'        "header on /en/about/ links to /about/"
+
+echo "==> spreker (NL) and speaker (EN): paired, in the menu, linked from home"
+assert_grep "$PUBLIC_DIR/spreker/index.html"    'hreflang=en href=https://westerweel.work/en/speaker/' "spreker -> en/speaker hreflang"
+assert_grep "$PUBLIC_DIR/en/speaker/index.html" 'hreflang=nl href=https://westerweel.work/spreker/'    "en/speaker -> spreker hreflang"
+assert_grep "$PUBLIC_DIR/index.html"            'id=menu.*href=https://westerweel.work/spreker/'        "NL menu links to /spreker/"
+assert_grep "$PUBLIC_DIR/en/index.html"         'id=menu.*href=https://westerweel.work/en/speaker/'     "EN menu links to /en/speaker/"
+assert_grep "$PUBLIC_DIR/index.html"            'class=cta-link href=/spreker/'                         "NL home calls to /spreker/"
+assert_grep "$PUBLIC_DIR/en/index.html"         'class=cta-link href=/en/services/'                     "EN home calls to /en/services/"
+assert_not_grep "$PUBLIC_DIR/index.html"        'SRE engineer'                                          "no 'SRE engineer' on NL home"
 
 echo "==> cookie banner partial included"
 assert_grep "$PUBLIC_DIR/index.html"    'cookie-term' "NL home includes cookie banner partial"

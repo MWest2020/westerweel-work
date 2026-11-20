@@ -1,12 +1,19 @@
 ---
 title: "Services"
-summary: "What I do: SRE, platform and infrastructure, speaking."
+summary: "What I do: sovereign platforms, ISO 27001 without the paperwork, and AI agents in operations."
 translationKey: "services"
 ---
 
-In order of how often it's asked:
+Infrastructure for Dutch organisations that take sovereignty seriously.
+Three things I can help you with:
 
-### Platform & infrastructure
+## Sovereign platforms
+
+**For whom:** organisations that want their platform in their own hands:
+from managed Kubernetes to their own hardware, or a cluster nobody dares
+to touch any more.
+
+**What you get:**
 
 - Kubernetes: setting up, running, or taking over an existing cluster.
 - Migrations: managed K8s to bare-metal or on-prem, and back.
@@ -14,7 +21,17 @@ In order of how often it's asked:
 - Proxmox virtualisation: for when Kubernetes is overkill — more often
   than you'd think.
 
-### Compliance
+**Proof:** my own platform: a Kubernetes cluster on three mini PCs, built
+by hand and run through GitOps, with a runbook for every intervention. See
+[Homelab](/en/projects/#homelab--the-iron-under-everything) on the
+projects page.
+
+## ISO 27001 without the paperwork
+
+**For whom:** organisations with ISO 27001, or on their way to it, where
+the documentation and the practice have drifted apart.
+
+**What you get:**
 
 - Existing controls under critical review: drop what doesn't work,
   capture what does.
@@ -23,30 +40,42 @@ In order of how often it's asked:
 - Agentic handiwork where it fits: RCAs, non-conformities and audit
   trail automated where it can be, human-in-the-loop where it must be.
 
-### Open source & funding
+**Proof:** documentation that stays alive, with gates that block
+unverified changes: from 63 findings to zero. See
+[Documentation that lies is worse than no documentation](/en/posts/2026-07-14-living-documentation-with-gates-and-agents/).
 
-- MIT applications (the Dutch SME innovation scheme for regions and top
-  sectors), written and shepherded.
-- Innovation Budget Digital Government and similar programmes.
-- WBSO (Dutch R&D tax credit): technical substantiation that survives
-  the RVO review.
-- Code and proposal hand in hand — no fair-weather deliverables.
+## AI agents in operations
 
-### SRE
+**For whom:** teams that want to use AI agents in operations without them
+guessing or working outside their boundaries.
 
-- SLOs that start with the customer.
-- Killing toil.
-- And falling in love with complex systems.
+**What you get:**
 
-### Speaker
+- Context: the agent starts at the knowledge base, not at the model.
+- Knowledge bases: documentation with an owner, a review date and
+  provenance, so an agent cites instead of guesses.
+- Guardrails: what an agent must not do is enforced with hooks,
+  permissions and CI, not asked for in a prompt.
 
-- Talks and workshops on SRE, AI agents and context. The decks are on
-  the [workshops](/en/workshops/) page.
+**Proof:** [Context is everything](/en/posts/2026-11-04-context-is-everything/):
+from an MCP that sends agents to the knowledge base to SREna, a local SRE
+agent.
 
-### How I work
+## Also
 
-By the day, by the project, or interim. Remote from North Holland, on
-site when needed.
+- **Funding:** MIT applications (the Dutch SME innovation scheme for
+  regions and top sectors), Innovation Budget Digital Government and WBSO
+  (Dutch R&D tax credit): written and shepherded, with a technical
+  substantiation that survives the RVO review.
+- **SRE:** SLOs that start with the customer, and killing toil.
+- **Speaking:** talks and dev sessions on SRE, AI agents and context. See
+  [speaker](/en/speaker/).
+
+## Availability
+
+By the day, by the project, or as an interim.
+
+Remote from North Holland, on site when needed.
 
 I think, I test, I do. For code: spec-driven development.
 
