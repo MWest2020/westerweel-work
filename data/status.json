@@ -1,6 +1,330 @@
 {
- "generated": "2026-11-20T22:31:54+01:00",
+ "generated": "2026-11-21T02:32:53+01:00",
  "projects": [
+  {
+   "name": "wordsworth",
+   "public": true,
+   "url": "https://github.com/MWest2020/wordsworth",
+   "in_flight": [
+    {
+     "change": "originals-encrypt-existing",
+     "stage": "proposed"
+    },
+    {
+     "change": "console-dossier-home",
+     "stage": "proposed"
+    },
+    {
+     "change": "reanonymise-particle-name-documents",
+     "stage": "proposed"
+    }
+   ],
+   "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
+   "phases": [
+    {
+     "id": "poc",
+     "name": "Proof of concept",
+     "summary": "ingest, anonymise, search, reversible tokens with grants, the console",
+     "state": "past"
+    },
+    {
+     "id": "pilot",
+     "name": "Pilot: Gooise Meren",
+     "summary": "one real Woo publication (415 documents) end to end, for a key user",
+     "state": "current"
+    },
+    {
+     "id": "data-autonomy",
+     "name": "Data autonomy",
+     "summary": "the organisation holds the keys: originals encrypted, rights per group, a separate key service, keys exportable (ADR-0008, ADR-0009)",
+     "state": "next"
+    },
+    {
+     "id": "production",
+     "name": "Production",
+     "summary": "survives a node, NORA-aligned, ready for a first organisation",
+     "state": "next"
+    }
+   ],
+   "phase": "Pilot: Gooise Meren",
+   "progress": {
+    "done": 5,
+    "total": 10
+   },
+   "gap": [
+    {
+     "item": "No untokenised names left (names with particles like ter, van der): the reprocess with a count-only check is built (#449) and deployed (homelab#58); the run over the dossier is next",
+     "url": "https://github.com/MWest2020/wordsworth/pull/449"
+    },
+    {
+     "item": "A redacted PDF for every reversible document in the dossier",
+     "url": "https://github.com/MWest2020/wordsworth/issues/259"
+    },
+    {
+     "item": "Readable topics (named by the language model) and search that shows the matching passage (built in #433 and #432, in production since 2026-11-14 with homelab#58; label quality judged at the rehearsal)",
+     "url": "https://github.com/MWest2020/wordsworth/pull/433"
+    },
+    {
+     "item": "Share from the console with layered anonymisation: proposals #439/#440 merged, PDF views built (#436); Mark decided the design (#416, #417, #444, defaults, 2026-11-14) and the read-gate proposal is merged (#446); the read gate is merged (#485); reveal now checks the grant first (#518 on the default of #487, in production since 2026-11-17, homelab d30c4fe); the share build is next",
+     "url": "https://github.com/MWest2020/wordsworth/pull/440"
+    },
+    {
+     "item": "Only corpus readers reach the corpus over the API and the console: every route has a recorded check, and a logged-in caller on no read list is refused (the deploy gate for sharing): merged (#485) and deployed with an empty list (homelab#63, behaviour unchanged); the rollout (tasks 6.1-6.4) is next",
+     "url": "https://github.com/MWest2020/wordsworth/pull/485"
+    }
+   ]
+  },
+  {
+   "name": "convergence",
+   "public": false,
+   "url": null,
+   "in_flight": [
+    {
+     "change": "demo-marketplace",
+     "stage": "proposed"
+    },
+    {
+     "change": "demo-devnet-wallet",
+     "stage": "proposed"
+    },
+    {
+     "change": "demo-tiled-maps-client",
+     "stage": "proposed"
+    }
+   ],
+   "goal": "An online soulslike with a real crypto stake and seasons; phase 1 is the playable 2D demo, the economy, the site and the pitch, on devnet only.",
+   "phases": [
+    {
+     "id": "phase-1",
+     "name": "Phase 1: 2D demo",
+     "summary": "GDD with a balanced economy, a playable 2D demo on devnet, website, pitch and deck",
+     "state": "current"
+    },
+    {
+     "id": "launch-2d",
+     "name": "2D launch",
+     "summary": "the game in 2D for real players, after the legal questions are signed off",
+     "state": "next"
+    },
+    {
+     "id": "3d",
+     "name": "3D",
+     "summary": "the end goal: the same game in 3D (engine: three.js, Mark 2026-11-10; replaces the Godot candidate of decision 0004)",
+     "state": "next"
+    }
+   ],
+   "phase": "Phase 1: 2D demo",
+   "progress": {
+    "done": 12,
+    "total": 23
+   },
+   "gap": [
+    {
+     "item": "Win condition as a pluggable rule module",
+     "url": null
+    },
+    {
+     "item": "Devnet switched on in the homelab (Mark funded the authority key, shard mint and pools set up, wallet sign-in live: homelab#56, docs #165); a gameplay transaction (pick-up or bank) still to be seen in the explorer (#161)",
+     "url": null
+    },
+    {
+     "item": "Banking at the bonfire and a program in place of the game's key (decision 0005)",
+     "url": null
+    },
+    {
+     "item": "Stamina and a dodge roll with i-frames (round 5, tuned with Mark in a real browser)",
+     "url": null
+    },
+    {
+     "item": "Round 6: a one-round planar 3D spike in three.js (Tunic / Death's Door style), after the 2D rounds 4 and 5 (Mark 2026-11-14: 3D later, #160)",
+     "url": null
+    },
+    {
+     "item": "Duel in the RPG demo (the last money rule)",
+     "url": null
+    },
+    {
+     "item": "2D demo playable on devnet with every mechanic (zones, bonfire, death and retrieve, duel, marketplace, wallet)",
+     "url": null
+    },
+    {
+     "item": "Website live in the homelab with the demo and an interest form that collects",
+     "url": null
+    },
+    {
+     "item": "Pitch (docs/pitch.md) plus the deck as an HTML/CSS zip",
+     "url": null
+    },
+    {
+     "item": "risks-legal.md and open-questions.md complete",
+     "url": null
+    },
+    {
+     "item": "Reviewer sign-off on everything; no real SOL or mainnet in the code",
+     "url": null
+    }
+   ]
+  },
+  {
+   "name": "ratatoskr",
+   "public": true,
+   "url": "https://github.com/MWest2020/ratatoskr",
+   "in_flight": [],
+   "goal": "The coordination layer of Mark's agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
+   "phases": [
+    {
+     "id": "chat",
+     "name": "Phases 0-3: relay and chat agents",
+     "summary": "self-hosted relay, notifications, chat agents from one source, chat to habitat",
+     "state": "past"
+    },
+    {
+     "id": "factory",
+     "name": "The factory runs itself",
+     "summary": "propose, build, merge and deploy from chat, within budgets, without Mark in the loop",
+     "state": "current"
+    },
+    {
+     "id": "ecosystem",
+     "name": "Ecosystem",
+     "summary": "every project on the factory, readable through one MCP",
+     "state": "next"
+    }
+   ],
+   "phase": "The factory runs itself",
+   "progress": {
+    "done": 7,
+    "total": 9
+   },
+   "gap": [
+    {
+     "item": "Agents post images to the chat (agent-image-to-chat, proposed #239): the build (#243) stopped at gate 1.1, one real image post, which waits on Mark's step",
+     "url": "https://github.com/MWest2020/ratatoskr/issues/243"
+    },
+    {
+     "item": "A daily digest mail of decisions and impediments for Mark: the digest file is built every two hours (#212); the daily mail from the coding session is not yet shown by a mail record",
+     "url": "https://github.com/MWest2020/ratatoskr/blob/main/docs/how-to/status-site.md"
+    }
+   ]
+  },
+  {
+   "name": "habitat",
+   "public": true,
+   "url": "https://github.com/MWest2020/habitat",
+   "in_flight": [],
+   "goal": "A minimal platform on which Claude Code agents work on repositories autonomously, inside explicit, non-negotiable limits: work distribution, execution, isolation, escalation, audit.",
+   "phases": [
+    {
+     "id": "cage",
+     "name": "The cage",
+     "summary": "one dispatch, Kubernetes Jobs, git as the hand-over, a guard on every tool",
+     "state": "past"
+    },
+    {
+     "id": "chains",
+     "name": "Role chains",
+     "summary": "architect, builder, reviewer, security with real tests and budgets",
+     "state": "past"
+    },
+    {
+     "id": "roles",
+     "name": "Roles from the handbook",
+     "summary": "every role and skill from one canonical source, for every project",
+     "state": "current"
+    }
+   ],
+   "phase": "Roles from the handbook",
+   "progress": {
+    "done": 2,
+    "total": 4
+   },
+   "gap": [
+    {
+     "item": "An execution role for the designer (ontwerper)",
+     "url": "https://github.com/MWest2020/handbook/blob/main/docs/agents/ontwerper.md"
+    },
+    {
+     "item": "The reviewer runs the project's tests itself",
+     "url": "https://github.com/MWest2020/habitat/blob/main/worker/settings/reviewer.json"
+    }
+   ]
+  },
+  {
+   "name": "handbook",
+   "public": true,
+   "url": "https://github.com/MWest2020/handbook",
+   "in_flight": [],
+   "goal": "The hub of the personal repository ecosystem: one map of every repo's docs, the canonical agents and skills, and one MCP to read it all.",
+   "phases": [
+    {
+     "id": "hub",
+     "name": "Docs hub",
+     "summary": "every repo's docs aggregated at build time, under one docs contract",
+     "state": "past"
+    },
+    {
+     "id": "registry",
+     "name": "Agent and skill registry",
+     "summary": "one canonical definition per role and skill, read by every consumer",
+     "state": "current"
+    },
+    {
+     "id": "mcp",
+     "name": "Ecosystem MCP",
+     "summary": "one read-only MCP for docs, roles, skills, factory status and search",
+     "state": "next"
+    }
+   ],
+   "phase": "Agent and skill registry",
+   "progress": {
+    "done": 3,
+    "total": 4
+   },
+   "gap": [
+    {
+     "item": "The MCP connected to odin and the habitat roles",
+     "url": "https://github.com/MWest2020/handbook/tree/main/handbook_mcp"
+    }
+   ]
+  },
+  {
+   "name": "homelab",
+   "public": true,
+   "url": "https://github.com/MWest2020/homelab",
+   "in_flight": [],
+   "goal": "Infrastructure as code for a three-node Kubernetes homelab, run through GitOps, that the other projects can rely on.",
+   "phases": [
+    {
+     "id": "gitops",
+     "name": "Cluster and GitOps",
+     "summary": "three nodes, ArgoCD, certificates, tunnels",
+     "state": "past"
+    },
+    {
+     "id": "ha",
+     "name": "High availability",
+     "summary": "losing one node loses no data and no service",
+     "state": "current"
+    },
+    {
+     "id": "hardened",
+     "name": "Hardened",
+     "summary": "backups proven, secrets rotated, monitoring that pages",
+     "state": "next"
+    }
+   ],
+   "phase": "High availability",
+   "progress": {
+    "done": 4,
+    "total": 5
+   },
+   "gap": [
+    {
+     "item": "Free disk headroom on node-01 (now about 82% full)",
+     "url": "https://github.com/MWest2020/homelab/blob/main/docusaurus/docs/runbooks/seaweedfs.md"
+    }
+   ]
+  },
   {
    "name": "bazibo",
    "public": true,
