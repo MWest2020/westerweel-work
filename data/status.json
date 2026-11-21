@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21T12:30:52+01:00",
+ "generated": "2026-11-21T16:30:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -348,6 +348,12 @@
      "id": "learning",
      "name": "Learning games",
      "summary": "games that teach, for children who cannot read yet and for those who can",
+     "state": "next"
+    },
+    {
+     "id": "v2",
+     "name": "Bazibo 2.0: calm design",
+     "summary": "a calmer, trustworthy look in phases (docs/design/v2-proposal.md, approved by Mark 21 Nov 2026); the games keep their rules",
      "state": "next"
     }
    ],
