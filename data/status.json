@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-21T08:29:22+01:00",
+ "generated": "2026-11-21T12:30:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -241,7 +241,7 @@
    "gap": [
     {
      "item": "An execution role for the designer (ontwerper)",
-     "url": "https://github.com/MWest2020/handbook/blob/main/docs/agents/ontwerper.md"
+     "url": "https://github.com/MWest2020/habitat/pull/56"
     },
     {
      "item": "The reviewer runs the project's tests itself",
