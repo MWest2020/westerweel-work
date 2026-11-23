@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23T09:52:17+01:00",
+ "generated": "2026-11-23T11:52:52+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -194,7 +194,7 @@
    "phase": "The factory runs itself",
    "progress": {
     "done": 7,
-    "total": 9
+    "total": 10
    },
    "gap": [
     {
@@ -204,6 +204,10 @@
     {
      "item": "A daily digest mail of decisions and impediments for Mark: the digest file is built every two hours (#212); the daily mail from the coding session is not yet shown by a mail record",
      "url": "https://github.com/MWest2020/ratatoskr/blob/main/docs/how-to/status-site.md"
+    },
+    {
+     "item": "Odin mails Mark (and only Mark) when he asks for it (odin-mails-mark): the hook and the listener check are built; live once the handbook grants the tools",
+     "url": "https://github.com/MWest2020/ratatoskr/blob/main/docs/how-to/mail-from-chat.md"
     }
    ]
   },
@@ -433,7 +437,7 @@
    "phase": "Voice and speed",
    "progress": {
     "done": 27,
-    "total": 48
+    "total": 49
    },
    "gap": [
     {
@@ -519,6 +523,10 @@
     {
      "item": "Speaker check, phase 0: the measurement of false refusals and false accepts, with a go or no-go",
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-speaker-verification/tasks.md#0-the-measurement"
+    },
+    {
+     "item": "Mail to Mark by voice (Mark 2026-11-23): a connector mail to his own address alone is read back and confirmed by a yes, any other mail needs the desk, label and spam tools gated (change jarvis-mail-the-driver, tests in CI; never exempt from confirmation); open: own_mail set on the agent host and a mail confirmed by voice",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-mail-the-driver/tasks.md"
     }
    ]
   }
