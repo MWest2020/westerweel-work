@@ -1,24 +1,11 @@
 {
- "generated": "2026-11-23T11:52:52+01:00",
+ "generated": "2026-11-23T18:47:50+01:00",
  "projects": [
   {
    "name": "wordsworth",
    "public": true,
    "url": "https://github.com/MWest2020/wordsworth",
-   "in_flight": [
-    {
-     "change": "originals-encrypt-existing",
-     "stage": "proposed"
-    },
-    {
-     "change": "console-dossier-home",
-     "stage": "proposed"
-    },
-    {
-     "change": "reanonymise-particle-name-documents",
-     "stage": "proposed"
-    }
-   ],
+   "in_flight": [],
    "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
    "phases": [
     {
@@ -377,12 +364,7 @@
    "name": "jarvis",
    "public": true,
    "url": "https://github.com/MWest2020/jarvis",
-   "in_flight": [
-    {
-     "change": "jarvis-full-agent",
-     "stage": "proposed"
-    }
-   ],
+   "in_flight": [],
    "goal": "Talk to a Claude Code session hands-free from an Android phone, on your own machines, over Tailscale.",
    "phases": [
     {
@@ -450,7 +432,7 @@
     },
     {
      "item": "Android app: a release build attached to a GitHub release by CI (task 4.3)",
-     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/add-android-client/tasks.md"
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/archive/2026-11-23-add-android-client/tasks.md"
     },
     {
      "item": "Drive mode 2: nothing lost: a turn id runs once, slow turns and dropped connections become arrivals, \"what's new\", \"cancel\", an unheard read-back cancelled",
@@ -490,7 +472,7 @@
     },
     {
      "item": "Speed: streaming speech live: bridge deployed (homelab#74) and the APK released (android-87bcad4, 2026-11-17); open: Mark's turns on the phone, first_audio_ms of real turns in the how-to and how it sounds at sentence boundaries (task 3.3)",
-     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-streaming-speech/tasks.md"
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/archive/2026-11-23-jarvis-streaming-speech/tasks.md"
     },
     {
      "item": "Speed: a voice profile (voice_model, voice_effort) and Whisper settings (language, beam) built and measured, default unchanged; proposed: effort low (about 5 s off multi-step turns, same answers), JARVIS_WHISPER_LANGUAGE=en (0.8 s); not switched on yet",
