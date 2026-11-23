@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23T18:47:50+01:00",
+ "generated": "2026-11-24T00:14:24+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -419,7 +419,7 @@
    "phase": "Voice and speed",
    "progress": {
     "done": 27,
-    "total": 49
+    "total": 50
    },
    "gap": [
     {
@@ -461,6 +461,10 @@
     {
      "item": "Full agent: daily line in the notes, and Mark's parked test (merge by voice)",
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-full-agent/tasks.md#4-daily-line-and-parked-test"
+    },
+    {
+     "item": "Voice builders (Mark by voice 2026-11-23: \"You need to be able to start your own sessions.\"): a voice turn starts its own general-purpose builder without a yes, every call of it behind the same gate (read back or the desk); claude, fork, isolation, name, team, mode and background stay refused; change jarvis-voice-builders built with tests in CI; merged and installed (df2c7af), host check 13 passed on the installed gate 2026-11-23; open: a fix by voice, a recorded subagent hook input",
+     "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-voice-builders/tasks.md"
     },
     {
      "item": "Wake on Mark's voice: hands-free start with a wake word on the phone, and Jarvis reacts only to Mark (speaker verification, #23; proposal in #29, approved by Mark 2026-11-16)",
