@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24T00:14:24+01:00",
+ "generated": "2026-11-24T12:29:24+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -156,7 +156,12 @@
    "name": "ratatoskr",
    "public": true,
    "url": "https://github.com/MWest2020/ratatoskr",
-   "in_flight": [],
+   "in_flight": [
+    {
+     "change": "agent-image-to-chat",
+     "stage": "proposed"
+    }
+   ],
    "goal": "The coordination layer of Mark's agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
    "phases": [
     {
@@ -351,9 +356,13 @@
    "phase": "Brand app in the stores",
    "progress": {
     "done": 12,
-    "total": 13
+    "total": 14
    },
    "gap": [
+    {
+     "item": "bazibo.nl findable by parents: robots.txt, a sitemap, titles and descriptions with the words parents search for in Dutch and English, hreflang and canonical (the home screen per language with ?lang=), Open Graph and schema.org data; done when Search Console is verified and the sitemap read (Mark's steps)",
+     "url": "https://github.com/MWest2020/bazibo/blob/main/docs/marketing/search-console.md"
+    },
     {
      "item": "Live on the App Store",
      "url": "https://github.com/MWest2020/bazibo/blob/main/docs/release.md"
@@ -511,7 +520,7 @@
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-speaker-verification/tasks.md#0-the-measurement"
     },
     {
-     "item": "Mail to Mark by voice (Mark 2026-11-23): a connector mail to his own address alone is read back and confirmed by a yes, any other mail needs the desk, label and spam tools gated (change jarvis-mail-the-driver, tests in CI; never exempt from confirmation); open: own_mail set on the agent host and a mail confirmed by voice",
+     "item": "Mail to Mark by voice (Mark 2026-11-23): a connector mail to his own address alone is read back, with its subject framed and cleaned (Mark 2026-11-24, #92), and confirmed by a yes, any other mail needs the desk, label and spam tools gated (change jarvis-mail-the-driver, tests in CI; never exempt from confirmation); open: own_mail set on the agent host and a mail confirmed by voice",
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-mail-the-driver/tasks.md"
     }
    ]
