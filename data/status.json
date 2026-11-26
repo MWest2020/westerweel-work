@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T09:59:24+01:00",
+ "generated": "2026-11-26T07:54:39+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -156,7 +156,12 @@
    "name": "ratatoskr",
    "public": true,
    "url": "https://github.com/MWest2020/ratatoskr",
-   "in_flight": [],
+   "in_flight": [
+    {
+     "change": "agent-image-to-chat",
+     "stage": "building"
+    }
+   ],
    "goal": "The coordination layer of Mark's agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
    "phases": [
     {
