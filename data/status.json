@@ -1,11 +1,16 @@
 {
- "generated": "2026-11-26T07:54:39+01:00",
+ "generated": "2026-11-26T11:55:24+01:00",
  "projects": [
   {
    "name": "wordsworth",
    "public": true,
    "url": "https://github.com/MWest2020/wordsworth",
-   "in_flight": [],
+   "in_flight": [
+    {
+     "change": "key-service-vault",
+     "stage": "merging"
+    }
+   ],
    "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
    "phases": [
     {
@@ -159,7 +164,7 @@
    "in_flight": [
     {
      "change": "agent-image-to-chat",
-     "stage": "building"
+     "stage": "proposed"
     }
    ],
    "goal": "The coordination layer of Mark's agent ecosystem: channels where people and agents work together, and the factory that turns a decision in chat into a deployed change.",
@@ -190,8 +195,8 @@
    },
    "gap": [
     {
-     "item": "Agents post images to the chat (agent-image-to-chat, proposed #239): the build (#243) stopped at gate 1.1, one real image post, which waits on Mark's step",
-     "url": "https://github.com/MWest2020/ratatoskr/issues/243"
+     "item": "Agents post images to the chat (agent-image-to-chat): built (#270), live send of PNG, JPEG and WebP proven 26 Nov (gate 3.1); open: the notification on Mark's phone (gate 4), the 30-day prune (waits on #272) and the read path",
+     "url": "https://github.com/MWest2020/ratatoskr/blob/main/openspec/changes/agent-image-to-chat/tasks.md"
     },
     {
      "item": "A daily digest mail of decisions and impediments for Mark: the digest file is built every two hours (#212); the daily mail from the coding session is not yet shown by a mail record",
@@ -356,12 +361,16 @@
    "phase": "Brand app in the stores",
    "progress": {
     "done": 12,
-    "total": 15
+    "total": 16
    },
    "gap": [
     {
      "item": "Google Play update to 1.14.0 (version code 17: the new brand and icon, the 2.0 menus, a calm home, throwing pictures away, Verstoppertje hints, new store screenshots and feature graphics in NL and EN), submitted 24 Nov 2026 in one edit, in review",
      "url": "https://github.com/MWest2020/bazibo/pull/107"
+    },
+    {
+     "item": "Google Play listing written for search (ASO, issue #101, Mark approved 26 Nov 2026): title \"Bazibo: kinderspelletjes 3-10\" / \"Bazibo: kids learning games\", new short and long descriptions with all 27 games, in store/; done when it is live on the public page (it goes to Play in the 1.15.0 edit)",
+     "url": "https://github.com/MWest2020/bazibo/issues/101"
     },
     {
      "item": "bazibo.nl findable by parents: robots.txt, a sitemap, titles and descriptions with the words parents search for in Dutch and English, hreflang and canonical (the home screen per language with ?lang=), Open Graph and schema.org data; done when Search Console is verified and the sitemap read (Mark's steps)",
