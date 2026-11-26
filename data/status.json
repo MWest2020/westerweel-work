@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26T13:55:24+01:00",
+ "generated": "2026-11-26T21:58:25+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -361,12 +361,16 @@
    "phase": "Brand app in the stores",
    "progress": {
     "done": 12,
-    "total": 16
+    "total": 17
    },
    "gap": [
     {
      "item": "Google Play update to 1.14.0 (version code 17: the new brand and icon, the 2.0 menus, a calm home, throwing pictures away, Verstoppertje hints, new store screenshots and feature graphics in NL and EN), submitted 24 Nov 2026 in one edit, in review",
      "url": "https://github.com/MWest2020/bazibo/pull/107"
+    },
+    {
+     "item": "New store screenshots in the 1.15.0 Play edit (Mark asked 26 Nov 2026): Winkeltje, Treintje and Keukentje in the set of 8, a caption per shot naming the game, NL and EN, Play and App Store sizes; done when they show on the public page",
+     "url": "https://github.com/MWest2020/bazibo/pull/119"
     },
     {
      "item": "Google Play listing written for search (ASO, issue #101, Mark approved 26 Nov 2026): title \"Bazibo: kinderspelletjes 3-10\" / \"Bazibo: kids learning games\", new short and long descriptions with all 27 games, in store/; done when it is live on the public page (it goes to Play in the 1.15.0 edit)",
