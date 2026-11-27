@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T12:44:24+01:00",
+ "generated": "2026-11-27T14:45:24+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -546,7 +546,7 @@
    "public": true,
    "url": "https://github.com/MWest2020/nines",
    "in_flight": [],
-   "goal": "A retro top-down RPG in the browser and on Android where you grow from Junior to Senior engineer along one of five career paths by fixing simulated machines in an in-game terminal; hints come from an AI that costs tokens; no ads or third-party tracking, any online feature opt-in; content as data.",
+   "goal": "A retro top-down RPG in the browser and on Android where you grow from Junior to Senior engineer along one of six career paths by fixing simulated machines in an in-game terminal, with karma that tracks which side of the law you work on; hints come from an AI that costs tokens; no ads or third-party tracking, any online feature opt-in; content as data.",
    "phases": [
     {
      "id": "architecture",
@@ -582,6 +582,12 @@
      "id": "paths",
      "name": "Career paths, AI tokens and Kubernetes",
      "summary": "Mark, 27 Nov 2026: hints are AI usage and cost tokens; five career paths (SWE, SRE, DevOps, Platform, Systems); a Kubernetes learning path along KCNA, CKAD and CKA/CKS; Nines is no children's app, so optional online features may come, opt-in",
+     "state": "next"
+    },
+    {
+     "id": "karma",
+     "name": "Karma, side hustles, the contractor and the ethical hacker",
+     "summary": "Mark, 27 Nov 2026: karma paths (a fixer behind a building, fines, arrests, a three-letter agency), the independent contractor who skips procedures and pays for damage, and ethical hacker as a sixth career path",
      "state": "next"
     },
     {
