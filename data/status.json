@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26T21:58:25+01:00",
+ "generated": "2026-11-27T08:00:24+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -444,7 +444,7 @@
    ],
    "phase": "Voice and speed",
    "progress": {
-    "done": 27,
+    "done": 28,
     "total": 51
    },
    "gap": [
@@ -513,11 +513,7 @@
      "url": "https://github.com/MWest2020/jarvis/pull/78"
     },
     {
-     "item": "Easter egg 2 (Mark 2026-11-18, \"Can it beatbox?\"): Jarvis beatboxes when asked; three beats on the bridge (boots-and-cats, hip-hop, jarvis-hook with a hummed bass and a sung hook) or one at random, sounds cut from its own Kokoro voice over synthesised drums, numpy only, at most 15 s, never a read-back, JARVIS_BEATBOX=0 off; change jarvis-beatbox built with tests in CI; open: merged, the bridge image deployed, the prompt installed on the agent host and a beat heard on the phone",
-     "url": "https://github.com/MWest2020/jarvis/pull/86"
-    },
-    {
-     "item": "Say it honestly (Mark 2026-11-26, change jarvis-say-it-honestly): a beat in the last ten minutes makes the next beatbox tag count as asked (\"another one\", a garbled transcript), a dropped tag gets the bridge's own line instead of a promise, a semicolon is speech (29 of 165 turns lost their summary to it), without a speakable summary the reply's first sentences are said and the fallback never mentions a log, JARVIS_WHISPER_LANGUAGES=nl,en; open: merged, bridge deployed, agent host reinstalled, a second beat heard on the phone",
+     "item": "Say it honestly (Mark 2026-11-26, change jarvis-say-it-honestly): a beat in the last ten minutes makes the next beatbox tag count as asked (\"another one\", a garbled transcript), a dropped tag gets the bridge's own line instead of a promise, a semicolon is speech (29 of 165 turns lost their summary to it), without a speakable summary the reply's first sentences are said and the fallback never mentions a log, JARVIS_WHISPER_LANGUAGES=nl,en; merged (#104), bridge deployed with nl,en (homelab#89) and the agent host reinstalled at 9113519 (2026-11-26); open: a second beat heard on the phone, then the archive",
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-say-it-honestly/proposal.md"
     },
     {
