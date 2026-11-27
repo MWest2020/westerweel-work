@@ -1,16 +1,11 @@
 {
- "generated": "2026-11-27T08:00:24+01:00",
+ "generated": "2026-11-27T10:43:50+01:00",
  "projects": [
   {
    "name": "wordsworth",
    "public": true,
    "url": "https://github.com/MWest2020/wordsworth",
-   "in_flight": [
-    {
-     "change": "key-service-vault",
-     "stage": "proposed"
-    }
-   ],
+   "in_flight": [],
    "goal": "A sovereign pipeline that turns large volumes of Dutch government documents into a searchable, privacy-safe corpus with layered, audited de-anonymisation.",
    "phases": [
     {
@@ -365,7 +360,7 @@
    },
    "gap": [
     {
-     "item": "Google Play update to 1.14.0 (version code 17: the new brand and icon, the 2.0 menus, a calm home, throwing pictures away, Verstoppertje hints, new store screenshots and feature graphics in NL and EN), submitted 24 Nov 2026 in one edit, in review",
+     "item": "Google Play update to 1.14.0 (version code 17: the new brand and icon, the 2.0 menus, a calm home, throwing pictures away, Verstoppertje hints, new store screenshots and feature graphics in NL and EN), submitted 24 Nov 2026 in one edit, still in review on 27 Nov (the public page shows 1.13.1)",
      "url": "https://github.com/MWest2020/bazibo/pull/107"
     },
     {
@@ -539,6 +534,56 @@
     {
      "item": "Mail to Mark by voice (Mark 2026-11-23): a connector mail to his own address alone is read back, with its subject framed and cleaned (Mark 2026-11-24, #92), and confirmed by a yes, any other mail needs the desk, label and spam tools gated (change jarvis-mail-the-driver, tests in CI; never exempt from confirmation); open: own_mail set on the agent host and a mail confirmed by voice",
      "url": "https://github.com/MWest2020/jarvis/blob/main/openspec/changes/jarvis-mail-the-driver/tasks.md"
+    }
+   ]
+  },
+  {
+   "name": "nines",
+   "public": true,
+   "url": "https://github.com/MWest2020/nines",
+   "in_flight": [],
+   "goal": "A retro top-down RPG in the browser and on Android where you grow from Junior to Senior engineer by fixing simulated machines in an in-game terminal: no tracking, no ads, no network, content as data.",
+   "phases": [
+    {
+     "id": "architecture",
+     "name": "Architecture and skeleton",
+     "summary": "ARCHITECTURE.md, DESIGN.md, JSON Schemas, the parser and condition language with tests, the three MVP quests as content, CI",
+     "state": "past"
+    },
+    {
+     "id": "mvp",
+     "name": "MVP build",
+     "summary": "Junior Village with three NPCs and the server room, the three terminal quests, money and a shop with one homelab item, the Career Trail with three nodes, save/load, NL/EN, desktop and touch controls",
+     "state": "past"
+    },
+    {
+     "id": "android",
+     "name": "Android",
+     "summary": "Capacitor project, signed AAB from env vars, portrait and landscape, the three quests completed on a real device (touch controls, the soft keyboard in the terminal, a battle in portrait), PLAY_STORE.md filled in",
+     "state": "current"
+    },
+    {
+     "id": "cameo",
+     "name": "Fourth-quest cameo proof",
+     "summary": "a sample guest quest added as one /content folder in its own commit, with no code change, and CONTRIBUTING.md's full worked example; done 27 Nov 2026 (#16), ahead of the Android phase",
+     "state": "next"
+    },
+    {
+     "id": "battles",
+     "name": "More battles",
+     "summary": "the system-design battles from docs/content-backlog.md (Mark, 26 Nov 2026): all four written (#11, #13); the Senior Summit map that makes the two Senior interviews reachable is still to build",
+     "state": "next"
+    }
+   ],
+   "phase": "Android",
+   "progress": {
+    "done": 4,
+    "total": 5
+   },
+   "gap": [
+    {
+     "item": "The three quests (and the DNS cameo) completed on a real device: touch controls, the soft keyboard in the terminal, a battle in portrait; the app loads without the INTERNET permission",
+     "url": "https://github.com/MWest2020/nines/issues/20"
     }
    ]
   }
