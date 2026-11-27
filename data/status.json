@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T16:46:24+01:00",
+ "generated": "2026-11-28T00:49:24+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -588,6 +588,12 @@
      "id": "karma",
      "name": "Karma, side hustles, the contractor and the ethical hacker",
      "summary": "Mark, 27 Nov 2026: karma paths (a fixer behind a building, fines, arrests, a three-letter agency), the independent contractor who skips procedures and pays for damage, and ethical hacker as a sixth career path",
+     "state": "next"
+    },
+    {
+     "id": "playtest",
+     "name": "Playtest fixes",
+     "summary": "Mark's first playtest (27 Nov 2026): the basics every terminal should have, nginx and kubectl tooling, fair grading of written work, an explicit done, the kiosk logout and a social-engineering choice",
      "state": "next"
     },
     {
