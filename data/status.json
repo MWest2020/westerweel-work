@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T14:45:24+01:00",
+ "generated": "2026-11-27T16:46:24+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -376,7 +376,7 @@
      "url": "https://github.com/MWest2020/bazibo/blob/main/docs/marketing/search-console.md"
     },
     {
-     "item": "The full version on the website with a €1 code via Buy Me a Coffee (Mark, 27 Nov 2026), never in the app: a signed code checked offline (WebCrypto Ed25519), the #unlock= link from the mail, a code field and QR behind the parental gate, one activation that counts devices (limit 10), a revocation list, the code carried by Voortgang overzetten; done when Mark has set the Buy Me a Coffee Extra and a real purchase on bazibo.nl opens everything",
+     "item": "The full version on the website with a €1 code via a Stripe Payment Link (Mark, 27 Nov 2026; first Buy Me a Coffee, which sent no webhooks), never in the app: a signed code checked offline (WebCrypto Ed25519), the #unlock= link from the mail, a code field and QR behind the parental gate, one activation that counts devices (limit 10), a revocation list, the code carried by Voortgang overzetten; done when the live Stripe link is in PAY_URL and a real €1 payment on bazibo.nl mails a code that opens everything",
      "url": "https://github.com/MWest2020/bazibo/blob/main/docs/reference/full-version.md#the-web-code-website-only"
     },
     {
