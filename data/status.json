@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T10:43:50+01:00",
+ "generated": "2026-11-27T12:44:24+01:00",
  "projects": [
   {
    "name": "wordsworth",
@@ -356,7 +356,7 @@
    "phase": "Brand app in the stores",
    "progress": {
     "done": 12,
-    "total": 17
+    "total": 18
    },
    "gap": [
     {
@@ -374,6 +374,10 @@
     {
      "item": "bazibo.nl findable by parents: robots.txt, a sitemap, titles and descriptions with the words parents search for in Dutch and English, hreflang and canonical (the home screen per language with ?lang=), Open Graph and schema.org data; done when Search Console is verified and the sitemap read (Mark's steps)",
      "url": "https://github.com/MWest2020/bazibo/blob/main/docs/marketing/search-console.md"
+    },
+    {
+     "item": "The full version on the website with a €1 code via Buy Me a Coffee (Mark, 27 Nov 2026), never in the app: a signed code checked offline (WebCrypto Ed25519), the #unlock= link from the mail, a code field and QR behind the parental gate, one activation that counts devices (limit 10), a revocation list, the code carried by Voortgang overzetten; done when Mark has set the Buy Me a Coffee Extra and a real purchase on bazibo.nl opens everything",
+     "url": "https://github.com/MWest2020/bazibo/blob/main/docs/reference/full-version.md#the-web-code-website-only"
     },
     {
      "item": "Live on the App Store",
@@ -542,7 +546,7 @@
    "public": true,
    "url": "https://github.com/MWest2020/nines",
    "in_flight": [],
-   "goal": "A retro top-down RPG in the browser and on Android where you grow from Junior to Senior engineer by fixing simulated machines in an in-game terminal: no tracking, no ads, no network, content as data.",
+   "goal": "A retro top-down RPG in the browser and on Android where you grow from Junior to Senior engineer along one of five career paths by fixing simulated machines in an in-game terminal; hints come from an AI that costs tokens; no ads or third-party tracking, any online feature opt-in; content as data.",
    "phases": [
     {
      "id": "architecture",
@@ -572,6 +576,18 @@
      "id": "battles",
      "name": "More battles",
      "summary": "the system-design battles from docs/content-backlog.md (Mark, 26 Nov 2026): all four written (#11, #13); the Senior Summit map that makes the two Senior interviews reachable is still to build",
+     "state": "next"
+    },
+    {
+     "id": "paths",
+     "name": "Career paths, AI tokens and Kubernetes",
+     "summary": "Mark, 27 Nov 2026: hints are AI usage and cost tokens; five career paths (SWE, SRE, DevOps, Platform, Systems); a Kubernetes learning path along KCNA, CKAD and CKA/CKS; Nines is no children's app, so optional online features may come, opt-in",
+     "state": "next"
+    },
+    {
+     "id": "later",
+     "name": "Later: share, cafés, minigames, swag",
+     "summary": "ideas Mark named on 27 Nov 2026, not designed beyond a line each; tech, memes and fun lead",
      "state": "next"
     }
    ],
