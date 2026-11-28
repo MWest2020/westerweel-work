@@ -13,3 +13,6 @@ fabriek op mijn eigen hardware (Ratatoskr en Habitat) leest dat elke twee uur
 en zet het hier neer, met de wijzigingen die op dit moment in de maak zijn.
 Een punt staat pas op klaar als er bewijs voor is. Er staat niets gevoeligs
 op: geen geheimen, geen documentinhoud, geen links naar privé-repo's.
+
+Alleen de vijf projecten met de meeste activiteit in de afgelopen week staan
+hier, de drukste bovenaan; de rest staat onderaan op één regel.

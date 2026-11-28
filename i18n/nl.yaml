@@ -44,6 +44,24 @@
   translation: "wordt gemerged"
 - id: now_stage_deploying
   translation: "wordt uitgerold"
+- id: now_doing
+  translation: "bezig"
+- id: now_gap_more
+  translation:
+    one: "+{{ .Count }} open punt meer"
+    other: "+{{ .Count }} open punten meer"
+- id: now_recent
+  translation: "Laatst"
+- id: now_recent_merged
+  translation: "gemerged"
+- id: now_recent_commit
+  translation: "commit"
+- id: now_more
+  translation: "doel en roadmap"
+- id: now_roadmap_full
+  translation: "de hele roadmap"
+- id: now_also
+  translation: "Minder actief in de laatste {{ .Days }} dagen"
 # /boekenclub/ and /en/bookclub/ (layouts/boekenclub/)
 - id: bc_club
   translation: "Boekenclub"

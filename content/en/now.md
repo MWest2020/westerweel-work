@@ -13,3 +13,6 @@ my own hardware (Ratatoskr and Habitat) reads that every two hours and puts it
 here, with the changes in the making right now. An item only counts as done
 with evidence. Nothing sensitive is on this page: no secrets, no document
 content, no links into private repositories.
+
+Only the five projects with the most activity in the past week are shown, the
+busiest first; the rest are listed on one line at the bottom.

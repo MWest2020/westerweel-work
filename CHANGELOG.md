@@ -2,6 +2,12 @@
 
 All notable changes to this site. Dates are `YYYY-MM-DD`.
 
+## 2026-11-28 (/nu: top 5, korter)
+
+- /nu/ en /en/now/: alleen de vijf projecten met de meeste activiteit in de laatste 7 dagen, in de volgorde die ratatoskr schrijft (ratatoskr #278); de rest staat onderaan op één regel ("Minder actief in de laatste 7 dagen: …"), gewone namen zonder links (Mark, 2026-11-28).
+- Per project korter: de huidige fase met voortgangsbalk, hoogstens drie open punten (elk op twee regels afgekapt, met een "bezig"-tag als eraan gewerkt wordt, en "+N open punten meer" gelinkt naar de hele roadmap), één regel "Laatst: gemerged/commit · titel · datum" en de regel "In de maak". Doel en fasestrook zitten achter een native `<details>` ("doel en roadmap"), zonder JS.
+- Intro (NL + EN): één zin over de top 5. Nieuwe i18n-strings `now_doing`, `now_gap_more`, `now_recent`, `now_recent_merged`, `now_recent_commit`, `now_more`, `now_roadmap_full`, `now_also`.
+
 ## 2026-11-17 (freelance en spreker)
 
 - Home (NL + EN): "Site Reliability Engineer" in plaats van "SRE engineer" (ook in de site-beschrijving en de Person JSON-LD). Onder de intro een regel "Beschikbaar voor afgebakende opdrachten en talks." met knoppen naar diensten en spreker. "Geen LinkedIn cross-posts" is weg (Marks opdracht van 2026-11-17).

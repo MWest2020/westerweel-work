@@ -44,6 +44,24 @@
   translation: "merging"
 - id: now_stage_deploying
   translation: "deploying"
+- id: now_doing
+  translation: "in progress"
+- id: now_gap_more
+  translation:
+    one: "+{{ .Count }} more open item"
+    other: "+{{ .Count }} more open items"
+- id: now_recent
+  translation: "Latest"
+- id: now_recent_merged
+  translation: "merged"
+- id: now_recent_commit
+  translation: "commit"
+- id: now_more
+  translation: "goal and roadmap"
+- id: now_roadmap_full
+  translation: "the whole roadmap"
+- id: now_also
+  translation: "Less active in the last {{ .Days }} days"
 # /boekenclub/ and /en/bookclub/ (layouts/boekenclub/)
 - id: bc_club
   translation: "Book club"
