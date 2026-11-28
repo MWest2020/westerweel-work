@@ -302,27 +302,35 @@ body.home .logo a::after {
   margin: 0; font-size: 0.84rem;
 }
 .now-progress-phase { font-family: var(--now-mono); color: var(--westerweel-accent); min-width: 0; overflow-wrap: anywhere; }
-.now-progress-phase::before { content: "▶ "; }
+/* Decorative glyphs use the alt-text syntax (`/ ""`) so screen readers skip
+   them; the plain declaration before it is the fallback for older browsers. */
+.now-progress-phase::before { content: "▶ "; content: "▶ " / ""; }
+/* Bar and count stay together, so "5/10" never wraps onto a line alone. */
+.now-progress-bar {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  flex: 1 1 9rem; max-width: 18rem; min-width: 0;
+}
 .now-progress progress {
-  flex: 1 1 6rem; max-width: 14rem; height: 0.55rem; appearance: none; -webkit-appearance: none;
+  flex: 1 1 auto; min-width: 4rem; height: 0.55rem; appearance: none; -webkit-appearance: none;
   border: 1px solid var(--westerweel-border); border-radius: 3px; background: transparent;
 }
 .now-progress progress::-webkit-progress-bar { background: transparent; }
 .now-progress progress::-webkit-progress-value { background: var(--westerweel-accent); }
 .now-progress progress::-moz-progress-bar { background: var(--westerweel-accent); }
-.now-progress-count { font-family: var(--now-mono); color: var(--primary); }
+.now-progress-count { font-family: var(--now-mono); color: var(--primary); white-space: nowrap; flex: none; }
 
-/* The gap: at most three open items, each clamped to two lines (the full
-   text is in the title attribute and behind the evidence link). */
+/* The gap: at most three open items. Items with an evidence link are clamped
+   to two lines (the full text is behind the link); items without one (private
+   projects) are always shown in full. */
 .now-list { list-style: none; margin: 0; padding: 0; font-size: 0.88rem; }
 .now-list li { padding: 0.22rem 0; border-top: 1px solid var(--westerweel-border); overflow-wrap: anywhere; }
 .now-list li:first-child { border-top: 0; }
-.now-gap li {
+.now-gap li.now-gap-linked {
   display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
   overflow: hidden;
 }
-.now-gap li::before { content: "○ "; color: var(--now-amber); }
-.now-gap li.now-gap-doing::before { content: "◐ "; }
+.now-gap li::before { content: "○ "; content: "○ " / ""; color: var(--now-amber); }
+.now-gap li.now-gap-doing::before { content: "◐ "; content: "◐ " / ""; }
 .now-gap li.now-gap-more { font-size: 0.78rem; color: var(--secondary); font-family: var(--now-mono); }
 .now-gap li.now-gap-more::before { content: ""; }
 .now-gap li.now-gap-more a { color: var(--secondary); }
@@ -355,16 +363,23 @@ body.home .logo a::after {
 /* The fold: goal, phase strip and the link to the whole roadmap. */
 .now-more { margin-top: 0.45rem; }
 .now-more summary {
-  display: inline-block; cursor: pointer; list-style: none;
+  display: inline-flex; align-items: center; min-height: 24px; padding: 0.15rem 0.4rem 0.15rem 0;
+  cursor: pointer; list-style: none;
   font-family: var(--now-mono); font-size: 0.74rem; color: var(--secondary);
 }
 .now-more summary::-webkit-details-marker { display: none; }
-.now-more summary::before { content: "▸ "; }
-.now-more[open] summary::before { content: "▾ "; }
+.now-more summary::before { content: "▸ "; content: "▸ " / ""; white-space: pre; }
+.now-more[open] summary::before { content: "▾ "; content: "▾ " / ""; }
 .now-more summary:hover, .now-more summary:focus-visible { color: var(--westerweel-accent); }
 .now-roadmap-link { margin: 0; font-family: var(--now-mono); font-size: 0.74rem; }
 .now-roadmap-link a { color: var(--secondary); }
 .now-roadmap-link a:hover { color: var(--westerweel-accent); }
+
+/* Text for screen readers only (e.g. the project name in repeated summaries). */
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0;
+}
 
 /* Not shown: the other projects on one line, plain names, no links. */
 .now-also {

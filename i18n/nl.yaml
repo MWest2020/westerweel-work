@@ -61,7 +61,9 @@
 - id: now_roadmap_full
   translation: "de hele roadmap"
 - id: now_also
-  translation: "Minder actief in de laatste {{ .Days }} dagen"
+  translation:
+    one: "Minder actief in de laatste dag"
+    other: "Minder actief in de laatste {{ .Count }} dagen"
 # /boekenclub/ and /en/bookclub/ (layouts/boekenclub/)
 - id: bc_club
   translation: "Boekenclub"

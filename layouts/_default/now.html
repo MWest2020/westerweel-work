@@ -42,8 +42,10 @@
       {{- with .progress }}
       <p class="now-progress">
         <span class="now-progress-phase">{{ $p.phase | default (i18n "now_progress") }}</span>
-        <progress value="{{ .done }}" max="{{ .total }}" aria-label="{{ i18n "now_progress" }}">{{ .done }}/{{ .total }}</progress>
-        <span class="now-progress-count">{{ .done }}/{{ .total }}</span>
+        <span class="now-progress-bar">
+          <progress value="{{ .done }}" max="{{ .total }}" aria-label="{{ i18n "now_progress" }}">{{ .done }}/{{ .total }}</progress>
+          <span class="now-progress-count">{{ .done }}/{{ .total }}</span>
+        </span>
       </p>
       {{- end }}
 
@@ -52,7 +54,10 @@
       {{- if or .gap .gap_more }}
       <ul class="now-list now-gap">
         {{- range .gap }}
-        <li{{ if .doing }} class="now-gap-doing"{{ end }} title="{{ .item }}">
+        {{- $cls := slice }}
+        {{- if .url }}{{ $cls = $cls | append "now-gap-linked" }}{{ end }}
+        {{- if .doing }}{{ $cls = $cls | append "now-gap-doing" }}{{ end }}
+        <li{{ with $cls }} class="{{ delimit . " " }}"{{ end }}>
           {{- if .doing }}<span class="now-doing">{{ i18n "now_doing" }}</span> {{ end }}
           {{- if .url }}<a href="{{ .url }}">{{ .item }}</a>{{ else }}{{ .item }}{{ end }}</li>
         {{- end }}
@@ -70,7 +75,9 @@
       <p class="now-recent">
         <span class="now-line-label">{{ i18n "now_recent" }}:</span>
         <span class="now-kind now-kind-{{ .kind }}">{{ i18n (printf "now_recent_%s" .kind) | default .kind }}</span>
-        <span class="now-recent-title">{{ .title }}</span>
+        {{- with .title }}
+        <span class="now-recent-title">{{ . }}</span>
+        {{- end }}
         {{- with .date }} · <time datetime="{{ . }}">{{ (time.AsTime .).Format "02-01" }}</time>{{ end }}
       </p>
       {{- end }}
@@ -86,7 +93,7 @@
 
       {{- if or .goal .phases }}
       <details class="now-more">
-        <summary>{{ i18n "now_more" }}</summary>
+        <summary>{{ i18n "now_more" }}<span class="visually-hidden">: {{ $p.name }}</span></summary>
         {{- with .goal }}<p class="now-goal">{{ . }}</p>{{ end }}
         {{- with .phases }}
         <ol class="now-phases" aria-label="{{ i18n "now_roadmap" }}">
@@ -99,7 +106,7 @@
         </ol>
         {{- end }}
         {{- with $p.roadmap_url }}
-        <p class="now-roadmap-link"><a href="{{ . }}">{{ i18n "now_roadmap_full" }}</a></p>
+        <p class="now-roadmap-link"><a href="{{ . }}">{{ i18n "now_roadmap_full" }}<span class="visually-hidden">: {{ $p.name }}</span></a></p>
         {{- end }}
       </details>
       {{- end }}
@@ -109,7 +116,7 @@
 
   {{- with $s.inactive }}
   <p class="now-also">
-    <span class="now-line-label">{{ i18n "now_also" (dict "Days" (int ($s.window_days | default 7))) }}:</span>
+    <span class="now-line-label">{{ i18n "now_also" (dict "Count" (int ($s.window_days | default 7))) }}:</span>
     {{- range $i, $q := . }}{{ if $i }},{{ end }}
     <span class="now-also-name">{{ $q.name }}</span>{{ with $q.last }} <time datetime="{{ . }}">{{ (time.AsTime .).Format "02-01" }}</time>{{ end }}
     {{- end }}
